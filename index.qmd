@@ -1,7 +1,9 @@
 ---
-title: "quarto_test"
+title: Introduction to Machine Learning with R and tidymodels
 ---
 
-This is a Quarto website.
+**Learning objectives**
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+- use exploratory data analysis to prepare for predictive modeling
+- explore which modeling approaches to use for different kinds of data
+- practice implementing supervised machine learning for classification and regression

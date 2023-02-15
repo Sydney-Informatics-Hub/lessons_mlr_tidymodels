@@ -7,7 +7,7 @@ execute:
   freeze: auto  # re-render only when source changes
 
 website:
-  title: "New SIH project"
+  title: "Sydney Informatics Hub"
   navbar:
     background: primary
     left:
