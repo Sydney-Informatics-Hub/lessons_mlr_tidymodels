@@ -1,0 +1,14 @@
+{
+  "hash": "623627b68333dfc51604f8f2f3bba5e7",
+  "result": {
+    "markdown": "# Predict whether a cancer is malignant or benign from biopsy details\n\n:::{.callout-tip}\n## Exercise:\n\nThis dataset, called the Breast Cancer Wisconsin (Diagnostic) Data Set, includes features computed from digitized images of biopsies. If you want to predict whether a cancer is malignant or benign from biopsies details, which model can you build?\n:::\n\nLoad the libraries:\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(RCurl)\n```\n:::\n\n\nLoad the data:\n\n::: {.cell}\n\n```{.r .cell-code}\n#load the data into a tibble using the RCurl package\nUCI_data_URL <- getURL('https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data') \n\n#create a list with the appropriate column names \nnames <- c('id_number', 'diagnosis', 'radius_mean', \n         'texture_mean', 'perimeter_mean', 'area_mean', \n         'smoothness_mean', 'compactness_mean', \n         'concavity_mean','concave_points_mean', \n         'symmetry_mean', 'fractal_dimension_mean',\n         'radius_se', 'texture_se', 'perimeter_se', \n         'area_se', 'smoothness_se', 'compactness_se', \n         'concavity_se', 'concave_points_se', \n         'symmetry_se', 'fractal_dimension_se', \n         'radius_worst', 'texture_worst', \n         'perimeter_worst', 'area_worst', \n         'smoothness_worst', 'compactness_worst', \n         'concavity_worst', 'concave_points_worst', \n         'symmetry_worst', 'fractal_dimension_worst') \n\n#load the column names into a data frame and set the column names\nbreast_cancer <- read.table(textConnection(UCI_data_URL), sep = ',', col.names = names) \n\n#discard id_number column\nbreast_cancer$id_number <- NULL \n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

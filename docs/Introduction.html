@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sydney Informatics Hub - Machine learning with R and the tidyverse</title>
+<title>Sydney Informatics Hub - Introduction to Machine Learning with R and tidymodels</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -80,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
+    <a class="nav-link" href="./index.html">
  <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
@@ -88,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Setup</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Introduction.html">
+    <a class="nav-link active" href="./Introduction.html" aria-current="page">
  <span class="menu-text">Introduction</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -171,89 +172,100 @@ ul.task-list li input[type="checkbox"] {
     <div class="entity-contents">
       <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Machine learning with R and the tidyverse</h1>
+<h1 class="title">Introduction to Machine Learning with R and tidymodels</h1>
 </div>
 <div class="quarto-title-meta">
   </div>
 </header> 
       <div class="about-contents"><main class="content" id="quarto-document-content">
-<p>This is the landing page for the Sydney Informatics Hub’s “Machine learning with R and the tidyverse”.</p>
-<section id="schedule" class="level2">
-<h2 data-anchor-id="schedule">Schedule</h2>
-<p>This course is designed to be delivered either as 2 day face-to-face workshop or as four half day sessions delivered online.</p>
-<table class="table">
-<tbody>
-<tr class="odd">
-<td><strong>Session 1</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td>1:30 pm - 3:00 pm</td>
-<td style="text-align: left;"><a href="./Introduction.html">Introduction to machine learning - Regrassion and Classification</a></td>
-</tr>
-<tr class="odd">
-<td>3:30 pm - 4:30 pm</td>
-<td style="text-align: left;"><a href="./100_dataset1/step1.html">Predict the house sale price in Iowa - Exploratory data analysis (EDA)</a></td>
-</tr>
-<tr class="even">
-<td>4:30 pm - 5:00 pm</td>
-<td style="text-align: left;"><a href="docs/100_dataset1/step2.html">Get started with tidymodels</a></td>
-</tr>
-<tr class="odd">
-<td><strong>Session 2</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td>1:30 pm - 2:00 pm</td>
-<td style="text-align: left;"><a href="./200_dataset2/step1.html">Predict what makes a developer more likely to work remotely - EDA</a></td>
-</tr>
-<tr class="odd">
-<td>2:00 pm - 5:00 pm</td>
-<td style="text-align: left;"><a href="./200_dataset2/step2.html">Preprocess with a recipe</a></td>
-</tr>
-<tr class="even">
-<td><strong>Session 3</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td>1:30 pm - 2:00 pm</td>
-<td style="text-align: left;"><a href="./300_dataset3/step1.html">Predict which wine features are the best quality wine indicators - EDA</a></td>
-</tr>
-<tr class="even">
-<td>2:00 pm - 5:00 pm</td>
-<td style="text-align: left;"><a href="./300_dataset3/step2.html">Create a modeling workflow</a></td>
-</tr>
-<tr class="odd">
-<td><strong>Session 4</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td>1:30 pm - 2:00 pm</td>
-<td style="text-align: left;"><a href="./400_dataset4/step1.html">Predict whether a cancer is malignant or benign from biopsy details - EDA</a></td>
-</tr>
-<tr class="odd">
-<td>2:00 pm - 5:00 pm</td>
-<td style="text-align: left;"><a href="./400_dataset4/step2.html">Work with model hyperparameters</a></td>
-</tr>
-</tbody>
-</table>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Prerequisites
+Learning objectives
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>You need your own laptop with R and a few key packages installed. See <a href="./00_setup.html">setup instructions</a> for more details.</li>
+<li>use exploratory data analysis to prepare for predictive modeling</li>
+<li>explore which modeling approaches to use for different kinds of data</li>
+<li>practice implementing supervised machine learning for classification and regression</li>
 </ul>
 </div>
 </div>
+<section id="what-is-machine-learning" class="level1">
+<h1>What is Machine Learning</h1>
+<p><strong>Machine Learning (ML) is the field of study that gives computers the ability to learn from data without being explicitly programmed</strong></p>
+<ul>
+<li>A ML system is trained rather than explicitly programmed;</li>
+<li>It is a subset of the Artificial Intelligence;</li>
+<li>Also known as predictive modeling/statistical learning.</li>
+</ul>
+<section id="learning-by-experience" class="level4">
+<h4 data-anchor-id="learning-by-experience">Learning by experience</h4>
+<p>We are never certain something will happen, but we usually know (or can estimate rather well) how likely it is to happen or, at least, what is most likely to happen, based on the experience we have acquired throughout our life.</p>
+<p><strong>Experience in ML means: Data in the form of examples</strong></p>
+<p>We explore data to find patterns to understand the hidden laws that regulates the domain/make predictions about the world around us.</p>
+<p><strong>What do we mean by learning?</strong></p>
+<p>Learning is our means of attaining the ability to perform automatically a task.</p>
+<p>ML tasks are usually described in terms of how the ML system should process an example.</p>
+<p>An example is a collection of features that have been quantitatively or qualitative measured from some object or event that we want the machine learning system to process.</p>
+<p>Typically we represent an example as a vector x where each entry <span class="math inline">\(x^{i}\)</span> of the vector is a different feature:</p>
+<ul>
+<li>Features of an image are usually the values of the pixels in the image;</li>
+<li>We want to predict the price of an house on the basis of some characteristics (n° rooms, garden, position, floor, etc..) that are the features of each house example from which we learn.</li>
+</ul>
+<p>Different kind of tasks:</p>
+</section>
+<section id="classification" class="level3">
+<h3 data-anchor-id="classification">Classification:</h3>
+<p>Think of classification as predicting a category (or divide the socks by color). For example:</p>
+<ul>
+<li><p>Given a sentence (maybe a tweet) the system should determines if it express a positive or negative or neutral feeling;</p></li>
+<li><p>Given an image where it can be a dog or a cat, we want to determine with the system which one is present;</p></li>
+<li><p>To solve this task, the learning algorithm is usually asked to produce a function <span class="math inline">\(y= f(x)\)</span></p></li>
+<li><p>So the model takes an example x as input and after some processing <span class="math inline">\(f(x)\)</span> it returns a value y that is one of the categories the example x should belong to. <img src="fig/class_cat.png" class="img-fluid" alt="figure"></p></li>
+</ul>
+</section>
+<section id="regression" class="level3">
+<h3 data-anchor-id="regression">Regression:</h3>
+<p>Think of regression as predicting numbers (or divide the ties by length). You are asking to predict a numerical value given some input. For example:</p>
+<ul>
+<li><p>Given the house features we want to predict the price. It is a pure numerical and unbounded value (at least positive unbounded);</p></li>
+<li><p>Temperature of a city considering several factors (pulling, humidity, season,etc..);</p></li>
+<li><p>To solve this task, the learning algorithm is asked to produce a function so that the model takes an example x as input and after some processing <span class="math inline">\(f(x)\)</span> it returns a value y that can be any real value.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig/regr.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">figure</figcaption><p></p>
+</figure>
+</div>
+<p>Once we trained a model we might want to measure its performance for example the accuracy in classification task (proportion of correct predicted examples) or the average error in a regression task.</p>
+<ul>
+<li><p>We want to measure performance on some data that have not been seen during training. Why? Because our goal is to build a model that is able to really understand the task and that is <strong>able to generalize</strong>.</p></li>
+<li><p>For this reason we need a separate dataset called Test-set that we never used to train the model.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig/train_test.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">test_train</figcaption><p></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="tidyverse" class="level1">
+<h1>Tidyverse</h1>
+<p>A hugely important part of any modeling approach is exploratory data analysis. In this course, we’ll be using tidyverse packages for getting to know your data, manipulating it, and visualizing it. The tidyverse is a collection of R packages designed for data science that share common APIs and an underlying philosophy. When you type library(tidyverse), what you’re doing is loading this collection of related packages for handling data using tidy data principles. These packages include ggplot2 for data visualization, and dplyr and tidyr for data manipulation and transformation. During this course, we’ll point out when we use functions from these different packages.</p>
+<p>Visit this page to learn more about tidyverse: <a href="https://www.tidyverse.org/learn/" class="uri">https://www.tidyverse.org/learn/</a></p>
+<section id="tidymodels" class="level3">
+<h3 data-anchor-id="tidymodels">Tidymodels</h3>
+<p>…</p>
 
 
+</section>
 </section>
 </main></div>
     </div>

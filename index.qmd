@@ -1,9 +1,35 @@
 ---
-title: Introduction to Machine Learning with R and tidymodels
+title: "Machine learning with R and the tidyverse"
+output:
+  html_document:
+    toc: false
 ---
 
-**Learning objectives**
+This is the landing page for the Sydney Informatics Hub's  "Machine learning with R and the tidyverse". 
 
-- use exploratory data analysis to prepare for predictive modeling
-- explore which modeling approaches to use for different kinds of data
-- practice implementing supervised machine learning for classification and regression
+## Schedule
+
+This course is designed to be delivered either as 2 day face-to-face workshop or as four half day sessions delivered online.
+
+|  |  | 
+| ------ | :------ | 
+| **Session 1** | 
+|  1:30 pm - 3:00 pm  |  [Introduction to machine learning - Regrassion and Classification](Introduction.qmd)|
+|  3:30 pm - 4:30 pm  |  [Predict the house sale price in Iowa - Exploratory data analysis (EDA)](100_dataset1/step1.qmd) |
+|  4:30 pm - 5:00 pm  |  [Get started with tidymodels](docs/100_dataset1/step2.html) |   
+| **Session 2** | 
+|  1:30 pm - 2:00 pm  |  [Predict what makes a developer more likely to work remotely - EDA](200_dataset2/step1.qmd) |
+|  2:00 pm - 5:00 pm  |  [Preprocess with a recipe](200_dataset2/step2.qmd)  | 
+| **Session 3** | 
+|  1:30 pm - 2:00 pm  |  [Predict which wine features are the best quality wine indicators - EDA](300_dataset3/step1.qmd) |
+|  2:00 pm - 5:00 pm  |  [Create a modeling workflow](300_dataset3/step2.qmd)  | 
+| **Session 4** |  
+|  1:30 pm - 2:00 pm  |  [Predict whether a cancer is malignant or benign from biopsy details - EDA](400_dataset4/step1.qmd)  |
+|  2:00 pm - 5:00 pm  |  [Work with model hyperparameters](400_dataset4/step2.qmd)
+
+::: {.callout-important}
+
+### Prerequisites
+
+- You need your own laptop with R and a few key packages installed. See [setup instructions](00_setup.qmd) for more details.
+:::

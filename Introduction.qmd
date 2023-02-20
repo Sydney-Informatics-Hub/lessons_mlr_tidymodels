@@ -1,0 +1,100 @@
+---
+title: Introduction to Machine Learning with R and tidymodels
+---
+
+:::{.callout-important}
+### Learning objectives
+
+- use exploratory data analysis to prepare for predictive modeling
+- explore which modeling approaches to use for different kinds of data
+- practice implementing supervised machine learning for classification and regression
+:::
+
+# What is Machine Learning
+**Machine Learning (ML) is the field of study that gives computers the ability to learn from data without being explicitly programmed**
+
+- A ML system is trained rather than explicitly programmed;
+- It is a subset of the Artificial Intelligence;
+- Also known as predictive modeling/statistical learning.
+
+#### Learning by experience
+We are never certain something will happen, but we usually know (or can
+estimate rather well) how likely it is to happen or, at least, what is most likely
+to happen, based on the experience we have acquired throughout our life.
+
+**Experience in ML means: Data in the form of examples**
+
+We explore data to find patterns to understand the hidden laws that regulates the
+domain/make predictions about the world around us.
+
+**What do we mean by learning?**
+
+Learning is our means of attaining the ability to perform automatically a task.
+
+ML tasks are usually described in terms of how the ML system should process an example.
+
+An example is a collection of features that have been quantitatively or
+qualitative measured from some object or event that we want the machine
+learning system to process.
+
+Typically we represent an example as a vector x where each entry $x^{i}$ of the
+vector is a different feature:
+
+- Features of an image are usually the values of the pixels in the image;
+- We want to predict the price of an house on the basis of some characteristics (n°
+rooms, garden, position, floor, etc..) that are the features of each house example from which we learn.
+
+Different kind of tasks:
+
+### Classification: 
+
+Think of classification as predicting a category (or divide the socks by color).  For example:
+
+- Given a sentence (maybe a tweet) the system should determines if it express a
+positive or negative or neutral feeling;
+
+- Given an image where it can be a dog or a cat, we want to determine with the system which one is present;
+
+- To solve this task, the learning algorithm is usually asked to produce a function
+$y= f(x)$
+
+- So the model takes an example x as input and after some processing $f(x)$ it returns a value y that is one of the categories the example x should belong to.
+![figure](fig/class_cat.png)
+
+### Regression:
+
+Think of regression as predicting numbers (or divide the ties by length). You are asking to predict a numerical value given some input. For example:
+
+- Given the house features we want to predict the price. It is a pure numerical and
+unbounded value (at least positive unbounded);
+
+- Temperature of a city considering several factors (pulling, humidity, season,etc..);
+
+- To solve this task, the learning algorithm is asked to produce a function so that the model takes an example x as input and after some processing $f(x)$ it returns a
+value y that can be any real value.
+
+![figure](fig/regr.png)
+
+
+Once we trained a model we might want to measure its performance for example the
+accuracy in classification task (proportion of correct predicted examples) or the average error in a regression task.
+
+- We want to measure performance on some data that have not been seen during
+training. Why? Because our goal is to build a model that is able to really understand the task and that is **able to generalize**.
+
+- For this reason we need a separate dataset called Test-set that we never used to train the model.
+
+![test_train](fig/train_test.png)
+
+# Tidyverse
+
+
+A hugely important part of any modeling approach is exploratory data analysis. In this course, we'll be using tidyverse packages for getting to know your data, manipulating it, and visualizing it. The tidyverse is a collection of R packages designed for data science that share common APIs and an underlying philosophy.
+When you type library(tidyverse), what you're doing is loading this collection of related packages for handling data using tidy data principles. These packages include ggplot2 for data visualization, and dplyr and tidyr for data manipulation and transformation. During this course, we'll point out when we use functions from these different packages.
+
+Visit this page to learn more about tidyverse: <https://www.tidyverse.org/learn/>
+
+
+### Tidymodels
+
+...

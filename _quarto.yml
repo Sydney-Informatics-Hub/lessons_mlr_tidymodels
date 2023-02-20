@@ -12,30 +12,43 @@ website:
     background: primary
     left:
       - href: index.qmd
-        text: Home
-      - text: "Data Cleaning & EDA"
+        text: Schedule
+      - href: 00_setup.qmd
+        text: Setup
+      - href: Introduction.qmd
+        text: Introduction
+      - text: "Session 1"
         menu:
-          - text: "Step 1"
-            href: 100_data_cleaning_scripts_EDA/step1.qmd
-          - text: "Step 2"
-            href: 100_data_cleaning_scripts_EDA/step2.qmd
-      - text: Analysis
+          - text: "Predict the house sale price in Iowa - EDA"
+            href: 100_dataset1/step1.qmd
+          - text: "Get started with tidymodels"
+            href: 100_dataset1/step2.qmd
+      - text: "Session 2"
         menu:
-          - text: "Step 1"
-            href: 400_analysis/step1.qmd
-          - text: "Step 2"
-            href: 400_analysis/step2.qmd
-    right:
-      - text: "Scope"
-        href: 000_scoping/scoping.qmd
-      - about.qmd
+          - text: "Predict what makes a developer more likely to work remotely - EDA"
+            href: 200_dataset2/step1.qmd
+          - text: "Preprocess with a recipe"
+            href: 200_dataset2/step2.qmd
+      - text: "Session3 "
+        menu:
+          - text: "Predict which wine features are the best quality wine indicators - EDA"
+            href: 300_dataset3/step1.qmd
+          - text: "Create a modeling workflow"
+            href: 300_dataset3/step2.qmd
+      - text: "Session 4"
+        menu:
+          - text: "Predict whether a cancer is malignant or benign from biopsy details - EDA"
+            href: 400_dataset4/step1.qmd
+          - text: "Work with model hyperparameters"
+            href: 400_dataset4/step2.qmd
+
   repo-url: https://github.com/Sydney-Informatics-Hub/
   repo-actions: [edit, issue]
   search:
     location: navbar
     type: textbox
   page-footer:
-    center: "Copyright 2022, AnalystNameTODO, Sydney Informatics Hub"
+    center: "Copyright 2023, Sydney Informatics Hub"
 
 about:
   template: solana
@@ -48,6 +61,8 @@ format:
       dark: [darkly, styles.scss]
     toc-depth: 2
     code-link: true
-    code-fold: true
+    code-fold: false
+    code-overflow: wrap
+    code-summary: "Show the code"
 
 

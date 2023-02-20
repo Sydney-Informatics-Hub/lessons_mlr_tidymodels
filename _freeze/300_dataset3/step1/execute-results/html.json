@@ -1,0 +1,16 @@
+{
+  "hash": "ec078c72f38d1097addcd4738d28771c",
+  "result": {
+    "markdown": "# Predict which wine features are the best quality wine indicators\n\n:::{.callout-tip}\n## Exercise:\n\nThe Wine Quality dataset contains information about various chemical properties of different wines, including their acidity, residual sugar, and alcohol content. This dataset can be used to build a model to predict which features are the best quality red wine indicators.\nWhat kind of model will you build?\n:::\n\nLoad the libraries:\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(readr)\n```\n:::\n\n\nLoad the data:\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(readr)\nwine_data <- read_delim(\"../datasets/winequality-red.csv\", show_col_types = FALSE)\n```\n:::\n",
+    "supporting": [
+      "step1_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

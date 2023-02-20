@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.269">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Sydney Informatics Hub - Machine learning with R and the tidyverse</title>
+<title>Sydney Informatics Hub – setup</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,8 +17,70 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
-
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -39,8 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -59,16 +117,11 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Sydney Informatics Hub</span>
@@ -79,12 +132,12 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
+<li class="nav-item">
+    <a class="nav-link" href="./index.html">
  <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./00_setup.html">
+    <a class="nav-link active" href="./00_setup.html" aria-current="page">
  <span class="menu-text">Setup</span></a>
   </li>  
   <li class="nav-item">
@@ -95,8 +148,8 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-session-1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Session 1</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-session-1">    
-        <li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-session-1">
+<li>
     <a class="dropdown-item" href="./100_dataset1/step1.html">
  <span class="dropdown-text">Predict the house sale price in Iowa - EDA</span></a>
   </li>  
@@ -105,13 +158,13 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Get started with tidymodels</span></a>
   </li>  
     </ul>
-  </li>
+</li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-session-2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Session 2</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-session-2">    
-        <li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-session-2">
+<li>
     <a class="dropdown-item" href="./200_dataset2/step1.html">
  <span class="dropdown-text">Predict what makes a developer more likely to work remotely - EDA</span></a>
   </li>  
@@ -120,13 +173,13 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Preprocess with a recipe</span></a>
   </li>  
     </ul>
-  </li>
+</li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-session3-" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Session3</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-session3-">    
-        <li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-session3-">
+<li>
     <a class="dropdown-item" href="./300_dataset3/step1.html">
  <span class="dropdown-text">Predict which wine features are the best quality wine indicators - EDA</span></a>
   </li>  
@@ -135,13 +188,13 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Create a modeling workflow</span></a>
   </li>  
     </ul>
-  </li>
+</li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-session-4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Session 4</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-session-4">    
-        <li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-session-4">
+<li>
     <a class="dropdown-item" href="./400_dataset4/step1.html">
  <span class="dropdown-text">Predict whether a cancer is malignant or benign from biopsy details - EDA</span></a>
   </li>  
@@ -150,18 +203,15 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Work with model hyperparameters</span></a>
   </li>  
     </ul>
-  </li>
+</li>
 </ul>
-              <div class="quarto-toggle-container">
+<div class="quarto-toggle-container">
                   <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
               </div>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
@@ -169,98 +219,112 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-about-solana column-body">
   <div class="about-entity">
     <div class="entity-contents">
-      <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Machine learning with R and the tidyverse</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header> 
-      <div class="about-contents"><main class="content" id="quarto-document-content">
-<p>This is the landing page for the Sydney Informatics Hub’s “Machine learning with R and the tidyverse”.</p>
-<section id="schedule" class="level2">
-<h2 data-anchor-id="schedule">Schedule</h2>
-<p>This course is designed to be delivered either as 2 day face-to-face workshop or as four half day sessions delivered online.</p>
-<table class="table">
-<tbody>
-<tr class="odd">
-<td><strong>Session 1</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td>1:30 pm - 3:00 pm</td>
-<td style="text-align: left;"><a href="./Introduction.html">Introduction to machine learning - Regrassion and Classification</a></td>
-</tr>
-<tr class="odd">
-<td>3:30 pm - 4:30 pm</td>
-<td style="text-align: left;"><a href="./100_dataset1/step1.html">Predict the house sale price in Iowa - Exploratory data analysis (EDA)</a></td>
-</tr>
-<tr class="even">
-<td>4:30 pm - 5:00 pm</td>
-<td style="text-align: left;"><a href="docs/100_dataset1/step2.html">Get started with tidymodels</a></td>
-</tr>
-<tr class="odd">
-<td><strong>Session 2</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td>1:30 pm - 2:00 pm</td>
-<td style="text-align: left;"><a href="./200_dataset2/step1.html">Predict what makes a developer more likely to work remotely - EDA</a></td>
-</tr>
-<tr class="odd">
-<td>2:00 pm - 5:00 pm</td>
-<td style="text-align: left;"><a href="./200_dataset2/step2.html">Preprocess with a recipe</a></td>
-</tr>
-<tr class="even">
-<td><strong>Session 3</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td>1:30 pm - 2:00 pm</td>
-<td style="text-align: left;"><a href="./300_dataset3/step1.html">Predict which wine features are the best quality wine indicators - EDA</a></td>
-</tr>
-<tr class="even">
-<td>2:00 pm - 5:00 pm</td>
-<td style="text-align: left;"><a href="./300_dataset3/step2.html">Create a modeling workflow</a></td>
-</tr>
-<tr class="odd">
-<td><strong>Session 4</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td>1:30 pm - 2:00 pm</td>
-<td style="text-align: left;"><a href="./400_dataset4/step1.html">Predict whether a cancer is malignant or benign from biopsy details - EDA</a></td>
-</tr>
-<tr class="odd">
-<td>2:00 pm - 5:00 pm</td>
-<td style="text-align: left;"><a href="./400_dataset4/step2.html">Work with model hyperparameters</a></td>
-</tr>
-</tbody>
-</table>
-<div class="callout-important callout callout-style-default callout-captioned">
+      <div class="about-contents"><main class="content" id="quarto-document-content"><div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Prerequisites
+Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>You need your own laptop with R and a few key packages installed. See <a href="./00_setup.html">setup instructions</a> for more details.</li>
+<li>What packages do I need to install in order to attend the SIH’s Machine Learning with R course?</li>
+</ul>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>To install all the packages so we can hit the ground running on day 1</li>
+</ul>
+</div>
+</div>
+<section id="installation-instructions" class="level2"><h2 data-anchor-id="installation-instructions">Installation instructions</h2>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric_version.html">getRversion</a></span><span class="op">(</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">3.6</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"You need R &gt;= 3.6 to attend the workshop. Please update R!"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">list_of_pkgs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>  <span class="st">"AmesHousing"</span>,</span>
+<span>  <span class="st">"tidyverse"</span>,</span>
+<span>  <span class="st">"readr"</span>,</span>
+<span>  <span class="st">"ggplot2"</span>,</span>
+<span>  <span class="st">"RCurl"</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span><span class="va">au_repo</span> <span class="op">&lt;-</span> <span class="st">"https://mirror.aarnet.edu.au/pub/CRAN/"</span></span>
+<span></span>
+<span><span class="co">#install installr and rtools if windows</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="va">.Platform</span><span class="op">$</span><span class="va">OS.type</span> <span class="op">==</span> <span class="st">"windows"</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"installr"</span><span class="op">)</span>, repos <span class="op">=</span> <span class="va">au_repo</span><span class="op">)</span></span>
+<span>  <span class="fu">installr</span><span class="fu">::</span><span class="fu"><a href="https://talgalili.github.io/installr/reference/install.Rtools.html">install.Rtools</a></span><span class="op">(</span>choose_version <span class="op">=</span> <span class="cn">F</span>,</span>
+<span>                           check <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>                           GUI <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
+<span>  <span class="va">win_only</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"installr"</span><span class="op">)</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>  <span class="va">win_only</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># run the following line of code to install the packages you currently do not have</span></span>
+<span><span class="va">new_pkgs</span> <span class="op">&lt;-</span> <span class="va">list_of_pkgs</span><span class="op">[</span><span class="op">!</span><span class="op">(</span><span class="va">list_of_pkgs</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html">installed.packages</a></span><span class="op">(</span><span class="op">)</span><span class="op">[</span>,<span class="st">"Package"</span><span class="op">]</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">new_pkgs</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="va">new_pkgs</span>,repos <span class="op">=</span> <span class="va">au_repo</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># install helper function to plot metrics</span></span>
+<span><span class="va">list_of_pkgs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">list_of_pkgs</span>,</span>
+<span>                  <span class="va">win_only</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#check everything is installed and write out an error message if it ain't.</span></span>
+<span><span class="va">missing_pkg</span> <span class="op">&lt;-</span> <span class="va">list_of_pkgs</span><span class="op">[</span><span class="op">!</span><span class="op">(</span><span class="va">list_of_pkgs</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html">installed.packages</a></span><span class="op">(</span><span class="op">)</span><span class="op">[</span>,<span class="st">"Package"</span><span class="op">]</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">missing_pkg</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"======================================================="</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Packages which didn't install properly:"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">missing_pkg</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Try to install them again or ask a helper for assistance."</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"======================================================="</span><span class="op">)</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"======================================================="</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"All packages installed properly! :)"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"======================================================="</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "======================================================="
+[1] "All packages installed properly! :)"
+[1] "======================================================="</code></pre>
+</div>
+</div>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+To do before the workshop begins
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Please copy and paste the code above in your Rstudio, run it and if there are any errors please let us know via email (sih.training@sydney.edu.au) BEFORE the workshop begins</li>
 </ul>
 </div>
 </div>
 
 
-</section>
-</main></div>
+</section></main></div>
     </div>
   </div>
 </div>
- <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -502,12 +566,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
       <div class="nav-footer-center">Copyright 2023, Sydney Informatics Hub</div>
   </div>
 </footer>
-
 
 
 </body></html>

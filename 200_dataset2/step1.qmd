@@ -1,0 +1,57 @@
+# Predict what makes a developer more likely to work remotely
+
+Stack Overflow is the world's largest, most trusted online community for developers (I bet you have used it!) and every year there is a large survey of developers, to learn about developers' opinions on different technologies, work habits, and so forth.
+You can find the link to the surveys here: 
+
+:::{.callout-note}
+## Learning objective:
+- You are going to use data from the annual Developer Survey to build predictive models;
+- You'll do exploratory data analysis to understand what's in the dataset and how some of the quantities in the survey are distributed;
+-You'll practice your machine learning skills by training classification/regression models.
+:::
+
+:::{.callout-tip}
+## Exercise:
+
+In this case study, you will predict whether a developer works remotely or not (i.e., in their company offices) from characteristics of these developers, like experience and size of the company. In this analysis, we will assume that a software developer can either work remotely, or not. What kind of model will you build?
+:::
+
+Load the libraries:
+
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+```
+
+Load the data:
+
+
+```{r}
+library(readr)
+StackSurvey <- read_csv("../datasets/stack_overflow.csv", show_col_types = FALSE)
+```
+
+Start off this modeling analysis by checking out how many remote and non-remote developers you have to work with, where they live, and how much experience they have:
+
+```{r}
+# Take a look at StackSurvey
+glimpse(StackSurvey)
+
+# First count for `remote`
+StackSurvey %>% 
+    count(remote, sort = TRUE)
+
+# then count for `country`
+StackSurvey %>% 
+    count(country, sort = TRUE)
+```
+
+Use the appropriate column from the data set so you can plot a boxplot with remote status on the x-axis and professional experience on the y-axis:
+
+``` {r}
+ggplot(StackSurvey, aes(remote, years_coded_job)) +
+    geom_boxplot() +
+    labs(x = NULL,
+         y = "Years of professional coding experience")
+```

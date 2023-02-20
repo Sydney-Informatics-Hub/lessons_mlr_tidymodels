@@ -1,0 +1,29 @@
+
+
+:::{.callout-note}
+## Learning objective:
+
+- Use tidyverse function for exploratory data analysis;
+- glimpse()
+- ggplot()
+- Text mining using tidy data principles
+:::
+
+Load data:
+
+```{r}
+ameshousing <- AmesHousing::make_ames()
+```
+
+Load the libraries:
+
+```{r}
+library(tidyverse)
+library(tidymodels)
+```
+
+Explore the ames data:
+- What’s the distribution of the outcome, Sale_Price?
+- What’s the distribution of numeric variables like ...?
+- How do selling price differ across ...?
+

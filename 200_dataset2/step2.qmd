@@ -1,0 +1,8 @@
+:::{.callout-note}
+## Learning objective:
+
+- Dealing with imbalanced data;
+- prep()/bake()/juice();
+- confusion matrix;
+- 
+:::

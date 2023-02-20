@@ -1,0 +1,24 @@
+::: {.callout-note} 
+### Question
+
+- What packages do I need to install in order to attend the SIH's Machine Learning with R course?
+:::
+
+::: {.callout-tip}   
+### Objectives
+
+- To install all the packages so we can hit the ground running on day 1
+:::
+
+## Installation instructions
+
+`r knitr::spin_child("setup.R")`
+
+
+::: {.callout-warning}  
+### To do before the workshop begins
+
+- Please copy and paste the code above in your Rstudio, run it and if there are any errors please let us know via email (sih.training@sydney.edu.au) BEFORE the workshop begins
+:::
+
+

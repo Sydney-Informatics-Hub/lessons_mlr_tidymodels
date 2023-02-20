@@ -1,0 +1,89 @@
+
+:::{.callout-note}
+## Learning objective:
+
+- from base R lm() to tidymodels;
+- split into test and training set;
+- rsample package functions training() and testing();
+- setting up a model specification;
+- yardstick package;
+- metrics();
+- resampling;
+- collect-predictions();
+- visualise your results
+:::
+
+:::{.callout-tip}
+## Exercise:
+
+In this case study, you will predict houses selling price from characteristics of these houses, like ... What kind of model will you build?
+:::
+
+```{r, include=FALSE}
+library(tidyverse)
+library(tidymodels)
+ameshousing <- AmesHousing::make_ames()
+```
+
+### Build a simple linear model usign base R's `lm()` function
+
+```{r}
+
+#fit a linear model
+fit_all <- lm(Sale_Price ~ ., data = ameshousing)
+
+#Print the summary of the model
+summary(fit_all)
+```
+
+
+**Note** explain a linear model here?
+
+
+### A more powerful and flexible set of tools for predictive modeling - tidymodels
+
+When you type library(tidymodels), you load a collection of packages for modeling and machine learning using tidyverse principles. All the packages are designed to be consistent, modular, and to support good modeling practices. The first thing we are going to practice is splitting your data into a training set and a testing set. The tidymodels package `rsample` has functions that help you specify training and testing sets.
+
+```{r SplitTestTrain}
+
+set.seed(42) #so we all get the same results
+ames_split <- ameshousing %>%
+    initial_split(prop = 0.8,
+                  strata = Sale_Price)
+
+ames_train <- training(ames_split)
+ames_test <- testing(ames_split)
+
+saveRDS(ames_train, "../_models/ames_train.Rds")
+saveRDS(ames_test, "../_models/ames_test.Rds")
+```
+
+The code here takes an input data set and puts 80% of it into a training dataset and 20% of it into a testing dataset; it chooses the individual cases so that both sets are balanced in selling price.
+
+### Train the model
+
+In tidymodels, you specify models using three concepts.
+
+- Model **type** differentiates models such as logistic regression, decision tree models, and so forth;
+- Model **mode** includes common options like regression and classification, some model types support either of these while some only have one mode;
+- Model **engine** is the computational tool which will be used to fit the model. 
+
+We will specify the model using the `parsnip` package - Many functions have different interfaces and arguments names and parsnip standardizes the interface for fitting models as well as the return values.
+
+```{r parnsip}
+lm_model <- linear_reg() %>% #pick a model
+  set_engine("lm")           #set the engine
+#set_mode("regression") we don't need this as the model linear_reg() only does regression
+
+#view model properties
+lm_model
+```
+
+
+After a model has been specified, it can be fit, typically using a symbolic description of the model (a formula) and some data. We're going to start fitting models with `data = ames_train`, as shown here. This means we're saying, "Just fit the model one time, on the whole training set". Once you have fit your model, you can evaluate how well the model is performing.
+
+```{r fit the model}
+lm_fit <- lm_model %>%
+  fit(log(Sale_Price) ~ .,
+      data = ames_train)
+```
