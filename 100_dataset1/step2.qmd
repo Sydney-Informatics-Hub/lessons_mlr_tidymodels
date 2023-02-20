@@ -19,10 +19,15 @@
 In this case study, you will predict houses selling price from characteristics of these houses, like ... What kind of model will you build?
 :::
 
-```{r, include=FALSE}
+```{r loadpackages, warning = FALSE, message = FALSE}
 library(tidyverse)
 library(tidymodels)
-ameshousing <- AmesHousing::make_ames()
+library(rsample)
+library(vip)
+```
+
+```{r getData, echo = F, purl=FALSE}
+ames_data <- readRDS("../_models/ames_dataset_filt.rds")
 ```
 
 ### Build a simple linear model usign base R's `lm()` function
@@ -30,10 +35,10 @@ ameshousing <- AmesHousing::make_ames()
 ```{r}
 
 #fit a linear model
-fit_all <- lm(Sale_Price ~ ., data = ameshousing)
+fit_all_1 <- lm(Sale_Price ~ ., data = ames_data)
 
 #Print the summary of the model
-summary(fit_all)
+summary(fit_all_1)
 ```
 
 
@@ -47,7 +52,7 @@ When you type library(tidymodels), you load a collection of packages for modelin
 ```{r SplitTestTrain}
 
 set.seed(42) #so we all get the same results
-ames_split <- ameshousing %>%
+ames_split <- ames_data %>%
     initial_split(prop = 0.8,
                   strata = Sale_Price)
 
@@ -71,19 +76,156 @@ In tidymodels, you specify models using three concepts.
 We will specify the model using the `parsnip` package - Many functions have different interfaces and arguments names and parsnip standardizes the interface for fitting models as well as the return values.
 
 ```{r parnsip}
-lm_model <- linear_reg() %>% #pick a model
+
+#a linear regression model specification
+lm_model_1 <- linear_reg() %>% #pick a model
   set_engine("lm")           #set the engine
-#set_mode("regression") we don't need this as the model linear_reg() only does regression
+                             #set_mode("regression") we don't need this as the model linear_reg() only does regression
 
 #view model properties
-lm_model
+lm_model_1
 ```
 
 
-After a model has been specified, it can be fit, typically using a symbolic description of the model (a formula) and some data. We're going to start fitting models with `data = ames_train`, as shown here. This means we're saying, "Just fit the model one time, on the whole training set". Once you have fit your model, you can evaluate how well the model is performing.
+After a model has been specified, it can be fit, typically using a symbolic description of the model (a formula) and some data. We're going to start fitting models with `data = ames_train`, as shown here. This means we're saying, "Just fit the model one time, on the whole training set". Once you have fit your model, you can evaluate how well the model is performing (yardstick package).
 
 ```{r fit the model}
-lm_fit <- lm_model %>%
+#train a linear regression model
+lm_fit_1 <- lm_model_1 %>%
   fit(log(Sale_Price) ~ .,
       data = ames_train)
+
+#print the model object
+lm_fit_1
+
+saveRDS(lm_fit_1, "../_models/lm_fit_1.Rds")
 ```
+
+To print a summary of our model, we can extract fit from lm_fit and pass it to the `summary()` function. We can explore the estimated coefficients, F-statistics, p-values, residual standard error (also known as RMSE) and R2 value.
+
+```{r explore the model}
+summary(lm_fit_1$fit) #extract the fit object from lm_fit
+```
+
+However, this feature is best for visually exploring our results on the training data since the results are returned as a data frame.
+We can use the `plot()` function to obtain diagnostic plots for our trained regression model. We must first extract the fit object from lm_fit and then pass it into plot(). These plots provide a check for the main assumptions of the linear regression model
+
+```{r plot the model}
+par(mfrow=c(2,2)) # plot all 4 plots in one
+
+plot(lm_fit_1$fit, 
+     pch = 16,    # optional parameters to make points blue
+     col = '#006EA1')
+
+```
+
+To obtain the detailed results from our trained linear regression model in a data frame, we can use the `tidy()` and `glance()` functions directly on our trained parsnip model, lm_fit_1.
+- The `tidy()` function takes a linear regression object and returns a data frame of the estimated model coefficients and their associated F-statistics and p-values.
+- The `glance()` function will return performance metrics obtained on the training data such as the R2 value (r.squared) and the RMSE (sigma).
+
+We can also use the `vip()` function to plot the variable importance for each predictor in our model. The importance value is determined based on the F-statistics and estimate coefficents in our trained model object.
+
+```{r tidy results}
+
+# Data frame of estimated coefficients
+tidy(lm_fit_1)
+
+# Performance metrics on training data
+glance(lm_fit_1)
+
+vip(lm_fit_1)
+```
+#Resampling
+
+The idea of resampling is to create simulated data sets that can be used to estimate the performance of your model, say, because you want to compare models. You can create these resampled data sets instead of using either your training set (which can give overly optimistic results, especially for powerful ML algorithms) or your testing set (which is extremely valuable and can only be used once or at most twice). 
+One of these resampling methods is cross-validation.
+
+**Cross-validation** means taking your training set and randomly dividing it up evenly into subsets, sometimes called "folds". A fold here means a group or subset or partition.
+
+You use one of the folds for validation and the rest for training, then you repeat these steps with all the subsets and combine the results, usually by taking the mean. Cross-validation allows you to get a more accurate estimate of how your model will perform on new data.
+
+:::{.callout-tip}
+## Challenge X
+
+When you implement 10-fold cross-validation repeated 5 times, you:
+
+- randomly divide your training data into 50 subsets and train on 49 at a time (assessing on the other subset), iterating through all 50 subsets for assessment.
+- randomly divide your training data into 10 subsets and train on 9 at a time (assessing on the other subset), iterating through all 10 subsets for assessment. Then you repeat that process 5 times.
+- randomly divide your training data into 5 subsets and train on 4 at a time (assessing on the other subset), iterating through all 5 subsets. Then you repeat that process 10 times.
+:::
+
+:::{.callout-caution collapse="true"}
+## Solution
+
+Simulations and practical experience show that 10-fold cross-validation repeated 5 times is a great resampling approach for many situations. This approach involves randomly dividing your training data into 10 folds, or subsets or groups, and training on only 9 while using the other fold for assessment. You iterate through all 10 folds being used for assessment; this is one round of cross-validation. You can then repeat the whole process multiple, perhaps 5, times.
+:::
+
+```{r create cross-validation folds}
+ames_folds <- vfold_cv(ames_train, v=10, repeats = 5)
+
+glimpse(ames_folds)
+```
+
+Once we have created a set of resamples, we can use the function `fit_resamples()` to fit a model to each resample and compute performance metrics for each.
+
+```{r evaluating models with resampling}
+lm_res_1 <- lm_model_1 %>%
+  fit_resamples(
+    Sale_Price ~ .,
+    resamples = ames_folds,
+    control = control_resamples(save_pred = TRUE)
+  )
+
+glimpse(lm_res_1)
+saveRDS(lm_res_1, "lm_res_1.rds")
+```
+
+
+```{r collect results}
+results_1 <-  lm_res_1 %>% 
+  collect_predictions() %>% #obtain and format predictions from each resample
+    mutate(model = "lm")
+
+glimpse(results_1)
+
+results_1 %>%
+    ggplot(aes(`Sale_Price`, .pred)) +
+    geom_abline(lty = 2, color = "gray50") +
+    geom_point(aes(color = id), size = 1.5, alpha = 0.3, show.legend = FALSE) +
+    geom_smooth(method = "lm") #+
+    #facet_wrap(~ model)
+```
+
+
+
+
+
+
+
+
+#Evaluate the model
+
+For regression models, we will focus on evaluating using the **root mean squared error metric**. This quantity is measured in the same units as the original data (log of selling price, in our case). Lower values indicate a better fit to the data. The yardstick package offers convenient functions for this and many other model performance metrics.The `predict()` function from the yardstick package takes two arguments:
+- a trained parnsip model object
+- the data for which to generate predictions (the test dataset)
+
+```{r}
+#create new columns for model predictions for the model we have trained
+results_1 <- ames_test %>%
+    mutate(Sale_Price = log(Sale_Price)) %>%
+    bind_cols(predict(lm_fit_1, ames_test) %>%
+                  rename(.pred_lm = .pred))
+
+#Evaluate the performance
+metrics(results, truth = Sale_Price, estimate = .pred_lm) #specify the column that containt the real selling price
+```
+**Note** `Warning: prediction from a rank-deficient fit may be misleading` 
+There are two reasons this warning may occur: 
+- one is that you have more model parameters than observations in the dataset;
+- Since the number of model parameters is greater than the number of observations in the dataset, we refer to this as high dimensional data;
+- With high dimensional data, it becomes impossible to find a model that can describe the relationship between the predictor variables and the response variable because we don’t have enough observations to train the model on;
+- The easiest way to resolve this issue is to use a simpler model with less coefficients to estimate.
+
+
+
+

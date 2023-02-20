@@ -3,27 +3,350 @@
 :::{.callout-note}
 ## Learning objective:
 
-- Use tidyverse function for exploratory data analysis;
-- glimpse()
-- ggplot()
-- Text mining using tidy data principles
+- Use tidyverse functions for exploratory data analysis;
+- Introduce and explore the Ames Housing dataset.
 :::
 
-Load data:
-
-```{r}
-ameshousing <- AmesHousing::make_ames()
+```{r echo=FALSE, purl=FALSE}
+knitr::opts_chunk$set(
+  comment = NA,
+  warning = FALSE,
+  message = FALSE,
+  cache = TRUE
+)
 ```
 
-Load the libraries:
+First, let's load the required packages. We will use the `tidyverse` for general data processing and visualisation.
 
-```{r}
+```{r loadpackages, warning = FALSE, message = FALSE}
 library(tidyverse)
-library(tidymodels)
+library(naniar) # for visualising missing data
+library(GGally) # for EDA
+library(ggcorrplot)
+library(AmesHousing)
+library(plotly) # dynamic visualisations
+library(bestNormalize)
+theme_set(theme_minimal())
 ```
 
-Explore the ames data:
-- What’s the distribution of the outcome, Sale_Price?
-- What’s the distribution of numeric variables like ...?
-- How do selling price differ across ...?
+We will use the Ames housing data to explore different ML approaches to regression. This dataset was "designed" by Dean De Cock as an alternative to the "classic" Boston housing dataset, and has been extensively used in  ML teaching. It is also available from kaggle as part of its [advanced regression practice competition](https://www.kaggle.com/c/house-prices-advanced-regression-techniques).
 
+The [Ames Housing Data Documentation file](https://github.sydney.edu.au/informatics/lessons-mlr/blob/gh-pages/_episodes_rmd/data/AmesHousing_DataDocumentation.txt) describes the independent variables presented in the data. This includes:  
+
+- 20 continuous variables relate to various area dimensions for each observation;
+- 14 discrete variables, which typically quantify the number of items occurring within the house;
+- 23 ordinal, 23 nominal categorical variables, with 2 (STREET: gravel or paved) - 28 (NEIGHBORHOOD) classes; 
+
+We will explore both the "uncleaned" data available from kaggle/UCI, and the processed data available in the `AmesHousing` package in R, for which documentation is available [here](https://cran.r-project.org/web/packages/AmesHousing/AmesHousing.pdf). It can be useful for understading what each of the independent variables mean.
+
+
+```{r loadData}
+ameshousing <- AmesHousing::make_ames()
+
+# Read in the uncleaned data. 
+ameshousing_uncleaned <- AmesHousing::ames_raw
+```
+
+## Exploratory data analysis
+
+
+Exploratory data analysis involves looking at:
+
+- The distribution of variables in your dataset;
+- Whether any data is missing;
+- Data skewness;
+- Correlated variables.
+
+:::{.callout-tip}
+## Challenge 1
+
+1. Explore the Ames Housing dataset. 
+    - What can you figure out about the different variables? 
+    - Which do you think are more or less important?
+
+2. Compare the `ameshousing` variable, which is from the AmesHousing package in R and has been cleaned,
+with the `ameshousing_uncleaned` dataset, which is the raw data from the UCI machine learning repository.
+    - What was missing in the raw data?
+    - What are some of the approaches that have been taken to deal with missingness?
+:::
+
+:::{.callout-caution collapse="true"}
+## Solution
+We can see that the "uncleaned" dataset has a lot of missing data, whereas 
+it has been cleaned up for us in the "cleaned" one. In the interests of time, 
+we will not focus here on how *every* variable in that dataset has been explored 
+and cleaned up - however, it presents a good example of "messy" real-world data, 
+so we would encourage you to try and look at a handful of variables at home, to 
+see how they've been processed.
+
+```{r solution1, purl = FALSE}
+  
+dim(ameshousing)
+glimpse(ameshousing)
+colSums(is.na(ameshousing_uncleaned))
+colSums(is.na(ameshousing))
+```
+:::
+
+
+### Use naniar to visualise missingness
+
+When working with missing data, it can be helpful to look for "co-missingness", i.e. multiple variables missing together. For example, when working with patient data, number of pregnancies, age at onset of menstruation and menopause may all be missing - which, when observed together, may indicate that these samples come from male patients for whom this data is irrelevant. "Gender" may or may not be a variable coded in the dataset.
+
+A way of visualising missing data in the tidy context has been proposed [@tierney2018expanding](https://www.njtierney.com/post/2018/09/10/tidy-missing-data/). See [this web page](http://naniar.njtierney.com/articles/naniar-visualisation.html) for more options for your own data.
+
+Let's look at the missing variables in our housing data:
+
+```{r uninformativeMissing, fig.width=8, fig.height=8}
+gg_miss_var(ameshousing_uncleaned)
+```
+
+We can see that the most missingness is observed in the `Pool_QC`, `Misc_Feature`, `Alley`, `Fence` and `Fireplace_QC` variables. This is most likely due to many houses not having pools, alleys, fences, and fireplaces, and not having any features that the real estate agent considers to be notable enough to be added to the "miscellaneous" category.
+
+An upset plot will give us more idea about the co-missingness of these variables:
+
+```{r naniar}
+gg_miss_upset(ameshousing_uncleaned, nsets = 10)
+```
+
+:::{.callout-tip}
+## Challenge 2
+
+- Which variables are most frequently missing together? 
+- Does this "co-missingness" make sense?
+:::
+
+:::{.callout-caution collapse="true"}
+## Solution
+
+1. Fence, Alley, Misc feature and Pool QC are most often missing together. This probably means that a house doesn't have an alley, a fence, a pool or any other miscellaneous features.
+
+2. Similarly, the second most frequent "co-missingess" involves these plus missing "fireplace quality", 
+most likely due to the house not having fireplace.
+
+3. We can also see that Garage_Yr_Blt, Garage_Finish, Garage_Qual and Garage Cond "co-miss" the same number of times - probably because these represent houses without garages.
+:::
+
+Next, let's create two "helper" vectors with the names of the numeric and categorical variables from the `ameshousing` dataset, which we can then use to batch subset our dataset prior to EDA/visualisation:
+
+```{r NumericCateg}
+# pull out all of the numerical variables
+numVars <- ameshousing %>% 
+  select_if(is.numeric) %>%
+  names()
+
+# use Negate(is.numeric) to pull out all of the categorical variables
+catVars <- ameshousing %>% 
+  select_if(Negate(is.numeric)) %>%
+  names()
+```
+
+
+Let's then use the ggpairs() function to generate a plot of the first 10 numeric variables (and sale price, which is 33) against each other. We can repeat this for variables 11-20 and 21-33.
+
+```{r EDAindependent}
+ggpairs(data = ameshousing, 
+        columns = numVars[c(1:10, 33)], 
+        title = "Numeric variables 1 - 10")
+# ggpairs(ameshousing, numVars[c(11:20, 33)], title = "Numeric variables 11 - 20")
+# ggpairs(ameshousing, numVars[c(21:33)], title = "Numeric variables 21 - 33")
+ggpairs(data = ameshousing, 
+        columns = c(catVars[2:5], "Sale_Price"), 
+        title = "Some categorical variables")
+```
+
+
+Next, we can generate a correlation plot between all of our numeric variables. By default, the `cor()`
+method will calculate the Pearson correlation between the `Sale_Price` and the other variables, and we can specify how we'd like to handle missing data when calculating this correlation.
+
+In this case, we use `pairwise.complete.obs`, which calculates the correlation between each pair of variables using all complete pairs of observations on those variables.
+
+We then plot the correlation using the corrplot library, which has several options for how to visualise a correlation plot. See [here](http://www.sthda.com/english/wiki/visualize-correlation-matrix-using-correlogram) for some examples of the visualisations it can produce.
+
+```{r CorrelationPlot, fig.width=8, fig.height=7}
+# pairs.panels(ameshousing[ , names(ameshousing)[c(3, 16, 23, 27,37)]], scale=TRUE)
+ameshousingCor <- cor(ameshousing[,numVars],
+                      use = "pairwise.complete.obs")
+
+ameshousingCor_pvalues <- cor_pmat(ameshousingCor)
+ggcorrplot(ameshousingCor, type = "lower")
+```
+
+We can also make a dynamic visualisation using plotly.
+
+```{r plotlyDemo, fig.width=8, fig.height=7}
+#Bonus: interactive corrplot with zoom and mouseover
+ggcorrplot(ameshousingCor, type = "lower") %>% ggplotly()
+```
+
+:::{.callout-tip}
+
+## Challenge 3
+
+- What variables are the most correlated with SalePrice?
+:::
+
+:::{.callout-caution collapse="true"}
+## Solution
+```{r corrSol1, purl = F}
+as_tibble(ameshousingCor, rownames = "rowname") %>%
+  gather(pair, value, -rowname) %>%
+  filter(rowname != pair) %>% #remove self correlation
+  filter(rowname == "Sale_Price") %>%
+  arrange(desc(abs(value))) %>%
+  head()
+```
+
+We can also plot this, using a slightly different representation:
+
+- Circles instead of only colour to represent correlation levels
+- Filter out correlations less than 0.5
+
+```{r corrSol2, purl = F}
+all_numVar <- ameshousing[, numVars]
+cor_numVar <- cor(all_numVar, use="pairwise.complete.obs") 
+CorHigh <- as_tibble(
+  data.frame(correlation = cor_numVar[,'Sale_Price']), rownames = "rownames")  %>% 
+  filter(abs(correlation) >= 0.5) %>% 
+  .$rownames
+ggcorrplot(cor_numVar[CorHigh, CorHigh], type = "lower", "circle")
+```
+:::
+
+Let's plot one of these relationships:
+
+```{r GrLivAr}
+gra <- ameshousing %>%
+  ggplot(aes(x = Gr_Liv_Area, y = Sale_Price/1000)) + 
+  geom_point(alpha = 0.1) + 
+  labs(y = "Sale Price/$1000",
+       x = "Living Area (sq.ft)",
+       title = "Ames Housing Data") +
+  geom_smooth(method= "lm")  +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+gra %>% 
+  ggplotly()
+```
+
+We can see that there are five houses with an area > 4000 square feet that seem to be outliers in the data. We should filter them out. Next, let's generate a violin and boxplot by Quality:
+
+```{r OvQual}
+
+ameshousing_filt <-
+  ameshousing %>%
+  filter(Gr_Liv_Area <= 4000)
+
+p <- ameshousing_filt %>%
+  ggplot(aes(x = Overall_Qual, y = Sale_Price)) +
+  geom_violin() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggplotly(p)
+
+p <-ameshousing_filt %>%
+  mutate(Quality = as.factor(Overall_Qual)) %>%
+  ggplot(aes(x = Quality,
+             y = Sale_Price / 1000,
+             fill = Quality)) +
+  labs(y = "Sale Price in $k's",
+       x = "Overall Quality of House",
+       title = "Ames Housing Data") +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+ggplotly(p)
+```
+
+
+## EDA of outcome variable
+
+You also need to do EDA on the outcome variable to:
+
+- identify outliers
+- explore whether there is any skew in its distribution
+- identify a transformation to use when modelling the data (if appropriate)
+
+This is because many models, including ordinary linear regression, assume that prediction errors (and hence the response) are normally distributed. 
+
+
+```{r salesPrice}
+ameshousing_filt %>% 
+  ggplot(aes(x = Sale_Price/1000)) + 
+  geom_histogram(bins = 50) + 
+  labs(x = "Sale Price in $k's",
+       y = "Number of Houses sold")
+```
+
+
+
+Let's explore different ways of transforming the Sale Price.
+
+```{r WhyTransform}
+#No transform
+
+ameshousing_filt %>%
+  ggplot(aes( sample = Sale_Price)) +
+  stat_qq() + stat_qq_line(col = "blue")
+
+#Sqrt transform
+
+ameshousing_filt %>%
+  ggplot(aes( sample = sqrt(Sale_Price))) +
+  stat_qq() + stat_qq_line(col = "blue")
+
+#natural log transform
+
+ameshousing_filt %>%
+  ggplot(aes( sample = log(Sale_Price))) +
+  stat_qq() + stat_qq_line(col = "blue")
+
+#log10 transform
+
+ameshousing_filt %>%
+  ggplot(aes( sample = log10(Sale_Price))) +
+  stat_qq() + stat_qq_line(col = "blue")
+
+```
+
+:::{.callout-tip}
+
+### Challenge 4
+
+- If you were working with this dataset, which of the above would you prefer?
+:::
+
+:::{.callout-caution collapse="true"}
+## Solution
+
+The log10 transformation seems best, as it both helps the distribution look more normal and helps keep our error metrics and final predictions easily interpretable. It also means that the errors of predicting the values of inexpensive and expensive houses will affect the prediction equally. 
+
+```{r bestNormalise, purl = F, cache=T}
+bestNormalize::bestNormalize(
+  ameshousing_filt$Sale_Price,
+  allow_orderNorm = FALSE)
+```
+
+The `bestNormalize` library can be used to identify the best normalising transformation. Note that in this case, the arcsinh(x) and logarithmic transformations both achieve best normalisation results. To make interpretation a bit easier, we choose the logarithmic transformation.
+:::
+
+
+## Feature engineering
+
+The year in which the house was built and the year when it was remodelled are not really the most relevant parameters we look at when buying a house: instead, buyers usually care a lot more about the age of the house and the time since the last remodel. Let's engineer these features:
+
+```{r featureEngineer}
+ameshousing_filt_engineered <-
+  ameshousing_filt %>%
+  mutate(Time_Since_Remodel = Year_Sold - Year_Remod_Add, 
+         House_Age = Year_Sold - Year_Built) %>%
+  select(-Year_Remod_Add, -Year_Built)
+
+saveRDS(ameshousing_filt_engineered, "../_models/ames_dataset_filt.rds")
+```
+
+
+**Note**
+
+Make sure to create a "models" folder in your project working directory!
+
+Before you can save your data as .Rds objects, you will actually need to create a folder for these files to go into. Do this by clicking on the "new folder" button in the files window in R studio. Rename your new folder to "models".
