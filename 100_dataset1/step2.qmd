@@ -2,28 +2,34 @@
 :::{.callout-note}
 ## Learning objective:
 
-- from base R lm() to tidymodels;
-- split into test and training set;
-- rsample package functions training() and testing();
-- setting up a model specification;
-- yardstick package;
-- metrics();
-- resampling;
-- collect-predictions();
-- visualise your results
+- From base R to tidymodels;
+- Split our data into training and test sets;
+- Preprocess the training data;
+- Specify a linear regression model;
+- Train our model on the training data;
+- Transform the test data and obtain predictions using our trained model.
 :::
 
 :::{.callout-tip}
 ## Exercise:
 
-In this case study, you will predict houses selling price from characteristics of these houses, like ... What kind of model will you build?
+In this case study, you will predict houses selling price from characteristics of these houses, like size and layout of the living space in the house.
+What kind of model will you build?
 :::
+
+:::{.callout-caution collapse="true"}
+### Solution
+
+To predict a continuous, numeric quantity like selling price, use regression models.
+:::
+
+Load in the packages we’ll be using for modelling:
 
 ```{r loadpackages, warning = FALSE, message = FALSE}
 library(tidyverse)
 library(tidymodels)
 library(rsample)
-library(vip)
+library(vip) 
 ```
 
 ```{r getData, echo = F, purl=FALSE}
@@ -35,10 +41,10 @@ ames_data <- readRDS("../_models/ames_dataset_filt.rds")
 ```{r}
 
 #fit a linear model
-fit_all_1 <- lm(Sale_Price ~ ., data = ames_data)
+ames_fit_all <- lm(Sale_Price ~ ., data = ames_data)
 
 #Print the summary of the model
-summary(fit_all_1)
+summary(ames_fit_all)
 ```
 
 
@@ -65,7 +71,63 @@ saveRDS(ames_test, "../_models/ames_test.Rds")
 
 The code here takes an input data set and puts 80% of it into a training dataset and 20% of it into a testing dataset; it chooses the individual cases so that both sets are balanced in selling price.
 
-### Train the model
+```{r distr test and train, purl=F}
+ames_train %>% 
+  ggplot(aes(x = log(Sale_Price),  col = "red", fill = NULL)) + 
+  geom_density() + theme_minimal() +
+  geom_line(data = ames_test,
+            stat = "density",
+            col = "blue") + theme(legend.position="none")
+```
+
+In tidymodels, you can preprocess your data using *recipes* (e.g. for dealing with imbalanced data)
+```{r recipe}
+ames_rec <-
+  recipe(Sale_Price ~ ., data = ames_train) %>%
+  step_other(all_nominal(), threshold = 0.01) %>% #useful when you have some factor levels with very few observations, all_nominal selects both characters and factors, pools infrequently occurring values (frequency less than 0.01) into an "other" category
+  step_nzv(all_nominal()) %>% #remove variables that are highly sparse and unbalanced
+  step_dummy(all_nominal(), -all_outcomes()) #create dummy variables for all nominal variables except the outcome variable 
+
+ames_rec
+```
+
+The preprocessing recipe `ames_rec` has been defined but no values have been estimated.
+
+- The `prep()` function takes that defined object and computes everything so that the preprocessing steps can be executed. Note that This is done with the training data.
+```{r prep}
+ames_prep <- prep(ames_rec)
+
+ames_prep
+```
+The `bake() and juice() functions both return data, not a preprocessing recipe object. 
+- The `bake()` function takes a prepped recipe (one that has had all quantities estimated from training data) and applies it to `new_data`. That new_data could be the training data again or it could be the testing data (with the TRAINING parameters)
+
+```{r bake}
+ames_test_proc <- bake(ames_prep, new_data = ames_test)
+```
+
+- The `juice()` function is a nice little shortcut. When we `juice()` the recipe, we squeeze that training data back out, transformed in the ways we specified. 
+Let's compare the `bake()` and `juice()` outputs:
+
+```{r juice}
+bake(ames_prep, new_data = ames_train)
+
+juice(ames_prep) 
+```
+It is the same as bake(ames_rep, new_data = ames_train) and is just a shortcut that we are going to use later.
+
+:::{.callout-tip}
+### Challenge X
+
+Does it make sense to apply these preprocessing steps to the test set?
+:::
+
+:::{.callout-caution collapse="true"}
+### Solution
+No, it doesn't. You want the set test to look like new data that your model will see in the future, so you don't want to mess with the class balance there; you want to see how your model will perform on imbalanced data, even if you have trained it on artificially balanced data.
+:::
+
+### Build the model
 
 In tidymodels, you specify models using three concepts.
 
@@ -78,66 +140,177 @@ We will specify the model using the `parsnip` package - Many functions have diff
 ```{r parnsip}
 
 #a linear regression model specification
-lm_model_1 <- linear_reg() %>% #pick a model
+ames_model <- linear_reg() %>% #pick a model
   set_engine("lm")           #set the engine
                              #set_mode("regression") we don't need this as the model linear_reg() only does regression
 
 #view model properties
-lm_model_1
+ames_model
 ```
 
+Now we are ready to train our model object on the training data. 
+We can do this using the `fit()` function from the parsnip package. 
+The `fit()` function takes the following arguments:
+  
+- a parnsip model object specification;
+- a model formula
+- a data frame with the training data
 
-After a model has been specified, it can be fit, typically using a symbolic description of the model (a formula) and some data. We're going to start fitting models with `data = ames_train`, as shown here. This means we're saying, "Just fit the model one time, on the whole training set". Once you have fit your model, you can evaluate how well the model is performing (yardstick package).
+The code below trains our linear regression model on the prepped training data. In our formula, we have specified that Sale_Price is the response variable and included all the rest as our predictor variables.
+```{r fit}
+ames_fit <- ames_model %>%
+  fit(Sale_Price ~ .,
+      data=juice(ames_prep))
 
-```{r fit the model}
-#train a linear regression model
-lm_fit_1 <- lm_model_1 %>%
-  fit(log(Sale_Price) ~ .,
-      data = ames_train)
-
-#print the model object
-lm_fit_1
-
-saveRDS(lm_fit_1, "../_models/lm_fit_1.Rds")
+# View lm_fit properties
+ames_fit
 ```
-
-To print a summary of our model, we can extract fit from lm_fit and pass it to the `summary()` function. We can explore the estimated coefficients, F-statistics, p-values, residual standard error (also known as RMSE) and R2 value.
-
-```{r explore the model}
-summary(lm_fit_1$fit) #extract the fit object from lm_fit
-```
-
-However, this feature is best for visually exploring our results on the training data since the results are returned as a data frame.
-We can use the `plot()` function to obtain diagnostic plots for our trained regression model. We must first extract the fit object from lm_fit and then pass it into plot(). These plots provide a check for the main assumptions of the linear regression model
-
-```{r plot the model}
-par(mfrow=c(2,2)) # plot all 4 plots in one
-
-plot(lm_fit_1$fit, 
-     pch = 16,    # optional parameters to make points blue
-     col = '#006EA1')
-
-```
-
-To obtain the detailed results from our trained linear regression model in a data frame, we can use the `tidy()` and `glance()` functions directly on our trained parsnip model, lm_fit_1.
-- The `tidy()` function takes a linear regression object and returns a data frame of the estimated model coefficients and their associated F-statistics and p-values.
+To obtain the detailed results from our trained linear regression model in a data frame, we can use the `tidy()` and `glance()` functions directly on our trained parsnip model, ames_fit.
+- The `tidy()` function takes a linear regression object and returns a data frame of the estimated model coefficients and their associated F-statistics and p-values;
 - The `glance()` function will return performance metrics obtained on the training data such as the R2 value (r.squared) and the RMSE (sigma).
+- We can also use the `vip()` function to plot the variable importance for each predictor in our model. The importance value is determined based on the F-statistics and estimate coefficents in our trained model object.
 
-We can also use the `vip()` function to plot the variable importance for each predictor in our model. The importance value is determined based on the F-statistics and estimate coefficents in our trained model object.
-
-```{r tidy results}
-
+```{r metrics}
 # Data frame of estimated coefficients
-tidy(lm_fit_1)
+tidy(ames_fit)
 
 # Performance metrics on training data
-glance(lm_fit_1)
+glance(ames_fit)
 
-vip(lm_fit_1)
+# Plot variable importance
+vip(ames_fit)
 ```
-#Resampling
 
-The idea of resampling is to create simulated data sets that can be used to estimate the performance of your model, say, because you want to compare models. You can create these resampled data sets instead of using either your training set (which can give overly optimistic results, especially for powerful ML algorithms) or your testing set (which is extremely valuable and can only be used once or at most twice). 
+#Evaluating the model
+
+To assess the accuracy of our trained linear regression model, ames_fit, we must use it to make predictions on our test data, ames_test_proc. 
+This is done with the `predict()` function from parnsip. This function takes two important arguments:
+
+- a trained parnsip model object;
+- new_data for which to generate predictions.
+
+The code below uses the predict() function to generate a data frame with a single column, *.pred*, which contains the predicted Sale Price values on the ames_test data.
+```{r predict}
+predict(ames_fit, new_data = ames_test_proc)
+```
+*Warning: prediction from a rank-deficient fit may be misleading*
+  
+One reason this warning occurs is that you have more model parameters than observations in the dataset. We refer to this as high dimensional data. With high dimensional data, it becomes impossible to find a model that can describe the relationship between the predictor variables and the response variable because we don’t have enough observations to train the model on. The easiest way to resolve this issue is to use a simpler model with less coefficients to estimate.We are not worrying about this today.
+
+Generally it’s best to combine the test data set and the predictions into a single data frame. We create a data frame with the predictions on the ames_test data and then use `bind_cols()` to add the ames_test data to the results.
+
+
+```{r merge test data and predictions}
+ames_test_results <- predict(ames_fit, new_data = ames_test_proc) %>% 
+  bind_cols(ames_test_proc)
+
+# View results
+ames_test_results
+```
+Now we have the model results and the test data in a single data frame. 
+
+### Calculating rmse and rsq on the Test Data
+
+To obtain the rmse and rsq values on our test set results, we can use the `rmse()` and `rsq()` functions.
+Both functions take the following arguments:
+
+- a data frame with columns that have the true values and predictions;
+- the column with the true response values;
+- the column with predicted values.
+
+In the examples below we pass our ames_test_results to these functions to obtain these values for our test set. 
+Results are always returned as a data frame with the following columns: .metric, .estimator, and .estimate.
+```{r rmse}
+#RMSE on test set
+test_rmse <- rmse(ames_test_results, 
+     truth = Sale_Price,
+     estimate = .pred)
+
+#rsq on test set
+test_rsq<- rsq(ames_test_results,
+    truth = Sale_Price,
+    estimate = .pred)
+```
+
+:::{.callout-tip}
+### Challenge X
+We mentioned earlier that the `bake()` function takes a prepped recipe (ames_prep) and applies it to `new_data`. The new_data could be the training data again or it could be the testing data. We just evaluated our model on the test data, let's try to apply the `bake()` and `predict()` functions on the training data and compare the results.
+
+**Instructions**
+```{r Challenge X}
+#bake() training data
+
+#predict() selling price on the training data
+
+#combine the training data set and the predictions into a single data frame
+
+#RMSE on training set
+
+#rsq on training set
+
+```
+:::
+
+:::{.callout-caution collapse="true"}
+### Solution
+```{r solution, warning=FALSE}
+#bake() training data
+ames_train_proc <- bake(ames_prep, new_data = ames_train)
+#predict() selling price on the training data
+ames_train_results <-predict(ames_fit, new_data = ames_train_proc)
+#combine the training data set and the predictions into a single data frame
+ames_train_results <- ames_train_results %>%
+  bind_cols(ames_train_proc)
+#RMSE on training set
+train_rmse <- rmse(ames_train_results, 
+     truth = Sale_Price,
+     estimate = .pred)
+#rsq on training set
+train_rsq <- rsq(ames_train_results,
+    truth = Sale_Price,
+    estimate = .pred)
+```
+:::
+
+Let's have a look at all the metrics for both our training and test datasets:
+```{r all metrics}
+#plot metrics for training and test datasets
+train_rsq %>%
+  mutate(dataset = "training") %>%
+  bind_rows(train_rmse %>%
+              mutate(dataset = "training")) %>%
+  bind_rows(test_rsq %>%
+              mutate(dataset = "test") %>%
+              bind_rows(test_rmse %>%
+                          mutate(dataset = "test")))
+```
+If we look at the testing data, the rmse is higher than the training data.
+Our training data is not giving us a good idea of how our model is going to perform.
+In this situation, our algorithm fits our existing data very well, but doesn’t generalise well on new data.
+
+Let's visualise the situation with an **R2 plot**:
+```{r plot results}
+ames_test_results %>%
+  mutate(train = "testing") %>%
+  bind_rows(ames_train_results %>%
+              mutate(train = "training")) %>%
+  ggplot(aes(Sale_Price, .pred, color = train)) +
+  geom_abline(intercept = 0, slope = 1, color = "black", size = 0.5, linetype="dotted") +
+  geom_point(alpha = 0.5) +
+  facet_wrap(~train) +
+  labs(
+    x = "Actual Selling Price",
+    y = "Predicted Selling Price",
+    color = "Test/Training data"
+  )
+```
+This is a plot that can be used for any regression model.
+It plots the actual values (Sale Prices) versus the model predictions (.pred) as a scatter plot. It also plot the line y = x through the origin. This line is a visually representation of the perfect model where all predicted values are equal to the true values in the test set. The farther the points are from this line, the worse the model fit.
+The reason this plot is called an R2 plot, is because the R2 is the squared correlation between the true and predicted values, which are plotted as paired in the plot.
+
+### Resampling
+
+We made not such a great decision in the previous section; we expected the model evaluated once on the whole training set to help us understand something about how it would perform on new data. Fortunately, we have some options. We can resample the training set to produce an estimate of how the model will perform.The idea of resampling is to create simulated data sets that can be used to estimate the performance of your model, say, because you want to compare models. You can create these resampled data sets instead of using either your training set (which can give overly optimistic results, especially for powerful ML algorithms) or your testing set (which is extremely valuable and can only be used once or at most twice). 
 One of these resampling methods is cross-validation.
 
 **Cross-validation** means taking your training set and randomly dividing it up evenly into subsets, sometimes called "folds". A fold here means a group or subset or partition.
@@ -148,84 +321,96 @@ You use one of the folds for validation and the rest for training, then you repe
 ## Challenge X
 
 When you implement 10-fold cross-validation repeated 5 times, you:
-
-- randomly divide your training data into 50 subsets and train on 49 at a time (assessing on the other subset), iterating through all 50 subsets for assessment.
+  
+  - randomly divide your training data into 50 subsets and train on 49 at a time (assessing on the other subset), iterating through all 50 subsets for assessment.
 - randomly divide your training data into 10 subsets and train on 9 at a time (assessing on the other subset), iterating through all 10 subsets for assessment. Then you repeat that process 5 times.
 - randomly divide your training data into 5 subsets and train on 4 at a time (assessing on the other subset), iterating through all 5 subsets. Then you repeat that process 10 times.
 :::
-
+  
 :::{.callout-caution collapse="true"}
 ## Solution
 
 Simulations and practical experience show that 10-fold cross-validation repeated 5 times is a great resampling approach for many situations. This approach involves randomly dividing your training data into 10 folds, or subsets or groups, and training on only 9 while using the other fold for assessment. You iterate through all 10 folds being used for assessment; this is one round of cross-validation. You can then repeat the whole process multiple, perhaps 5, times.
 :::
-
+  
 ```{r create cross-validation folds}
 ames_folds <- vfold_cv(ames_train, v=10, repeats = 5)
 
 glimpse(ames_folds)
 ```
+In the next steps, we won't not use `prep()` or `bake()`. The `ames_rec` recipe will be automatically applied in a later step using the `workflow()` and `last_fit()` functions.
+
+### Create a Workflow
+
+In the previous section, we trained a linear regression model to the housing data step-by-step. In this section, we will go over how to combine all of the modeling steps into a single workflow.
+The `workflow` package was designed to combine models and recipes into a single object. To create a workflow, we start with `workflow()` to create an empty workflow and then add out model and recipe with `add_model()` and `add_recipe()`.
+
+```{r workflow}
+ames_wf <- workflow() %>%
+  add_model(ames_model) %>% 
+  add_recipe(ames_rec)
+
+ames_wf
+```
 
 Once we have created a set of resamples, we can use the function `fit_resamples()` to fit a model to each resample and compute performance metrics for each.
 
 ```{r evaluating models with resampling}
-lm_res_1 <- lm_model_1 %>%
+set.seed(234)
+ames_res <- ames_wf %>%
   fit_resamples(
-    Sale_Price ~ .,
-    resamples = ames_folds,
+    ames_folds,
     control = control_resamples(save_pred = TRUE)
   )
 
-glimpse(lm_res_1)
-saveRDS(lm_res_1, "lm_res_1.rds")
+glimpse(ames_res)
+saveRDS(ames_res, "../_models/ames_res.rds")
+```
+The column .metric contains the performance statistics created from the 10 assessment sets. These can be manually unnested but the tune package contains a number of simple functions that can extract these data:
+
+```{r resampled metrics}
+# Obtain performance metrics on resampled training data
+ames_res %>% collect_metrics()
+```
+- `vfold_cv()` creates folds for cross-validation;
+- `fit_resamples()` fits models to resamples; 
+- `collect_metrics()` obtains performance metrics from the results.
+
+Notice that now we have a realistic estimate from the training data that is closer to the testing data!
+
+If we wanted to try different model types for this data set, we could more confidently compare performance metrics computed using resampling to choose between models. Also, remember that at the end of our project, we return to our test set to estimate final model performance. 
+
+Let’s use the `last_fit()` function to evaluate once on the testing set:
+
+```{r final fit}
+#Final fit on test dataset
+ames_final <- ames_wf %>%
+  last_fit(ames_split)
+
+# Obtain performance metrics on test data
+collect_metrics(ames_final)
 ```
 
+The R-squared (rsq) and root mean squared error (RMSE) metrics are similar for both the training and testing datasets in our linear regression model. This is a good sign that the model is not over-fitting and can be used for making predictions on new data.
 
-```{r collect results}
-results_1 <-  lm_res_1 %>% 
-  collect_predictions() %>% #obtain and format predictions from each resample
-    mutate(model = "lm")
+We can save the test set predictions by using the `collect_predictions()` function. This function returns a data frame which will have the response variables values from the test set and a column named .pred with the model predictions.
 
-glimpse(results_1)
-
-results_1 %>%
-    ggplot(aes(`Sale_Price`, .pred)) +
-    geom_abline(lty = 2, color = "gray50") +
-    geom_point(aes(color = id), size = 1.5, alpha = 0.3, show.legend = FALSE) +
-    geom_smooth(method = "lm") #+
-    #facet_wrap(~ model)
+```{r collect test predictions}
+# Obtain test set predictions data frame
+ames_results_final <- ames_final %>% 
+                 collect_predictions()
+# View results
+ames_results_final
 ```
 
+Finally, let’s use this data frame to make an R2 plot to visualize our model performance on the test data set:
 
-
-
-
-
-
-
-#Evaluate the model
-
-For regression models, we will focus on evaluating using the **root mean squared error metric**. This quantity is measured in the same units as the original data (log of selling price, in our case). Lower values indicate a better fit to the data. The yardstick package offers convenient functions for this and many other model performance metrics.The `predict()` function from the yardstick package takes two arguments:
-- a trained parnsip model object
-- the data for which to generate predictions (the test dataset)
-
-```{r}
-#create new columns for model predictions for the model we have trained
-results_1 <- ames_test %>%
-    mutate(Sale_Price = log(Sale_Price)) %>%
-    bind_cols(predict(lm_fit_1, ames_test) %>%
-                  rename(.pred_lm = .pred))
-
-#Evaluate the performance
-metrics(results, truth = Sale_Price, estimate = .pred_lm) #specify the column that containt the real selling price
+```{r plot final}
+ggplot(data = ames_results_final,
+       mapping = aes(x = .pred, y = Sale_Price)) +
+  geom_point(color = '#006EA1', alpha = 0.25) +
+  geom_abline(intercept = 0, slope = 1, color = 'black', size=0.5, linetype="dotted") +
+  labs(title = 'Linear Regression Results - Ames Test Set',
+       x = 'Predicted Selling Price',
+       y = 'Actual Selling Price')
 ```
-**Note** `Warning: prediction from a rank-deficient fit may be misleading` 
-There are two reasons this warning may occur: 
-- one is that you have more model parameters than observations in the dataset;
-- Since the number of model parameters is greater than the number of observations in the dataset, we refer to this as high dimensional data;
-- With high dimensional data, it becomes impossible to find a model that can describe the relationship between the predictor variables and the response variable because we don’t have enough observations to train the model on;
-- The easiest way to resolve this issue is to use a simpler model with less coefficients to estimate.
-
-
-
-

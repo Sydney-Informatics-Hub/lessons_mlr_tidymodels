@@ -329,6 +329,9 @@ bestNormalize::bestNormalize(
 The `bestNormalize` library can be used to identify the best normalising transformation. Note that in this case, the arcsinh(x) and logarithmic transformations both achieve best normalisation results. To make interpretation a bit easier, we choose the logarithmic transformation.
 :::
 
+```{r log transform}
+ameshousing_filt <- ameshousing_filt %>% mutate(Sale_Price = log10(Sale_Price))
+```
 
 ## Feature engineering
 
