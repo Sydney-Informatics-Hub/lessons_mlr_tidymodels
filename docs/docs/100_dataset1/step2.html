@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.269">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>Sydney Informatics Hub – step2</title>
 <style>
 code{white-space: pre-wrap;}
@@ -20,8 +17,70 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
@@ -39,8 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -59,16 +117,11 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Sydney Informatics Hub</span>
@@ -79,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../index.html">
  <span class="menu-text">Schedule</span></a>
   </li>  
@@ -95,8 +148,8 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-session-1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Session 1</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-session-1">    
-        <li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-session-1">
+<li>
     <a class="dropdown-item" href="../100_dataset1/step1.html">
  <span class="dropdown-text">Predict the house sale price in Iowa - EDA</span></a>
   </li>  
@@ -105,13 +158,13 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Get started with tidymodels</span></a>
   </li>  
     </ul>
-  </li>
+</li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-session-2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Session 2</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-session-2">    
-        <li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-session-2">
+<li>
     <a class="dropdown-item" href="../200_dataset2/step1.html">
  <span class="dropdown-text">Predict what makes a developer more likely to work remotely - EDA</span></a>
   </li>  
@@ -120,13 +173,13 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Preprocess with a recipe</span></a>
   </li>  
     </ul>
-  </li>
+</li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-session3-" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Session3</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-session3-">    
-        <li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-session3-">
+<li>
     <a class="dropdown-item" href="../300_dataset3/step1.html">
  <span class="dropdown-text">Predict which wine features are the best quality wine indicators - EDA</span></a>
   </li>  
@@ -135,13 +188,13 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Create a modeling workflow</span></a>
   </li>  
     </ul>
-  </li>
+</li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-session-4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Session 4</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-session-4">    
-        <li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-session-4">
+<li>
     <a class="dropdown-item" href="../400_dataset4/step1.html">
  <span class="dropdown-text">Predict whether a cancer is malignant or benign from biopsy details - EDA</span></a>
   </li>  
@@ -150,18 +203,15 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Work with model hyperparameters</span></a>
   </li>  
     </ul>
-  </li>
+</li>
 </ul>
-              <div class="quarto-toggle-container">
+<div class="quarto-toggle-container">
                   <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
               </div>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
@@ -169,8 +219,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-about-solana column-body">
   <div class="about-entity">
     <div class="entity-contents">
-      <div class="about-contents"><main class="content" id="quarto-document-content">
-<div class="callout-note callout callout-style-default callout-captioned">
+      <div class="about-contents"><main class="content" id="quarto-document-content"><div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -181,27 +230,1915 @@ Learning objective:
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>from base R lm() to tidymodels;</li>
-<li>split into test and training set;</li>
-<li>rsample package functions training() and testing();</li>
-<li>setting up a model specification;</li>
-<li>yardstick package;</li>
-<li>metrics();</li>
-<li>resampling;</li>
-<li>collect-predictions();</li>
-<li>visualise your results</li>
+<li>From base R to tidymodels;</li>
+<li>Split our data into training and test sets;</li>
+<li>Preprocess the training data;</li>
+<li>Specify a linear regression model;</li>
+<li>Train our model on the training data;</li>
+<li>Transform the test data and obtain predictions using our trained model.</li>
 </ul>
 </div>
 </div>
-<p>When you type library(tidymodels), you load a collection of packages for modeling and machine learning using tidyverse principles. All the packages are designed to be consistent, modular, and to support good modeling practices. The first thing we are going to practice is splitting your data into a training set and a testing set;</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Exercise:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In this case study, you will predict houses selling price from characteristics of these houses, like size and layout of the living space in the house. What kind of model will you build?</p>
+</div>
+</div>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To predict a continuous, numeric quantity like selling price, use regression models.</p>
+</div>
+</div>
+</div>
+<p>Load in the packages we’ll be using for modelling:</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidymodels.tidymodels.org">tidymodels</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rsample.tidymodels.org">rsample</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/koalaverse/vip/">vip</a></span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+</div>
+<section id="build-a-simple-linear-model-usign-base-rs-lm-function" class="level3"><h3 data-anchor-id="build-a-simple-linear-model-usign-base-rs-lm-function">Build a simple linear model usign base R’s <code>lm()</code> function</h3>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#fit a linear model</span></span>
+<span><span class="va">ames_fit_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Sale_Price</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">ames_data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#Print the summary of the model</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">ames_fit_all</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Sale_Price ~ ., data = ames_data)
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.46479 -0.02019  0.00009  0.02110  0.20903 
+Coefficients: (7 not defined because of singularities)
+                                                       Estimate Std. Error
+(Intercept)                                          -1.466e+01  1.886e+01
+MS_SubClassOne_Story_1945_and_Older                  -2.005e-02  6.094e-03
+MS_SubClassOne_Story_with_Finished_Attic_All_Ages     8.964e-03  2.061e-02
+MS_SubClassOne_and_Half_Story_Unfinished_All_Ages     1.334e-02  2.428e-02
+MS_SubClassOne_and_Half_Story_Finished_All_Ages       1.675e-02  1.108e-02
+MS_SubClassTwo_Story_1946_and_Newer                  -1.370e-02  9.587e-03
+MS_SubClassTwo_Story_1945_and_Older                   1.582e-02  1.056e-02
+MS_SubClassTwo_and_Half_Story_All_Ages                2.779e-02  1.849e-02
+MS_SubClassSplit_or_Multilevel                       -3.897e-02  1.856e-02
+MS_SubClassSplit_Foyer                               -7.937e-03  1.300e-02
+MS_SubClassDuplex_All_Styles_and_Ages                -3.934e-02  9.781e-03
+MS_SubClassOne_Story_PUD_1946_and_Newer              -2.003e-02  1.788e-02
+MS_SubClassOne_and_Half_Story_PUD_All_Ages           -9.411e-02  5.262e-02
+MS_SubClassTwo_Story_PUD_1946_and_Newer              -5.566e-02  2.102e-02
+MS_SubClassPUD_Multilevel_Split_Level_Foyer          -5.074e-02  2.456e-02
+MS_SubClassTwo_Family_conversion_All_Styles_and_Ages  1.767e-03  3.069e-02
+MS_ZoningResidential_High_Density                     1.845e-03  1.295e-02
+MS_ZoningResidential_Low_Density                     -1.603e-03  8.678e-03
+MS_ZoningResidential_Medium_Density                  -2.337e-02  9.928e-03
+MS_ZoningA_agr                                       -7.772e-02  7.569e-02
+MS_ZoningC_all                                       -8.881e-02  1.546e-02
+MS_ZoningI_all                                       -3.015e-02  4.587e-02
+Lot_Frontage                                          2.292e-05  3.076e-05
+Lot_Area                                              1.212e-06  1.641e-07
+StreetPave                                            5.014e-02  1.545e-02
+AlleyNo_Alley_Access                                 -1.065e-02  5.227e-03
+AlleyPaved                                           -3.210e-03  8.044e-03
+Lot_ShapeSlightly_Irregular                          -1.320e-03  2.202e-03
+Lot_ShapeModerately_Irregular                         3.917e-03  5.809e-03
+Lot_ShapeIrregular                                   -3.377e-03  1.228e-02
+Land_ContourHLS                                       5.369e-03  6.735e-03
+Land_ContourLow                                      -4.965e-03  8.755e-03
+Land_ContourLvl                                       4.931e-03  4.946e-03
+UtilitiesNoSeWa                                      -7.590e-02  4.989e-02
+UtilitiesNoSewr                                       3.107e-02  4.130e-02
+Lot_ConfigCulDSac                                     3.035e-03  4.384e-03
+Lot_ConfigFR2                                        -1.144e-02  5.629e-03
+Lot_ConfigFR3                                        -9.001e-03  1.277e-02
+Lot_ConfigInside                                     -3.333e-03  2.356e-03
+Land_SlopeMod                                         3.844e-03  5.368e-03
+Land_SlopeSev                                        -4.202e-02  1.637e-02
+NeighborhoodCollege_Creek                            -1.241e-02  1.586e-02
+NeighborhoodOld_Town                                 -6.725e-03  7.369e-03
+NeighborhoodEdwards                                  -2.308e-02  1.254e-02
+NeighborhoodSomerset                                  2.252e-02  9.759e-03
+NeighborhoodNorthridge_Heights                        2.103e-02  9.482e-03
+NeighborhoodGilbert                                  -3.813e-03  8.027e-03
+NeighborhoodSawyer                                   -1.479e-03  1.158e-02
+NeighborhoodNorthwest_Ames                           -6.863e-03  6.080e-03
+NeighborhoodSawyer_West                              -1.863e-02  1.422e-02
+NeighborhoodMitchell                                  1.878e-03  1.486e-02
+NeighborhoodBrookside                                 2.203e-02  7.739e-03
+NeighborhoodCrawford                                  4.873e-02  1.121e-02
+NeighborhoodIowa_DOT_and_Rail_Road                    8.560e-03  1.030e-02
+NeighborhoodTimberland                                5.076e-03  1.667e-02
+NeighborhoodNorthridge                                1.560e-02  9.985e-03
+NeighborhoodStone_Brook                               4.323e-02  1.007e-02
+NeighborhoodSouth_and_West_of_Iowa_State_University   1.569e-03  1.286e-02
+NeighborhoodClear_Creek                               1.351e-02  1.439e-02
+NeighborhoodMeadow_Village                           -2.787e-02  1.787e-02
+NeighborhoodBriardale                                 1.082e-02  1.302e-02
+NeighborhoodBloomington_Heights                      -7.826e-04  1.245e-02
+NeighborhoodVeenker                                  -1.626e-03  1.229e-02
+NeighborhoodNorthpark_Villa                           2.493e-02  1.938e-02
+NeighborhoodBlueste                                   3.173e-02  1.987e-02
+NeighborhoodGreens                                    4.507e-02  1.943e-02
+NeighborhoodGreen_Hills                               2.219e-01  3.519e-02
+NeighborhoodLandmark                                 -9.224e-03  4.799e-02
+Condition_1Feedr                                      5.475e-03  6.471e-03
+Condition_1Norm                                       2.760e-02  5.388e-03
+Condition_1PosA                                       2.857e-02  1.228e-02
+Condition_1PosN                                       3.239e-02  9.495e-03
+Condition_1RRAe                                      -1.394e-03  1.064e-02
+Condition_1RRAn                                       9.930e-03  8.945e-03
+Condition_1RRNe                                       1.030e-02  1.967e-02
+Condition_1RRNn                                       1.380e-02  1.640e-02
+Condition_2Feedr                                     -9.622e-03  2.497e-02
+Condition_2Norm                                       7.785e-03  2.169e-02
+Condition_2PosA                                       5.216e-02  3.392e-02
+Condition_2PosN                                      -1.968e-02  3.469e-02
+Condition_2RRAe                                      -7.715e-02  6.400e-02
+Condition_2RRAn                                      -1.469e-02  4.998e-02
+Condition_2RRNn                                       9.715e-03  3.874e-02
+Bldg_TypeTwoFmCon                                    -1.077e-02  3.057e-02
+Bldg_TypeDuplex                                              NA         NA
+Bldg_TypeTwnhs                                       -1.984e-02  1.883e-02
+Bldg_TypeTwnhsE                                      -2.115e-03  1.779e-02
+House_StyleOne_and_Half_Unf                           7.563e-03  2.311e-02
+House_StyleOne_Story                                  1.525e-02  1.115e-02
+House_StyleSFoyer                                     2.764e-02  1.462e-02
+House_StyleSLvl                                       4.935e-02  1.951e-02
+House_StyleTwo_and_Half_Fin                          -3.917e-02  2.459e-02
+House_StyleTwo_and_Half_Unf                           4.905e-03  1.751e-02
+House_StyleTwo_Story                                  1.604e-02  1.023e-02
+Overall_QualPoor                                      3.626e-03  4.033e-02
+Overall_QualFair                                      1.275e-01  3.893e-02
+Overall_QualBelow_Average                             1.483e-01  3.871e-02
+Overall_QualAverage                                   1.748e-01  3.886e-02
+Overall_QualAbove_Average                             1.883e-01  3.901e-02
+Overall_QualGood                                      2.006e-01  3.909e-02
+Overall_QualVery_Good                                 2.243e-01  3.922e-02
+Overall_QualExcellent                                 2.559e-01  3.980e-02
+Overall_QualVery_Excellent                            2.590e-01  4.113e-02
+Overall_CondPoor                                     -9.117e-02  3.098e-02
+Overall_CondFair                                     -6.622e-02  2.418e-02
+Overall_CondBelow_Average                            -2.250e-02  2.395e-02
+Overall_CondAverage                                  -3.496e-04  2.375e-02
+Overall_CondAbove_Average                             1.188e-02  2.385e-02
+Overall_CondGood                                      3.020e-02  2.395e-02
+Overall_CondVery_Good                                 3.579e-02  2.419e-02
+Overall_CondExcellent                                 5.091e-02  2.527e-02
+Roof_StyleGable                                       2.428e-02  2.072e-02
+Roof_StyleGambrel                                     5.080e-03  2.326e-02
+Roof_StyleHip                                         2.109e-02  2.087e-02
+Roof_StyleMansard                                     1.946e-03  2.571e-02
+Roof_StyleShed                                        6.109e-02  3.584e-02
+Roof_MatlMembran                                      1.295e-01  5.214e-02
+Roof_MatlMetal                                        8.386e-02  5.135e-02
+Roof_MatlRoll                                         3.386e-02  4.637e-02
+Roof_MatlTar&amp;Grv                                      2.187e-02  1.782e-02
+Roof_MatlWdShake                                     -7.494e-04  1.728e-02
+Roof_MatlWdShngl                                      2.051e-02  2.074e-02
+Exterior_1stAsphShn                                  -5.269e-03  4.883e-02
+Exterior_1stBrkComm                                   4.403e-02  2.785e-02
+Exterior_1stBrkFace                                   6.474e-02  1.648e-02
+Exterior_1stCBlock                                    1.061e-01  5.755e-02
+Exterior_1stCemntBd                                  -1.376e-02  2.598e-02
+Exterior_1stHdBoard                                   2.250e-02  1.609e-02
+Exterior_1stImStucc                                   2.225e-02  4.892e-02
+Exterior_1stMetalSd                                   4.072e-02  1.808e-02
+Exterior_1stPlywood                                   3.003e-02  1.577e-02
+Exterior_1stPreCast                                   2.261e-01  4.802e-02
+Exterior_1stStone                                     1.669e-02  3.897e-02
+Exterior_1stStucco                                    3.757e-02  1.786e-02
+Exterior_1stVinylSd                                   2.170e-02  1.755e-02
+Exterior_1stWd Sdng                                   2.286e-02  1.557e-02
+Exterior_1stWdShing                                   2.952e-02  1.679e-02
+Exterior_2ndAsphShn                                   2.736e-02  3.687e-02
+Exterior_2ndBrk Cmn                                  -1.253e-02  2.540e-02
+Exterior_2ndBrkFace                                  -1.801e-02  1.807e-02
+Exterior_2ndCBlock                                   -2.846e-02  4.707e-02
+Exterior_2ndCmentBd                                   4.666e-02  2.634e-02
+Exterior_2ndHdBoard                                   1.643e-03  1.656e-02
+Exterior_2ndImStucc                                  -1.052e-02  2.015e-02
+Exterior_2ndMetalSd                                  -9.421e-03  1.846e-02
+Exterior_2ndOther                                    -2.789e-02  4.820e-02
+Exterior_2ndPlywood                                  -4.609e-03  1.596e-02
+Exterior_2ndPreCast                                          NA         NA
+Exterior_2ndStone                                    -1.605e-02  2.712e-02
+Exterior_2ndStucco                                    6.150e-03  1.822e-02
+Exterior_2ndVinylSd                                   6.461e-03  1.792e-02
+Exterior_2ndWd Sdng                                   4.401e-03  1.608e-02
+Exterior_2ndWd Shng                                  -2.120e-03  1.683e-02
+Mas_Vnr_TypeBrkFace                                   9.844e-03  9.469e-03
+Mas_Vnr_TypeCBlock                                   -1.664e-01  5.634e-02
+Mas_Vnr_TypeNone                                      1.086e-02  9.489e-03
+Mas_Vnr_TypeStone                                     2.006e-02  9.944e-03
+Mas_Vnr_Area                                          1.253e-05  7.896e-06
+Exter_QualFair                                        1.090e-02  1.276e-02
+Exter_QualGood                                       -8.396e-03  7.048e-03
+Exter_QualTypical                                    -1.370e-02  7.729e-03
+Exter_CondFair                                       -1.904e-02  1.581e-02
+Exter_CondGood                                       -1.960e-03  1.425e-02
+Exter_CondPoor                                       -3.340e-02  3.890e-02
+Exter_CondTypical                                     3.084e-03  1.425e-02
+FoundationCBlock                                      3.777e-03  4.124e-03
+FoundationPConc                                       8.855e-03  4.469e-03
+FoundationSlab                                       -1.175e-02  1.242e-02
+FoundationStone                                       3.024e-02  1.487e-02
+FoundationWood                                       -2.232e-02  2.107e-02
+Bsmt_QualFair                                        -1.740e-02  7.828e-03
+Bsmt_QualGood                                        -9.002e-03  4.406e-03
+Bsmt_QualNo_Basement                                 -1.193e-02  8.084e-02
+Bsmt_QualPoor                                         3.346e-02  3.765e-02
+Bsmt_QualTypical                                     -8.089e-03  5.500e-03
+Bsmt_CondFair                                        -6.540e-04  2.726e-02
+Bsmt_CondGood                                         9.054e-03  2.705e-02
+Bsmt_CondNo_Basement                                         NA         NA
+Bsmt_CondPoor                                         2.577e-02  3.704e-02
+Bsmt_CondTypical                                      2.038e-03  2.676e-02
+Bsmt_ExposureGd                                       1.450e-02  3.932e-03
+Bsmt_ExposureMn                                      -8.294e-03  3.948e-03
+Bsmt_ExposureNo                                      -6.967e-03  2.973e-03
+Bsmt_ExposureNo_Basement                             -1.119e-02  2.562e-02
+BsmtFin_Type_1BLQ                                    -1.396e-02  1.393e-02
+BsmtFin_Type_1GLQ                                    -1.825e-02  2.713e-02
+BsmtFin_Type_1LwQ                                    -4.524e-02  4.062e-02
+BsmtFin_Type_1No_Basement                                    NA         NA
+BsmtFin_Type_1Rec                                    -6.431e-02  6.748e-02
+BsmtFin_Type_1Unf                                    -7.015e-02  8.093e-02
+BsmtFin_SF_1                                          1.078e-02  1.348e-02
+BsmtFin_Type_2BLQ                                    -1.577e-02  8.694e-03
+BsmtFin_Type_2GLQ                                     1.574e-02  1.059e-02
+BsmtFin_Type_2LwQ                                    -6.788e-03  8.489e-03
+BsmtFin_Type_2No_Basement                            -3.417e-02  4.536e-02
+BsmtFin_Type_2Rec                                    -1.145e-02  8.090e-03
+BsmtFin_Type_2Unf                                    -1.709e-03  8.308e-03
+BsmtFin_SF_2                                         -6.590e-06  9.733e-06
+Bsmt_Unf_SF                                          -2.659e-05  3.976e-06
+Total_Bsmt_SF                                         5.936e-05  6.338e-06
+HeatingGasA                                           5.886e-02  4.677e-02
+HeatingGasW                                           7.660e-02  4.773e-02
+HeatingGrav                                           9.950e-03  5.010e-02
+HeatingOthW                                           3.145e-02  5.739e-02
+HeatingWall                                           5.747e-02  5.227e-02
+Heating_QCFair                                       -8.206e-03  5.965e-03
+Heating_QCGood                                       -3.752e-03  2.717e-03
+Heating_QCPoor                                       -9.271e-02  3.254e-02
+Heating_QCTypical                                    -1.220e-02  2.672e-03
+Central_AirY                                          1.571e-02  4.754e-03
+ElectricalFuseF                                      -2.161e-03  7.877e-03
+ElectricalFuseP                                      -2.961e-03  1.793e-02
+ElectricalMix                                         8.145e-02  6.306e-02
+ElectricalSBrkr                                      -3.277e-03  3.865e-03
+ElectricalUnknown                                     1.601e-02  4.477e-02
+First_Flr_SF                                          1.185e-04  6.657e-06
+Second_Flr_SF                                         1.165e-04  7.408e-06
+Low_Qual_Fin_SF                                       1.043e-04  2.213e-05
+Gr_Liv_Area                                                  NA         NA
+Bsmt_Full_Bath                                        8.582e-03  2.523e-03
+Bsmt_Half_Bath                                        2.022e-03  3.860e-03
+Full_Bath                                             1.236e-02  2.832e-03
+Half_Bath                                             9.127e-03  2.695e-03
+Bedroom_AbvGr                                        -4.051e-03  1.796e-03
+Kitchen_AbvGr                                        -7.795e-03  8.331e-03
+Kitchen_QualFair                                     -2.431e-02  8.263e-03
+Kitchen_QualGood                                     -1.740e-02  4.962e-03
+Kitchen_QualPoor                                      8.633e-02  4.766e-02
+Kitchen_QualTypical                                  -2.219e-02  5.457e-03
+TotRms_AbvGrd                                         8.576e-04  1.205e-03
+FunctionalMaj2                                       -5.596e-02  2.047e-02
+FunctionalMin1                                        2.814e-02  1.307e-02
+FunctionalMin2                                        1.948e-02  1.319e-02
+FunctionalMod                                         7.260e-03  1.444e-02
+FunctionalSal                                        -3.365e-01  4.888e-02
+FunctionalSev                                        -1.293e-01  3.695e-02
+FunctionalTyp                                         3.827e-02  1.182e-02
+Fireplaces                                            6.677e-03  3.339e-03
+Fireplace_QuFair                                      1.108e-03  9.323e-03
+Fireplace_QuGood                                      4.744e-03  7.470e-03
+Fireplace_QuNo_Fireplace                              4.802e-04  8.473e-03
+Fireplace_QuPoor                                      4.797e-03  1.030e-02
+Fireplace_QuTypical                                   4.357e-03  7.690e-03
+Garage_TypeBasment                                   -4.445e-03  8.885e-03
+Garage_TypeBuiltIn                                   -1.462e-03  4.332e-03
+Garage_TypeCarPort                                   -2.151e-02  1.273e-02
+Garage_TypeDetchd                                    -3.710e-03  3.084e-03
+Garage_TypeMore_Than_Two_Types                       -1.797e-02  1.036e-02
+Garage_TypeNo_Garage                                 -2.989e-02  3.697e-02
+Garage_FinishNo_Garage                               -2.089e-02  4.649e-02
+Garage_FinishRFn                                     -1.859e-04  2.604e-03
+Garage_FinishUnf                                      2.377e-03  3.117e-03
+Garage_Cars                                           1.207e-02  2.998e-03
+Garage_Area                                           2.170e-05  1.005e-05
+Garage_QualFair                                      -1.179e-01  3.961e-02
+Garage_QualGood                                      -9.257e-02  3.921e-02
+Garage_QualNo_Garage                                         NA         NA
+Garage_QualPoor                                      -1.550e-01  4.869e-02
+Garage_QualTypical                                   -1.084e-01  3.926e-02
+Garage_CondFair                                       5.137e-02  3.782e-02
+Garage_CondGood                                       6.099e-02  3.882e-02
+Garage_CondNo_Garage                                         NA         NA
+Garage_CondPoor                                       7.456e-02  4.064e-02
+Garage_CondTypical                                    6.499e-02  3.724e-02
+Paved_DrivePartial_Pavement                          -2.745e-03  6.945e-03
+Paved_DrivePaved                                      6.492e-03  4.402e-03
+Wood_Deck_SF                                          2.687e-05  7.686e-06
+Open_Porch_SF                                         3.163e-05  1.470e-05
+Enclosed_Porch                                        5.750e-05  1.556e-05
+Three_season_porch                                    4.048e-05  3.463e-05
+Screen_Porch                                          1.092e-04  1.609e-05
+Pool_Area                                            -3.353e-04  1.406e-04
+Pool_QCFair                                           1.656e-01  7.426e-02
+Pool_QCGood                                           2.106e-01  7.050e-02
+Pool_QCNo_Pool                                       -8.469e-02  4.811e-02
+Pool_QCTypical                                        7.993e-02  4.604e-02
+FenceGood_Wood                                       -4.727e-03  6.256e-03
+FenceMinimum_Privacy                                  1.851e-04  5.089e-03
+FenceMinimum_Wood_Wire                               -2.963e-03  1.383e-02
+FenceNo_Fence                                         6.973e-04  4.582e-03
+Misc_FeatureNone                                     -1.050e-03  3.796e-02
+Misc_FeatureOthr                                     -1.896e-02  3.796e-02
+Misc_FeatureShed                                     -5.064e-03  3.610e-02
+Misc_FeatureTenC                                     -1.486e-01  7.441e-02
+Misc_Val                                              2.306e-06  3.459e-06
+Mo_Sold                                              -3.693e-05  3.207e-04
+Year_Sold                                            -6.984e-04  6.815e-04
+Sale_TypeCon                                          5.722e-02  2.109e-02
+Sale_TypeConLD                                        2.002e-02  1.109e-02
+Sale_TypeConLI                                       -1.668e-02  1.609e-02
+Sale_TypeConLw                                        4.295e-02  1.745e-02
+Sale_TypeCWD                                          1.353e-02  1.410e-02
+Sale_TypeNew                                          2.614e-02  2.019e-02
+Sale_TypeOth                                          1.668e-02  1.774e-02
+Sale_TypeVWD                                          6.536e-03  4.548e-02
+Sale_TypeWD                                           5.651e-03  5.465e-03
+Sale_ConditionAdjLand                                 8.084e-02  1.510e-02
+Sale_ConditionAlloca                                  3.197e-02  1.130e-02
+Sale_ConditionFamily                                  1.239e-02  7.617e-03
+Sale_ConditionNormal                                  3.335e-02  3.890e-03
+Sale_ConditionPartial                                 2.598e-02  1.944e-02
+Longitude                                            -2.033e-01  1.866e-01
+Latitude                                              3.964e-02  2.742e-01
+Time_Since_Remodel                                   -3.044e-04  7.270e-05
+House_Age                                            -9.564e-04  1.105e-04
+                                                     t value Pr(&gt;|t|)    
+(Intercept)                                           -0.777 0.437103    
+MS_SubClassOne_Story_1945_and_Older                   -3.291 0.001013 ** 
+MS_SubClassOne_Story_with_Finished_Attic_All_Ages      0.435 0.663688    
+MS_SubClassOne_and_Half_Story_Unfinished_All_Ages      0.549 0.582840    
+MS_SubClassOne_and_Half_Story_Finished_All_Ages        1.511 0.130830    
+MS_SubClassTwo_Story_1946_and_Newer                   -1.429 0.153266    
+MS_SubClassTwo_Story_1945_and_Older                    1.498 0.134313    
+MS_SubClassTwo_and_Half_Story_All_Ages                 1.503 0.133001    
+MS_SubClassSplit_or_Multilevel                        -2.100 0.035822 *  
+MS_SubClassSplit_Foyer                                -0.611 0.541507    
+MS_SubClassDuplex_All_Styles_and_Ages                 -4.022 5.94e-05 ***
+MS_SubClassOne_Story_PUD_1946_and_Newer               -1.121 0.262599    
+MS_SubClassOne_and_Half_Story_PUD_All_Ages            -1.789 0.073799 .  
+MS_SubClassTwo_Story_PUD_1946_and_Newer               -2.648 0.008155 ** 
+MS_SubClassPUD_Multilevel_Split_Level_Foyer           -2.066 0.038971 *  
+MS_SubClassTwo_Family_conversion_All_Styles_and_Ages   0.058 0.954092    
+MS_ZoningResidential_High_Density                      0.143 0.886670    
+MS_ZoningResidential_Low_Density                      -0.185 0.853438    
+MS_ZoningResidential_Medium_Density                   -2.354 0.018660 *  
+MS_ZoningA_agr                                        -1.027 0.304621    
+MS_ZoningC_all                                        -5.745 1.02e-08 ***
+MS_ZoningI_all                                        -0.657 0.511057    
+Lot_Frontage                                           0.745 0.456299    
+Lot_Area                                               7.388 1.99e-13 ***
+StreetPave                                             3.244 0.001193 ** 
+AlleyNo_Alley_Access                                  -2.038 0.041696 *  
+AlleyPaved                                            -0.399 0.689885    
+Lot_ShapeSlightly_Irregular                           -0.600 0.548810    
+Lot_ShapeModerately_Irregular                          0.674 0.500238    
+Lot_ShapeIrregular                                    -0.275 0.783336    
+Land_ContourHLS                                        0.797 0.425407    
+Land_ContourLow                                       -0.567 0.570707    
+Land_ContourLvl                                        0.997 0.318875    
+UtilitiesNoSeWa                                       -1.521 0.128312    
+UtilitiesNoSewr                                        0.752 0.451971    
+Lot_ConfigCulDSac                                      0.692 0.488842    
+Lot_ConfigFR2                                         -2.032 0.042281 *  
+Lot_ConfigFR3                                         -0.705 0.480889    
+Lot_ConfigInside                                      -1.415 0.157208    
+Land_SlopeMod                                          0.716 0.473927    
+Land_SlopeSev                                         -2.567 0.010313 *  
+NeighborhoodCollege_Creek                             -0.782 0.434100    
+NeighborhoodOld_Town                                  -0.913 0.361544    
+NeighborhoodEdwards                                   -1.841 0.065695 .  
+NeighborhoodSomerset                                   2.308 0.021092 *  
+NeighborhoodNorthridge_Heights                         2.218 0.026657 *  
+NeighborhoodGilbert                                   -0.475 0.634761    
+NeighborhoodSawyer                                    -0.128 0.898313    
+NeighborhoodNorthwest_Ames                            -1.129 0.259150    
+NeighborhoodSawyer_West                               -1.310 0.190246    
+NeighborhoodMitchell                                   0.126 0.899402    
+NeighborhoodBrookside                                  2.847 0.004453 ** 
+NeighborhoodCrawford                                   4.348 1.43e-05 ***
+NeighborhoodIowa_DOT_and_Rail_Road                     0.831 0.405867    
+NeighborhoodTimberland                                 0.304 0.760825    
+NeighborhoodNorthridge                                 1.562 0.118373    
+NeighborhoodStone_Brook                                4.295 1.81e-05 ***
+NeighborhoodSouth_and_West_of_Iowa_State_University    0.122 0.902910    
+NeighborhoodClear_Creek                                0.939 0.347962    
+NeighborhoodMeadow_Village                            -1.559 0.119038    
+NeighborhoodBriardale                                  0.831 0.406008    
+NeighborhoodBloomington_Heights                       -0.063 0.949889    
+NeighborhoodVeenker                                   -0.132 0.894813    
+NeighborhoodNorthpark_Villa                            1.286 0.198570    
+NeighborhoodBlueste                                    1.597 0.110335    
+NeighborhoodGreens                                     2.320 0.020433 *  
+NeighborhoodGreen_Hills                                6.306 3.35e-10 ***
+NeighborhoodLandmark                                  -0.192 0.847604    
+Condition_1Feedr                                       0.846 0.397611    
+Condition_1Norm                                        5.123 3.22e-07 ***
+Condition_1PosA                                        2.327 0.020033 *  
+Condition_1PosN                                        3.411 0.000656 ***
+Condition_1RRAe                                       -0.131 0.895824    
+Condition_1RRAn                                        1.110 0.267054    
+Condition_1RRNe                                        0.524 0.600497    
+Condition_1RRNn                                        0.842 0.400053    
+Condition_2Feedr                                      -0.385 0.699974    
+Condition_2Norm                                        0.359 0.719637    
+Condition_2PosA                                        1.538 0.124178    
+Condition_2PosN                                       -0.567 0.570503    
+Condition_2RRAe                                       -1.205 0.228188    
+Condition_2RRAn                                       -0.294 0.768835    
+Condition_2RRNn                                        0.251 0.802002    
+Bldg_TypeTwoFmCon                                     -0.352 0.724623    
+Bldg_TypeDuplex                                           NA       NA    
+Bldg_TypeTwnhs                                        -1.053 0.292295    
+Bldg_TypeTwnhsE                                       -0.119 0.905403    
+House_StyleOne_and_Half_Unf                            0.327 0.743493    
+House_StyleOne_Story                                   1.368 0.171388    
+House_StyleSFoyer                                      1.891 0.058713 .  
+House_StyleSLvl                                        2.529 0.011491 *  
+House_StyleTwo_and_Half_Fin                           -1.593 0.111292    
+House_StyleTwo_and_Half_Unf                            0.280 0.779393    
+House_StyleTwo_Story                                   1.568 0.117034    
+Overall_QualPoor                                       0.090 0.928380    
+Overall_QualFair                                       3.276 0.001068 ** 
+Overall_QualBelow_Average                              3.832 0.000130 ***
+Overall_QualAverage                                    4.498 7.14e-06 ***
+Overall_QualAbove_Average                              4.829 1.45e-06 ***
+Overall_QualGood                                       5.132 3.08e-07 ***
+Overall_QualVery_Good                                  5.718 1.20e-08 ***
+Overall_QualExcellent                                  6.430 1.51e-10 ***
+Overall_QualVery_Excellent                             6.298 3.53e-10 ***
+Overall_CondPoor                                      -2.943 0.003278 ** 
+Overall_CondFair                                      -2.739 0.006207 ** 
+Overall_CondBelow_Average                             -0.940 0.347480    
+Overall_CondAverage                                   -0.015 0.988258    
+Overall_CondAbove_Average                              0.498 0.618397    
+Overall_CondGood                                       1.261 0.207398    
+Overall_CondVery_Good                                  1.480 0.139117    
+Overall_CondExcellent                                  2.015 0.044055 *  
+Roof_StyleGable                                        1.172 0.241388    
+Roof_StyleGambrel                                      0.218 0.827121    
+Roof_StyleHip                                          1.010 0.312356    
+Roof_StyleMansard                                      0.076 0.939659    
+Roof_StyleShed                                         1.705 0.088358 .  
+Roof_MatlMembran                                       2.484 0.013046 *  
+Roof_MatlMetal                                         1.633 0.102570    
+Roof_MatlRoll                                          0.730 0.465368    
+Roof_MatlTar&amp;Grv                                       1.227 0.219776    
+Roof_MatlWdShake                                      -0.043 0.965411    
+Roof_MatlWdShngl                                       0.989 0.322777    
+Exterior_1stAsphShn                                   -0.108 0.914080    
+Exterior_1stBrkComm                                    1.581 0.114032    
+Exterior_1stBrkFace                                    3.930 8.72e-05 ***
+Exterior_1stCBlock                                     1.843 0.065469 .  
+Exterior_1stCemntBd                                   -0.530 0.596323    
+Exterior_1stHdBoard                                    1.398 0.162235    
+Exterior_1stImStucc                                    0.455 0.649236    
+Exterior_1stMetalSd                                    2.253 0.024360 *  
+Exterior_1stPlywood                                    1.904 0.057007 .  
+Exterior_1stPreCast                                    4.708 2.63e-06 ***
+Exterior_1stStone                                      0.428 0.668412    
+Exterior_1stStucco                                     2.104 0.035501 *  
+Exterior_1stVinylSd                                    1.236 0.216472    
+Exterior_1stWd Sdng                                    1.468 0.142154    
+Exterior_1stWdShing                                    1.758 0.078782 .  
+Exterior_2ndAsphShn                                    0.742 0.458058    
+Exterior_2ndBrk Cmn                                   -0.493 0.621794    
+Exterior_2ndBrkFace                                   -0.997 0.319020    
+Exterior_2ndCBlock                                    -0.605 0.545428    
+Exterior_2ndCmentBd                                    1.772 0.076556 .  
+Exterior_2ndHdBoard                                    0.099 0.920983    
+Exterior_2ndImStucc                                   -0.522 0.601679    
+Exterior_2ndMetalSd                                   -0.510 0.609874    
+Exterior_2ndOther                                     -0.579 0.562890    
+Exterior_2ndPlywood                                   -0.289 0.772749    
+Exterior_2ndPreCast                                       NA       NA    
+Exterior_2ndStone                                     -0.592 0.553993    
+Exterior_2ndStucco                                     0.338 0.735739    
+Exterior_2ndVinylSd                                    0.361 0.718388    
+Exterior_2ndWd Sdng                                    0.274 0.784398    
+Exterior_2ndWd Shng                                   -0.126 0.899772    
+Mas_Vnr_TypeBrkFace                                    1.040 0.298661    
+Mas_Vnr_TypeCBlock                                    -2.954 0.003169 ** 
+Mas_Vnr_TypeNone                                       1.145 0.252373    
+Mas_Vnr_TypeStone                                      2.018 0.043745 *  
+Mas_Vnr_Area                                           1.587 0.112638    
+Exter_QualFair                                         0.854 0.393003    
+Exter_QualGood                                        -1.191 0.233646    
+Exter_QualTypical                                     -1.773 0.076406 .  
+Exter_CondFair                                        -1.204 0.228628    
+Exter_CondGood                                        -0.138 0.890571    
+Exter_CondPoor                                        -0.859 0.390675    
+Exter_CondTypical                                      0.216 0.828689    
+FoundationCBlock                                       0.916 0.359837    
+FoundationPConc                                        1.982 0.047637 *  
+FoundationSlab                                        -0.946 0.344453    
+FoundationStone                                        2.033 0.042119 *  
+FoundationWood                                        -1.060 0.289443    
+Bsmt_QualFair                                         -2.222 0.026341 *  
+Bsmt_QualGood                                         -2.043 0.041110 *  
+Bsmt_QualNo_Basement                                  -0.148 0.882661    
+Bsmt_QualPoor                                          0.889 0.374237    
+Bsmt_QualTypical                                      -1.471 0.141501    
+Bsmt_CondFair                                         -0.024 0.980862    
+Bsmt_CondGood                                          0.335 0.737893    
+Bsmt_CondNo_Basement                                      NA       NA    
+Bsmt_CondPoor                                          0.696 0.486634    
+Bsmt_CondTypical                                       0.076 0.939285    
+Bsmt_ExposureGd                                        3.688 0.000231 ***
+Bsmt_ExposureMn                                       -2.101 0.035758 *  
+Bsmt_ExposureNo                                       -2.343 0.019206 *  
+Bsmt_ExposureNo_Basement                              -0.437 0.662315    
+BsmtFin_Type_1BLQ                                     -1.002 0.316342    
+BsmtFin_Type_1GLQ                                     -0.673 0.501091    
+BsmtFin_Type_1LwQ                                     -1.114 0.265499    
+BsmtFin_Type_1No_Basement                                 NA       NA    
+BsmtFin_Type_1Rec                                     -0.953 0.340738    
+BsmtFin_Type_1Unf                                     -0.867 0.386164    
+BsmtFin_SF_1                                           0.800 0.423742    
+BsmtFin_Type_2BLQ                                     -1.813 0.069880 .  
+BsmtFin_Type_2GLQ                                      1.486 0.137463    
+BsmtFin_Type_2LwQ                                     -0.800 0.424039    
+BsmtFin_Type_2No_Basement                             -0.753 0.451352    
+BsmtFin_Type_2Rec                                     -1.415 0.157081    
+BsmtFin_Type_2Unf                                     -0.206 0.837056    
+BsmtFin_SF_2                                          -0.677 0.498397    
+Bsmt_Unf_SF                                           -6.688 2.75e-11 ***
+Total_Bsmt_SF                                          9.367  &lt; 2e-16 ***
+HeatingGasA                                            1.259 0.208297    
+HeatingGasW                                            1.605 0.108624    
+HeatingGrav                                            0.199 0.842577    
+HeatingOthW                                            0.548 0.583724    
+HeatingWall                                            1.100 0.271613    
+Heating_QCFair                                        -1.376 0.169074    
+Heating_QCGood                                        -1.381 0.167337    
+Heating_QCPoor                                        -2.849 0.004414 ** 
+Heating_QCTypical                                     -4.565 5.23e-06 ***
+Central_AirY                                           3.304 0.000967 ***
+ElectricalFuseF                                       -0.274 0.783879    
+ElectricalFuseP                                       -0.165 0.868874    
+ElectricalMix                                          1.292 0.196600    
+ElectricalSBrkr                                       -0.848 0.396653    
+ElectricalUnknown                                      0.358 0.720623    
+First_Flr_SF                                          17.794  &lt; 2e-16 ***
+Second_Flr_SF                                         15.724  &lt; 2e-16 ***
+Low_Qual_Fin_SF                                        4.712 2.58e-06 ***
+Gr_Liv_Area                                               NA       NA    
+Bsmt_Full_Bath                                         3.402 0.000679 ***
+Bsmt_Half_Bath                                         0.524 0.600548    
+Full_Bath                                              4.365 1.32e-05 ***
+Half_Bath                                              3.387 0.000717 ***
+Bedroom_AbvGr                                         -2.255 0.024198 *  
+Kitchen_AbvGr                                         -0.936 0.349553    
+Kitchen_QualFair                                      -2.942 0.003284 ** 
+Kitchen_QualGood                                      -3.508 0.000459 ***
+Kitchen_QualPoor                                       1.811 0.070212 .  
+Kitchen_QualTypical                                   -4.067 4.90e-05 ***
+TotRms_AbvGrd                                          0.712 0.476736    
+FunctionalMaj2                                        -2.734 0.006293 ** 
+FunctionalMin1                                         2.153 0.031396 *  
+FunctionalMin2                                         1.477 0.139915    
+FunctionalMod                                          0.503 0.615109    
+FunctionalSal                                         -6.884 7.24e-12 ***
+FunctionalSev                                         -3.499 0.000475 ***
+FunctionalTyp                                          3.236 0.001227 ** 
+Fireplaces                                             1.999 0.045659 *  
+Fireplace_QuFair                                       0.119 0.905376    
+Fireplace_QuGood                                       0.635 0.525467    
+Fireplace_QuNo_Fireplace                               0.057 0.954809    
+Fireplace_QuPoor                                       0.466 0.641365    
+Fireplace_QuTypical                                    0.567 0.571075    
+Garage_TypeBasment                                    -0.500 0.616887    
+Garage_TypeBuiltIn                                    -0.338 0.735762    
+Garage_TypeCarPort                                    -1.689 0.091333 .  
+Garage_TypeDetchd                                     -1.203 0.229068    
+Garage_TypeMore_Than_Two_Types                        -1.734 0.083012 .  
+Garage_TypeNo_Garage                                  -0.808 0.418941    
+Garage_FinishNo_Garage                                -0.449 0.653256    
+Garage_FinishRFn                                      -0.071 0.943078    
+Garage_FinishUnf                                       0.763 0.445821    
+Garage_Cars                                            4.026 5.82e-05 ***
+Garage_Area                                            2.160 0.030871 *  
+Garage_QualFair                                       -2.975 0.002953 ** 
+Garage_QualGood                                       -2.361 0.018321 *  
+Garage_QualNo_Garage                                      NA       NA    
+Garage_QualPoor                                       -3.184 0.001468 ** 
+Garage_QualTypical                                    -2.760 0.005815 ** 
+Garage_CondFair                                        1.358 0.174552    
+Garage_CondGood                                        1.571 0.116267    
+Garage_CondNo_Garage                                      NA       NA    
+Garage_CondPoor                                        1.834 0.066708 .  
+Garage_CondTypical                                     1.745 0.081122 .  
+Paved_DrivePartial_Pavement                           -0.395 0.692623    
+Paved_DrivePaved                                       1.475 0.140403    
+Wood_Deck_SF                                           3.496 0.000480 ***
+Open_Porch_SF                                          2.151 0.031555 *  
+Enclosed_Porch                                         3.695 0.000224 ***
+Three_season_porch                                     1.169 0.242474    
+Screen_Porch                                           6.788 1.40e-11 ***
+Pool_Area                                             -2.385 0.017170 *  
+Pool_QCFair                                            2.230 0.025840 *  
+Pool_QCGood                                            2.987 0.002847 ** 
+Pool_QCNo_Pool                                        -1.760 0.078451 .  
+Pool_QCTypical                                         1.736 0.082638 .  
+FenceGood_Wood                                        -0.756 0.449909    
+FenceMinimum_Privacy                                   0.036 0.970997    
+FenceMinimum_Wood_Wire                                -0.214 0.830362    
+FenceNo_Fence                                          0.152 0.879053    
+Misc_FeatureNone                                      -0.028 0.977942    
+Misc_FeatureOthr                                      -0.499 0.617480    
+Misc_FeatureShed                                      -0.140 0.888464    
+Misc_FeatureTenC                                      -1.997 0.045968 *  
+Misc_Val                                               0.667 0.505061    
+Mo_Sold                                               -0.115 0.908325    
+Year_Sold                                             -1.025 0.305554    
+Sale_TypeCon                                           2.712 0.006723 ** 
+Sale_TypeConLD                                         1.806 0.071046 .  
+Sale_TypeConLI                                        -1.037 0.300059    
+Sale_TypeConLw                                         2.461 0.013920 *  
+Sale_TypeCWD                                           0.960 0.337372    
+Sale_TypeNew                                           1.295 0.195431    
+Sale_TypeOth                                           0.941 0.347010    
+Sale_TypeVWD                                           0.144 0.885737    
+Sale_TypeWD                                            1.034 0.301192    
+Sale_ConditionAdjLand                                  5.355 9.31e-08 ***
+Sale_ConditionAlloca                                   2.830 0.004689 ** 
+Sale_ConditionFamily                                   1.627 0.103818    
+Sale_ConditionNormal                                   8.574  &lt; 2e-16 ***
+Sale_ConditionPartial                                  1.337 0.181496    
+Longitude                                             -1.089 0.276078    
+Latitude                                               0.145 0.885055    
+Time_Since_Remodel                                    -4.187 2.92e-05 ***
+House_Age                                             -8.658  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+Residual standard error: 0.0435 on 2627 degrees of freedom
+Multiple R-squared:  0.9453,    Adjusted R-squared:  0.9391 
+F-statistic: 152.9 on 297 and 2627 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p><strong>Note</strong> explain a linear model here?</p>
+</section><section id="a-more-powerful-and-flexible-set-of-tools-for-predictive-modeling---tidymodels" class="level3"><h3 data-anchor-id="a-more-powerful-and-flexible-set-of-tools-for-predictive-modeling---tidymodels">A more powerful and flexible set of tools for predictive modeling - tidymodels</h3>
+<p>When you type library(tidymodels), you load a collection of packages for modeling and machine learning using tidyverse principles. All the packages are designed to be consistent, modular, and to support good modeling practices. The first thing we are going to practice is splitting your data into a training set and a testing set. The tidymodels package <code>rsample</code> has functions that help you specify training and testing sets.</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span> <span class="co">#so we all get the same results</span></span>
+<span><span class="va">ames_split</span> <span class="op">&lt;-</span> <span class="va">ames_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html">initial_split</a></span><span class="op">(</span>prop <span class="op">=</span> <span class="fl">0.8</span>,</span>
+<span>                  strata <span class="op">=</span> <span class="va">Sale_Price</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ames_train</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html">training</a></span><span class="op">(</span><span class="va">ames_split</span><span class="op">)</span></span>
+<span><span class="va">ames_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html">testing</a></span><span class="op">(</span><span class="va">ames_split</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">ames_train</span>, <span class="st">"../_models/ames_train.Rds"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">ames_test</span>, <span class="st">"../_models/ames_test.Rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The code here takes an input data set and puts 80% of it into a training dataset and 20% of it into a testing dataset; it chooses the individual cases so that both sets are balanced in selling price.</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ames_train</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Sale_Price</span><span class="op">)</span>,  col <span class="op">=</span> <span class="st">"red"</span>, fill <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ames_test</span>,</span>
+<span>            stat <span class="op">=</span> <span class="st">"density"</span>,</span>
+<span>            col <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position<span class="op">=</span><span class="st">"none"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="step2_files/figure-html/distr test and train-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section><section id="feature-engineering" class="level2"><h2 data-anchor-id="feature-engineering">Feature engineering</h2>
+<p>In tidymodels, you can preprocess your data using the <em>recipes</em> package. Typical preprocessing steps include:</p>
+<ul>
+<li>Scaling and centering numeric predictors;</li>
+<li>Removing skewness from numeric variables;</li>
+<li>One-hot and dummy variable encoding for categorical variables;</li>
+<li>Removing correlated predictors and zero variance variables;</li>
+<li>Imputing missing data.</li>
+</ul>
+<p>Each successive step() function adds a preprocessing step to our recipe object in the order that they are provided:</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ames_rec</span> <span class="op">&lt;-</span></span>
+<span>  <span class="fu">recipe</span><span class="op">(</span><span class="va">Sale_Price</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">ames_train</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">step_other</span><span class="op">(</span><span class="fu">all_nominal</span><span class="op">(</span><span class="op">)</span>, threshold <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co">#useful when you have some factor levels with very few observations, all_nominal selects both characters and factors, pools infrequently occurring values (frequency less than 0.01) into an "other" category</span></span>
+<span>  <span class="fu">step_nzv</span><span class="op">(</span><span class="fu">all_nominal</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co">#remove variables that are highly sparse and unbalanced</span></span>
+<span>  <span class="fu">step_center</span><span class="op">(</span><span class="fu">all_numeric</span><span class="op">(</span><span class="op">)</span>, <span class="op">-</span><span class="fu">all_outcomes</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co">#subtracts the column mean from a variable</span></span>
+<span>  <span class="fu">step_scale</span><span class="op">(</span><span class="fu">all_numeric</span><span class="op">(</span><span class="op">)</span>, <span class="op">-</span><span class="fu">all_outcomes</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co">#divides by the standard deviation</span></span>
+<span>  <span class="fu">step_dummy</span><span class="op">(</span><span class="fu">all_nominal</span><span class="op">(</span><span class="op">)</span>, <span class="op">-</span><span class="fu">all_outcomes</span><span class="op">(</span><span class="op">)</span>, one_hot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co">#create dummy variables for all nominal variables except the outcome variable </span></span>
+<span></span>
+<span><span class="va">ames_rec</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Recipe
+Inputs:
+      role #variables
+   outcome          1
+ predictor         80
+Operations:
+Collapsing factor levels for all_nominal()
+Sparse, unbalanced variable filter on all_nominal()
+Centering for all_numeric(), -all_outcomes()
+Scaling for all_numeric(), -all_outcomes()
+Dummy variables from all_nominal(), -all_outcomes()</code></pre>
+</div>
+</div>
+<p>The preprocessing recipe <code>ames_rec</code> has been defined but no values have been estimated.</p>
+<ul>
+<li>The <code>prep()</code> function takes that defined object and computes everything so that the preprocessing steps can be executed. Note that This is done with the training data.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ames_prep</span> <span class="op">&lt;-</span> <span class="fu">prep</span><span class="op">(</span><span class="va">ames_rec</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ames_prep</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Recipe
+Inputs:
+      role #variables
+   outcome          1
+ predictor         80
+Training data contained 2339 data points and no missing data.
+Operations:
+Collapsing factor levels for MS_SubClass, MS_Zoning, Street, Lot_Shape, Util... [trained]
+Sparse, unbalanced variable filter removed Street, Alley, Land_Contour, Utilities,... [trained]
+Centering for Lot_Frontage, Lot_Area, Mas_Vnr_Area, BsmtFin_S... [trained]
+Scaling for Lot_Frontage, Lot_Area, Mas_Vnr_Area, BsmtFin_S... [trained]
+Dummy variables from MS_SubClass, MS_Zoning, Lot_Shape, Lot_Config, Neighborho... [trained]</code></pre>
+</div>
+</div>
+<p>The <code>bake() and juice() functions both return data, not a preprocessing recipe object.  - The</code>bake()<code>function takes a prepped recipe (one that has had all quantities estimated from training data) and applies it to</code>new_data`. That new_data could be the training data again or it could be the testing data (with the TRAINING parameters)</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ames_test_proc</span> <span class="op">&lt;-</span> <span class="fu">bake</span><span class="op">(</span><span class="va">ames_prep</span>, new_data <span class="op">=</span> <span class="va">ames_test</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>The <code>juice()</code> function is a nice little shortcut. When we <code>juice()</code> the recipe, we squeeze that training data back out, transformed in the ways we specified. Let’s compare the <code>bake()</code> and <code>juice()</code> outputs:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">bake</span><span class="op">(</span><span class="va">ames_prep</span>, new_data <span class="op">=</span> <span class="va">ames_train</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2,339 × 231
+   Lot_Frontage Lot_Area Mas_V…¹ BsmtF…² BsmtF…³ Bsmt_…⁴ Total…⁵ First…⁶ Secon…⁷
+          &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+ 1       0.374   -0.212   -0.569  -1.42    0.162  -1.27  -0.388   -0.726  -0.786
+ 2       0.374    0.0383  -0.569  -1.42   -0.298  -0.288 -0.430   -0.774  -0.786
+ 3      -0.137   -0.733   -0.569  -1.42   -0.298   0.341  0.0550  -0.231  -0.786
+ 4      -1.01    -0.943   -0.569   1.27   -0.298   0.630 -0.497   -0.848  -0.786
+ 5      -0.0770  -0.273   -0.569   1.27   -0.298   0.816 -0.303   -0.631  -0.786
+ 6      -0.227   -0.359   -0.569  -1.42    0.416  -1.27  -0.714   -1.07   -0.786
+ 7       0.374   -0.0453  -0.569   1.27   -0.298   0.584 -0.544   -0.382  -0.786
+ 8       0.314   -0.149   -0.569   0.372  -0.298  -1.27  -2.48     0.427   0.579
+ 9      -1.73    -0.0430  -0.391  -0.970  -0.298  -0.288 -0.388   -0.678  -0.786
+10      -1.73    -0.392   -0.569  -1.42   -0.298  -0.404 -0.0137  -0.308  -0.786
+# … with 2,329 more rows, 222 more variables: Low_Qual_Fin_SF &lt;dbl&gt;,
+#   Gr_Liv_Area &lt;dbl&gt;, Bsmt_Full_Bath &lt;dbl&gt;, Bsmt_Half_Bath &lt;dbl&gt;,
+#   Full_Bath &lt;dbl&gt;, Half_Bath &lt;dbl&gt;, Bedroom_AbvGr &lt;dbl&gt;, Kitchen_AbvGr &lt;dbl&gt;,
+#   TotRms_AbvGrd &lt;dbl&gt;, Fireplaces &lt;dbl&gt;, Garage_Cars &lt;dbl&gt;,
+#   Garage_Area &lt;dbl&gt;, Wood_Deck_SF &lt;dbl&gt;, Open_Porch_SF &lt;dbl&gt;,
+#   Enclosed_Porch &lt;dbl&gt;, Three_season_porch &lt;dbl&gt;, Screen_Porch &lt;dbl&gt;,
+#   Pool_Area &lt;dbl&gt;, Misc_Val &lt;dbl&gt;, Mo_Sold &lt;dbl&gt;, Year_Sold &lt;dbl&gt;, …</code></pre>
+</div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">juice</span><span class="op">(</span><span class="va">ames_prep</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2,339 × 231
+   Lot_Frontage Lot_Area Mas_V…¹ BsmtF…² BsmtF…³ Bsmt_…⁴ Total…⁵ First…⁶ Secon…⁷
+          &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+ 1       0.374   -0.212   -0.569  -1.42    0.162  -1.27  -0.388   -0.726  -0.786
+ 2       0.374    0.0383  -0.569  -1.42   -0.298  -0.288 -0.430   -0.774  -0.786
+ 3      -0.137   -0.733   -0.569  -1.42   -0.298   0.341  0.0550  -0.231  -0.786
+ 4      -1.01    -0.943   -0.569   1.27   -0.298   0.630 -0.497   -0.848  -0.786
+ 5      -0.0770  -0.273   -0.569   1.27   -0.298   0.816 -0.303   -0.631  -0.786
+ 6      -0.227   -0.359   -0.569  -1.42    0.416  -1.27  -0.714   -1.07   -0.786
+ 7       0.374   -0.0453  -0.569   1.27   -0.298   0.584 -0.544   -0.382  -0.786
+ 8       0.314   -0.149   -0.569   0.372  -0.298  -1.27  -2.48     0.427   0.579
+ 9      -1.73    -0.0430  -0.391  -0.970  -0.298  -0.288 -0.388   -0.678  -0.786
+10      -1.73    -0.392   -0.569  -1.42   -0.298  -0.404 -0.0137  -0.308  -0.786
+# … with 2,329 more rows, 222 more variables: Low_Qual_Fin_SF &lt;dbl&gt;,
+#   Gr_Liv_Area &lt;dbl&gt;, Bsmt_Full_Bath &lt;dbl&gt;, Bsmt_Half_Bath &lt;dbl&gt;,
+#   Full_Bath &lt;dbl&gt;, Half_Bath &lt;dbl&gt;, Bedroom_AbvGr &lt;dbl&gt;, Kitchen_AbvGr &lt;dbl&gt;,
+#   TotRms_AbvGrd &lt;dbl&gt;, Fireplaces &lt;dbl&gt;, Garage_Cars &lt;dbl&gt;,
+#   Garage_Area &lt;dbl&gt;, Wood_Deck_SF &lt;dbl&gt;, Open_Porch_SF &lt;dbl&gt;,
+#   Enclosed_Porch &lt;dbl&gt;, Three_season_porch &lt;dbl&gt;, Screen_Porch &lt;dbl&gt;,
+#   Pool_Area &lt;dbl&gt;, Misc_Val &lt;dbl&gt;, Mo_Sold &lt;dbl&gt;, Year_Sold &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+<p>It is the same as bake(ames_rep, new_data = ames_train) and is just a shortcut that we are going to use later.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge X
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Does it make sense to apply these preprocessing steps to the test set?</p>
+</div>
+</div>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>No, it doesn’t. You want the set test to look like new data that your model will see in the future, so you don’t want to mess with the class balance there; you want to see how your model will perform on imbalanced data, even if you have trained it on artificially balanced data.</p>
+</div>
+</div>
+</div>
+<section id="build-the-model" class="level3"><h3 data-anchor-id="build-the-model">Build the model</h3>
+<p>In tidymodels, you specify models using three concepts.</p>
+<ul>
+<li>Model <strong>type</strong> differentiates models such as logistic regression, decision tree models, and so forth;</li>
+<li>Model <strong>mode</strong> includes common options like regression and classification, some model types support either of these while some only have one mode;</li>
+<li>Model <strong>engine</strong> is the computational tool which will be used to fit the model.</li>
+</ul>
+<p>We will specify the model using the <code>parsnip</code> package - Many functions have different interfaces and arguments names and parsnip standardizes the interface for fitting models as well as the return values.</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#a linear regression model specification</span></span>
+<span><span class="va">ames_model</span> <span class="op">&lt;-</span> <span class="fu">linear_reg</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co">#pick a model</span></span>
+<span>  <span class="fu">set_engine</span><span class="op">(</span><span class="st">"lm"</span><span class="op">)</span>           <span class="co">#set the engine</span></span>
+<span>                             <span class="co">#set_mode("regression") we don't need this as the model linear_reg() only does regression</span></span>
+<span></span>
+<span><span class="co">#view model properties</span></span>
+<span><span class="va">ames_model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear Regression Model Specification (regression)
+Computational engine: lm </code></pre>
+</div>
+</div>
+<p>Now we are ready to train our model object on the training data. We can do this using the <code>fit()</code> function from the parsnip package. The <code>fit()</code> function takes the following arguments:</p>
+<ul>
+<li>a parnsip model object specification;</li>
+<li>a model formula</li>
+<li>a data frame with the training data</li>
+</ul>
+<p>The code below trains our linear regression model on the prepped training data. In our formula, we have specified that Sale_Price is the response variable and included all the rest as our predictor variables.</p>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ames_fit</span> <span class="op">&lt;-</span> <span class="va">ames_model</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">fit</span><span class="op">(</span><span class="va">Sale_Price</span> <span class="op">~</span> <span class="va">.</span>,</span>
+<span>      data<span class="op">=</span><span class="fu">juice</span><span class="op">(</span><span class="va">ames_prep</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># View lm_fit properties</span></span>
+<span><span class="va">ames_fit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>parsnip model object
+Call:
+stats::lm(formula = Sale_Price ~ ., data = data)
+Coefficients:
+                                          (Intercept)  
+                                            4.2344150  
+                                         Lot_Frontage  
+                                            0.0010509  
+                                             Lot_Area  
+                                            0.0056766  
+                                         Mas_Vnr_Area  
+                                            0.0033526  
+                                         BsmtFin_SF_1  
+                                            0.0288579  
+                                         BsmtFin_SF_2  
+                                           -0.0024142  
+                                          Bsmt_Unf_SF  
+                                           -0.0096332  
+                                        Total_Bsmt_SF  
+                                            0.0293221  
+                                         First_Flr_SF  
+                                            0.0428570  
+                                        Second_Flr_SF  
+                                            0.0514152  
+                                      Low_Qual_Fin_SF  
+                                            0.0043645  
+                                          Gr_Liv_Area  
+                                                   NA  
+                                       Bsmt_Full_Bath  
+                                            0.0046797  
+                                       Bsmt_Half_Bath  
+                                            0.0008760  
+                                            Full_Bath  
+                                            0.0075337  
+                                            Half_Bath  
+                                            0.0063545  
+                                        Bedroom_AbvGr  
+                                           -0.0042524  
+                                        Kitchen_AbvGr  
+                                           -0.0032240  
+                                        TotRms_AbvGrd  
+                                            0.0010374  
+                                           Fireplaces  
+                                            0.0048444  
+                                          Garage_Cars  
+                                            0.0088917  
+                                          Garage_Area  
+                                            0.0054821  
+                                         Wood_Deck_SF  
+                                            0.0028177  
+                                        Open_Porch_SF  
+                                            0.0018956  
+                                       Enclosed_Porch  
+                                            0.0035592  
+                                   Three_season_porch  
+                                            0.0006254  
+                                         Screen_Porch  
+                                            0.0057138  
+                                            Pool_Area  
+                                           -0.0001730  
+                                             Misc_Val  
+                                            0.0008810  
+                                              Mo_Sold  
+                                           -0.0003984  
+                                            Year_Sold  
+                                           -0.0019209  
+                                            Longitude  
+                                           -0.0097179  
+                                             Latitude  
+                                           -0.0059391  
+                                   Time_Since_Remodel  
+                                           -0.0057059  
+                                            House_Age  
+                                           -0.0214642  
+      MS_SubClass_One_Story_1946_and_Newer_All_Styles  
+                                            0.0061643  
+                 MS_SubClass_One_Story_1945_and_Older  
+                                           -0.0206969  
+     MS_SubClass_One_and_Half_Story_Finished_All_Ages  
+                                            0.0282382  
+                 MS_SubClass_Two_Story_1946_and_Newer  
+                                           -0.0138448  
+                 MS_SubClass_Two_Story_1945_and_Older  
+                                            0.0158489  
+                      MS_SubClass_Split_or_Multilevel  
+                                           -0.0153464  
+                              MS_SubClass_Split_Foyer  
+                                            0.0073930  
+               MS_SubClass_Duplex_All_Styles_and_Ages  
+                                            0.0123223  
+             MS_SubClass_One_Story_PUD_1946_and_Newer  
+                                            0.0186726  
+             MS_SubClass_Two_Story_PUD_1946_and_Newer  
+                                           -0.0290154  
+MS_SubClass_Two_Family_conversion_All_Styles_and_Ages  
+                                            0.0126693  
+                                    MS_SubClass_other  
+                                                   NA  
+               MS_Zoning_Floating_Village_Residential  
+                                            0.0369229  
+                    MS_Zoning_Residential_Low_Density  
+                                            0.0295723  
+                 MS_Zoning_Residential_Medium_Density  
+                                            0.0224024  
+                                      MS_Zoning_other  
+                                                   NA  
+                                    Lot_Shape_Regular  
+                                            0.0047757  
+                         Lot_Shape_Slightly_Irregular  
+                                            0.0045442  
+                       Lot_Shape_Moderately_Irregular  
+                                            0.0167009  
+                                      Lot_Shape_other  
+                                                   NA  
+                                    Lot_Config_Corner  
+                                            0.0061984  
+                                   Lot_Config_CulDSac  
+                                            0.0124304  
+                                       Lot_Config_FR2  
+                                           -0.0034930  
+                                    Lot_Config_Inside  
+                                            0.0041820  
+                                     Lot_Config_other  
+                                                   NA  
+                              Neighborhood_North_Ames  
+                                           -0.0144052  
+                           Neighborhood_College_Creek  
+                                           -0.0403143  
+                                Neighborhood_Old_Town  
+                                           -0.0395437  
+                                 Neighborhood_Edwards  
+                                           -0.0485293  
+                                Neighborhood_Somerset  
+                                            0.0158820  
+                      Neighborhood_Northridge_Heights  
+                                            0.0152055  
+                                 Neighborhood_Gilbert  
+                                           -0.0076228  
+                                  Neighborhood_Sawyer  
+                                           -0.0245480  
+                          Neighborhood_Northwest_Ames  
+                                           -0.0147878  
+                             Neighborhood_Sawyer_West  
+                                           -0.0382249  
+                                Neighborhood_Mitchell  
+                                           -0.0254694  
+                               Neighborhood_Brookside  
+                                           -0.0110661  
+                                Neighborhood_Crawford  
+                                            0.0154749  
+                  Neighborhood_Iowa_DOT_and_Rail_Road  
+                                           -0.0481840  
+                              Neighborhood_Timberland  
+                                           -0.0246553  
+                              Neighborhood_Northridge  
+                                            0.0109785  
+                             Neighborhood_Stone_Brook  
+                                            0.0376989  
+ Neighborhood_South_and_West_of_Iowa_State_University  
+                                           -0.0339271  
+                             Neighborhood_Clear_Creek  
+                                           -0.0170590  
+                          Neighborhood_Meadow_Village  
+                                           -0.0629992  
+                                   Neighborhood_other  
+                                                   NA  
+                                   Condition_1_Artery  
+                                           -0.0179882  
+                                    Condition_1_Feedr  
+                                           -0.0119543  
+                                     Condition_1_Norm  
+                                            0.0063617  
+                                     Condition_1_PosN  
+                                            0.0101914  
+                                     Condition_1_RRAn  
+                                           -0.0142278  
+                                    Condition_1_other  
+                                                   NA  
+                                     Bldg_Type_OneFam  
+                                            0.0352264  
+                                   Bldg_Type_TwoFmCon  
+                                            0.0217637  
+                                     Bldg_Type_Duplex  
+                                                   NA  
+                                      Bldg_Type_Twnhs  
+                                           -0.0164880  
+                                     Bldg_Type_TwnhsE  
+                                                   NA  
+                         House_Style_One_and_Half_Fin  
+                                           -0.0334739  
+                                House_Style_One_Story  
+                                           -0.0113905  
+                                   House_Style_SFoyer  
+                                           -0.0045098  
+                                     House_Style_SLvl  
+                                            0.0080461  
+                                House_Style_Two_Story  
+                                           -0.0068768  
+                                    House_Style_other  
+                                                   NA  
+                                    Overall_Qual_Fair  
+                                           -0.0090491  
+                           Overall_Qual_Below_Average  
+                                           -0.0081678  
+                                 Overall_Qual_Average  
+                                            0.0135609  
+                           Overall_Qual_Above_Average  
+                                            0.0228156  
+                                    Overall_Qual_Good  
+                                            0.0317333  
+                               Overall_Qual_Very_Good  
+                                            0.0506332  
+                               Overall_Qual_Excellent  
+                                            0.0543703  
+                                   Overall_Qual_other  
+                                                   NA  
+                                    Overall_Cond_Fair  
+                                            0.0861003  
+                           Overall_Cond_Below_Average  
+                                            0.1382136  
+                                 Overall_Cond_Average  
+                                            0.1659276  
+                           Overall_Cond_Above_Average  
+                                            0.1795836  
+                                    Overall_Cond_Good  
+                                            0.1982810  
+                               Overall_Cond_Very_Good  
+                                            0.2021602  
+                               Overall_Cond_Excellent  
+                                            0.2216273  
+                                   Overall_Cond_other  
+                                                   NA  
+                                     Roof_Style_Gable  
+                                            0.0041041  
+                                       Roof_Style_Hip  
+                                            0.0013475  
+                                     Roof_Style_other  
+                                                   NA  
+                                 Exterior_1st_AsbShng  
+                                           -0.0197379  
+                                 Exterior_1st_BrkFace  
+                                            0.0218545  
+                                 Exterior_1st_CemntBd  
+                                           -0.0675824  
+                                 Exterior_1st_HdBoard  
+                                           -0.0177946  
+                                 Exterior_1st_MetalSd  
+                                           -0.0041764  
+                                 Exterior_1st_Plywood  
+                                           -0.0147857  
+                                  Exterior_1st_Stucco  
+                                           -0.0150856  
+                                 Exterior_1st_VinylSd  
+                                           -0.0269952  
+                                 Exterior_1st_Wd.Sdng  
+                                           -0.0127229  
+                                 Exterior_1st_WdShing  
+                                           -0.0219538  
+                                   Exterior_1st_other  
+                                                   NA  
+                                 Exterior_2nd_AsbShng  
+                                           -0.0294565  
+                                 Exterior_2nd_BrkFace  
+                                           -0.0252434  
+                                 Exterior_2nd_CmentBd  
+                                            0.0511306  
+                                 Exterior_2nd_HdBoard  
+                                           -0.0066992  
+                                 Exterior_2nd_MetalSd  
+                                           -0.0094713  
+                                 Exterior_2nd_Plywood  
+                                           -0.0088774  
+                                  Exterior_2nd_Stucco  
+                                            0.0028778  
+                                 Exterior_2nd_VinylSd  
+                                            0.0061450  
+                                 Exterior_2nd_Wd.Sdng  
+                                           -0.0049424  
+                                 Exterior_2nd_Wd.Shng  
+                                           -0.0005624  
+                                   Exterior_2nd_other  
+                                                   NA  
+                                 Mas_Vnr_Type_BrkFace  
+                                            0.0119788  
+                                    Mas_Vnr_Type_None  
+                                            0.0132996  
+                                   Mas_Vnr_Type_Stone  
+                                            0.0202174  
+                                   Mas_Vnr_Type_other  
+                                                   NA  
+                                 Exter_Qual_Excellent  
+                                            0.0412905  
+                                      Exter_Qual_Fair  
+                                           -0.0100946  
+                                      Exter_Qual_Good  
+                                            0.0067359  
+                                   Exter_Qual_Typical  
+                                                   NA  
+                                      Exter_Cond_Fair  
+                                           -0.0537435  
+                                      Exter_Cond_Good  
+                                           -0.0271431  
+                                   Exter_Cond_Typical  
+                                           -0.0190455  
+                                     Exter_Cond_other  
+                                                   NA  
+                                    Foundation_BrkTil  
+                                           -0.0221335  
+                                    Foundation_CBlock  
+                                           -0.0197832  
+                                     Foundation_PConc  
+                                           -0.0113600  
+                                      Foundation_Slab  
+                                           -0.0024282  
+                                     Foundation_other  
+                                                   NA  
+                                  Bsmt_Qual_Excellent  
+                                            0.0296809  
+                                       Bsmt_Qual_Fair  
+                                            0.0030970  
+                                       Bsmt_Qual_Good  
+                                            0.0160700  
+                                Bsmt_Qual_No_Basement  
+                                            0.0188896  
+                                    Bsmt_Qual_Typical  
+                                            0.0147692  
+                                      Bsmt_Qual_other  
+                                                   NA  
+                                     Bsmt_Exposure_Av  
+                                            0.0038457  
+                                     Bsmt_Exposure_Gd  
+                                            0.0268377  
+                                     Bsmt_Exposure_Mn  
+                                            0.0001947  
+                                     Bsmt_Exposure_No  
+                                           -0.0028258  
+                            Bsmt_Exposure_No_Basement  
+                                                   NA  
+                                   BsmtFin_Type_1_ALQ  
+                                            0.0837734  
+                                   BsmtFin_Type_1_BLQ  
+                                            0.0662634  
+                                   BsmtFin_Type_1_GLQ  
+                                            0.0596601  
+                                   BsmtFin_Type_1_LwQ  
+                                            0.0329057  
+                           BsmtFin_Type_1_No_Basement  
+                                                   NA  
+                                   BsmtFin_Type_1_Rec  
+                                            0.0072722  
+                                   BsmtFin_Type_1_Unf  
+                                                   NA  
+                                 Heating_QC_Excellent  
+                                            0.7700744  
+                                      Heating_QC_Fair  
+                                            0.7444348  
+                                      Heating_QC_Good  
+                                            0.7633523  
+                                   Heating_QC_Typical  
+                                            0.7575195  
+                                     Heating_QC_other  
+                                                   NA  
+                                        Central_Air_N  
+                                           -0.0232337  
+                                        Central_Air_Y  
+                                                   NA  
+                                     Electrical_FuseA  
+                                           -0.0134919  
+                                     Electrical_FuseF  
+                                           -0.0188211  
+                                     Electrical_SBrkr  
+                                           -0.0171300  
+                                     Electrical_other  
+                                                   NA  
+                               Kitchen_Qual_Excellent  
+                                            0.0303544  
+                                    Kitchen_Qual_Fair  
+                                           -0.0005397  
+                                    Kitchen_Qual_Good  
+                                            0.0050291  
+                                 Kitchen_Qual_Typical  
+                                                   NA  
+                                   Kitchen_Qual_other  
+                                                   NA  
+                               Fireplace_Qu_Excellent  
+                                           -0.0115950  
+                                    Fireplace_Qu_Fair  
+                                           -0.0047983  
+                                    Fireplace_Qu_Good  
+                                            0.0043227  
+                            Fireplace_Qu_No_Fireplace  
+                                           -0.0029386  
+                                    Fireplace_Qu_Poor  
+                                           -0.0089229  
+                                 Fireplace_Qu_Typical  
+                                                   NA  
+                                   Garage_Type_Attchd  
+                                            0.0277848  
+                                  Garage_Type_Basment  
+                                            0.0183001  
+                                  Garage_Type_BuiltIn  
+                                            0.0259155  
+                                   Garage_Type_Detchd  
+                                            0.0246522  
+                                Garage_Type_No_Garage  
+                                            0.0012371  
+                                    Garage_Type_other  
+                                                   NA  
+                                    Garage_Finish_Fin  
+                                            0.0004798  
+                              Garage_Finish_No_Garage  
+                                           -0.0064210  
+                                    Garage_Finish_RFn  
+                                           -0.0033819  
+                                    Garage_Finish_Unf  
+                                                   NA  
+                                     Garage_Qual_Fair  
+                                           -0.0243010  
+                                Garage_Qual_No_Garage  
+                                                   NA  
+                                  Garage_Qual_Typical  
+                                           -0.0147644  
+                                    Garage_Qual_other  
+                                                   NA  
+                                     Garage_Cond_Fair  
+                                           -0.0288340  
+                                Garage_Cond_No_Garage  
+                                                   NA  
+                                  Garage_Cond_Typical  
+                                           -0.0058730  
+                                    Garage_Cond_other  
+                                                   NA  
+                              Paved_Drive_Dirt_Gravel  
+                                           -0.0044010  
+                         Paved_Drive_Partial_Pavement  
+                                           -0.0080910  
+                                    Paved_Drive_Paved  
+                                                   NA  
+                                   Fence_Good_Privacy  
+                                           -0.0068390  
+                                      Fence_Good_Wood  
+                                           -0.0129793  
+                                Fence_Minimum_Privacy  
+                                           -0.0040916  
+                                       Fence_No_Fence  
+                                           -0.0050151  
+                                          Fence_other  
+                                                   NA  
+                                        Sale_Type_COD  
+                                           -0.0202250  
+                                        Sale_Type_New  
+                                            0.0181473  
+                                        Sale_Type_WD.  
+                                           -0.0182848  
+                                      Sale_Type_other  
+                                                   NA  
+                               Sale_Condition_Abnorml  
+                                           -0.0451496  
+                                Sale_Condition_Family  
+                                           -0.0225266  
+                                Sale_Condition_Normal  
+                                           -0.0017995  
+                               Sale_Condition_Partial  
+                                           -0.0222955  
+                                 Sale_Condition_other  
+                                                   NA  </code></pre>
+</div>
+</div>
+<p>To obtain the detailed results from our trained linear regression model in a data frame, we can use the <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code> and <code>glance()</code> functions directly on our trained parsnip model, ames_fit. - The <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code> function takes a linear regression object and returns a data frame of the estimated model coefficients and their associated F-statistics and p-values; - The <code>glance()</code> function will return performance metrics obtained on the training data such as the R2 value (r.squared) and the RMSE (sigma). - We can also use the <code><a href="https://rdrr.io/pkg/vip/man/vip.html">vip()</a></code> function to plot the variable importance for each predictor in our model. The importance value is determined based on the F-statistics and estimate coefficents in our trained model object.</p>
+<div class="cell">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Data frame of estimated coefficients</span></span>
+<span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">ames_fit</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 231 × 5
+   term          estimate std.error statistic   p.value
+   &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+ 1 (Intercept)    4.23      0.0959     44.2   1.44e-303
+ 2 Lot_Frontage   0.00105   0.00121     0.868 3.85e-  1
+ 3 Lot_Area       0.00568   0.00129     4.40  1.12e-  5
+ 4 Mas_Vnr_Area   0.00335   0.00167     2.01  4.50e-  2
+ 5 BsmtFin_SF_1   0.0289    0.0247      1.17  2.42e-  1
+ 6 BsmtFin_SF_2  -0.00241   0.00118    -2.04  4.13e-  2
+ 7 Bsmt_Unf_SF   -0.00963   0.00208    -4.63  3.82e-  6
+ 8 Total_Bsmt_SF  0.0293    0.00325     9.03  3.65e- 19
+ 9 First_Flr_SF   0.0429    0.00291    14.7   7.55e- 47
+10 Second_Flr_SF  0.0514    0.00354    14.5   9.84e- 46
+# … with 221 more rows</code></pre>
+</div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Performance metrics on training data</span></span>
+<span><span class="fu">glance</span><span class="op">(</span><span class="va">ames_fit</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 12
+  r.squared adj.r.sq…¹  sigma stati…² p.value    df logLik    AIC    BIC devia…³
+      &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+1     0.935      0.929 0.0476    161.       0   191  3905. -7424. -6313.    4.86
+# … with 2 more variables: df.residual &lt;int&gt;, nobs &lt;int&gt;, and abbreviated
+#   variable names ¹​adj.r.squared, ²​statistic, ³​deviance</code></pre>
+</div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Plot variable importance</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/vip/man/vip.html">vip</a></span><span class="op">(</span><span class="va">ames_fit</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="step2_files/figure-html/metrics-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>#Evaluating the model</p>
+<p>To assess the accuracy of our trained linear regression model, ames_fit, we must use it to make predictions on our test data, ames_test_proc. This is done with the <code><a href="https://rdrr.io/r/stats/predict.html">predict()</a></code> function from parnsip. This function takes two important arguments:</p>
+<ul>
+<li>a trained parnsip model object;</li>
+<li>new_data for which to generate predictions.</li>
+</ul>
+<p>The code below uses the predict() function to generate a data frame with a single column, <em>.pred</em>, which contains the predicted Sale Price values on the ames_test data.</p>
+<div class="cell">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">ames_fit</span>, new_data <span class="op">=</span> <span class="va">ames_test_proc</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in predict.lm(object = object$fit, newdata = new_data, type =
+"response"): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 586 × 1
+   .pred
+   &lt;dbl&gt;
+ 1  5.04
+ 2  5.22
+ 3  5.39
+ 4  5.14
+ 5  5.23
+ 6  4.99
+ 7  4.99
+ 8  4.98
+ 9  5.14
+10  5.76
+# … with 576 more rows</code></pre>
+</div>
+</div>
+<p><em>Warning: prediction from a rank-deficient fit may be misleading</em></p>
+<p>One reason this warning occurs is that you have more model parameters than observations in the dataset. We refer to this as high dimensional data. With high dimensional data, it becomes impossible to find a model that can describe the relationship between the predictor variables and the response variable because we don’t have enough observations to train the model on. The easiest way to resolve this issue is to use a simpler model with less coefficients to estimate.We are not worrying about this today.</p>
+<p>Generally it’s best to combine the test data set and the predictions into a single data frame. We create a data frame with the predictions on the ames_test data and then use <code><a href="https://dplyr.tidyverse.org/reference/bind_cols.html">bind_cols()</a></code> to add the ames_test data to the results.</p>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ames_test_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">ames_fit</span>, new_data <span class="op">=</span> <span class="va">ames_test_proc</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_cols.html">bind_cols</a></span><span class="op">(</span><span class="va">ames_test_proc</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in predict.lm(object = object$fit, newdata = new_data, type =
+"response"): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># View results</span></span>
+<span><span class="va">ames_test_results</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 586 × 232
+   .pred Lot_F…¹ Lot_A…² Mas_V…³ BsmtF…⁴ BsmtF…⁵ Bsmt_…⁶ Total…⁷ First…⁸ Secon…⁹
+   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+ 1  5.04   0.675   0.172 -0.569    0.819   0.552 -0.657  -0.388   -0.689  -0.786
+ 2  5.22   0.705   0.488  0.0527  -1.42   -0.298 -0.347   0.670    0.456  -0.786
+ 3  5.39   0.916   0.145  1.45    -0.523  -0.298 -0.336   1.92     1.85   -0.786
+ 4  5.14   0.224  -0.207 -0.569   -0.970  -0.298 -0.632   0.0242  -0.266  -0.786
+ 5  5.23  -0.949  -0.516 -0.569   -0.523  -0.298 -0.466   0.850    0.477  -0.786
+ 6  4.99  -1.10   -1.01   2.33     0.819  -0.298 -0.527  -1.33    -1.78    0.392
+ 7  4.99  -1.10   -1.01   2.26     0.819  -0.298 -0.759  -1.23    -1.67    0.539
+ 8  4.98  -1.10   -1.01   1.62     1.27   -0.298 -0.0770 -1.23    -1.67    0.539
+ 9  5.14  -1.01   -0.943 -0.569   -1.42   -0.298 -0.495  -0.452   -0.797   0.618
+10  5.76   1.58    0.492  5.74    -0.523  -0.298  2.08    4.26     4.07   -0.786
+# … with 576 more rows, 222 more variables: Low_Qual_Fin_SF &lt;dbl&gt;,
+#   Gr_Liv_Area &lt;dbl&gt;, Bsmt_Full_Bath &lt;dbl&gt;, Bsmt_Half_Bath &lt;dbl&gt;,
+#   Full_Bath &lt;dbl&gt;, Half_Bath &lt;dbl&gt;, Bedroom_AbvGr &lt;dbl&gt;, Kitchen_AbvGr &lt;dbl&gt;,
+#   TotRms_AbvGrd &lt;dbl&gt;, Fireplaces &lt;dbl&gt;, Garage_Cars &lt;dbl&gt;,
+#   Garage_Area &lt;dbl&gt;, Wood_Deck_SF &lt;dbl&gt;, Open_Porch_SF &lt;dbl&gt;,
+#   Enclosed_Porch &lt;dbl&gt;, Three_season_porch &lt;dbl&gt;, Screen_Porch &lt;dbl&gt;,
+#   Pool_Area &lt;dbl&gt;, Misc_Val &lt;dbl&gt;, Mo_Sold &lt;dbl&gt;, Year_Sold &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+<p>Now we have the model results and the test data in a single data frame.</p>
+</section><section id="calculating-rmse-and-rsq-on-the-test-data" class="level3"><h3 data-anchor-id="calculating-rmse-and-rsq-on-the-test-data">Calculating rmse and rsq on the Test Data</h3>
+<p>To obtain the rmse and rsq values on our test set results, we can use the <code>rmse()</code> and <code>rsq()</code> functions. Both functions take the following arguments:</p>
+<ul>
+<li>a data frame with columns that have the true values and predictions;</li>
+<li>the column with the true response values;</li>
+<li>the column with predicted values.</li>
+</ul>
+<p>In the examples below we pass our ames_test_results to these functions to obtain these values for our test set. Results are always returned as a data frame with the following columns: .metric, .estimator, and .estimate.</p>
+<div class="cell">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#RMSE on test set</span></span>
+<span><span class="va">test_rmse</span> <span class="op">&lt;-</span> <span class="fu">rmse</span><span class="op">(</span><span class="va">ames_test_results</span>, </span>
+<span>     truth <span class="op">=</span> <span class="va">Sale_Price</span>,</span>
+<span>     estimate <span class="op">=</span> <span class="va">.pred</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#rsq on test set</span></span>
+<span><span class="va">test_rsq</span><span class="op">&lt;-</span> <span class="fu">rsq</span><span class="op">(</span><span class="va">ames_test_results</span>,</span>
+<span>    truth <span class="op">=</span> <span class="va">Sale_Price</span>,</span>
+<span>    estimate <span class="op">=</span> <span class="va">.pred</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge X
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We mentioned earlier that the <code>bake()</code> function takes a prepped recipe (ames_prep) and applies it to <code>new_data</code>. The new_data could be the training data again or it could be the testing data. We just evaluated our model on the test data, let’s try to apply the <code>bake()</code> and <code><a href="https://rdrr.io/r/stats/predict.html">predict()</a></code> functions on the training data and compare the results.</p>
+<p><strong>Instructions</strong></p>
+<div class="cell">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#bake() training data</span></span>
+<span></span>
+<span><span class="co">#predict() selling price on the training data</span></span>
+<span></span>
+<span><span class="co">#combine the training data set and the predictions into a single data frame</span></span>
+<span></span>
+<span><span class="co">#RMSE on training set</span></span>
+<span></span>
+<span><span class="co">#rsq on training set</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#bake() training data</span></span>
+<span><span class="va">ames_train_proc</span> <span class="op">&lt;-</span> <span class="fu">bake</span><span class="op">(</span><span class="va">ames_prep</span>, new_data <span class="op">=</span> <span class="va">ames_train</span><span class="op">)</span></span>
+<span><span class="co">#predict() selling price on the training data</span></span>
+<span><span class="va">ames_train_results</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">ames_fit</span>, new_data <span class="op">=</span> <span class="va">ames_train_proc</span><span class="op">)</span></span>
+<span><span class="co">#combine the training data set and the predictions into a single data frame</span></span>
+<span><span class="va">ames_train_results</span> <span class="op">&lt;-</span> <span class="va">ames_train_results</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_cols.html">bind_cols</a></span><span class="op">(</span><span class="va">ames_train_proc</span><span class="op">)</span></span>
+<span><span class="co">#RMSE on training set</span></span>
+<span><span class="va">train_rmse</span> <span class="op">&lt;-</span> <span class="fu">rmse</span><span class="op">(</span><span class="va">ames_train_results</span>, </span>
+<span>     truth <span class="op">=</span> <span class="va">Sale_Price</span>,</span>
+<span>     estimate <span class="op">=</span> <span class="va">.pred</span><span class="op">)</span></span>
+<span><span class="co">#rsq on training set</span></span>
+<span><span class="va">train_rsq</span> <span class="op">&lt;-</span> <span class="fu">rsq</span><span class="op">(</span><span class="va">ames_train_results</span>,</span>
+<span>    truth <span class="op">=</span> <span class="va">Sale_Price</span>,</span>
+<span>    estimate <span class="op">=</span> <span class="va">.pred</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>Let’s have a look at all the metrics for both our training and test datasets:</p>
+<div class="cell">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#plot metrics for training and test datasets</span></span>
+<span><span class="va">train_rsq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>dataset <span class="op">=</span> <span class="st">"training"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span><span class="va">train_rmse</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>              <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>dataset <span class="op">=</span> <span class="st">"training"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span><span class="va">test_rsq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>              <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>dataset <span class="op">=</span> <span class="st">"test"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>              <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span><span class="va">test_rmse</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>                          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>dataset <span class="op">=</span> <span class="st">"test"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+  .metric .estimator .estimate dataset 
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
+1 rsq     standard      0.935  training
+2 rmse    standard      0.0456 training
+3 rsq     standard      0.862  test    
+4 rmse    standard      0.0647 test    </code></pre>
+</div>
+</div>
+<p>If we look at the testing data, the rmse is higher than the training data. Our training data is not giving us a good idea of how our model is going to perform. In this situation, our algorithm fits our existing data very well, but doesn’t generalise well on new data.</p>
+<p>Let’s visualise the situation with an <strong>R2 plot</strong>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ames_test_results</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>train <span class="op">=</span> <span class="st">"testing"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span><span class="va">ames_train_results</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>              <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>train <span class="op">=</span> <span class="st">"training"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">Sale_Price</span>, <span class="va">.pred</span>, color <span class="op">=</span> <span class="va">train</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>intercept <span class="op">=</span> <span class="fl">0</span>, slope <span class="op">=</span> <span class="fl">1</span>, color <span class="op">=</span> <span class="st">"black"</span>, size <span class="op">=</span> <span class="fl">0.5</span>, linetype<span class="op">=</span><span class="st">"dotted"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">train</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="st">"Actual Selling Price"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Predicted Selling Price"</span>,</span>
+<span>    color <span class="op">=</span> <span class="st">"Test/Training data"</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="step2_files/figure-html/plot results-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>This is a plot that can be used for any regression model. It plots the actual values (Sale Prices) versus the model predictions (.pred) as a scatter plot. It also plot the line y = x through the origin. This line is a visually representation of the perfect model where all predicted values are equal to the true values in the test set. The farther the points are from this line, the worse the model fit. The reason this plot is called an R2 plot, is because the R2 is the squared correlation between the true and predicted values, which are plotted as paired in the plot.</p>
+</section><section id="resampling" class="level3"><h3 data-anchor-id="resampling">Resampling</h3>
+<p>We made not such a great decision in the previous section; we expected the model evaluated once on the whole training set to help us understand something about how it would perform on new data. Fortunately, we have some options. We can resample the training set to produce an estimate of how the model will perform.The idea of resampling is to create simulated data sets that can be used to estimate the performance of your model, say, because you want to compare models. You can create these resampled data sets instead of using either your training set (which can give overly optimistic results, especially for powerful ML algorithms) or your testing set (which is extremely valuable and can only be used once or at most twice). One of these resampling methods is cross-validation.</p>
+<p><strong>Cross-validation</strong> means taking your training set and randomly dividing it up evenly into subsets, sometimes called “folds”. A fold here means a group or subset or partition.</p>
+<p>You use one of the folds for validation and the rest for training, then you repeat these steps with all the subsets and combine the results, usually by taking the mean. Cross-validation allows you to get a more accurate estimate of how your model will perform on new data.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge X
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When you implement 10-fold cross-validation repeated 5 times, you:</p>
+<ul>
+<li>randomly divide your training data into 50 subsets and train on 49 at a time (assessing on the other subset), iterating through all 50 subsets for assessment.</li>
+<li>randomly divide your training data into 10 subsets and train on 9 at a time (assessing on the other subset), iterating through all 10 subsets for assessment. Then you repeat that process 5 times.</li>
+<li>randomly divide your training data into 5 subsets and train on 4 at a time (assessing on the other subset), iterating through all 5 subsets. Then you repeat that process 10 times.</li>
+</ul>
+</div>
+</div>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Simulations and practical experience show that 10-fold cross-validation repeated 5 times is a great resampling approach for many situations. This approach involves randomly dividing your training data into 10 folds, or subsets or groups, and training on only 9 while using the other fold for assessment. You iterate through all 10 folds being used for assessment; this is one round of cross-validation. You can then repeat the whole process multiple, perhaps 5, times.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ames_folds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/vfold_cv.html">vfold_cv</a></span><span class="op">(</span><span class="va">ames_train</span>, v<span class="op">=</span><span class="fl">10</span>, repeats <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">ames_folds</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 50
+Columns: 3
+$ splits &lt;list&gt; [&lt;vfold_split[2105 x 234 x 2339 x 81]&gt;], [&lt;vfold_split[2105 x …
+$ id     &lt;chr&gt; "Repeat1", "Repeat1", "Repeat1", "Repeat1", "Repeat1", "Repeat1…
+$ id2    &lt;chr&gt; "Fold01", "Fold02", "Fold03", "Fold04", "Fold05", "Fold06", "Fo…</code></pre>
+</div>
+</div>
+<p>In the next steps, we won’t not use <code>prep()</code> or <code>bake()</code>. The <code>ames_rec</code> recipe will be automatically applied in a later step using the <code>workflow()</code> and <code>last_fit()</code> functions.</p>
+</section><section id="create-a-workflow" class="level3"><h3 data-anchor-id="create-a-workflow">Create a Workflow</h3>
+<p>In the previous section, we trained a linear regression model to the housing data step-by-step. In this section, we will go over how to combine all of the modeling steps into a single workflow. The <code>workflow</code> package was designed to combine models and recipes into a single object. To create a workflow, we start with <code>workflow()</code> to create an empty workflow and then add out model and recipe with <code>add_model()</code> and <code>add_recipe()</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ames_wf</span> <span class="op">&lt;-</span> <span class="fu">workflow</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">add_model</span><span class="op">(</span><span class="va">ames_model</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">add_recipe</span><span class="op">(</span><span class="va">ames_rec</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ames_wf</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>══ Workflow ════════════════════════════════════════════════════════════════════
+Preprocessor: Recipe
+Model: linear_reg()
+── Preprocessor ────────────────────────────────────────────────────────────────
+5 Recipe Steps
+• step_other()
+• step_nzv()
+• step_center()
+• step_scale()
+• step_dummy()
+── Model ───────────────────────────────────────────────────────────────────────
+Linear Regression Model Specification (regression)
+Computational engine: lm </code></pre>
+</div>
+</div>
+<p>Once we have created a set of resamples, we can use the function <code>fit_resamples()</code> to fit a model to each resample and compute performance metrics for each.</p>
+<div class="cell">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">234</span><span class="op">)</span></span>
+<span><span class="va">ames_res</span> <span class="op">&lt;-</span> <span class="va">ames_wf</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">fit_resamples</span><span class="op">(</span></span>
+<span>    <span class="va">ames_folds</span>,</span>
+<span>    control <span class="op">=</span> <span class="fu">control_resamples</span><span class="op">(</span>save_pred <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold01, Repeat1: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold02, Repeat1: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold03, Repeat1: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold04, Repeat1: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold05, Repeat1: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold06, Repeat1: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold07, Repeat1: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold08, Repeat1: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold09, Repeat1: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold10, Repeat1: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold01, Repeat2: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold02, Repeat2: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold03, Repeat2: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold04, Repeat2: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold05, Repeat2: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold06, Repeat2: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold07, Repeat2: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold08, Repeat2: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold09, Repeat2: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold10, Repeat2: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold01, Repeat3: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold02, Repeat3: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold03, Repeat3: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold04, Repeat3: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold05, Repeat3: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold06, Repeat3: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold07, Repeat3: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold08, Repeat3: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold09, Repeat3: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold10, Repeat3: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold01, Repeat4: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold02, Repeat4: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold03, Repeat4: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold04, Repeat4: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold05, Repeat4: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold06, Repeat4: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold07, Repeat4: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold08, Repeat4: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold09, Repeat4: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold10, Repeat4: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold01, Repeat5: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold02, Repeat5: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold03, Repeat5: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold04, Repeat5: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold05, Repeat5: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold06, Repeat5: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold07, Repeat5: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold08, Repeat5: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold09, Repeat5: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold10, Repeat5: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">ames_res</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 50
+Columns: 6
+$ splits       &lt;list&gt; [&lt;vfold_split[2105 x 234 x 2339 x 81]&gt;], [&lt;vfold_split[2…
+$ id           &lt;chr&gt; "Repeat1", "Repeat1", "Repeat1", "Repeat1", "Repeat1", "R…
+$ id2          &lt;chr&gt; "Fold01", "Fold02", "Fold03", "Fold04", "Fold05", "Fold06…
+$ .metrics     &lt;list&gt; [&lt;tbl_df[2 x 4]&gt;], [&lt;tbl_df[2 x 4]&gt;], [&lt;tbl_df[2 x 4]&gt;],…
+$ .notes       &lt;list&gt; [&lt;tbl_df[1 x 3]&gt;], [&lt;tbl_df[1 x 3]&gt;], [&lt;tbl_df[1 x 3]&gt;],…
+$ .predictions &lt;list&gt; [&lt;tbl_df[234 x 4]&gt;], [&lt;tbl_df[234 x 4]&gt;], [&lt;tbl_df[234 x…</code></pre>
+</div>
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">ames_res</span>, <span class="st">"../_models/ames_res.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The column .metric contains the performance statistics created from the 10 assessment sets. These can be manually unnested but the tune package contains a number of simple functions that can extract these data:</p>
+<div class="cell">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Obtain performance metrics on resampled training data</span></span>
+<span><span class="va">ames_res</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">collect_metrics</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 6
+  .metric .estimator   mean     n std_err .config             
+  &lt;chr&gt;   &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               
+1 rmse    standard   0.0537    50 0.00122 Preprocessor1_Model1
+2 rsq     standard   0.909     50 0.00383 Preprocessor1_Model1</code></pre>
+</div>
+</div>
+<ul>
+<li>
+<code><a href="https://rsample.tidymodels.org/reference/vfold_cv.html">vfold_cv()</a></code> creates folds for cross-validation;</li>
+<li>
+<code>fit_resamples()</code> fits models to resamples;</li>
+<li>
+<code>collect_metrics()</code> obtains performance metrics from the results.</li>
+</ul>
+<p>Notice that now we have a realistic estimate from the training data that is closer to the testing data!</p>
+<p>If we wanted to try different model types for this data set, we could more confidently compare performance metrics computed using resampling to choose between models. Also, remember that at the end of our project, we return to our test set to estimate final model performance.</p>
+<p>Let’s use the <code>last_fit()</code> function to evaluate once on the testing set:</p>
+<div class="cell">
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Final fit on test dataset</span></span>
+<span><span class="va">ames_final</span> <span class="op">&lt;-</span> <span class="va">ames_wf</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">last_fit</span><span class="op">(</span><span class="va">ames_split</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! train/test split: preprocessor 1/1, model 1/1 (predictions): prediction from a rank-deficient fit may be misleading</code></pre>
+</div>
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Obtain performance metrics on test data</span></span>
+<span><span class="fu">collect_metrics</span><span class="op">(</span><span class="va">ames_final</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  .metric .estimator .estimate .config             
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               
+1 rmse    standard      0.0647 Preprocessor1_Model1
+2 rsq     standard      0.862  Preprocessor1_Model1</code></pre>
+</div>
+</div>
+<p>The R-squared (rsq) and root mean squared error (RMSE) metrics are similar for both the training and testing datasets in our linear regression model. This is a good sign that the model is not over-fitting and can be used for making predictions on new data.</p>
+<p>We can save the test set predictions by using the <code>collect_predictions()</code> function. This function returns a data frame which will have the response variables values from the test set and a column named .pred with the model predictions.</p>
+<div class="cell">
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Obtain test set predictions data frame</span></span>
+<span><span class="va">ames_results_final</span> <span class="op">&lt;-</span> <span class="va">ames_final</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>                 <span class="fu">collect_predictions</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># View results</span></span>
+<span><span class="va">ames_results_final</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 586 × 5
+   id               .pred  .row Sale_Price .config             
+   &lt;chr&gt;            &lt;dbl&gt; &lt;int&gt;      &lt;dbl&gt; &lt;chr&gt;               
+ 1 train/test split  5.04     2       5.02 Preprocessor1_Model1
+ 2 train/test split  5.22     3       5.24 Preprocessor1_Model1
+ 3 train/test split  5.39    18       5.60 Preprocessor1_Model1
+ 4 train/test split  5.14    26       5.15 Preprocessor1_Model1
+ 5 train/test split  5.23    29       5.26 Preprocessor1_Model1
+ 6 train/test split  4.99    30       4.98 Preprocessor1_Model1
+ 7 train/test split  4.99    31       5.02 Preprocessor1_Model1
+ 8 train/test split  4.98    32       4.94 Preprocessor1_Model1
+ 9 train/test split  5.14    34       5.18 Preprocessor1_Model1
+10 train/test split  5.76    47       5.70 Preprocessor1_Model1
+# … with 576 more rows</code></pre>
+</div>
+</div>
+<p>Finally, let’s use this data frame to make an R2 plot to visualize our model performance on the test data set:</p>
+<div class="cell">
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ames_results_final</span>,</span>
+<span>       mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">.pred</span>, y <span class="op">=</span> <span class="va">Sale_Price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">'#006EA1'</span>, alpha <span class="op">=</span> <span class="fl">0.25</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>intercept <span class="op">=</span> <span class="fl">0</span>, slope <span class="op">=</span> <span class="fl">1</span>, color <span class="op">=</span> <span class="st">'black'</span>, size<span class="op">=</span><span class="fl">0.5</span>, linetype<span class="op">=</span><span class="st">"dotted"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">'Linear Regression Results - Ames Test Set'</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">'Predicted Selling Price'</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">'Actual Selling Price'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="step2_files/figure-html/plot final-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 
 
-</main></div>
+</section></section></main></div>
     </div>
   </div>
 </div>
- <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -443,12 +2380,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
       <div class="nav-footer-center">Copyright 2023, Sydney Informatics Hub</div>
   </div>
 </footer>
-
 
 
 </body></html>

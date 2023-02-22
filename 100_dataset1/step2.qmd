@@ -36,22 +36,45 @@ library(vip)
 ames_data <- readRDS("../_models/ames_dataset_filt.rds")
 ```
 
-### Build a simple linear model usign base R's `lm()` function
+### Build a simple linear regression model using base R
 
-```{r}
+---
 
+In a linear model, we assume that there is a linear relationship between the input variable(s) and the output variable. This means that as the input variable(s) increase or decrease, the output variable changes in a straight line.
+
+Imagine you have a scatter plot with your data points all over it. A linear model is like drawing a straight line through the scatter plot that best fits all the points. The slope and intercept of this line are chosen in such a way that the distance between the line and all the points is minimized. This line is then used to predict the output for new input values. 
+
+![Example of a linear model](../fig/lm.png){width=500 fig-align="left"}
+
+The straight red dotted line represents the linear model equation $y=mx+c$, where $c$ is the y-intercept of the regression line, $m$ is the slope of the regression line, and $y$ is the expected value for y for the given $x$ value.
+
+```{r lm}
 #fit a linear model
-ames_fit_all <- lm(Sale_Price ~ ., data = ames_data)
+ames_lm <- lm(Sale_Price ~ Gr_Liv_Area, data = ames_data)
 
 #Print the summary of the model
-summary(ames_fit_all)
+summary(ames_lm)
+```
+
+R-squared value explains the variability of y with respect to x:
+
+- varies between 0 to 1 (0-100%);
+- R-squared values closer to 0 mean the regression relationship is very low;
+- R-squared values closer to 1 mean the regression relationship is very strong.
+
+Let's plot our linear regression model:
+```{r}
+plot(ames_data$Gr_Liv_Area, ames_data$Sale_Price,
+     xlab="Gr_Liv_Area",
+     ylab="Sale_Price", 
+     col = "blue")
+abline(ames_lm, col = "red")
 ```
 
 
-**Note** explain a linear model here?
+### Build a linear regression model using Tidymodels
 
-
-### A more powerful and flexible set of tools for predictive modeling - tidymodels
+---
 
 When you type library(tidymodels), you load a collection of packages for modeling and machine learning using tidyverse principles. All the packages are designed to be consistent, modular, and to support good modeling practices. The first thing we are going to practice is splitting your data into a training set and a testing set. The tidymodels package `rsample` has functions that help you specify training and testing sets.
 
@@ -60,8 +83,12 @@ When you type library(tidymodels), you load a collection of packages for modelin
 set.seed(42) #so we all get the same results
 ames_split <- ames_data %>%
     initial_split(prop = 0.8,
-                  strata = Sale_Price)
+                  strata = Sale_Price) #stratification
+```
+Stratified sampling would split within each quartile:
+![strata](../fig/strata.png)
 
+```{r test_train}
 ames_train <- training(ames_split)
 ames_test <- testing(ames_split)
 
@@ -79,14 +106,27 @@ ames_train %>%
             stat = "density",
             col = "blue") + theme(legend.position="none")
 ```
+## Feature engineering
 
-In tidymodels, you can preprocess your data using *recipes* (e.g. for dealing with imbalanced data)
+
+In tidymodels, you can preprocess your data using the *recipes* package.
+Typical preprocessing steps include:
+
+- Scaling and centering numeric predictors;
+- Removing skewness from numeric variables;
+- One-hot and dummy variable encoding for categorical variables;
+- Removing correlated predictors and zero variance variables;
+- Imputing missing data.
+
+Each successive step() function adds a preprocessing step to our recipe object in the order that they are provided:
 ```{r recipe}
 ames_rec <-
   recipe(Sale_Price ~ ., data = ames_train) %>%
   step_other(all_nominal(), threshold = 0.01) %>% #useful when you have some factor levels with very few observations, all_nominal selects both characters and factors, pools infrequently occurring values (frequency less than 0.01) into an "other" category
   step_nzv(all_nominal()) %>% #remove variables that are highly sparse and unbalanced
-  step_dummy(all_nominal(), -all_outcomes()) #create dummy variables for all nominal variables except the outcome variable 
+  step_center(all_numeric(), -all_outcomes()) %>% #subtracts the column mean from a variable
+  step_scale(all_numeric(), -all_outcomes()) %>% #divides by the standard deviation
+  step_dummy(all_nominal(), -all_outcomes(), one_hot = TRUE) #create dummy variables for all nominal variables except the outcome variable 
 
 ames_rec
 ```

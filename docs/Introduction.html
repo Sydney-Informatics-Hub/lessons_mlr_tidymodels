@@ -195,29 +195,45 @@ Learning objectives
 </ul>
 </div>
 </div>
-<section id="what-is-machine-learning" class="level1">
-<h1>What is Machine Learning</h1>
+<section id="what-is-machine-learning" class="level2">
+<h2 data-anchor-id="what-is-machine-learning">What is Machine Learning</h2>
+<hr>
 <p><strong>Machine Learning (ML) is the field of study that gives computers the ability to learn from data without being explicitly programmed</strong></p>
 <ul>
 <li>A ML system is trained rather than explicitly programmed;</li>
 <li>It is a subset of the Artificial Intelligence;</li>
 <li>Also known as predictive modeling/statistical learning.</li>
 </ul>
-<section id="learning-by-experience" class="level4">
-<h4 data-anchor-id="learning-by-experience">Learning by experience</h4>
+</section>
+<section id="learning-by-experience" class="level2">
+<h2 data-anchor-id="learning-by-experience">Learning by experience</h2>
 <p>We are never certain something will happen, but we usually know (or can estimate rather well) how likely it is to happen or, at least, what is most likely to happen, based on the experience we have acquired throughout our life.</p>
 <p><strong>Experience in ML means: Data in the form of examples</strong></p>
 <p>We explore data to find patterns to understand the hidden laws that regulates the domain/make predictions about the world around us.</p>
-<p><strong>What do we mean by learning?</strong></p>
+</section>
+<section id="what-do-we-mean-by-learning" class="level2">
+<h2 data-anchor-id="what-do-we-mean-by-learning">What do we mean by learning?</h2>
 <p>Learning is our means of attaining the ability to perform automatically a task.</p>
-<p>ML tasks are usually described in terms of how the ML system should process an example.</p>
-<p>An example is a collection of features that have been quantitatively or qualitative measured from some object or event that we want the machine learning system to process.</p>
-<p>Typically we represent an example as a vector x where each entry <span class="math inline">\(x^{i}\)</span> of the vector is a different feature:</p>
+<div class="border">
+<p>The main goal of the ML process is to find an algorithm <span class="math inline">\(f(x)\)</span> that most accurately predicts future values <span class="math inline">\(y\)</span> (or <em>outcome</em>) based on a set of inputs <span class="math inline">\(X\)</span> (or <em>predictors</em>), where each entry <span class="math inline">\(x^{i}\)</span> is a different <em>feature</em>:</p>
+</div>
 <ul>
 <li>Features of an image are usually the values of the pixels in the image;</li>
-<li>We want to predict the price of an house on the basis of some characteristics (n° rooms, garden, position, floor, etc..) that are the features of each house example from which we learn.</li>
+<li>We want to predict the price of an house on the basis of some characteristics (n° rooms, garden, position, floor, etc..) that are the features of each house predictors from which we learn.</li>
 </ul>
-<p>Different kind of tasks:</p>
+</section>
+<section id="supervised-ml" class="level2">
+<h2 data-anchor-id="supervised-ml">Supervised ML</h2>
+<hr>
+<p>The dataset contains a series of inputs, based on which we are trying to predict a predifined outcome, which we know for the original data in the dataset. The outcome can be numerical (in which case the problem is called regression) or categorical (classification).</p>
+<section id="regression" class="level3">
+<h3 data-anchor-id="regression">Regression:</h3>
+<p>Think of regression as predicting numbers (or divide the ties by length). You are asking to predict a numerical value given some input. For example:</p>
+<ul>
+<li><p>Given the house features we want to predict the price. It is a pure numerical and unbounded value (at least positive unbounded);</p></li>
+<li><p>Temperature of a city considering several factors (pulling, humidity, season,etc..);</p></li>
+<li><p>To solve this task, the learning algorithm is asked to produce a function so that the model takes an example x as input and after some processing <span class="math inline">\(f(x)\)</span> it returns a value y that can be any real value. <img src="fig/regr.png" class="img-fluid" alt="figure"></p></li>
+</ul>
 </section>
 <section id="classification" class="level3">
 <h3 data-anchor-id="classification">Classification:</h3>
@@ -229,43 +245,43 @@ Learning objectives
 <li><p>So the model takes an example x as input and after some processing <span class="math inline">\(f(x)\)</span> it returns a value y that is one of the categories the example x should belong to. <img src="fig/class_cat.png" class="img-fluid" alt="figure"></p></li>
 </ul>
 </section>
-<section id="regression" class="level3">
-<h3 data-anchor-id="regression">Regression:</h3>
-<p>Think of regression as predicting numbers (or divide the ties by length). You are asking to predict a numerical value given some input. For example:</p>
+<section id="data-splitting-and-spending" class="level3">
+<h3 data-anchor-id="data-splitting-and-spending">Data splitting and spending</h3>
+<hr>
+<p>For machine learning, we typically split data into <strong>training</strong> and <strong>test</strong> sets: - The training set is used to estimate model parameters; - The test set is used to find an independent assessment of model performance.</p>
+<p>Once we have built a ML model we might want to measure its performance, for example the accuracy in classification task (proportion of correct predicted examples) or the average error in a regression task. Our goal is to build a model that is able to really understand the task and that is <strong>able to generalize</strong>. For this reason we need to separate our dataset into training and testing sets. <img src="fig/train_test.png" class="img-fluid" alt="train_test"> The relative proportions of the training and testing set depend on the total of number of observations, and the variability observed in the data. The trade off to be considered is:</p>
 <ul>
-<li><p>Given the house features we want to predict the price. It is a pure numerical and unbounded value (at least positive unbounded);</p></li>
-<li><p>Temperature of a city considering several factors (pulling, humidity, season,etc..);</p></li>
-<li><p>To solve this task, the learning algorithm is asked to produce a function so that the model takes an example x as input and after some processing <span class="math inline">\(f(x)\)</span> it returns a value y that can be any real value.</p></li>
+<li>if there is too much data in the training set, the assessment of the prediction error will be carried out on a very small test set, therefore we might find a model that fits the existing data very well, but generalizes very poorly;</li>
+<li>if there is too much data in the testing set, this means that we might not have enough data in the training set to accurately estimate the model parameters - so the model won’t be very accurate.</li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig/regr.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">figure</figcaption><p></p>
-</figure>
-</div>
-<p>Once we trained a model we might want to measure its performance for example the accuracy in classification task (proportion of correct predicted examples) or the average error in a regression task.</p>
+<p>Some commonly used cutoffs include:</p>
 <ul>
-<li><p>We want to measure performance on some data that have not been seen during training. Why? Because our goal is to build a model that is able to really understand the task and that is <strong>able to generalize</strong>.</p></li>
-<li><p>For this reason we need a separate dataset called Test-set that we never used to train the model.</p></li>
+<li>60% training / 40% testing</li>
+<li>70% training / 30% testing</li>
+<li>80% training / 20% testing <img src="fig/test_train.png" class="img-fluid" alt="test_train"></li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig/train_test.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">test_train</figcaption><p></p>
-</figure>
-</div>
 </section>
 </section>
-<section id="tidyverse" class="level1">
-<h1>Tidyverse</h1>
+<section id="exploratory-data-analysis-eda-with-the-tidyverse" class="level2">
+<h2 data-anchor-id="exploratory-data-analysis-eda-with-the-tidyverse">Exploratory Data Analysis (EDA) with the Tidyverse</h2>
+<hr>
 <p>A hugely important part of any modeling approach is exploratory data analysis. In this course, we’ll be using tidyverse packages for getting to know your data, manipulating it, and visualizing it. The tidyverse is a collection of R packages designed for data science that share common APIs and an underlying philosophy. When you type library(tidyverse), what you’re doing is loading this collection of related packages for handling data using tidy data principles. These packages include ggplot2 for data visualization, and dplyr and tidyr for data manipulation and transformation. During this course, we’ll point out when we use functions from these different packages.</p>
 <p>Visit this page to learn more about tidyverse: <a href="https://www.tidyverse.org/learn/" class="uri">https://www.tidyverse.org/learn/</a></p>
-<section id="tidymodels" class="level3">
-<h3 data-anchor-id="tidymodels">Tidymodels</h3>
-<p>…</p>
-
-
 </section>
+<section id="machine-learning-ml-with-tidymodels" class="level2">
+<h2 data-anchor-id="machine-learning-ml-with-tidymodels">Machine Learning (ML) with Tidymodels</h2>
+<hr>
+<p>Tidymodels is a collection of R packages that provides a modern and consistent approach to building and validating machine learning models. Compared to older packages such as caret, tidymodels offers several benefits:</p>
+<ul>
+<li>it uses a consistent and intuitive syntax across all of its packages, which makes it easier to learn and use compared to the varied and sometimes complex syntax of older packages;</li>
+<li>it is built on top of the tidyverse (<code>dplyr</code>, <code>ggplot2</code>), for a seamless data analysis workflow;</li>
+<li>it includes a number of packages (<code>recipes</code>, <code>rsample</code>) that provide tools for data preprocessing, making it easy to perform common data preprocessing tasks, such as feature engineering, and to integrate these tasks into the machine learning workflow;</li>
+<li>it includes packages (<code>parsnip</code>, <code>tune</code>) that provide a more flexible and modern approach to model tuning and selection. These packages allow for easy cross-validation, hyperparameter tuning, and model selection, and provide a more transparent and reproducible workflow;</li>
+<li>it is actively developed and has a growing community of users and contributors. This means that there are many resources available for learning and troubleshooting, and that the packages are likely to continue to evolve and improve over time.</li>
+</ul>
+<p>Overall, tidymodels offers a more modern and consistent approach to building and validating machine learning models, and provides a number of tools for data preprocessing, model tuning and selection, and workflow integration. These features make it a powerful and user-friendly tool.</p>
+
+
 </section>
 </main></div>
     </div>

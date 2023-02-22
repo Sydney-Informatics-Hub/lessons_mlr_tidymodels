@@ -18,7 +18,10 @@
 ::: {.callout-warning}  
 ### To do before the workshop begins
 
-- Please copy and paste the code above in your Rstudio, run it and if there are any errors please let us know via email (sih.training@sydney.edu.au) BEFORE the workshop begins
+* Please join the workshop with a computer that has the following installed (all available for free):
+  + A recent version of R, available at [https://cran.r-project.org/](https://cran.r-project.org/);
+  + A recent version of RStudio Desktop (RStudio Desktop Open Source License, at least v2022.02), available at [https://www.rstudio.com/download](https://www.rstudio.com/download);
+* Please copy and paste the code above in your Rstudio, run it and if there are any errors please let us know via email (sih.training@sydney.edu.au) BEFORE the workshop begins
 :::
 
 
