@@ -49,6 +49,7 @@ ameshousing_uncleaned <- AmesHousing::ames_raw
 
 ## Exploratory data analysis
 
+---
 
 Exploratory data analysis involves looking at:
 
@@ -89,7 +90,9 @@ colSums(is.na(ameshousing))
 :::
 
 
-### Use naniar to visualise missingness
+### Visualise missingness
+
+---
 
 When working with missing data, it can be helpful to look for "co-missingness", i.e. multiple variables missing together. For example, when working with patient data, number of pregnancies, age at onset of menstruation and menopause may all be missing - which, when observed together, may indicate that these samples come from male patients for whom this data is irrelevant. "Gender" may or may not be a variable coded in the dataset.
 
@@ -260,6 +263,8 @@ ggplotly(p)
 
 ## EDA of outcome variable
 
+---
+
 You also need to do EDA on the outcome variable to:
 
 - identify outliers
@@ -333,9 +338,11 @@ The `bestNormalize` library can be used to identify the best normalising transfo
 ameshousing_filt <- ameshousing_filt %>% mutate(Sale_Price = log10(Sale_Price))
 ```
 
-## Feature engineering
+## Feature transformation
 
-The year in which the house was built and the year when it was remodelled are not really the most relevant parameters we look at when buying a house: instead, buyers usually care a lot more about the age of the house and the time since the last remodel. Let's engineer these features:
+---
+
+The year in which the house was built and the year when it was remodelled are not really the most relevant parameters we look at when buying a house: instead, buyers usually care a lot more about the age of the house and the time since the last remodel. Let's transform these features:
 
 ```{r featureEngineer}
 ameshousing_filt_engineered <-
@@ -348,8 +355,6 @@ saveRDS(ameshousing_filt_engineered, "../_models/ames_dataset_filt.rds")
 ```
 
 
-**Note**
-
+>**Note**
 Make sure to create a "models" folder in your project working directory!
-
 Before you can save your data as .Rds objects, you will actually need to create a folder for these files to go into. Do this by clicking on the "new folder" button in the files window in R studio. Rename your new folder to "models".

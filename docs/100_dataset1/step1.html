@@ -265,6 +265,7 @@ Learning objective:
 <span><span class="va">ameshousing_uncleaned</span> <span class="op">&lt;-</span> <span class="fu">AmesHousing</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/AmesHousing/man/ames_raw.html">ames_raw</a></span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="exploratory-data-analysis" class="level2"><h2 data-anchor-id="exploratory-data-analysis">Exploratory data analysis</h2>
+<hr>
 <p>Exploratory data analysis involves looking at:</p>
 <ul>
 <li>The distribution of variables in your dataset;</li>
@@ -488,7 +489,8 @@ $ Latitude           &lt;dbl&gt; 42.05403, 42.05301, 42.05266, 42.05125, 42.0609
 </div>
 </div>
 </div>
-<section id="use-naniar-to-visualise-missingness" class="level3"><h3 data-anchor-id="use-naniar-to-visualise-missingness">Use naniar to visualise missingness</h3>
+<section id="visualise-missingness" class="level3"><h3 data-anchor-id="visualise-missingness">Visualise missingness</h3>
+<hr>
 <p>When working with missing data, it can be helpful to look for “co-missingness”, i.e.&nbsp;multiple variables missing together. For example, when working with patient data, number of pregnancies, age at onset of menstruation and menopause may all be missing - which, when observed together, may indicate that these samples come from male patients for whom this data is irrelevant. “Gender” may or may not be a variable coded in the dataset.</p>
 <p>A way of visualising missing data in the tidy context has been proposed <a href="https://www.njtierney.com/post/2018/09/10/tidy-missing-data/"><span class="citation" data-cites="tierney2018expanding">@tierney2018expanding</span></a>. See <a href="http://naniar.njtierney.com/articles/naniar-visualisation.html">this web page</a> for more options for your own data.</p>
 <p>Let’s look at the missing variables in our housing data:</p>
@@ -711,6 +713,7 @@ Solution
 </div>
 </div>
 </section></section><section id="eda-of-outcome-variable" class="level2"><h2 data-anchor-id="eda-of-outcome-variable">EDA of outcome variable</h2>
+<hr>
 <p>You also need to do EDA on the outcome variable to:</p>
 <ul>
 <li>identify outliers</li>
@@ -819,8 +822,9 @@ Standardized asinh(x) Transformation with 2925 nonmissing obs.:
 <div class="cell" data-hash="step1_cache/html/log transform_f3fb4bcc14eb4bbdc915433c0c8d4084">
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ameshousing_filt</span> <span class="op">&lt;-</span> <span class="va">ameshousing_filt</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Sale_Price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="va">Sale_Price</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="feature-engineering" class="level2"><h2 data-anchor-id="feature-engineering">Feature engineering</h2>
-<p>The year in which the house was built and the year when it was remodelled are not really the most relevant parameters we look at when buying a house: instead, buyers usually care a lot more about the age of the house and the time since the last remodel. Let’s engineer these features:</p>
+</section><section id="feature-transformation" class="level2"><h2 data-anchor-id="feature-transformation">Feature transformation</h2>
+<hr>
+<p>The year in which the house was built and the year when it was remodelled are not really the most relevant parameters we look at when buying a house: instead, buyers usually care a lot more about the age of the house and the time since the last remodel. Let’s transform these features:</p>
 <div class="cell" data-hash="step1_cache/html/featureEngineer_de995f1d8e4f69feea520a0c77c69a15">
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ameshousing_filt_engineered</span> <span class="op">&lt;-</span></span>
 <span>  <span class="va">ameshousing_filt</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -830,9 +834,9 @@ Standardized asinh(x) Transformation with 2925 nonmissing obs.:
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">ameshousing_filt_engineered</span>, <span class="st">"../_models/ames_dataset_filt.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>Note</strong></p>
-<p>Make sure to create a “models” folder in your project working directory!</p>
-<p>Before you can save your data as .Rds objects, you will actually need to create a folder for these files to go into. Do this by clicking on the “new folder” button in the files window in R studio. Rename your new folder to “models”.</p>
+<blockquote class="blockquote">
+<p><strong>Note</strong> Make sure to create a “models” folder in your project working directory! Before you can save your data as .Rds objects, you will actually need to create a folder for these files to go into. Do this by clicking on the “new folder” button in the files window in R studio. Rename your new folder to “models”.</p>
+</blockquote>
 
 
 </section></main></div>
