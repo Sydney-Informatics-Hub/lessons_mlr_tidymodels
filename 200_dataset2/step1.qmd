@@ -28,8 +28,11 @@ Today, we are going to be working with [Pima Indian Women’s diabetes dataset](
 4) triceps - Triceps skin fold thickness (mm) - [a measure correlated with body fat](https://en.wikipedia.org/wiki/Anthropometry_of_the_upper_arm)
 5) insulin - 2-Hour serum insulin (mu U/ml)
 6) mass - Body mass index (weight in kg/(height in m)^2)
-8) Age - Age (years)
-9) Outcome - diabetes status (pos - diabetic; neg - non-diabetic)
+8) age - Age (years)
+9) diabetes - diabetes status (pos - diabetic; neg - non-diabetic)
+10) pedigree - diabetes pedigree function
+
+The diabetes pedigree function was developed by [Smith 1988](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2245318/) to provide a synthesis ofthe diabetes mellitus history in relatives and the genetic relationship of those relatives to the subject. It uses information from parents, grandparents, siblings, aunts and uncles, and first cousin to provide a measure of the expected genetic influence of affected and unaffected relatives on the subject’s eventual diabetes risk.
 
 The Pima Indians are a group of Native Americans living in an area consisting of what is now central and southern Arizona. The short name, “Pima” is believed to have come from a phrase meaning “I don’t know,” which they used repeatedly in their initial meetings with Spanish colonists. Thanks Wikipedia!
 

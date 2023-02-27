@@ -154,6 +154,9 @@ library(tidymodels)
 library(workflows)
 library(tune)
 theme_set(theme_minimal())
+
+diabetes_rec <- readRDS("../_models/diabetes_rec.rds")
+diabetes_folds <- readRDS("../_models/diabetes_folds.rds")
 ```
 
 ### Tree-based models
@@ -185,7 +188,7 @@ rf_model_diabetes <-
 
 > **Note** Nothing about this model specification is specific to the diabetes dataset.
 
-### Optimize tuning parameters
+### Find which parameters will give the model its best accuracy
 
 :::{.borders}
 - Try different values and measure their performance;
@@ -195,19 +198,32 @@ rf_model_diabetes <-
 
 You have a couple of options for how to choose which possible values for the tuning parameters to try. 
 
-- We can use the function `tune_grid()` to tune either a workflow or a model specification with a set of resampled data, such as the validation set you created (i.e. a single resample).
+- We can use the function `tune_grid()` to tune either a workflow or a model specification with a set of resampled data, such as the cross-validation we created. Grid search, combined with resampling, requires fitting a lot of models!
+These models don’t depend on one another and can be run in parallel.
 
 ```{r tune_grid}
+
+
+
+#Speed up computation
+cores <- parallel::detectCores(logical = FALSE) #detect the number of available CPU cores on your machine 
+cl <- parallel::makePSOCKcluster(cores) #creates a cluster of worker processes
+doParallel::registerDoParallel(cl) #enable parallel computing
+
 set.seed(245)
 
-diabetes_rec <- readRDS("../_models/diabetes_rec.rds")
-diabetes_folds <- readRDS("../_models/diabetes_folds.rds")
 rf_grid <- tune_grid(
-  rf_model_diabetes,
-  diabetes_rec,
-  resamples = diabetes_folds)
+  rf_model_diabetes,  #your model
+  diabetes_rec,       #your recipe
+  resamples = diabetes_folds, #your resampling
+  metrics = metric_set(accuracy, roc_auc, sensitivity, specificity))
+
+# Shut down parallel backend with:
+foreach::registerDoSEQ()
+parallel::stopCluster(cl)
 
 rf_grid
+
 ```
 
 
@@ -224,4 +240,56 @@ rf_grid %>%
 rf_grid %>%
   show_best("accuracy")
 ```
+
+
+:::{.callout-tip}
+### Challenge X
+
+Use `tune_grid` and `collect_metrics` to tune a workflow. Hints:
+
+Use `workflow()` to define the workflow:
+```{r challenge x worflow}
+#set the workflow
+
+#add the recipe
+
+#add the model
+```
+:::
+
+:::{.callout-caution collapse="true"}
+### Solution
+
+```{r challenge x worflow solution}
+#set the workflow
+rf_worflow <- workflow() %>%
+#add the recipe
+add_recipe(diabetes_rec) %>%
+#add the model
+  add_model(rf_model_diabetes)
+
+#tune the workflow
+set.seed(22)
+
+rf_tune_diabetes <- rf_worflow %>%
+  tune_grid(resamples = diabetes_folds,
+            metrics = metric_set(accuracy, roc_auc, sensitivity, specificity))
+
+rf_tune_diabetes %>%
+  collect_metrics()
+```
+:::
+
+Let's visualise our results:
+
+```{r autoplot}
+autoplot(rf_grid)
+autoplot(rf_tune_diabetes)
+```
+### Updating the workflow
+
+---
+
+
+
 
