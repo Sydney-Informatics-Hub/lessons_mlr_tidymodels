@@ -843,10 +843,26 @@ Prediction neg pos
 </div>
 <p>This returns a ggplot object with the variable importance scores from our model.</p>
 <p>We see from the results below, that the glucose concentration, body mass index and age are the most important predictors of diabetes.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Key Points
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li><ul>
-<li>
-</li></ul></li>
+<li>A workflow is a combination of a model and preprocessors (e.g, a formula, recipe, etc.);</li>
+<li>In order to try different combinations of these, the <code><a href="https://workflowsets.tidymodels.org/reference/workflow_set.html">workflow_set()</a></code> function creates an object that contains many workflows;</li>
+<li>The <code><a href="https://workflowsets.tidymodels.org/reference/workflow_map.html">workflow_map()</a></code> executes the function from the tune package (e.g, <code><a href="https://tune.tidymodels.org/reference/tune_grid.html">tune_grid()</a></code>, <code><a href="https://tune.tidymodels.org/reference/fit_resamples.html">fit_resamples()</a></code>) across all the workflows in the set.</li>
+</ul>
+</div>
+</div>
+<ul>
+<li><em>Adapted from “Decision Trees and Random Forests”, available <a href="https://www.gmudatamining.com/lesson-13-r-tutorial.html">here</a>.</em></li>
+<li><em>Adapted from “Machine Learning with tidymodels” workshop, licensed CC Y-SA 4.0. Available <a href="https://workshops.tidymodels.org">here</a>.</em></li>
 </ul>
 
 

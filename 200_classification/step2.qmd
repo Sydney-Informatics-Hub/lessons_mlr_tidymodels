@@ -490,6 +490,15 @@ This returns a ggplot object with the variable importance scores from our model.
 
 We see from the results below, that the glucose concentration, body mass index and age are the most important predictors of diabetes.
 
-- *
+:::{.callout-note}
+### Key Points
+
+- A workflow is a combination of a model and preprocessors (e.g, a formula, recipe, etc.);
+- In order to try different combinations of these, the `workflow_set()` function creates an object that contains many workflows;
+- The `workflow_map()` executes the function from the tune package (e.g, `tune_grid()`, `fit_resamples()`) across all the workflows in the set.
+:::
+
+- *Adapted from "Decision Trees and Random Forests", available [here](https://www.gmudatamining.com/lesson-13-r-tutorial.html).*
+- *Adapted from "Machine Learning with tidymodels" workshop, licensed CC Y-SA 4.0. Available [here](https://workshops.tidymodels.org).*
 
 

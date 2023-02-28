@@ -263,3 +263,11 @@ diabetes_rec
 saveRDS(diabetes_rec, "../_models/diabetes_rec.rds")
 ```
 
+:::{.callout-note}
+### Key Points
+
+- Classification attempts to predict the class to which a particular observation belongs;
+- There are many different metrics for assessing performance for a classification problem;
+- Which metric you choose and optimise for should be considered carefully, and will be different depending on the problem;
+- Exporatory data analysis is a time consuming but critical process that needs to be carried out prior to any modeling.
+:::
