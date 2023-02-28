@@ -489,3 +489,7 @@ vip(wf_fit)
 This returns a ggplot object with the variable importance scores from our model. 
 
 We see from the results below, that the glucose concentration, body mass index and age are the most important predictors of diabetes.
+
+- *
+
+

@@ -473,9 +473,6 @@ The column .metric contains the performance statistics created from the 10 asses
 # Obtain performance metrics on resampled training data
 ames_res %>% collect_metrics()
 ```
-- `vfold_cv()` creates folds for cross-validation;
-- `fit_resamples()` fits models to resamples; 
-- `collect_metrics()` obtains performance metrics from the results.
 
 We can see that the regression relationship is very strong: 90.8% of the variability in the selling price can be explained by the predictors and, on average, each element in the predicted selling price differs from the actual selling price by 0.05.
 
@@ -538,8 +535,12 @@ ggplot(data = ames_results_final,
 - You don’t have to keep track of separate objects in your workspace;
 - The recipe prepping and model fitting can be executed using a single call to `fit()` instead of `prep()`-`juice()`-`fit()`;
 - The recipe baking and model predictions are handled with a single call to `predict()` instead of `bake()`-`predict()`;
-- Workflows are be able to evaluate different recipes and models at once.
+- Workflows are be able to evaluate different recipes and models at once (as we will see in Day 2 of this workshop);
+- `vfold_cv()` creates folds for cross-validation;
+- `fit_resamples()` fits models to resamples; 
+- `collect_metrics()` obtains performance metrics from the results.
 :::
 
 - *https://medium.com/@sachin.hs20/simple-linear-regression-using-example-e4e2a89df54c.*
-- *Adapted from "Supervised Machine Learning: Case Studies in R!". MIT - licensed. Available [here](https://github.com/juliasilge/supervised-ML-case-studies-course).*
+- *Adapted from "Linear Regression and tidymodels", available [here](https://www.gmudatamining.com/lesson-10-r-tutorial.html).*
+- *Max Kuhn and Julia Silge, "Tidy Modeling with R", Version 1.0.0(2022-12-20).*

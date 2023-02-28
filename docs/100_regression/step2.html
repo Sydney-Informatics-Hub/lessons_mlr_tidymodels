@@ -1258,14 +1258,6 @@ $ .predictions &lt;list&gt; [&lt;tbl_df[236 x 4]&gt;], [&lt;tbl_df[236 x 4]&gt;]
 2 rsq     standard   0.909     50 0.00368 Preprocessor1_Model1</code></pre>
 </div>
 </div>
-<ul>
-<li>
-<code><a href="https://rsample.tidymodels.org/reference/vfold_cv.html">vfold_cv()</a></code> creates folds for cross-validation;</li>
-<li>
-<code>fit_resamples()</code> fits models to resamples;</li>
-<li>
-<code>collect_metrics()</code> obtains performance metrics from the results.</li>
-</ul>
 <p>We can see that the regression relationship is very strong: 90.8% of the variability in the selling price can be explained by the predictors and, on average, each element in the predicted selling price differs from the actual selling price by 0.05.</p>
 <p>We can reliably measure performance using only the training data.</p>
 <p>If we wanted to try different model types for this data set, we could more confidently compare performance metrics computed using resampling to choose between models. Also, remember that at the end of our project, we return to our test set to estimate final model performance.</p>
@@ -1351,13 +1343,20 @@ Key points
 <li>You don’t have to keep track of separate objects in your workspace;</li>
 <li>The recipe prepping and model fitting can be executed using a single call to <code>fit()</code> instead of <code>prep()</code>-<code>juice()</code>-<code>fit()</code>;</li>
 <li>The recipe baking and model predictions are handled with a single call to <code><a href="https://rdrr.io/r/stats/predict.html">predict()</a></code> instead of <code>bake()</code>-<code><a href="https://rdrr.io/r/stats/predict.html">predict()</a></code>;</li>
-<li>Workflows are be able to evaluate different recipes and models at once.</li>
+<li>Workflows are be able to evaluate different recipes and models at once (as we will see in Day 2 of this workshop);</li>
+<li>
+<code><a href="https://rsample.tidymodels.org/reference/vfold_cv.html">vfold_cv()</a></code> creates folds for cross-validation;</li>
+<li>
+<code>fit_resamples()</code> fits models to resamples;</li>
+<li>
+<code>collect_metrics()</code> obtains performance metrics from the results.</li>
 </ul>
 </div>
 </div>
 <ul>
 <li><em>https://medium.com/<span class="citation" data-cites="sachin.hs20/simple-linear-regression-using-example-e4e2a89df54c">@sachin.hs20/simple-linear-regression-using-example-e4e2a89df54c</span>.</em></li>
-<li><em>Adapted from “Supervised Machine Learning: Case Studies in R!”. MIT - licensed. Available <a href="https://github.com/juliasilge/supervised-ML-case-studies-course">here</a>.</em></li>
+<li><em>Adapted from “Linear Regression and tidymodels”, available <a href="https://www.gmudatamining.com/lesson-10-r-tutorial.html">here</a>.</em></li>
+<li><em>Max Kuhn and Julia Silge, “Tidy Modeling with R”, Version 1.0.0(2022-12-20).</em></li>
 </ul>
 
 
