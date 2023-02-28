@@ -15,21 +15,21 @@ website:
         text: Schedule
       - href: 00_setup.qmd
         text: Setup
-      - href: docs/Introduction.html
+      - href: Introduction.qmd
         text: Introduction
       - text: "Day 1"
         menu:
           - text: "Exploratory Data Analysis (EDA) - Regression"
-            href: docs/100_regression/step1.html
+            href: 100_regression/step1.qmd
           - text: "Get started with tidymodels and workflows"
-            href: docs/100_regression/step2.html
+            href: 100_regression/step2.qmd
       - text: "Day 2"
         menu:
           - text: "EDA - Classification"
-            href: docs/200_classification/step1.html
+            href: 200_classification/step1.qmd
           - text: "Tuning hyperparameters and compare multiple model workflows"
-            href: docs/200_classification/step2.html
-      - href: docs/Tidymodels_tips&tricks.html
+            href: 200_classification/step2.qmd
+      - href: Tidymodels_tips_tricks.qmd
         text: Tips&Tricks
 
   repo-url: https://github.com/Sydney-Informatics-Hub/

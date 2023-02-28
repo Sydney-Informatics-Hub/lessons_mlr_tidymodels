@@ -579,5 +579,12 @@
     "title": "Sydney Informatics Hub",
     "section": "",
     "text": "https://usemodels.tidymodels.org devtools::install_github(“tidymodels/usemodels”)\nThe usemodels package is a helpful way of quickly creating code snippets to fit models using the tidymodels framework. Given a simple formula and a data set, the use_* functions can create code that appropriate for the data (given the model). The package includes these templates:\n\nlibrary(usemodels)\nls(\"package:usemodels\", pattern = \"use_\")\n\n [1] \"use_bag_tree_rpart\"   \"use_C5.0\"             \"use_cubist\"          \n [4] \"use_dbarts\"           \"use_earth\"            \"use_glmnet\"          \n [7] \"use_kernlab_svm_poly\" \"use_kernlab_svm_rbf\"  \"use_kknn\"            \n[10] \"use_mgcv\"             \"use_mixOmics\"         \"use_nnet\"            \n[13] \"use_ranger\"           \"use_rpart\"            \"use_xgboost\"         \n[16] \"use_xrf\""
+  },
+  {
+    "objectID": "Tidymodels_tips_tricks.html",
+    "href": "Tidymodels_tips_tricks.html",
+    "title": "Sydney Informatics Hub",
+    "section": "",
+    "text": "https://usemodels.tidymodels.org devtools::install_github(“tidymodels/usemodels”)\nThe usemodels package is a helpful way of quickly creating code snippets to fit models using the tidymodels framework. Given a simple formula and a data set, the use_* functions can create code that appropriate for the data (given the model). The package includes these templates:\n\nlibrary(usemodels)\nls(\"package:usemodels\", pattern = \"use_\")\n\n [1] \"use_bag_tree_rpart\"   \"use_C5.0\"             \"use_cubist\"          \n [4] \"use_dbarts\"           \"use_earth\"            \"use_glmnet\"          \n [7] \"use_kernlab_svm_poly\" \"use_kernlab_svm_rbf\"  \"use_kknn\"            \n[10] \"use_mgcv\"             \"use_mixOmics\"         \"use_nnet\"            \n[13] \"use_ranger\"           \"use_rpart\"            \"use_xgboost\"         \n[16] \"use_xrf\""
   }
 ]
