@@ -195,7 +195,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-about-solana column-body">
   <div class="about-entity">
     <div class="entity-contents">
-      <div class="about-contents"><main class="content" id="quarto-document-content"><div class="callout-note callout callout-style-default callout-captioned">
+      <div class="about-contents"><main class="content" id="quarto-document-content"><section id="exploratory-data-analysis-eda" class="level1"><h1>Exploratory Data Analysis (EDA)</h1>
+<section id="the-ames-housing-dataset" class="level2"><h2 data-anchor-id="the-ames-housing-dataset">The Ames housing dataset</h2>
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -206,8 +208,8 @@ Learning objective:
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Use tidyverse functions for exploratory data analysis;</li>
-<li>Introduce and explore the Ames Housing dataset.</li>
+<li>Use Tidyverse functions for exploratory data analysis (EDA);</li>
+<li>Explore the Ames Housing dataset.</li>
 </ul>
 </div>
 </div>
@@ -238,7 +240,7 @@ Learning objective:
 <span><span class="co"># Read in the uncleaned data. </span></span>
 <span><span class="va">ameshousing_uncleaned</span> <span class="op">&lt;-</span> <span class="fu">AmesHousing</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/AmesHousing/man/ames_raw.html">ames_raw</a></span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="exploratory-data-analysis" class="level2"><h2 data-anchor-id="exploratory-data-analysis">Exploratory data analysis</h2>
+</section><section id="exploratory-data-analysis" class="level2"><h2 data-anchor-id="exploratory-data-analysis">Exploratory data analysis</h2>
 <hr>
 <p>Exploratory data analysis involves looking at:</p>
 <ul>
@@ -530,7 +532,7 @@ Solution
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select_all.html">select_if</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/funprog.html">Negate</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Let’s then use the ggpairs() function to generate a plot of the first 10 numeric variables (and sale price, which is 33) against each other. We can repeat this for variables 11-20 and 21-33.</p>
+<p>Let’s then use the <code><a href="https://ggobi.github.io/ggally/reference/ggpairs.html">ggpairs()</a></code> function to generate a plot of the first 10 numeric variables (and sale price, which is 33) against each other. We can repeat this for variables 11-20 and 21-33.</p>
 <div class="cell" data-hash="step1_cache/html/EDAindependent_44209ec17e233f46a0b1428dd10fc8a3">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggobi.github.io/ggally/reference/ggpairs.html">ggpairs</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ameshousing</span>, </span>
 <span>        columns <span class="op">=</span> <span class="va">numVars</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="fl">33</span><span class="op">)</span><span class="op">]</span>, </span>
@@ -799,21 +801,35 @@ Standardized asinh(x) Transformation with 2925 nonmissing obs.:
 </section><section id="feature-transformation" class="level2"><h2 data-anchor-id="feature-transformation">Feature transformation</h2>
 <hr>
 <p>The year in which the house was built and the year when it was remodelled are not really the most relevant parameters we look at when buying a house: instead, buyers usually care a lot more about the age of the house and the time since the last remodel. Let’s transform these features:</p>
-<div class="cell" data-hash="step1_cache/html/featureEngineer_de995f1d8e4f69feea520a0c77c69a15">
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ameshousing_filt_engineered</span> <span class="op">&lt;-</span></span>
+<div class="cell" data-hash="step1_cache/html/featureEngineer_0c05cbd2a238abaa0693b468e8ac8aaf">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ameshousing_filt_tr</span> <span class="op">&lt;-</span></span>
 <span>  <span class="va">ameshousing_filt</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Time_Since_Remodel <span class="op">=</span> <span class="va">Year_Sold</span> <span class="op">-</span> <span class="va">Year_Remod_Add</span>, </span>
 <span>         House_Age <span class="op">=</span> <span class="va">Year_Sold</span> <span class="op">-</span> <span class="va">Year_Built</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Year_Remod_Add</span>, <span class="op">-</span><span class="va">Year_Built</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">ameshousing_filt_engineered</span>, <span class="st">"../_models/ames_dataset_filt.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">ameshousing_filt_tr</span>, <span class="st">"../_models/ames_dataset_filt.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
 <p><strong>Note</strong> Make sure to create a “models” folder in your project working directory! Before you can save your data as .Rds objects, you will actually need to create a folder for these files to go into. Do this by clicking on the “new folder” button in the files window in R studio. Rename your new folder to “models”.</p>
 </blockquote>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Key points
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Exploratory Data Analysis (EDA) is an essential first step in ML.</p>
+</div>
+</div>
+<p><em>Tierney, Nicholas J, and Dianne H Cook. 2018. “Expanding Tidy Data Principles to Facilitate Missing Data Exploration, Visualization and Assessment of Imputations.” arXiv Preprint arXiv:1809.02264.</em></p>
 
 
-</section></main></div>
+</section></section></main></div>
     </div>
   </div>
 </div>

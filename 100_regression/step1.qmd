@@ -1,10 +1,11 @@
-
+# Exploratory Data Analysis (EDA) 
+## The Ames housing dataset
 
 :::{.callout-note}
 ## Learning objective:
 
-- Use tidyverse functions for exploratory data analysis;
-- Introduce and explore the Ames Housing dataset.
+- Use Tidyverse functions for exploratory data analysis (EDA);
+- Explore the Ames Housing dataset.
 :::
 
 ```{r echo=FALSE, purl=FALSE}
@@ -145,7 +146,7 @@ catVars <- ameshousing %>%
 ```
 
 
-Let's then use the ggpairs() function to generate a plot of the first 10 numeric variables (and sale price, which is 33) against each other. We can repeat this for variables 11-20 and 21-33.
+Let's then use the `ggpairs()` function to generate a plot of the first 10 numeric variables (and sale price, which is 33) against each other. We can repeat this for variables 11-20 and 21-33.
 
 ```{r EDAindependent}
 ggpairs(data = ameshousing, 
@@ -345,16 +346,23 @@ ameshousing_filt <- ameshousing_filt %>% mutate(Sale_Price = log10(Sale_Price))
 The year in which the house was built and the year when it was remodelled are not really the most relevant parameters we look at when buying a house: instead, buyers usually care a lot more about the age of the house and the time since the last remodel. Let's transform these features:
 
 ```{r featureEngineer}
-ameshousing_filt_engineered <-
+ameshousing_filt_tr <-
   ameshousing_filt %>%
   mutate(Time_Since_Remodel = Year_Sold - Year_Remod_Add, 
          House_Age = Year_Sold - Year_Built) %>%
   select(-Year_Remod_Add, -Year_Built)
 
-saveRDS(ameshousing_filt_engineered, "../_models/ames_dataset_filt.rds")
+saveRDS(ameshousing_filt_tr, "../_models/ames_dataset_filt.rds")
 ```
 
 
 >**Note**
 Make sure to create a "models" folder in your project working directory!
 Before you can save your data as .Rds objects, you will actually need to create a folder for these files to go into. Do this by clicking on the "new folder" button in the files window in R studio. Rename your new folder to "models".
+
+:::{.callout-note}
+### Key points
+Exploratory Data Analysis (EDA) is an essential first step in ML.
+:::
+
+*Tierney, Nicholas J, and Dianne H Cook. 2018. “Expanding Tidy Data Principles to Facilitate Missing Data Exploration, Visualization and Assessment of Imputations.” arXiv Preprint arXiv:1809.02264.*
