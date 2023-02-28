@@ -19,13 +19,13 @@ website:
         text: Introduction
       - text: "Day 1"
         menu:
-          - text: "Exploratory Data Analysis (EDA) with the Tidyverse - The Ames dataset"
+          - text: "Exploratory Data Analysis (EDA) - Regression"
             href: docs/100_regression/step1.html
           - text: "Get started with tidymodels and workflows"
             href: docs/100_regression/step2.html
       - text: "Day 2"
         menu:
-          - text: "EDA and preprocessing - The Pima Indian Women’s diabetes dataset"
+          - text: "EDA - Classification"
             href: docs/200_classification/step1.html
           - text: "Tuning hyperparameters and compare multiple model workflows"
             href: docs/200_classification/step2.html
