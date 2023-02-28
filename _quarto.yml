@@ -13,7 +13,7 @@ website:
     left:
       - href: index.qmd
         text: Schedule
-      - href: docs/00_setup.html
+      - href: 00_setup.qmd
         text: Setup
       - href: docs/Introduction.html
         text: Introduction
