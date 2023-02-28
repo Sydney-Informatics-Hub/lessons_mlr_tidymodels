@@ -5,9 +5,9 @@ title: Introduction to Machine Learning with R and tidymodels
 :::{.callout-important}
 ### Learning objectives
 
-- use exploratory data analysis to prepare for predictive modeling
-- explore which modeling approaches to use for different kinds of data
-- practice implementing supervised machine learning for classification and regression
+- Understand what Machine Learning (ML) is;
+- Understand which modeling approaches to use for different kinds of data;
+- Understand how Tidymodels can help build and evaluate ML models.
 :::
 
 ## What is Machine Learning

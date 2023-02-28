@@ -256,7 +256,7 @@
     "href": "Introduction.html",
     "title": "Introduction to Machine Learning with R and tidymodels",
     "section": "",
-    "text": "Learning objectives\n\n\n\n\nuse exploratory data analysis to prepare for predictive modeling\nexplore which modeling approaches to use for different kinds of data\npractice implementing supervised machine learning for classification and regression"
+    "text": "Learning objectives\n\n\n\n\nUnderstand what Machine Learning (ML) is;\nUnderstand which modeling approaches to use for different kinds of data;\nUnderstand how Tidymodels can help build and evaluate ML models."
   },
   {
     "objectID": "00_setup.html",
