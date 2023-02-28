@@ -14,12 +14,12 @@ This course is designed to be delivered either as 2 day face-to-face workshop or
 |  |  | 
 | ------ | :------ | 
 | **Day 1** | 
-|  Morning  |  [Introduction to machine learning](docs/Introduction.html) |
-|    |  [Exploratory data analysis (EDA) - Regression](docs/100_regression/step1.html) |
-|  Afternoon  |  [Get started with tidymodels and workflows](docs/100_regression/step2.html) |   
+|  Morning  |  [Introduction to machine learning](Introduction.qmd) |
+|    |  [Exploratory data analysis (EDA) - Regression](100_regression/step1.qmd) |
+|  Afternoon  |  [Get started with tidymodels and workflows](100_regression/step2.qmd) |   
 | **Day 2** | 
-|  Morning  |  [EDA - Classification](docs/200_classification/step1.html) |
-|  Afternoon  |  [Tuning hyperparameters and compare multiple model workflows](docs/200_classification/step2.html)  | 
+|  Morning  |  [EDA - Classification](200_classification/step1.qmd) |
+|  Afternoon  |  [Tuning hyperparameters and compare multiple model workflows](200_classification/step2.qmd)  | 
 
 ::: {.callout-important}
 
