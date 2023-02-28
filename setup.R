@@ -5,10 +5,15 @@ if (getRversion() < 3.6){
 list_of_pkgs <- c(
   "AmesHousing",
   "tidyverse",
-  "readr",
-  "ggplot2",
-  "RCurl"
-  )
+  "tidymodels",
+  "doParallel",
+  "vip",
+  "ggcorrplot",
+  "naniar",
+  "parallelly",
+  "GGally",
+  "mlbench",
+  "usemodels")
 
 au_repo <- "https://mirror.aarnet.edu.au/pub/CRAN/"
 

@@ -13,34 +13,24 @@ website:
     left:
       - href: index.qmd
         text: Schedule
-      - href: 00_setup.qmd
+      - href: docs/00_setup.html
         text: Setup
-      - href: Introduction.qmd
+      - href: docs/Introduction.html
         text: Introduction
-      - text: "Session 1"
+      - text: "Day 1"
         menu:
-          - text: "Predict the house sale price in Iowa - EDA"
-            href: 100_dataset1/step1.qmd
-          - text: "Get started with tidymodels"
-            href: 100_dataset1/step2.qmd
-      - text: "Session 2"
+          - text: "Exploratory Data Analysis (EDA) with the Tidyverse - The Ames dataset"
+            href: docs/100_regression/step1.html
+          - text: "Get started with tidymodels and workflows"
+            href: docs/100_regression/step2.html
+      - text: "Day 2"
         menu:
-          - text: "Predict what makes a developer more likely to work remotely - EDA"
-            href: 200_dataset2/step1.qmd
-          - text: "Preprocess with a recipe"
-            href: 200_dataset2/step2.qmd
-      - text: "Session3 "
-        menu:
-          - text: "Predict which wine features are the best quality wine indicators - EDA"
-            href: 300_dataset3/step1.qmd
-          - text: "Create a modeling workflow"
-            href: 300_dataset3/step2.qmd
-      - text: "Session 4"
-        menu:
-          - text: "Predict whether a cancer is malignant or benign from biopsy details - EDA"
-            href: 400_dataset4/step1.qmd
-          - text: "Work with model hyperparameters"
-            href: 400_dataset4/step2.qmd
+          - text: "EDA and preprocessing - The Pima Indian Women’s diabetes dataset"
+            href: docs/200_classification/step1.html
+          - text: "Tuning hyperparameters and compare multiple model workflows"
+            href: docs/200_classification/step2.html
+      - href: docs/Tidymodels_tips&tricks.html
+        text: Tips&Tricks
 
   repo-url: https://github.com/Sydney-Informatics-Hub/
   repo-actions: [edit, issue]

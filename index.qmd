@@ -13,19 +13,13 @@ This course is designed to be delivered either as 2 day face-to-face workshop or
 
 |  |  | 
 | ------ | :------ | 
-| **Session 1** | 
-|  1:30 pm - 3:00 pm  |  [Introduction to machine learning - Regrassion and Classification](Introduction.qmd)|
-|  3:30 pm - 4:30 pm  |  [Predict the house sale price in Iowa - Exploratory data analysis (EDA)](100_dataset1/step1.qmd) |
-|  4:30 pm - 5:00 pm  |  [Get started with tidymodels](docs/100_dataset1/step2.html) |   
-| **Session 2** | 
-|  1:30 pm - 2:00 pm  |  [Predict what makes a developer more likely to work remotely - EDA](200_dataset2/step1.qmd) |
-|  2:00 pm - 5:00 pm  |  [Preprocess with a recipe](200_dataset2/step2.qmd)  | 
-| **Session 3** | 
-|  1:30 pm - 2:00 pm  |  [Predict which wine features are the best quality wine indicators - EDA](300_dataset3/step1.qmd) |
-|  2:00 pm - 5:00 pm  |  [Create a modeling workflow](300_dataset3/step2.qmd)  | 
-| **Session 4** |  
-|  1:30 pm - 2:00 pm  |  [Predict whether a cancer is malignant or benign from biopsy details - EDA](400_dataset4/step1.qmd)  |
-|  2:00 pm - 5:00 pm  |  [Work with model hyperparameters](400_dataset4/step2.qmd)
+| **Day 1** | 
+|  Morning  |  [Introduction to machine learning - Regrassion and Classification, Tidyverse and Tidymodels](docs/Introduction.html)|
+|    |  [Exploratory data analysis (EDA) - The Ames dataset](docs/100_regression/step1.html) |
+|  Afternoon  |  [Get started with tidymodels and workflows](docs/100_regression/step2.html) |   
+| **Day 2** | 
+|  Morning  |  [EDA and preprocessing - The Pima Indian Women’s diabetes dataset](docs/200_classification/step1.html) |
+|  Afternoon  |  [Tuning hyperparameters and compare multiple model workflows](docs/200_classification/step2.html)  | 
 
 ::: {.callout-important}
 
@@ -36,5 +30,5 @@ This course is designed to be delivered either as 2 day face-to-face workshop or
   +You are familiar with functions from `dplyr`, `tidyr`, and `ggplot2`;
   +You can read data into R, transform and reshape data, and make a wide variety of graphs.
 - We expect participants to have some exposure to basic statistical concepts, but NOT intermediate or expert familiarity with modeling or machine learning;
--You need your own laptop with R and a few key packages installed. See [setup instructions](00_setup.qmd) for more details.
+-You need your own laptop with R and a few key packages installed. See [setup instructions](docs/00_setup.html) for more details.
 :::
