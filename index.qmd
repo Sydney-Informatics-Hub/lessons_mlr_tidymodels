@@ -31,5 +31,5 @@ This course is designed to be delivered either as 2 day face-to-face workshop or
   + You are familiar with functions from `dplyr`, `tidyr`, and `ggplot2`;
   + You can read data into R, transform and reshape data, and make a wide variety of graphs.
 - We expect participants to have some exposure to basic statistical concepts, but NOT intermediate or expert familiarity with modeling or machine learning;
-- You need your own laptop with R and a few key packages installed. See [setup instructions](docs/00_setup.html) for more details.
+- You need your own laptop with R and a few key packages installed. See [setup instructions](00_setup.qmd) for more details.
 :::
