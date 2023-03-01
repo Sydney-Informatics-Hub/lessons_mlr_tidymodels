@@ -283,28 +283,24 @@ Solution
 <p>Don’t worry if you forget some of these - there are so many different words used to describe different ways to divide up the confusion matrix, it can get very confusing. I swear each time <a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity#Confusion_matrix">I just look up wikipedia again</a> to figure out which part of the confusion matrix to look at. There are even more there that we won’t even bother talking about here.</p>
 <section id="accuracy" class="level4 border"><h4 data-anchor-id="accuracy">
 <strong>Accuracy</strong>:</h4>
-<p>How often does the classifier label examples correctly? Objective: maximize. Example:</p>
-<p><span class="math display">\[\frac{TP+TN}{TP+TN+FP+FN} = \frac{\text{Correctly labelled examples}}{\text{All examples}}=\frac{31+52}{31+52+10+7}=83\%\]</span></p>
-<p>Accuracy is the opposite of the misclassification rate. So,</p>
-<p><span class="math display">\[\text{Misclassification rate} = 1 - \text{Accuracy} = \frac{\text{Incorrectly labelled examples}}{\text{All examples}}\]</span></p>
+<p>How often does the classifier label examples correctly?</p>
+<p><span class="math display">\[\frac{TP+TN}{TP+TN+FP+FN} = \frac{\text{Correctly labelled examples}}{\text{All examples}}\]</span></p>
 </section><section id="precision" class="level4 border"><h4 data-anchor-id="precision">
 <strong>Precision</strong>:</h4>
-<p>What fraction of things labelled as a cat were actually cats? Objective: maximize. Example:</p>
-<p><span class="math display">\[\frac{TP}{TP+FP} = \frac{\text{Correctly labelled cats}}{\text{All things labelled as cats}}=\frac{31}{31+10}=76\%\]</span></p>
+<p>What fraction of things labelled as a cat were actually cats?</p>
+<p><span class="math display">\[\frac{TP}{TP+FP} = \frac{\text{Correctly labelled cats}}{\text{All things labelled as cats}}\]</span></p>
 </section><section id="sensitivity-recall" class="level4 border"><h4 data-anchor-id="sensitivity-recall">
 <strong>Sensitivity / Recall</strong>:</h4>
-<p>How often does the classifier label a cat as a cat? Objective: maximize. Example:</p>
-<p><span class="math display">\[\frac{TP}{TP+FN} = \frac{\text{Correctly labelled cats}}{\text{All true cats}}=\frac{31}{31+7}=81\%\]</span></p>
+<p>How often does the classifier label a cat as a cat?</p>
+<p><span class="math display">\[\frac{TP}{TP+FN} = \frac{\text{Correctly labelled cats}}{\text{All true cats}}\]</span></p>
 </section><section id="specificity" class="level4 border"><h4 data-anchor-id="specificity">
 <strong>Specificity</strong>:</h4>
-<p>How often does it label a not-cat as a not-cat? Objective: maximize. Example:</p>
-<p><span class="math display">\[\frac{TN}{TN+FP} = \frac{\text{Correctly labelled not-cats}}{\text{All true not-cats}}=\frac{52}{52+10}=84\%\]</span></p>
+<p>How often does it label a not-cat as a not-cat?</p>
+<p><span class="math display">\[\frac{TN}{TN+FP} = \frac{\text{Correctly labelled not-cats}}{\text{All true not-cats}}\]</span></p>
 </section><section id="f1-score" class="level4 border"><h4 data-anchor-id="f1-score">
 <strong>F1-score</strong>:</h4>
 <p>This is a commonly used overall measure of classifier performance (but not the only one and not always the best depending upon the problem). It is defined as the harmonic mean of precision and sensitivity;</p>
 <p><span class="math display">\[\frac{1}{F_1} = \frac{1}{2}\left(\frac{1}{\text{Precision}}+\frac{1}{\text{Sensitivity}}\right)\]</span></p>
-<p>So that</p>
-<p><span class="math display">\[F_1 = 2\cdot\left(\frac{1}{\frac{1}{81\%}+\frac{1}{83\%}}\right) = 82\%\]</span></p>
 </section></section><section id="auc-area-under-the-curve" class="level3"><h3 data-anchor-id="auc-area-under-the-curve">AUC: Area under the curve</h3>
 <hr>
 <p>A good classifier will have high precision and high specificity, minimizing both false positives and false negatives. In practice, and with an imperfect classifier, you can tune a knob to say which of those two you care more about. There will be some kind of a trade-off between the two.</p>
@@ -357,13 +353,14 @@ Solution
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ohdsi.github.io/ParallelLogger/">ParallelLogger</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RevolutionAnalytics/doparallel">doParallel</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymodels/workflowsets">workflowsets</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/traversc/qs">qs</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">diabetes_rec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"../_models/diabetes_rec.rds"</span><span class="op">)</span></span>
-<span><span class="va">diabetes_folds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"../_models/diabetes_folds.rds"</span><span class="op">)</span></span>
-<span><span class="va">d_na_train</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"../_models/d_na_train.Rds"</span><span class="op">)</span></span>
-<span><span class="va">d_na_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"../_models/d_na_test.Rds"</span><span class="op">)</span></span>
-<span><span class="va">diabetes_split</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"../_models/diabetes_split.Rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">diabetes_rec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/qs/man/qread.html">qread</a></span><span class="op">(</span><span class="st">"../_models/diabetes_rec.qs"</span><span class="op">)</span></span>
+<span><span class="va">diabetes_folds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/qs/man/qread.html">qread</a></span><span class="op">(</span><span class="st">"../_models/diabetes_folds.qs"</span><span class="op">)</span></span>
+<span><span class="va">d_na_train</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/qs/man/qread.html">qread</a></span><span class="op">(</span><span class="st">"../_models/d_na_train.qs"</span><span class="op">)</span></span>
+<span><span class="va">d_na_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/qs/man/qread.html">qread</a></span><span class="op">(</span><span class="st">"../_models/d_na_test.qs"</span><span class="op">)</span></span>
+<span><span class="va">diabetes_split</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/qs/man/qread.html">qread</a></span><span class="op">(</span><span class="st">"../_models/diabetes_split.qs"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 </div>
@@ -376,7 +373,7 @@ Solution
 <li><p><strong>Random forest</strong> overcomes this limitation by building many decision trees, each using a randomly selected subset of the data and features, and then combining their predictions to make a final prediction.</p></li>
 </ul></section><section id="logistic-regression" class="level3"><h3 data-anchor-id="logistic-regression">Logistic regression</h3>
 <hr>
-<p>Logistic regression is a type of algorithm that is used to predict a binary outcome, such as whether a patient is likely to develop diabetes or no. It works by creating a mathematical function that predicts the probability of an observation belonging to a certain class (e.g., diabetes or not diabetes). The function takes into account one or more input variables, such as the patients’s age, gender, or body mass index. The output of the function is a value between 0 and 1, which represents the probability of the observation belonging to the positive class (e.g., developing diabetes). To make a prediction, the algorithm compares the predicted probability to a threshold value (e.g., 0.5), and assigns the observation to the positive class if the probability is greater than the threshold, and to the negative class otherwise.</p>
+<p>Logistic regression is a type of regression where the range of mapping is confined to [0,1], unlike simple linear regression models where the domain and range could take any real value. Logistic regression is a type of algorithm that is used to predict a binary outcome, such as whether a patient is likely to develop diabetes or no. It works by creating a mathematical function that predicts the probability of an observation belonging to a certain class (e.g., diabetes or not diabetes). The function takes into account one or more input variables, such as the patients’s age, gender, or body mass index. The output of the function is a value between 0 and 1, which represents the probability of the observation belonging to the positive class (e.g., developing diabetes). To make a prediction, the algorithm compares the predicted probability to a threshold value (e.g., 0.5), and assigns the observation to the positive class if the probability is greater than the threshold, and to the negative class otherwise. The scatter plot of this data looks something like this: <img src="../fig/lr.png" class="img-fluid" alt="Logistic Regression"> We see that the data points are in the two extreme clusters. For our prediction modeling, a naive regression line in this scenario will give a nonsense fit (red line on the right plot) and what we actually require to fit is a line (blue on the right plot) to explain (or to correctly separate) a maximum number of data points. Logistic regression is a scheme to search this most optimum blue line.</p>
 <p><em>Regularization</em> is a technique that can be used to prevent overfitting of the model. A regularized logistic regression model, is a logistic classifier that has been modified to include a regularization term. This is done by adding a penalty to the model that discourages it from giving too much importance to any variable.</p>
 <p>There are several regularized regression models, defined with the <code>mixture</code> parameter:</p>
 <ul>

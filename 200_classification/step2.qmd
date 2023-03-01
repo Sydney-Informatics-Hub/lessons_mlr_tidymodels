@@ -69,37 +69,33 @@ Don't worry if you forget some of these - there are so many different words used
 
 :::{.border}
 #### **Accuracy**:
-How often does the classifier label examples correctly? Objective: maximize. Example:
+How often does the classifier label examples correctly?
 
-$$\frac{TP+TN}{TP+TN+FP+FN} = \frac{\text{Correctly labelled examples}}{\text{All examples}}=\frac{31+52}{31+52+10+7}=83\%$$
-
-Accuracy is the opposite of the misclassification rate. So,
-
-$$\text{Misclassification rate} = 1 - \text{Accuracy} = \frac{\text{Incorrectly labelled examples}}{\text{All examples}}$$
+$$\frac{TP+TN}{TP+TN+FP+FN} = \frac{\text{Correctly labelled examples}}{\text{All examples}}$$
 :::
 
 
 :::{.border}
 #### **Precision**:
-What fraction of things labelled as a cat were actually cats? Objective: maximize. Example:
+What fraction of things labelled as a cat were actually cats?
 
-$$\frac{TP}{TP+FP} = \frac{\text{Correctly labelled cats}}{\text{All things labelled as cats}}=\frac{31}{31+10}=76\%$$
+$$\frac{TP}{TP+FP} = \frac{\text{Correctly labelled cats}}{\text{All things labelled as cats}}$$
 :::
 
 
 :::{.border}
 #### **Sensitivity / Recall**:
-How often does the classifier label a cat as a cat? Objective: maximize. Example:
+How often does the classifier label a cat as a cat?
 
-$$\frac{TP}{TP+FN} = \frac{\text{Correctly labelled cats}}{\text{All true cats}}=\frac{31}{31+7}=81\%$$
+$$\frac{TP}{TP+FN} = \frac{\text{Correctly labelled cats}}{\text{All true cats}}$$
 :::
 
 
 :::{.border}
 #### **Specificity**:
-How often does it label a not-cat as a not-cat? Objective: maximize. Example:
+How often does it label a not-cat as a not-cat? 
 
-$$\frac{TN}{TN+FP} = \frac{\text{Correctly labelled not-cats}}{\text{All true not-cats}}=\frac{52}{52+10}=84\%$$
+$$\frac{TN}{TN+FP} = \frac{\text{Correctly labelled not-cats}}{\text{All true not-cats}}$$
 :::
 
 
@@ -109,11 +105,6 @@ $$\frac{TN}{TN+FP} = \frac{\text{Correctly labelled not-cats}}{\text{All true no
 This is a commonly used overall measure of classifier performance (but not the only one and not always the best depending upon the problem). It is defined as the harmonic mean of precision and sensitivity;
 
 $$\frac{1}{F_1} = \frac{1}{2}\left(\frac{1}{\text{Precision}}+\frac{1}{\text{Sensitivity}}\right)$$
-
-
-So that
-
-$$F_1 = 2\cdot\left(\frac{1}{\frac{1}{81\%}+\frac{1}{83\%}}\right) = 82\%$$
 :::
 
 
@@ -149,13 +140,14 @@ library(vip)
 library(ParallelLogger)
 library(doParallel)
 library(workflowsets)
+library(qs)
 theme_set(theme_minimal())
 
-diabetes_rec <- readRDS("../_models/diabetes_rec.rds")
-diabetes_folds <- readRDS("../_models/diabetes_folds.rds")
-d_na_train <- readRDS("../_models/d_na_train.Rds")
-d_na_test <- readRDS("../_models/d_na_test.Rds")
-diabetes_split <- readRDS("../_models/diabetes_split.Rds")
+diabetes_rec <- qread("../_models/diabetes_rec.qs")
+diabetes_folds <- qread("../_models/diabetes_folds.qs")
+d_na_train <- qread("../_models/d_na_train.qs")
+d_na_test <- qread("../_models/d_na_test.qs")
+diabetes_split <- qread("../_models/diabetes_split.qs")
 ```
 
 ```{r setup, echo=FALSE, purl=FALSE}
@@ -188,7 +180,9 @@ A tree-based model is a type of algorithm that creates a tree-like structure to 
 
 ---
 
-Logistic regression is a type of algorithm that is used to predict a binary outcome, such as whether a patient is likely to develop diabetes or no. It works by creating a mathematical function that predicts the probability of an observation belonging to a certain class (e.g., diabetes or not diabetes). The function takes into account one or more input variables, such as the patients's age, gender, or body mass index. The output of the function is a value between 0 and 1, which represents the probability of the observation belonging to the positive class (e.g., developing diabetes). To make a prediction, the algorithm compares the predicted probability to a threshold value (e.g., 0.5), and assigns the observation to the positive class if the probability is greater than the threshold, and to the negative class otherwise. 
+Logistic regression is a type of regression where the range of mapping is confined to [0,1], unlike simple linear regression models where the domain and range could take any real value. Logistic regression is a type of algorithm that is used to predict a binary outcome, such as whether a patient is likely to develop diabetes or no. It works by creating a mathematical function that predicts the probability of an observation belonging to a certain class (e.g., diabetes or not diabetes). The function takes into account one or more input variables, such as the patients's age, gender, or body mass index. The output of the function is a value between 0 and 1, which represents the probability of the observation belonging to the positive class (e.g., developing diabetes). To make a prediction, the algorithm compares the predicted probability to a threshold value (e.g., 0.5), and assigns the observation to the positive class if the probability is greater than the threshold, and to the negative class otherwise. The scatter plot of this data looks something like this:
+![Logistic Regression](../fig/lr.png)
+We see that the data points are in the two extreme clusters. For our prediction modeling, a naive regression line in this scenario will give a nonsense fit (red line on the right plot) and what we actually require to fit is a line (blue on the right plot) to explain (or to correctly separate) a maximum number of data points. Logistic regression is a scheme to search this most optimum blue line. 
 
 *Regularization* is a technique that can be used to prevent overfitting of the model. A regularized logistic regression model, is a logistic classifier that has been modified to include a regularization term. This is done by adding a penalty to the model that discourages it from giving too much importance to any variable.
 

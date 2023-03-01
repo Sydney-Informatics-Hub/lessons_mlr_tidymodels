@@ -40,11 +40,12 @@ library(tidyverse)
 library(tidymodels)
 library(rsample)
 library(vip) 
+library(qs)
 theme_set(theme_minimal())
 ```
 
 ```{r getData, echo = F, purl=FALSE}
-ames_data <- readRDS("../_models/ames_dataset_filt.rds")
+ames_data <- qread("../_models/ames_dataset_filt.qs")
 ```
 
 ## Build a simple linear regression model using base R
@@ -99,8 +100,8 @@ ames_split <- ames_data %>%
 ames_train <- training(ames_split)
 ames_test <- testing(ames_split)
 
-saveRDS(ames_train, "../_models/ames_train.Rds")
-saveRDS(ames_test, "../_models/ames_test.Rds")
+qsave(ames_train, "../_models/ames_train.qs")
+qsave(ames_test, "../_models/ames_test.qs")
 ```
 Stratified sampling would split within each quartile:
 ![strata](../fig/strata.png)
@@ -153,6 +154,8 @@ ames_rec <-
   step_lincomb(all_numeric_predictors()) #remove redundancies in the predictors, if present
 
 ames_rec
+
+qsave(ames_rec, "../_models/ames_rec.qs")
 ```
 Note that each successive `step()` function adds a preprocessing step to our recipe object in the order that they are provided.
 The preprocessing recipe `ames_rec` has been defined but no values have been estimated.
@@ -465,7 +468,7 @@ ames_res <- ames_wf %>%
   )
 
 glimpse(ames_res)
-saveRDS(ames_res, "../_models/ames_res.rds")
+qsave(ames_res, "../_models/ames_res.qs")
 ```
 The column .metric contains the performance statistics created from the 10 assessment sets. These can be manually unnested but the tune package contains a number of simple functions that can extract these data:
 
@@ -541,6 +544,5 @@ ggplot(data = ames_results_final,
 - `collect_metrics()` obtains performance metrics from the results.
 :::
 
-- *https://medium.com/@sachin.hs20/simple-linear-regression-using-example-e4e2a89df54c.*
 - *Adapted from "Linear Regression and tidymodels", available [here](https://www.gmudatamining.com/lesson-10-r-tutorial.html).*
 - *Max Kuhn and Julia Silge, "Tidy Modeling with R", Version 1.0.0(2022-12-20).*

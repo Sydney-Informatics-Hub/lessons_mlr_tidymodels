@@ -13,7 +13,8 @@ list_of_pkgs <- c(
   "parallelly",
   "GGally",
   "mlbench",
-  "usemodels")
+  "usemodels",
+  "qs")
 
 au_repo <- "https://mirror.aarnet.edu.au/pub/CRAN/"
 

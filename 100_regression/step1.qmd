@@ -27,6 +27,7 @@ library(ggcorrplot)
 library(AmesHousing)
 library(plotly) # dynamic visualisations
 library(bestNormalize)
+library(qs)
 theme_set(theme_minimal())
 ```
 
@@ -352,7 +353,7 @@ ameshousing_filt_tr <-
          House_Age = Year_Sold - Year_Built) %>%
   select(-Year_Remod_Add, -Year_Built)
 
-saveRDS(ameshousing_filt_tr, "../_models/ames_dataset_filt.rds")
+qsave(ameshousing_filt_tr, "../_models/ames_dataset_filt.qs")
 ```
 
 

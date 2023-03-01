@@ -45,6 +45,7 @@ library(tidyverse)
 library(tidymodels)
 library(ggcorrplot)
 library(GGally)
+library(qs)
 theme_set(theme_minimal())
 ```
 
@@ -202,9 +203,9 @@ diabetes_split <- initial_split(d_na , prop = 0.7, strata = "diabetes" )
 d_na_train <- training(diabetes_split)
 d_na_test <- testing(diabetes_split)
 
-saveRDS(d_na_train, "../_models/d_na_train.Rds")
-saveRDS(d_na_test, "../_models/d_na_test.Rds")
-saveRDS(diabetes_split, "../_models/diabetes_split.Rds")
+qsave(d_na_train, "../_models/d_na_train.qs")
+qsave(d_na_test, "../_models/d_na_test.qs")
+qsave(diabetes_split, "../_models/diabetes_split.qs")
 ```
 
 ### Some standard checks on the test/train split
@@ -238,7 +239,7 @@ At some point we’re going to want to do some parameter tuning (explained later
 ```{r cross-validation}
 diabetes_folds <- vfold_cv(d_na_train, v=10, repeats = 5, strata = diabetes)
 
-saveRDS(diabetes_folds, "../_models/diabetes_folds.rds")
+qsave(diabetes_folds, "../_models/diabetes_folds.qs")
 ```
 
 ### Impute missing data
@@ -260,7 +261,7 @@ diabetes_rec <-
 
 diabetes_rec  
 
-saveRDS(diabetes_rec, "../_models/diabetes_rec.rds")
+qsave(diabetes_rec, "../_models/diabetes_rec.qs")
 ```
 
 :::{.callout-note}

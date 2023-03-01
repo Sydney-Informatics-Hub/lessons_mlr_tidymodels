@@ -246,14 +246,15 @@ Solution
 <p>Load in the packages we’ll be using for modelling:</p>
 <div class="cell">
 </div>
-<div class="cell" data-hash="step2_cache/html/loadpackages_4993353beba17f07378e1e1d14e9159f">
+<div class="cell" data-hash="step2_cache/html/loadpackages_b69a1285e57fb1f141beb89bdcb86ae9">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidymodels.tidymodels.org">tidymodels</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rsample.tidymodels.org">rsample</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/koalaverse/vip/">vip</a></span><span class="op">)</span> </span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/traversc/qs">qs</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="step2_cache/html/getData_44b190869a1c4ec61b8c67f9c28b3e7c">
+<div class="cell" data-hash="step2_cache/html/getData_823b03bc7b02a0c841fc91903487c1cb">
 </div>
 <section id="build-a-simple-linear-regression-model-using-base-r" class="level2"><h2 data-anchor-id="build-a-simple-linear-regression-model-using-base-r">Build a simple linear regression model using base R</h2>
 <hr>
@@ -309,17 +310,17 @@ F-statistic:  2994 on 1 and 2923 DF,  p-value: &lt; 2.2e-16</code></pre>
 </section><section id="build-a-linear-regression-model-using-tidymodels" class="level2"><h2 data-anchor-id="build-a-linear-regression-model-using-tidymodels">Build a linear regression model using Tidymodels</h2>
 <hr>
 <p>When you type <code><a href="https://tidymodels.tidymodels.org">library(tidymodels)</a></code>, you load a collection of packages for modeling and machine learning using tidyverse principles. All the packages are designed to be consistent, modular, and to support good modeling practices. The first thing we are going to practice is splitting your data into a <strong>training set</strong> and a <strong>testing set</strong>. The tidymodels package <code>rsample</code> has functions that help you specify training and testing sets:</p>
-<div class="cell" data-hash="step2_cache/html/SplitTestTrain_48fa2dcde1dafcca421f20b5d91c752a">
+<div class="cell" data-hash="step2_cache/html/SplitTestTrain_03ef02da1e29c934f93423f94e90d7de">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span> <span class="co">#so we all get the same results</span></span>
 <span><span class="va">ames_split</span> <span class="op">&lt;-</span> <span class="va">ames_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html">initial_split</a></span><span class="op">(</span>prop <span class="op">=</span> <span class="fl">0.8</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/rsample/man/initial_split.html">initial_split</a></span><span class="op">(</span>prop <span class="op">=</span> <span class="fl">0.8</span>,</span>
 <span>                  strata <span class="op">=</span> <span class="va">Sale_Price</span><span class="op">)</span> <span class="co">#stratification</span></span>
 <span></span>
-<span><span class="va">ames_train</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html">training</a></span><span class="op">(</span><span class="va">ames_split</span><span class="op">)</span></span>
-<span><span class="va">ames_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html">testing</a></span><span class="op">(</span><span class="va">ames_split</span><span class="op">)</span></span>
+<span><span class="va">ames_train</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rsample/man/initial_split.html">training</a></span><span class="op">(</span><span class="va">ames_split</span><span class="op">)</span></span>
+<span><span class="va">ames_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rsample/man/initial_split.html">testing</a></span><span class="op">(</span><span class="va">ames_split</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">ames_train</span>, <span class="st">"../_models/ames_train.Rds"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">ames_test</span>, <span class="st">"../_models/ames_test.Rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/pkg/qs/man/qsave.html">qsave</a></span><span class="op">(</span><span class="va">ames_train</span>, <span class="st">"../_models/ames_train.qs"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/qs/man/qsave.html">qsave</a></span><span class="op">(</span><span class="va">ames_test</span>, <span class="st">"../_models/ames_test.qs"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Stratified sampling would split within each quartile: <img src="../fig/strata.png" class="img-fluid" alt="strata"></p>
 <p>The code here takes an input data set and puts 80% of it into a training dataset and 20% of it into a testing dataset; it chooses the individual cases so that both sets are balanced in selling price.</p>
@@ -354,7 +355,7 @@ F-statistic:  2994 on 1 and 2923 DF,  p-value: &lt; 2.2e-16</code></pre>
 </ul>
 <p><strong>Statistical parameters for the steps can be estimated from an initial data set and then applied to other data sets.</strong></p>
 <p><strong>The resulting processed output can be used as inputs for statistical or machine learning models.</strong></p>
-<div class="cell" data-hash="step2_cache/html/recipe_bf93eefcfec85427ef6e1af411c3ee88">
+<div class="cell" data-hash="step2_cache/html/recipe_e0977db04360840a0f76c59a8d73cc5d">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ames_rec</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu">recipe</span><span class="op">(</span><span class="va">Sale_Price</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">ames_train</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co">#assigns columns to roles of “outcome” or “predictor” using the formula</span></span>
 <span>  <span class="fu">step_other</span><span class="op">(</span><span class="fu">all_nominal</span><span class="op">(</span><span class="op">)</span>, threshold <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co">#useful when you have some factor levels with very few observations, all_nominal selects both characters and factors, pools infrequently occurring values (frequency less than 0.01) into an "other" category</span></span>
@@ -364,7 +365,9 @@ F-statistic:  2994 on 1 and 2923 DF,  p-value: &lt; 2.2e-16</code></pre>
 <span>  <span class="fu">step_dummy</span><span class="op">(</span><span class="fu">all_nominal_predictors</span><span class="op">(</span><span class="op">)</span>, one_hot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co">#for any nominal predictor, make binary indicators</span></span>
 <span>  <span class="fu">step_lincomb</span><span class="op">(</span><span class="fu">all_numeric_predictors</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="co">#remove redundancies in the predictors, if present</span></span>
 <span></span>
-<span><span class="va">ames_rec</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">ames_rec</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/qs/man/qsave.html">qsave</a></span><span class="op">(</span><span class="va">ames_rec</span>, <span class="st">"../_models/ames_rec.qs"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note that each successive <code><a href="https://rdrr.io/r/stats/step.html">step()</a></code> function adds a preprocessing step to our recipe object in the order that they are provided. The preprocessing recipe <code>ames_rec</code> has been defined but no values have been estimated.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -1186,7 +1189,7 @@ Solution
 <div class="cell" data-hash="step2_cache/html/create cross-validation folds_cc245fc961cb5269c7cc75e5266a6f98">
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">9</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">ames_folds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/vfold_cv.html">vfold_cv</a></span><span class="op">(</span><span class="va">ames_train</span>, v<span class="op">=</span><span class="fl">10</span>, repeats <span class="op">=</span> <span class="fl">5</span>, strata <span class="op">=</span> <span class="va">Sale_Price</span><span class="op">)</span></span>
+<span><span class="va">ames_folds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rsample/man/vfold_cv.html">vfold_cv</a></span><span class="op">(</span><span class="va">ames_train</span>, v<span class="op">=</span><span class="fl">10</span>, repeats <span class="op">=</span> <span class="fl">5</span>, strata <span class="op">=</span> <span class="va">Sale_Price</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">ames_folds</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1225,7 +1228,7 @@ Computational engine: lm </code></pre>
 </div>
 </div>
 <p>Once we have created a set of resamples, we can use the function <code>fit_resamples()</code> to fit a model to each resample and compute performance metrics for each.</p>
-<div class="cell" data-hash="step2_cache/html/evaluating models with resampling_319d0200f3b4bd3ee98f7eed8b8e8fa3">
+<div class="cell" data-hash="step2_cache/html/evaluating models with resampling_b1f2eb3d3804fd2eb23f386bd0093a5e">
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">234</span><span class="op">)</span></span>
 <span><span class="va">ames_res</span> <span class="op">&lt;-</span> <span class="va">ames_wf</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">fit_resamples</span><span class="op">(</span></span>
@@ -1244,7 +1247,7 @@ $ .metrics     &lt;list&gt; [&lt;tbl_df[2 x 4]&gt;], [&lt;tbl_df[2 x 4]&gt;], [&
 $ .notes       &lt;list&gt; [&lt;tbl_df[1 x 3]&gt;], [&lt;tbl_df[1 x 3]&gt;], [&lt;tbl_df[1 x 3]&gt;],…
 $ .predictions &lt;list&gt; [&lt;tbl_df[236 x 4]&gt;], [&lt;tbl_df[236 x 4]&gt;], [&lt;tbl_df[236 x…</code></pre>
 </div>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">ames_res</span>, <span class="st">"../_models/ames_res.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/qs/man/qsave.html">qsave</a></span><span class="op">(</span><span class="va">ames_res</span>, <span class="st">"../_models/ames_res.qs"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The column .metric contains the performance statistics created from the 10 assessment sets. These can be manually unnested but the tune package contains a number of simple functions that can extract these data:</p>
 <div class="cell" data-hash="step2_cache/html/resampled metrics_df2950586886d355ab5a20b4423b986d">
@@ -1345,7 +1348,7 @@ Key points
 <li>The recipe baking and model predictions are handled with a single call to <code><a href="https://rdrr.io/r/stats/predict.html">predict()</a></code> instead of <code>bake()</code>-<code><a href="https://rdrr.io/r/stats/predict.html">predict()</a></code>;</li>
 <li>Workflows are be able to evaluate different recipes and models at once (as we will see in Day 2 of this workshop);</li>
 <li>
-<code><a href="https://rsample.tidymodels.org/reference/vfold_cv.html">vfold_cv()</a></code> creates folds for cross-validation;</li>
+<code><a href="https://rdrr.io/pkg/rsample/man/vfold_cv.html">vfold_cv()</a></code> creates folds for cross-validation;</li>
 <li>
 <code>fit_resamples()</code> fits models to resamples;</li>
 <li>
@@ -1354,7 +1357,6 @@ Key points
 </div>
 </div>
 <ul>
-<li><em>https://medium.com/<span class="citation" data-cites="sachin.hs20/simple-linear-regression-using-example-e4e2a89df54c">@sachin.hs20/simple-linear-regression-using-example-e4e2a89df54c</span>.</em></li>
 <li><em>Adapted from “Linear Regression and tidymodels”, available <a href="https://www.gmudatamining.com/lesson-10-r-tutorial.html">here</a>.</em></li>
 <li><em>Max Kuhn and Julia Silge, “Tidy Modeling with R”, Version 1.0.0(2022-12-20).</em></li>
 </ul>

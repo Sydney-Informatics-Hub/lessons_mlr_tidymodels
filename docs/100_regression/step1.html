@@ -216,7 +216,7 @@ Learning objective:
 <div class="cell">
 </div>
 <p>First, let’s load the required packages. We will use the <code>tidyverse</code> for general data processing and visualisation.</p>
-<div class="cell" data-hash="step1_cache/html/loadpackages_e796560a07c9185c8d9177457366f308">
+<div class="cell" data-hash="step1_cache/html/loadpackages_96aa71e0b52ce451d2d2aa362a2530b0">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/njtierney/naniar">naniar</a></span><span class="op">)</span> <span class="co"># for visualising missing data</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggobi.github.io/ggally/">GGally</a></span><span class="op">)</span> <span class="co"># for EDA</span></span>
@@ -224,6 +224,7 @@ Learning objective:
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/topepo/AmesHousing">AmesHousing</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://plotly-r.com">plotly</a></span><span class="op">)</span> <span class="co"># dynamic visualisations</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://petersonr.github.io/bestNormalize/">bestNormalize</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/traversc/qs">qs</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We will use the Ames housing data to explore different ML approaches to regression. This dataset was “designed” by Dean De Cock as an alternative to the “classic” Boston housing dataset, and has been extensively used in ML teaching. It is also available from kaggle as part of its <a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques">advanced regression practice competition</a>.</p>
@@ -801,14 +802,14 @@ Standardized asinh(x) Transformation with 2925 nonmissing obs.:
 </section><section id="feature-transformation" class="level2"><h2 data-anchor-id="feature-transformation">Feature transformation</h2>
 <hr>
 <p>The year in which the house was built and the year when it was remodelled are not really the most relevant parameters we look at when buying a house: instead, buyers usually care a lot more about the age of the house and the time since the last remodel. Let’s transform these features:</p>
-<div class="cell" data-hash="step1_cache/html/featureEngineer_0c05cbd2a238abaa0693b468e8ac8aaf">
+<div class="cell" data-hash="step1_cache/html/featureEngineer_a8161a02b69b0c08e68af5da7ceace61">
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ameshousing_filt_tr</span> <span class="op">&lt;-</span></span>
 <span>  <span class="va">ameshousing_filt</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Time_Since_Remodel <span class="op">=</span> <span class="va">Year_Sold</span> <span class="op">-</span> <span class="va">Year_Remod_Add</span>, </span>
 <span>         House_Age <span class="op">=</span> <span class="va">Year_Sold</span> <span class="op">-</span> <span class="va">Year_Built</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Year_Remod_Add</span>, <span class="op">-</span><span class="va">Year_Built</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">ameshousing_filt_tr</span>, <span class="st">"../_models/ames_dataset_filt.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/pkg/qs/man/qsave.html">qsave</a></span><span class="op">(</span><span class="va">ameshousing_filt_tr</span>, <span class="st">"../_models/ames_dataset_filt.qs"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
 <p><strong>Note</strong> Make sure to create a “models” folder in your project working directory! Before you can save your data as .Rds objects, you will actually need to create a folder for these files to go into. Do this by clicking on the “new folder” button in the files window in R studio. Rename your new folder to “models”.</p>
