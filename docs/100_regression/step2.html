@@ -313,16 +313,16 @@ F-statistic:  2994 on 1 and 2923 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="cell" data-hash="step2_cache/html/SplitTestTrain_03ef02da1e29c934f93423f94e90d7de">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span> <span class="co">#so we all get the same results</span></span>
 <span><span class="va">ames_split</span> <span class="op">&lt;-</span> <span class="va">ames_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/rsample/man/initial_split.html">initial_split</a></span><span class="op">(</span>prop <span class="op">=</span> <span class="fl">0.8</span>,</span>
+<span>    <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html">initial_split</a></span><span class="op">(</span>prop <span class="op">=</span> <span class="fl">0.8</span>,</span>
 <span>                  strata <span class="op">=</span> <span class="va">Sale_Price</span><span class="op">)</span> <span class="co">#stratification</span></span>
 <span></span>
-<span><span class="va">ames_train</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rsample/man/initial_split.html">training</a></span><span class="op">(</span><span class="va">ames_split</span><span class="op">)</span></span>
-<span><span class="va">ames_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rsample/man/initial_split.html">testing</a></span><span class="op">(</span><span class="va">ames_split</span><span class="op">)</span></span>
+<span><span class="va">ames_train</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html">training</a></span><span class="op">(</span><span class="va">ames_split</span><span class="op">)</span></span>
+<span><span class="va">ames_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html">testing</a></span><span class="op">(</span><span class="va">ames_split</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/qs/man/qsave.html">qsave</a></span><span class="op">(</span><span class="va">ames_train</span>, <span class="st">"../_models/ames_train.qs"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/qs/man/qsave.html">qsave</a></span><span class="op">(</span><span class="va">ames_test</span>, <span class="st">"../_models/ames_test.qs"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Stratified sampling would split within each quartile: <img src="../fig/strata.png" class="img-fluid" alt="strata"></p>
+<p>Stratified sampling would split within each quartile. Splitting with stratification involves dividing the data into subsets based on the target/outcome variable’s distribution, such that the proportion of each class in the target variable is maintained in each subset. This ensures that the training and testing sets have a similar distribution of the target variable, which can lead to more reliable model performance estimates. <img src="../fig/strata.png" class="img-fluid" alt="strata"></p>
 <p>The code here takes an input data set and puts 80% of it into a training dataset and 20% of it into a testing dataset; it chooses the individual cases so that both sets are balanced in selling price.</p>
 <p>Let’s check if the distribution of the selling price is the same in the testing and training datasets:</p>
 <div class="cell" data-hash="step2_cache/html/distr test and train_e166d48159dca15356b8a85f9754bfc5">
@@ -355,15 +355,14 @@ F-statistic:  2994 on 1 and 2923 DF,  p-value: &lt; 2.2e-16</code></pre>
 </ul>
 <p><strong>Statistical parameters for the steps can be estimated from an initial data set and then applied to other data sets.</strong></p>
 <p><strong>The resulting processed output can be used as inputs for statistical or machine learning models.</strong></p>
-<div class="cell" data-hash="step2_cache/html/recipe_e0977db04360840a0f76c59a8d73cc5d">
+<div class="cell" data-hash="step2_cache/html/recipe_30d8907c330f69969c41fad682550a5b">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ames_rec</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu">recipe</span><span class="op">(</span><span class="va">Sale_Price</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">ames_train</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co">#assigns columns to roles of “outcome” or “predictor” using the formula</span></span>
 <span>  <span class="fu">step_other</span><span class="op">(</span><span class="fu">all_nominal</span><span class="op">(</span><span class="op">)</span>, threshold <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co">#useful when you have some factor levels with very few observations, all_nominal selects both characters and factors, pools infrequently occurring values (frequency less than 0.01) into an "other" category</span></span>
 <span>  <span class="fu">step_nzv</span><span class="op">(</span><span class="fu">all_predictors</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co">#remove predictors that are highly sparse and unbalanced</span></span>
 <span>  <span class="fu">step_center</span><span class="op">(</span><span class="fu">all_numeric_predictors</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co">#subtracts the column mean from predictors</span></span>
 <span>  <span class="fu">step_scale</span><span class="op">(</span><span class="fu">all_numeric_predictors</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co">#divides by the standard deviation</span></span>
-<span>  <span class="fu">step_dummy</span><span class="op">(</span><span class="fu">all_nominal_predictors</span><span class="op">(</span><span class="op">)</span>, one_hot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co">#for any nominal predictor, make binary indicators</span></span>
-<span>  <span class="fu">step_lincomb</span><span class="op">(</span><span class="fu">all_numeric_predictors</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="co">#remove redundancies in the predictors, if present</span></span>
+<span>  <span class="fu">step_dummy</span><span class="op">(</span><span class="fu">all_nominal_predictors</span><span class="op">(</span><span class="op">)</span>, one_hot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co">#for any nominal predictor, make binary indicators</span></span>
 <span></span>
 <span><span class="va">ames_rec</span></span>
 <span></span>
@@ -1189,7 +1188,7 @@ Solution
 <div class="cell" data-hash="step2_cache/html/create cross-validation folds_cc245fc961cb5269c7cc75e5266a6f98">
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">9</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">ames_folds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rsample/man/vfold_cv.html">vfold_cv</a></span><span class="op">(</span><span class="va">ames_train</span>, v<span class="op">=</span><span class="fl">10</span>, repeats <span class="op">=</span> <span class="fl">5</span>, strata <span class="op">=</span> <span class="va">Sale_Price</span><span class="op">)</span></span>
+<span><span class="va">ames_folds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/vfold_cv.html">vfold_cv</a></span><span class="op">(</span><span class="va">ames_train</span>, v<span class="op">=</span><span class="fl">10</span>, repeats <span class="op">=</span> <span class="fl">5</span>, strata <span class="op">=</span> <span class="va">Sale_Price</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">ames_folds</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1348,7 +1347,7 @@ Key points
 <li>The recipe baking and model predictions are handled with a single call to <code><a href="https://rdrr.io/r/stats/predict.html">predict()</a></code> instead of <code>bake()</code>-<code><a href="https://rdrr.io/r/stats/predict.html">predict()</a></code>;</li>
 <li>Workflows are be able to evaluate different recipes and models at once (as we will see in Day 2 of this workshop);</li>
 <li>
-<code><a href="https://rdrr.io/pkg/rsample/man/vfold_cv.html">vfold_cv()</a></code> creates folds for cross-validation;</li>
+<code><a href="https://rsample.tidymodels.org/reference/vfold_cv.html">vfold_cv()</a></code> creates folds for cross-validation;</li>
 <li>
 <code>fit_resamples()</code> fits models to resamples;</li>
 <li>

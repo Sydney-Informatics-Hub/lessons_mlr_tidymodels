@@ -103,7 +103,7 @@ ames_test <- testing(ames_split)
 qsave(ames_train, "../_models/ames_train.qs")
 qsave(ames_test, "../_models/ames_test.qs")
 ```
-Stratified sampling would split within each quartile:
+Stratified sampling would split within each quartile. Splitting with stratification involves dividing the data into subsets based on the target/outcome variable's distribution, such that the proportion of each class in the target variable is maintained in each subset. This ensures that the training and testing sets have a similar distribution of the target variable, which can lead to more reliable model performance estimates.
 ![strata](../fig/strata.png)
 
 The code here takes an input data set and puts 80% of it into a training dataset and 20% of it into a testing dataset; it chooses the individual cases so that both sets are balanced in selling price.
@@ -150,8 +150,7 @@ ames_rec <-
   step_nzv(all_predictors()) %>% #remove predictors that are highly sparse and unbalanced
   step_center(all_numeric_predictors()) %>% #subtracts the column mean from predictors
   step_scale(all_numeric_predictors()) %>% #divides by the standard deviation
-  step_dummy(all_nominal_predictors(), one_hot = TRUE) %>% #for any nominal predictor, make binary indicators
-  step_lincomb(all_numeric_predictors()) #remove redundancies in the predictors, if present
+  step_dummy(all_nominal_predictors(), one_hot = TRUE) #for any nominal predictor, make binary indicators
 
 ames_rec
 

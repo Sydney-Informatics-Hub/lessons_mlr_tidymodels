@@ -222,7 +222,11 @@ Learning objectives
 <section id="data-splitting-and-spending" class="level3">
 <h3 data-anchor-id="data-splitting-and-spending">Data splitting and spending</h3>
 <hr>
-<p>For machine learning, we typically split data into <strong>training</strong> and <strong>test</strong> sets: - The training set is used to estimate model parameters; - The test set is used to find an independent assessment of model performance.</p>
+<p>For machine learning, we typically split data into <strong>training</strong> and <strong>test</strong> sets:</p>
+<ul>
+<li>The training set is used to estimate model parameters;</li>
+<li>The test set is used to find an independent assessment of model performance.</li>
+</ul>
 <p>Once we have built a ML model we might want to measure its performance, for example the accuracy in classification task (proportion of correct predicted examples) or the average error in a regression task. Our goal is to build a model that is able to really understand the task and that is <strong>able to generalize</strong>. For this reason we need to separate our dataset into training and testing sets. <img src="fig/train_test.png" class="img-fluid" alt="train_test"> The relative proportions of the training and testing set depend on the total of number of observations, and the variability observed in the data. The trade off to be considered is:</p>
 <ul>
 <li>if there is too much data in the training set, the assessment of the prediction error will be carried out on a very small test set, therefore we might find a model that fits the existing data very well, but generalizes very poorly;</li>

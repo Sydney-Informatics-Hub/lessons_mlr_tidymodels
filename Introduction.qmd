@@ -82,6 +82,7 @@ $y= f(x)$
 ---
 
 For machine learning, we typically split data into **training** and **test** sets:
+
 - The training set is used to estimate model parameters;
 - The test set is used to find an independent assessment of model performance.
 

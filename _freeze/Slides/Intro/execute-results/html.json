@@ -1,0 +1,18 @@
+{
+  "hash": "4e777ea41a2024b0c465748ddef084da",
+  "result": {
+    "markdown": "---\ntitle: \"1 - Introduction\"\nsubtitle: \"Machine learning with tidymodels\"\nformat:\n  revealjs: \n    slide-number: true\n    footer: <https://pages.github.sydney.edu.au/informatics/lessons_mlr_tidymodels/>\n    include-before-body: header.html\n    theme: [default, tutorial.scss]\n    width: 1280\n    height: 720\nknitr:\n  opts_chunk: \n    echo: true\n    collapse: true\n    comment: \"#>\"\n---\n\n\n## Code of conduct\n\nWe expect all attendees of our training to follow the University of Sydney's **Staff** and **Student** Codes of Conduct, including the **Bullying, harassment and discrimination prevention policy**.\n\nIn order to foster a positive and professional learning environment we encourage the following kinds of behaviours at all our events and platforms:\n\n-   Use welcoming and inclusive language;\n-   Be respectful of different viewpoints and experiences;\n-   Gracefully accept constructive criticism;\n-   Focus on what is best for the community;\n-   Show courtesy and respect towards other community members.\n\nOur full CoC, with incident reporting guidelines, is available [here](https://pages.github.sydney.edu.au/informatics/sih_codeofconduct/).\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

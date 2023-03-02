@@ -46,6 +46,7 @@ library(tidymodels)
 library(ggcorrplot)
 library(GGally)
 library(qs)
+library(mlbench)
 theme_set(theme_minimal())
 ```
 
@@ -53,7 +54,6 @@ Load data:
 
 ```{r loadInTheData}
 # load the Pima Indians dataset from the mlbench dataset
-library(mlbench)
 data(PimaIndiansDiabetes)
 # rename dataset to have shorter name because lazy
 diabetes_data <- PimaIndiansDiabetes

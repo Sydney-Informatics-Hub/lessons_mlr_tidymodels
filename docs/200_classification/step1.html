@@ -232,18 +232,18 @@ Learning objective:
 <p>The Pima Indians are a group of Native Americans living in an area consisting of what is now central and southern Arizona. The short name, “Pima” is believed to have come from a phrase meaning “I don’t know,” which they used repeatedly in their initial meetings with Spanish colonists. Thanks Wikipedia!</p>
 <section id="lets-explore-our-data" class="level3"><h3 data-anchor-id="lets-explore-our-data">Let’s Explore our data</h3>
 <hr>
-<div class="cell" data-hash="step1_cache/html/libraries_7b50bbdf07bacb20575643ee3b355471">
+<div class="cell" data-hash="step1_cache/html/libraries_546adb7cc0ad6227105a48c105b55091">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidymodels.tidymodels.org">tidymodels</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.sthda.com/english/wiki/ggcorrplot-visualization-of-a-correlation-matrix-using-ggplot2">ggcorrplot</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggobi.github.io/ggally/">GGally</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/traversc/qs">qs</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">mlbench</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Load data:</p>
-<div class="cell" data-hash="step1_cache/html/loadInTheData_1975c99544db90cb974a3346184bfce3">
+<div class="cell" data-hash="step1_cache/html/loadInTheData_dd468fed723af9a5a81f46d6373e7663">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load the Pima Indians dataset from the mlbench dataset</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">mlbench</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">PimaIndiansDiabetes</span><span class="op">)</span></span>
 <span><span class="co"># rename dataset to have shorter name because lazy</span></span>
 <span><span class="va">diabetes_data</span> <span class="op">&lt;-</span> <span class="va">PimaIndiansDiabetes</span></span>
