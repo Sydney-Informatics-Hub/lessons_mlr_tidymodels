@@ -150,8 +150,8 @@ ames_rec <-
   step_nzv(all_predictors()) %>% #remove predictors that are highly sparse and unbalanced
   step_center(all_numeric_predictors()) %>% #subtracts the column mean from predictors
   step_scale(all_numeric_predictors()) %>% #divides by the standard deviation
-  step_dummy(all_nominal_predictors(), one_hot = TRUE) #for any nominal predictor, make binary indicators
-
+  step_dummy(all_nominal_predictors(), one_hot = TRUE) %>% #for any nominal predictor, make binary indicators
+  step_lincomb(all_numeric_predictors()) #remove linear dependencies in the predictors, if present
 ames_rec
 
 qsave(ames_rec, "../_models/ames_rec.qs")
@@ -191,7 +191,7 @@ The `bake()` and `juice()` functions both return data, not a preprocessing recip
 :::
 
 ```{r bake}
-bake(ames_prep, new_data = ames_test)
+ames_test_baked <- bake(ames_prep, new_data = ames_test)
 ```
 
 :::{.border}
@@ -278,30 +278,30 @@ This is done with the `predict()` function from parnsip. This function takes two
 - a trained parnsip model object;
 - new_data for which to generate predictions.
 
-Let's first check how the model performs on our training dataset.
-The code below uses the `predict()` function to generate a data frame with a single column, *.pred*, which contains the predicted Sale Price values on the ames_train data.
+Let's check how the model performs on our test dataset.
+The code below uses the `predict()` function to generate a data frame with a single column, *.pred*, which contains the predicted Sale Price values on the ames_test data.
 ```{r predict}
-predict(ames_fit, new_data = juice(ames_prep))
+predict(ames_fit, new_data = ames_test_baked)
 ```
-Generally it’s best to combine the new data set and the predictions into a single data frame. We create a data frame with the predictions on the training data and then use `bind_cols()` to add the preprocessed training data to the results.
+Generally it’s best to combine the new data set and the predictions into a single data frame. We create a data frame with the predictions on the training data and then use `bind_cols()` to add the baked test data to the results.
 
 
 ```{r merge test data and predictions}
-ames_train_results <- predict(ames_fit, new_data = juice(ames_prep)) %>% 
-  bind_cols(juice(ames_prep))
+ames_test_results <- predict(ames_fit, new_data = ames_test_baked) %>% 
+  bind_cols(ames_test_baked)
 
 # View results
-ames_train_results
+ames_test_results
 ```
-Now we have the model results and the training data in a single data frame. 
+Now we have the model results and the test data in a single data frame. 
 
 ### Metrics for model performance
 
 ---
 
 :::{.border}
-- **R-squared (rsq)**: squared correlation between the predicted and observed values; 
 - **Root Mean Square Error (RMSE)**: difference between the predicted and observed values (*loss of function*);
+- **R-squared (rsq)**: squared correlation between the predicted and observed values.
 :::
 
 To obtain the rmse and rsq values on our results, we can use the `rmse()` and `rsq()` functions.
@@ -314,84 +314,26 @@ Both functions take the following arguments:
 In the examples below we pass our ames_test_results to these functions to obtain these values for our test set. 
 Results are always returned as a data frame with the following columns: .metric, .estimator, and .estimate.
 ```{r rmse}
-#RMSE on train set
-train_rmse <- rmse(ames_train_results, 
-     truth = Sale_Price,
-     estimate = .pred)
-
-
-#rsq on train set
-train_rsq<- rsq(ames_train_results,
-    truth = Sale_Price,
-    estimate = .pred)
-
-```
-
-Before exploring the results, let's evaluate the model on the test dataset.
-
-:::{.callout-tip}
-### Challenge X
-We mentioned earlier that the `bake()` function takes a prepped recipe (ames_prep) and applies it to `new_data`. The new_data could be the training data again or it could be the testing data. We just evaluated our model on the training data, let's try to apply the `bake()` and `predict()` functions on the test data and compare the results.
-
-**Instructions**
-```{r Challenge X}
-#bake() test data
-
-#predict() selling price on the test data
-
-#combine the test data set and the predictions into a single data frame
-
 #RMSE on test set
-
-#rsq on test set
-
-```
-:::
-
-:::{.callout-caution collapse="true"}
-### Solution
-```{r solution, warning=FALSE}
-#bake() test data
-ames_test_proc <- bake(ames_prep, new_data = ames_test)
-#predict() selling price on the test data
-ames_test_results <-predict(ames_fit, new_data = ames_test_proc)
-#combine the training data set and the predictions into a single data frame
-ames_test_results <- ames_test_results %>%
-  bind_cols(ames_test_proc)
-#RMSE on training set
 test_rmse <- rmse(ames_test_results, 
      truth = Sale_Price,
      estimate = .pred)
-#rsq on training set
-test_rsq <- rsq(ames_test_results,
+
+
+#rsq on test set
+test_rsq<- rsq(ames_test_results,
     truth = Sale_Price,
     estimate = .pred)
-```
-:::
 
-Let's have a look at all the metrics for both our training and test datasets:
-```{r all metrics}
-#plot metrics for training and test datasets
-train_rsq %>%
-  mutate(dataset = "training") %>%
-  bind_rows(train_rmse %>%
-              mutate(dataset = "training")) %>%
-  bind_rows(test_rsq %>%
-              mutate(dataset = "test") %>%
-              bind_rows(test_rmse %>%
-                          mutate(dataset = "test")))
 ```
+
 
 Let's visualise the situation with an **R2 plot**:
 ```{r plot results}
 ames_test_results %>%
-  mutate(train = "testing") %>%
-  bind_rows(ames_train_results %>%
-              mutate(train = "training")) %>%
-  ggplot(aes(Sale_Price, .pred, color = train)) +
+  ggplot(aes(Sale_Price, .pred)) +
   geom_abline(intercept = 0, slope = 1, color = "black", linewidth = 0.5, linetype="dotted") +
-  geom_point(alpha = 0.15) +
-  facet_wrap(~train) +
+  geom_point(alpha = 0.15, color = "blue") +
   labs(
     x = "Actual Selling Price",
     y = "Predicted Selling Price",
