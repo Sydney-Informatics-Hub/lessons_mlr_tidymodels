@@ -283,7 +283,7 @@ The code below uses the `predict()` function to generate a data frame with a sin
 ```{r predict}
 predict(ames_fit, new_data = juice(ames_prep))
 ```
-Generally it’s best to combine the new data set and the predictions into a single data frame. We create a data frame with the predictions on the ames_test data and then use `bind_cols()` to add the ames_test data to the results.
+Generally it’s best to combine the new data set and the predictions into a single data frame. We create a data frame with the predictions on the training data and then use `bind_cols()` to add the preprocessed training data to the results.
 
 
 ```{r merge test data and predictions}
