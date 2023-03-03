@@ -2,7 +2,6 @@ project:
   type: website
   output-dir: docs
 
-
 execute:
   freeze: auto  # re-render only when source changes
 
@@ -49,7 +48,6 @@ format:
     theme:
       light: [flatly, styles.scss]
       dark: [darkly, styles.scss]
-    toc-depth: 2
     code-link: true
     code-fold: false
     code-overflow: wrap

@@ -1,11 +1,12 @@
-# Exploratory Data Analysis (EDA) 
-## The Ames housing dataset
+# Exploratory Data Analysis (EDA)
 
-:::{.callout-note}
+## The Ames housing dataset 
+
+::: callout-note
 ## Learning objective:
 
-- Use Tidyverse functions for exploratory data analysis (EDA);
-- Explore the Ames Housing dataset.
+-   Use Tidyverse functions for exploratory data analysis (EDA);
+-   Explore the Ames Housing dataset.
 :::
 
 ```{r echo=FALSE, purl=FALSE}
@@ -31,16 +32,15 @@ library(qs)
 theme_set(theme_minimal())
 ```
 
-We will use the Ames housing data to explore different ML approaches to regression. This dataset was "designed" by Dean De Cock as an alternative to the "classic" Boston housing dataset, and has been extensively used in  ML teaching. It is also available from kaggle as part of its [advanced regression practice competition](https://www.kaggle.com/c/house-prices-advanced-regression-techniques).
+We will use the Ames housing data to explore different ML approaches to regression. This dataset was "designed" by Dean De Cock as an alternative to the "classic" Boston housing dataset, and has been extensively used in ML teaching. It is also available from kaggle as part of its [advanced regression practice competition](https://www.kaggle.com/c/house-prices-advanced-regression-techniques).
 
-The [Ames Housing Data Documentation file](https://github.sydney.edu.au/informatics/lessons-mlr/blob/gh-pages/_episodes_rmd/data/AmesHousing_DataDocumentation.txt) describes the independent variables presented in the data. This includes:  
+The [Ames Housing Data Documentation file](https://github.sydney.edu.au/informatics/lessons-mlr/blob/gh-pages/_episodes_rmd/data/AmesHousing_DataDocumentation.txt) describes the independent variables presented in the data. This includes:
 
-- 20 continuous variables relate to various area dimensions for each observation;
-- 14 discrete variables, which typically quantify the number of items occurring within the house;
-- 23 ordinal, 23 nominal categorical variables, with 2 (STREET: gravel or paved) - 28 (NEIGHBORHOOD) classes; 
+-   20 continuous variables relate to various area dimensions for each observation;
+-   14 discrete variables, which typically quantify the number of items occurring within the house;
+-   23 ordinal, 23 nominal categorical variables, with 2 (STREET: gravel or paved) - 28 (NEIGHBORHOOD) classes;
 
 We will explore both the "uncleaned" data available from kaggle/UCI, and the processed data available in the `AmesHousing` package in R, for which documentation is available [here](https://cran.r-project.org/web/packages/AmesHousing/AmesHousing.pdf). It can be useful for understanding what each of the independent variables mean.
-
 
 ```{r loadData}
 ameshousing <- AmesHousing::make_ames()
@@ -51,36 +51,30 @@ ameshousing_uncleaned <- AmesHousing::ames_raw
 
 ## Exploratory data analysis
 
----
+------------------------------------------------------------------------
 
 Exploratory data analysis involves looking at:
 
-- The distribution of variables in your dataset;
-- Whether any data is missing;
-- Data skewness;
-- Correlated variables.
+-   The distribution of variables in your dataset;
+-   Whether any data is missing;
+-   Data skewness;
+-   Correlated variables.
 
-:::{.callout-tip}
+::: callout-tip
 ## Challenge 1
 
-1. Explore the Ames Housing dataset. 
-    - What can you figure out about the different variables? 
-    - Which do you think are more or less important?
-
-2. Compare the `ameshousing` variable, which is from the AmesHousing package in R and has been cleaned,
-with the `ameshousing_uncleaned` dataset, which is the raw data from the UCI machine learning repository.
-    - What was missing in the raw data?
-    - What are some of the approaches that have been taken to deal with missingness?
+1.  Explore the Ames Housing dataset.
+    -   What can you figure out about the different variables?
+    -   Which do you think are more or less important?
+2.  Compare the `ameshousing` variable, which is from the AmesHousing package in R and has been cleaned, with the `ameshousing_uncleaned` dataset, which is the raw data from the UCI machine learning repository.
+    -   What was missing in the raw data?
+    -   What are some of the approaches that have been taken to deal with missingness?
 :::
 
-:::{.callout-caution collapse="true"}
+::: {.callout-caution collapse="true"}
 ## Solution
-We can see that the "uncleaned" dataset has a lot of missing data, whereas 
-it has been cleaned up for us in the "cleaned" one. In the interests of time, 
-we will not focus here on how *every* variable in that dataset has been explored 
-and cleaned up - however, it presents a good example of "messy" real-world data, 
-so we would encourage you to try and look at a handful of variables at home, to 
-see how they've been processed.
+
+We can see that the "uncleaned" dataset has a lot of missing data, whereas it has been cleaned up for us in the "cleaned" one. In the interests of time, we will not focus here on how *every* variable in that dataset has been explored and cleaned up - however, it presents a good example of "messy" real-world data, so we would encourage you to try and look at a handful of variables at home, to see how they've been processed.
 
 ```{r solution1, purl = FALSE}
   
@@ -91,14 +85,13 @@ colSums(is.na(ameshousing))
 ```
 :::
 
-
 ### Visualise missingness
 
----
+------------------------------------------------------------------------
 
 When working with missing data, it can be helpful to look for "co-missingness", i.e. multiple variables missing together. For example, when working with patient data, number of pregnancies, age at onset of menstruation and menopause may all be missing - which, when observed together, may indicate that these samples come from male patients for whom this data is irrelevant. "Gender" may or may not be a variable coded in the dataset.
 
-A way of visualising missing data in the tidy context has been proposed [@tierney2018expanding](https://www.njtierney.com/post/2018/09/10/tidy-missing-data/). See [this web page](http://naniar.njtierney.com/articles/naniar-visualisation.html) for more options for your own data.
+A way of visualising missing data in the tidy context has been proposed [\@tierney2018expanding](https://www.njtierney.com/post/2018/09/10/tidy-missing-data/). See [this web page](http://naniar.njtierney.com/articles/naniar-visualisation.html) for more options for your own data.
 
 Let's look at the missing variables in our housing data:
 
@@ -114,22 +107,21 @@ An upset plot will give us more idea about the co-missingness of these variables
 gg_miss_upset(ameshousing_uncleaned, nsets = 10)
 ```
 
-:::{.callout-tip}
+::: callout-tip
 ## Challenge 2
 
-- Which variables are most frequently missing together? 
-- Does this "co-missingness" make sense?
+-   Which variables are most frequently missing together?
+-   Does this "co-missingness" make sense?
 :::
 
-:::{.callout-caution collapse="true"}
+::: {.callout-caution collapse="true"}
 ## Solution
 
-1. Fence, Alley, Misc feature and Pool QC are most often missing together. This probably means that a house doesn't have an alley, a fence, a pool or any other miscellaneous features.
+1.  Fence, Alley, Misc feature and Pool QC are most often missing together. This probably means that a house doesn't have an alley, a fence, a pool or any other miscellaneous features.
 
-2. Similarly, the second most frequent "co-missingess" involves these plus missing "fireplace quality", 
-most likely due to the house not having fireplace.
+2.  Similarly, the second most frequent "co-missingess" involves these plus missing "fireplace quality", most likely due to the house not having fireplace.
 
-3. We can also see that Garage_Yr_Blt, Garage_Finish, Garage_Qual and Garage Cond "co-miss" the same number of times - probably because these represent houses without garages.
+3.  We can also see that Garage_Yr_Blt, Garage_Finish, Garage_Qual and Garage Cond "co-miss" the same number of times - probably because these represent houses without garages.
 :::
 
 Next, let's create two "helper" vectors with the names of the numeric and categorical variables from the `ameshousing` dataset, which we can then use to batch subset our dataset prior to EDA/visualisation:
@@ -146,7 +138,6 @@ catVars <- ameshousing %>%
   names()
 ```
 
-
 Let's then use the `ggpairs()` function to generate a plot of the first 10 numeric variables (and sale price, which is 33) against each other. We can repeat this for variables 11-20 and 21-33.
 
 ```{r EDAindependent}
@@ -160,9 +151,7 @@ ggpairs(data = ameshousing,
         title = "Some categorical variables")
 ```
 
-
-Next, we can generate a correlation plot between all of our numeric variables. By default, the `cor()`
-method will calculate the Pearson correlation between the `Sale_Price` and the other variables, and we can specify how we'd like to handle missing data when calculating this correlation.
+Next, we can generate a correlation plot between all of our numeric variables. By default, the `cor()` method will calculate the Pearson correlation between the `Sale_Price` and the other variables, and we can specify how we'd like to handle missing data when calculating this correlation.
 
 In this case, we use `pairwise.complete.obs`, which calculates the correlation between each pair of variables using all complete pairs of observations on those variables.
 
@@ -184,15 +173,15 @@ We can also make a dynamic visualisation using plotly.
 ggcorrplot(ameshousingCor, type = "lower") %>% ggplotly()
 ```
 
-:::{.callout-tip}
-
+::: callout-tip
 ## Challenge 3
 
-- What variables are the most correlated with SalePrice?
+-   What variables are the most correlated with SalePrice?
 :::
 
-:::{.callout-caution collapse="true"}
+::: {.callout-caution collapse="true"}
 ## Solution
+
 ```{r corrSol1, purl = F}
 as_tibble(ameshousingCor, rownames = "rowname") %>%
   gather(pair, value, -rowname) %>%
@@ -204,8 +193,8 @@ as_tibble(ameshousingCor, rownames = "rowname") %>%
 
 We can also plot this, using a slightly different representation:
 
-- Circles instead of only colour to represent correlation levels
-- Filter out correlations less than 0.5
+-   Circles instead of only colour to represent correlation levels
+-   Filter out correlations less than 0.5
 
 ```{r corrSol2, purl = F}
 all_numVar <- ameshousing[, numVars]
@@ -234,7 +223,7 @@ gra %>%
   ggplotly()
 ```
 
-We can see that there are five houses with an area > 4000 square feet that seem to be outliers in the data. We should filter them out. Next, let's generate a violin and boxplot by Quality:
+We can see that there are five houses with an area \> 4000 square feet that seem to be outliers in the data. We should filter them out. Next, let's generate a violin and boxplot by Quality:
 
 ```{r OvQual}
 
@@ -262,19 +251,17 @@ p <-ameshousing_filt %>%
 ggplotly(p)
 ```
 
-
 ## EDA of outcome variable
 
----
+------------------------------------------------------------------------
 
 You also need to do EDA on the outcome variable to:
 
-- identify outliers
-- explore whether there is any skew in its distribution
-- identify a transformation to use when modelling the data (if appropriate)
+-   identify outliers
+-   explore whether there is any skew in its distribution
+-   identify a transformation to use when modelling the data (if appropriate)
 
-This is because many models, including ordinary linear regression, assume that prediction errors (and hence the response) are normally distributed. 
-
+This is because many models, including ordinary linear regression, assume that prediction errors (and hence the response) are normally distributed.
 
 ```{r salesPrice}
 ameshousing_filt %>% 
@@ -283,8 +270,6 @@ ameshousing_filt %>%
   labs(x = "Sale Price in $k's",
        y = "Number of Houses sold")
 ```
-
-
 
 Let's explore different ways of transforming the Sale Price.
 
@@ -315,17 +300,16 @@ ameshousing_filt %>%
 
 ```
 
-:::{.callout-tip}
-
+::: callout-tip
 ### Challenge 4
 
-- If you were working with this dataset, which of the above would you prefer?
+-   If you were working with this dataset, which of the above would you prefer?
 :::
 
-:::{.callout-caution collapse="true"}
+::: {.callout-caution collapse="true"}
 ## Solution
 
-The log10 transformation seems best, as it both helps the distribution look more normal and helps keep our error metrics and final predictions easily interpretable. It also means that the errors of predicting the values of inexpensive and expensive houses will affect the prediction equally. 
+The log10 transformation seems best, as it both helps the distribution look more normal and helps keep our error metrics and final predictions easily interpretable. It also means that the errors of predicting the values of inexpensive and expensive houses will affect the prediction equally.
 
 ```{r bestNormalise, purl = F, cache=T}
 bestNormalize::bestNormalize(
@@ -342,7 +326,7 @@ ameshousing_filt <- ameshousing_filt %>% mutate(Sale_Price = log10(Sale_Price))
 
 ## Feature transformation
 
----
+------------------------------------------------------------------------
 
 The year in which the house was built and the year when it was remodelled are not really the most relevant parameters we look at when buying a house: instead, buyers usually care a lot more about the age of the house and the time since the last remodel. Let's transform these features:
 
@@ -356,14 +340,12 @@ ameshousing_filt_tr <-
 qsave(ameshousing_filt_tr, "../_models/ames_dataset_filt.qs")
 ```
 
+> **Note** Make sure to create a "models" folder in your project working directory! Before you can save your data as .Rds objects, you will actually need to create a folder for these files to go into. Do this by clicking on the "new folder" button in the files window in R studio. Rename your new folder to "models".
 
->**Note**
-Make sure to create a "models" folder in your project working directory!
-Before you can save your data as .Rds objects, you will actually need to create a folder for these files to go into. Do this by clicking on the "new folder" button in the files window in R studio. Rename your new folder to "models".
-
-:::{.callout-note}
+::: callout-note
 ### Key points
+
 Exploratory Data Analysis (EDA) is an essential first step in ML.
 :::
 
-*Tierney, Nicholas J, and Dianne H Cook. 2018. “Expanding Tidy Data Principles to Facilitate Missing Data Exploration, Visualization and Assessment of Imputations.” arXiv Preprint arXiv:1809.02264.*
+*Tierney, Nicholas J, and Dianne H Cook. 2018. "Expanding Tidy Data Principles to Facilitate Missing Data Exploration, Visualization and Assessment of Imputations." arXiv Preprint arXiv:1809.02264.*
