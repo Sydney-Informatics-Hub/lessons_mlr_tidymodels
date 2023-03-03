@@ -319,12 +319,14 @@ test_rmse <- rmse(ames_test_results,
      truth = Sale_Price,
      estimate = .pred)
 
+test_rmse
 
 #rsq on test set
 test_rsq<- rsq(ames_test_results,
     truth = Sale_Price,
     estimate = .pred)
 
+test_rsq
 ```
 
 
@@ -411,6 +413,8 @@ ames_res <- ames_wf %>%
 glimpse(ames_res)
 qsave(ames_res, "../_models/ames_res.qs")
 ```
+> Linear regression detects some redundancies in the predictor set. We can ignore the warnings since lm() can deal with it.
+
 The column .metric contains the performance statistics created from the 10 assessment sets. These can be manually unnested but the tune package contains a number of simple functions that can extract these data:
 
 ```{r resampled metrics}
@@ -427,10 +431,12 @@ If we wanted to try different model types for this data set, we could more confi
 ```{r plot resampling}
 ames_res %>%
   collect_predictions() %>%
-  ggplot(aes(Sale_Price, .pred, color = id)) + 
-  geom_abline(lty = 2, col = "gray", linewidth = 1.5) +
+  ggplot(aes(.pred, Sale_Price, color = id)) + 
+  geom_abline(intercept = 0, slope = 1, color = 'black', linewidth=0.5, linetype="dotted") +
   geom_point(alpha = 0.15) +
-  coord_obs_pred()
+   labs(title = 'Linear Regression Results - Ames Test Set',
+       x = 'Predicted Selling Price',
+       y = 'Actual Selling Price')
 ```
 
 ### Back to the testing data
