@@ -1,10 +1,6 @@
----
-toc: true
-format: html
----  
 # Exploratory Data Analysis (EDA)
 
-## The Ames housing dataset 
+## The Ames housing dataset
 
 ::: callout-note
 ## Learning objective:
