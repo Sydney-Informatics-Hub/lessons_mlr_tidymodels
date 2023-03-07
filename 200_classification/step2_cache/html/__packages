@@ -28,3 +28,4 @@ ParallelLogger
 foreach
 iterators
 doParallel
+qs
