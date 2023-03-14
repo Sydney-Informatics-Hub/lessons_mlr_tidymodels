@@ -39,8 +39,6 @@ website:
   page-footer:
     center: "Copyright 2023, Sydney Informatics Hub"
 
-about:
-  template: solana
 
 format:
   html:

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Machine learning with R and the Tidyverse
+=======
+# Machine Learning in R
+>>>>>>> fb64cbbc4492dd3a8a07efbbb4a6ca7fd9b44b92
 
 ------------------------------------------------------------------------
 
@@ -12,6 +16,17 @@ Participants will get hands-on experience using core tidymodels packages like **
 
 ## Slides
 
+<<<<<<< HEAD
 ------------------------------------------------------------------------
 
 The slides available [here](slides/slides.pptx) are designed to use with live teaching and are published for training participants' convenience. These are not meant as standalone learning materials.
+=======
+  - 000\_scoping
+  - 002\_emails\_and\_meetings
+  - 003\_literature
+  - 100\_data\_cleaning\_scripts\_EDA
+  - 100\_data\_raw
+  - 200\_data\_clean
+  - 400\_analysis
+  - 500\_report
+>>>>>>> fb64cbbc4492dd3a8a07efbbb4a6ca7fd9b44b92

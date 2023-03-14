@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.335">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
 <title>Sydney Informatics Hub – step2</title>
 <style>
 code{white-space: pre-wrap;}
@@ -82,6 +85,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -92,13 +96,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -116,12 +122,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../styles.scss">
 </head>
-<body class="floating nav-fixed fullcontent">
+
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Sydney Informatics Hub</span>
@@ -132,7 +145,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-<li class="nav-item">
+  <li class="nav-item">
     <a class="nav-link" href="../index.html">
  <span class="menu-text">Schedule</span></a>
   </li>  
@@ -148,8 +161,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-day-1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Day 1</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-day-1">
-<li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-day-1">    
+        <li>
     <a class="dropdown-item" href="../100_regression/step1.html">
  <span class="dropdown-text">Exploratory Data Analysis (EDA) - Regression</span></a>
   </li>  
@@ -158,13 +171,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  <span class="dropdown-text">Get started with tidymodels and workflows</span></a>
   </li>  
     </ul>
-</li>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-day-2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Day 2</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-day-2">
-<li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-day-2">    
+        <li>
     <a class="dropdown-item" href="../200_classification/step1.html">
  <span class="dropdown-text">EDA - Classification</span></a>
   </li>  
@@ -173,27 +186,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  <span class="dropdown-text">Tuning hyperparameters and compare multiple model workflows</span></a>
   </li>  
     </ul>
-</li>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../Tidymodels_tips_tricks.html">
  <span class="menu-text">Tips&amp;Tricks</span></a>
   </li>  
 </ul>
-<div class="quarto-toggle-container">
+              <div class="quarto-toggle-container">
                   <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
               </div>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
-    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-</nav><!-- margin-sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-a-classifier" id="toc-what-is-a-classifier" class="nav-link active" data-scroll-target="#what-is-a-classifier">What is a classifier?</a></li>
+  <li><a href="#model-evaluation-classification" id="toc-model-evaluation-classification" class="nav-link" data-scroll-target="#model-evaluation-classification">Model evaluation (classification)</a>
+  <ul class="collapse">
+  <li><a href="#confusion-matrix" id="toc-confusion-matrix" class="nav-link" data-scroll-target="#confusion-matrix">Confusion Matrix</a></li>
+  <li><a href="#some-common-classification-metrics" id="toc-some-common-classification-metrics" class="nav-link" data-scroll-target="#some-common-classification-metrics">Some common classification metrics</a></li>
+  <li><a href="#auc-area-under-the-curve" id="toc-auc-area-under-the-curve" class="nav-link" data-scroll-target="#auc-area-under-the-curve">AUC: Area under the curve</a></li>
+  </ul></li>
+  <li><a href="#some-classification-models" id="toc-some-classification-models" class="nav-link" data-scroll-target="#some-classification-models">Some classification models</a>
+  <ul class="collapse">
+  <li><a href="#tree-based-models" id="toc-tree-based-models" class="nav-link" data-scroll-target="#tree-based-models">Tree-based models</a></li>
+  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression">Logistic regression</a></li>
+  </ul></li>
+  <li><a href="#tune-model-hyperparameters" id="toc-tune-model-hyperparameters" class="nav-link" data-scroll-target="#tune-model-hyperparameters">Tune model hyperparameters</a>
+  <ul class="collapse">
+  <li><a href="#find-which-parameters-will-give-the-model-its-best-accuracy" id="toc-find-which-parameters-will-give-the-model-its-best-accuracy" class="nav-link" data-scroll-target="#find-which-parameters-will-give-the-model-its-best-accuracy">Find which parameters will give the model its best accuracy</a></li>
+  <li><a href="#the-workflowsets-package" id="toc-the-workflowsets-package" class="nav-link" data-scroll-target="#the-workflowsets-package">The workflowsets package</a></li>
+  <li><a href="#update-and-fit-the-workflow" id="toc-update-and-fit-the-workflow" class="nav-link" data-scroll-target="#update-and-fit-the-workflow">Update and fit the workflow</a></li>
+  <li><a href="#variable-importance" id="toc-variable-importance" class="nav-link" data-scroll-target="#variable-importance">Variable importance</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Sydney-Informatics-Hub/edit/main/200_classification/step2.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Sydney-Informatics-Hub/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-solana column-body">
-  <div class="about-entity">
-    <div class="entity-contents">
-      <div class="about-contents"><main class="content" id="quarto-document-content"><div class="callout-note callout callout-style-default callout-captioned">
+<main class="content" id="quarto-document-content">
+
+
+
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -237,11 +280,13 @@ Solution
 </div>
 </div>
 </div>
-<section id="what-is-a-classifier" class="level2"><h2 data-anchor-id="what-is-a-classifier">What is a classifier?</h2>
+<section id="what-is-a-classifier" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-classifier">What is a classifier?</h2>
 <hr>
 <p>A classifier is some kind of rule / black box / widget that you can feed a new example and it will spit out whether or not it is part of a given class. E.g. below, we are classifying the animals to be either <em>cat</em> or <em>not cat</em>.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../fig/CatNotCat.jpg" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="../fig/CatNotCat.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">A classifier for cats and not cats.</figcaption><p></p>
 </figure>
 </div>
@@ -258,55 +303,66 @@ Solution
 <li>Is this email important, not important but not spam, or spam? 📧</li>
 </ul>
 <p>It is clear that in some of these examples we are more concerned with being wrong in one direction than the other, e.g.&nbsp;it’s better to let some spam email through accidentally than to block all of it but also junk important emails from people you know. Likewise, we would prefer our medical tests to err on the side of caution and not give a negative test result to someone who needs treatment. So we will need to adjust a parameter to decide how much we want to trade this off.</p>
-</section><section id="model-evaluation-classification" class="level2"><h2 data-anchor-id="model-evaluation-classification">Model evaluation (classification)</h2>
+</section>
+<section id="model-evaluation-classification" class="level2">
+<h2 class="anchored" data-anchor-id="model-evaluation-classification">Model evaluation (classification)</h2>
 <hr>
 <p>For now, let’s imagine we have a classifier already. How can we test it to see how good it is? A good start is a confusion matrix - a table of what test data it labels correctly and incorrectly.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../fig/_CatConfusion.jpg" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="../fig/_CatConfusion.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Demonstration of a confusion matrix for a cat classifier that has labelled 100 animals as cats or not-cats.</figcaption><p></p>
 </figure>
 </div>
-<section id="confusion-matrix" class="level3"><h3 data-anchor-id="confusion-matrix">Confusion Matrix</h3>
+<section id="confusion-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="confusion-matrix">Confusion Matrix</h3>
 <hr>
 <p>When applying classification models, we often use a confusion matrix to evaluate certain performance measures. A confusion matrix is a matrix that compares “the truth” to the labels generated by your classifier. When we label a cat correctly, we refer to this as a true positive. When we fail to label a cat as a cat, this is called a false negative. However, if we label something which is not a cat as a cat, this is called a false positive; and if we correctly label something which is not a cat, as not a cat, then this is a true negative. In our case, the confusion matrix will look like this:</p>
 <ul>
-<li>
-<strong>true positive (TP)</strong> : Diabetic correctly identified as diabetic</li>
-<li>
-<strong>true negative (TN)</strong> : Healthy correctly identified as healthy</li>
-<li>
-<strong>false positive (FP)</strong> : Healthy incorrectly identified as diabetic</li>
-<li>
-<strong>false negative (FN)</strong> : Diabetic incorrectly identified as healthy</li>
-</ul></section><section id="some-common-classification-metrics" class="level3"><h3 data-anchor-id="some-common-classification-metrics">Some common classification metrics</h3>
+<li><strong>true positive (TP)</strong> : Diabetic correctly identified as diabetic</li>
+<li><strong>true negative (TN)</strong> : Healthy correctly identified as healthy</li>
+<li><strong>false positive (FP)</strong> : Healthy incorrectly identified as diabetic</li>
+<li><strong>false negative (FN)</strong> : Diabetic incorrectly identified as healthy</li>
+</ul>
+</section>
+<section id="some-common-classification-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="some-common-classification-metrics">Some common classification metrics</h3>
 <hr>
 <p>Don’t worry if you forget some of these - there are so many different words used to describe different ways to divide up the confusion matrix, it can get very confusing. I swear each time <a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity#Confusion_matrix">I just look up wikipedia again</a> to figure out which part of the confusion matrix to look at. There are even more there that we won’t even bother talking about here.</p>
-<section id="accuracy" class="level4 border"><h4 data-anchor-id="accuracy">
-<strong>Accuracy</strong>:</h4>
+<section id="accuracy" class="level4 border">
+<h4 class="anchored" data-anchor-id="accuracy"><strong>Accuracy</strong>:</h4>
 <p>How often does the classifier label examples correctly?</p>
 <p><span class="math display">\[\frac{TP+TN}{TP+TN+FP+FN} = \frac{\text{Correctly labelled examples}}{\text{All examples}}\]</span></p>
-</section><section id="precision" class="level4 border"><h4 data-anchor-id="precision">
-<strong>Precision</strong>:</h4>
+</section>
+<section id="precision" class="level4 border">
+<h4 class="anchored" data-anchor-id="precision"><strong>Precision</strong>:</h4>
 <p>What fraction of things labelled as a cat were actually cats?</p>
 <p><span class="math display">\[\frac{TP}{TP+FP} = \frac{\text{Correctly labelled cats}}{\text{All things labelled as cats}}\]</span></p>
-</section><section id="sensitivity-recall" class="level4 border"><h4 data-anchor-id="sensitivity-recall">
-<strong>Sensitivity / Recall</strong>:</h4>
+</section>
+<section id="sensitivity-recall" class="level4 border">
+<h4 class="anchored" data-anchor-id="sensitivity-recall"><strong>Sensitivity / Recall</strong>:</h4>
 <p>How often does the classifier label a cat as a cat?</p>
 <p><span class="math display">\[\frac{TP}{TP+FN} = \frac{\text{Correctly labelled cats}}{\text{All true cats}}\]</span></p>
-</section><section id="specificity" class="level4 border"><h4 data-anchor-id="specificity">
-<strong>Specificity</strong>:</h4>
+</section>
+<section id="specificity" class="level4 border">
+<h4 class="anchored" data-anchor-id="specificity"><strong>Specificity</strong>:</h4>
 <p>How often does it label a not-cat as a not-cat?</p>
 <p><span class="math display">\[\frac{TN}{TN+FP} = \frac{\text{Correctly labelled not-cats}}{\text{All true not-cats}}\]</span></p>
-</section><section id="f1-score" class="level4 border"><h4 data-anchor-id="f1-score">
-<strong>F1-score</strong>:</h4>
+</section>
+<section id="f1-score" class="level4 border">
+<h4 class="anchored" data-anchor-id="f1-score"><strong>F1-score</strong>:</h4>
 <p>This is a commonly used overall measure of classifier performance (but not the only one and not always the best depending upon the problem). It is defined as the harmonic mean of precision and sensitivity;</p>
 <p><span class="math display">\[\frac{1}{F_1} = \frac{1}{2}\left(\frac{1}{\text{Precision}}+\frac{1}{\text{Sensitivity}}\right)\]</span></p>
-</section></section><section id="auc-area-under-the-curve" class="level3"><h3 data-anchor-id="auc-area-under-the-curve">AUC: Area under the curve</h3>
+</section>
+</section>
+<section id="auc-area-under-the-curve" class="level3">
+<h3 class="anchored" data-anchor-id="auc-area-under-the-curve">AUC: Area under the curve</h3>
 <hr>
 <p>A good classifier will have high precision and high specificity, minimizing both false positives and false negatives. In practice, and with an imperfect classifier, you can tune a knob to say which of those two you care more about. There will be some kind of a trade-off between the two.</p>
 <p>To capture this balance, we often use a Reciever Operator Characteristic (ROC) curve that plots the false positive rate along the x-axis and the true positive rate along the y-axis, for all possible trade-offs. A line that is diagonal from the lower left corner to the upper right corner represents a random guess at labelling each example. The higher the line is in the upper left-hand corner, the better the classifier in general. AUC computes the area under this curve. For a perfect classifier, AUC = 1, for a random guess, AUC=0.5. Objective: maximize.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../fig/_CatArea.jpg" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="../fig/_CatArea.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">A Reciever Operator Characteristic (ROC) curve, from which the Area Under the Curve (AUC) can be calculated.</figcaption><p></p>
 </figure>
 </div>
@@ -345,80 +401,87 @@ Solution
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidymodels.tidymodels.org">tidymodels</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymodels/workflows">workflows</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tune.tidymodels.org/">tune</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/koalaverse/vip/">vip</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ohdsi.github.io/ParallelLogger/">ParallelLogger</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RevolutionAnalytics/doparallel">doParallel</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymodels/workflowsets">workflowsets</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/traversc/qs">qs</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">diabetes_rec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/qs/man/qread.html">qread</a></span><span class="op">(</span><span class="st">"../_models/diabetes_rec.qs"</span><span class="op">)</span></span>
-<span><span class="va">diabetes_folds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/qs/man/qread.html">qread</a></span><span class="op">(</span><span class="st">"../_models/diabetes_folds.qs"</span><span class="op">)</span></span>
-<span><span class="va">d_na_train</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/qs/man/qread.html">qread</a></span><span class="op">(</span><span class="st">"../_models/d_na_train.qs"</span><span class="op">)</span></span>
-<span><span class="va">d_na_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/qs/man/qread.html">qread</a></span><span class="op">(</span><span class="st">"../_models/d_na_test.qs"</span><span class="op">)</span></span>
-<span><span class="va">diabetes_split</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/qs/man/qread.html">qread</a></span><span class="op">(</span><span class="st">"../_models/diabetes_split.qs"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(workflows)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tune)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vip)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ParallelLogger)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(doParallel)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(workflowsets)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qs)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>())</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>diabetes_rec <span class="ot">&lt;-</span> <span class="fu">qread</span>(<span class="st">"../_models/diabetes_rec.qs"</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>diabetes_folds <span class="ot">&lt;-</span> <span class="fu">qread</span>(<span class="st">"../_models/diabetes_folds.qs"</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>d_na_train <span class="ot">&lt;-</span> <span class="fu">qread</span>(<span class="st">"../_models/d_na_train.qs"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>d_na_test <span class="ot">&lt;-</span> <span class="fu">qread</span>(<span class="st">"../_models/d_na_test.qs"</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>diabetes_split <span class="ot">&lt;-</span> <span class="fu">qread</span>(<span class="st">"../_models/diabetes_split.qs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
+
 </div>
-</section></section><section id="some-classification-models" class="level2"><h2 data-anchor-id="some-classification-models">Some classification models</h2>
-<section id="tree-based-models" class="level3"><h3 data-anchor-id="tree-based-models">Tree-based models</h3>
+</section>
+</section>
+<section id="some-classification-models" class="level2">
+<h2 class="anchored" data-anchor-id="some-classification-models">Some classification models</h2>
+<section id="tree-based-models" class="level3">
+<h3 class="anchored" data-anchor-id="tree-based-models">Tree-based models</h3>
 <hr>
 <p>A tree-based model is a type of algorithm that creates a tree-like structure to make predictions about a certain outcome, such as whether a customer will buy a product or not. The tree structure consists of nodes that represent different features, and the algorithm uses these features to split the data into smaller and smaller subsets. Each subset is then assigned a label based on the majority of its observations, and this process continues until the algorithm reaches a stopping criterion or has created a fully-grown tree. Once the tree is created, it can be used to make predictions by following the path through the tree that corresponds to a given set of input features. Tree-based models are simple and intuitive to understand, and can be used for both classification and regression tasks.</p>
 <ul>
 <li><p><strong>Decision trees</strong> are a simple type of tree-based model that use a hierarchical structure of nodes to make predictions about a certain outcome. The process continues until a stopping criterion is met, such as a maximum tree depth or a minimum number of observations per leaf node, and it can predict the outcome. A single decision tree may not be accurate enough for many real-world problems; <img src="../fig/decision_tree.png" class="img-fluid" alt="Decision_tree"></p></li>
 <li><p><strong>Random forest</strong> overcomes this limitation by building many decision trees, each using a randomly selected subset of the data and features, and then combining their predictions to make a final prediction.</p></li>
-</ul></section><section id="logistic-regression" class="level3"><h3 data-anchor-id="logistic-regression">Logistic regression</h3>
+</ul>
+</section>
+<section id="logistic-regression" class="level3">
+<h3 class="anchored" data-anchor-id="logistic-regression">Logistic regression</h3>
 <hr>
 <p>Logistic regression is a type of regression where the range of mapping is confined to [0,1], unlike simple linear regression models where the domain and range could take any real value. Logistic regression is a type of algorithm that is used to predict a binary outcome, such as whether a patient is likely to develop diabetes or no. It works by creating a mathematical function that predicts the probability of an observation belonging to a certain class (e.g., diabetes or not diabetes). The function takes into account one or more input variables, such as the patients’s age, gender, or body mass index. The output of the function is a value between 0 and 1, which represents the probability of the observation belonging to the positive class (e.g., developing diabetes). To make a prediction, the algorithm compares the predicted probability to a threshold value (e.g., 0.5), and assigns the observation to the positive class if the probability is greater than the threshold, and to the negative class otherwise. The scatter plot of this data looks something like this: <img src="../fig/lr.png" class="img-fluid" alt="Logistic Regression"> We see that the data points are in the two extreme clusters. For our prediction modeling, a naive regression line in this scenario will give a nonsense fit (red line on the right plot) and what we actually require to fit is a line (blue on the right plot) to explain (or to correctly separate) a maximum number of data points. Logistic regression is a scheme to search this most optimum blue line.</p>
 <p><em>Regularization</em> is a technique that can be used to prevent overfitting of the model. A regularized logistic regression model, is a logistic classifier that has been modified to include a regularization term. This is done by adding a penalty to the model that discourages it from giving too much importance to any variable.</p>
 <p>There are several regularized regression models, defined with the <code>mixture</code> parameter:</p>
 <ul>
-<li>
-<strong>Ridge</strong> regularization encourages the model to have small coefficient values (<code>mixture = 0</code>);</li>
-<li>
-<strong>Lasso</strong> regularization encourages the model to set some of the coefficients to zero, which performs feature selection. This can help improve the model’s interpretability and reduce the impact of irrelevant features on the model’s performance (<code>mixture = 1</code>);</li>
-<li>
-<strong>Elastic Net</strong> regularization combines Ridge and Lasso regularization by adding a penalty term that is a weighted average of both penalties. This approach can provide the benefits of both Ridge and Lasso regularization, such as feature selection and coefficient shrinkage (<code>mixture</code> between 0 and 1).</li>
-</ul></section></section><section id="tune-model-hyperparameters" class="level2"><h2 data-anchor-id="tune-model-hyperparameters">Tune model hyperparameters</h2>
+<li><strong>Ridge</strong> regularization encourages the model to have small coefficient values (<code>mixture = 0</code>);</li>
+<li><strong>Lasso</strong> regularization encourages the model to set some of the coefficients to zero, which performs feature selection. This can help improve the model’s interpretability and reduce the impact of irrelevant features on the model’s performance (<code>mixture = 1</code>);</li>
+<li><strong>Elastic Net</strong> regularization combines Ridge and Lasso regularization by adding a penalty term that is a weighted average of both penalties. This approach can provide the benefits of both Ridge and Lasso regularization, such as feature selection and coefficient shrinkage (<code>mixture</code> between 0 and 1).</li>
+</ul>
+</section>
+</section>
+<section id="tune-model-hyperparameters" class="level2">
+<h2 class="anchored" data-anchor-id="tune-model-hyperparameters">Tune model hyperparameters</h2>
 <hr>
 <p>Some model parameters cannot be learned directly from a dataset during model training; these kinds of parameters are called <strong>hyperparameters</strong>. Some examples of hyperparameters include the number of randomly selected variables to be considered at each split in a tree-based model (called <code>mtry</code> in tidymodels).</p>
 <p>Instead of learning these kinds of hyperparameters during model training, we can estimate the best values for these values by training many models on a resampled data set (like the cross-validation folds we have previously created) and measuring how well all these models perform. This process is called *<strong>tuning</strong>.</p>
-<p>You can identify which parameters to <code><a href="https://hardhat.tidymodels.org/reference/tune.html">tune()</a></code> in a model specification.</p>
+<p>You can identify which parameters to <code>tune()</code> in a model specification.</p>
 <p>We can specify a random forest classifier with the following hyperparameters:</p>
 <ul>
-<li>
-<strong>mtry</strong>: the number of predictors that will be randomly sampled at each split when creating the tree models;</li>
-<li>
-<strong>trees</strong>: the number of decision trees to fit and ultimately average;</li>
-<li>
-<strong>min_n</strong>: The minimum number of data points in a node that are required for the node to be split further.</li>
+<li><strong>mtry</strong>: the number of predictors that will be randomly sampled at each split when creating the tree models;</li>
+<li><strong>trees</strong>: the number of decision trees to fit and ultimately average;</li>
+<li><strong>min_n</strong>: The minimum number of data points in a node that are required for the node to be split further.</li>
 </ul>
-<p>To specify a random forest model with tidymodels, we need the <code>rand_forest()</code> function. The hyperparameters of the model are arguments within the <code>rand_forest()</code> function and may be set to specific values. However, if tuning is required, then each of these parameters must be set to <code><a href="https://hardhat.tidymodels.org/reference/tune.html">tune()</a></code>.</p>
-<p>We will be using the ranger engine. This engine has an optional importance argument which can be used to track variable importance measures. In order to make a variable importance plot with <code><a href="https://rdrr.io/pkg/vip/man/vip.html">vip()</a></code>, we must add <code>importance = 'impurity'</code> inside our <code>set_engine()</code> function:</p>
+<p>To specify a random forest model with tidymodels, we need the <code>rand_forest()</code> function. The hyperparameters of the model are arguments within the <code>rand_forest()</code> function and may be set to specific values. However, if tuning is required, then each of these parameters must be set to <code>tune()</code>.</p>
+<p>We will be using the ranger engine. This engine has an optional importance argument which can be used to track variable importance measures. In order to make a variable importance plot with <code>vip()</code>, we must add <code>importance = 'impurity'</code> inside our <code>set_engine()</code> function:</p>
 <div class="cell" data-hash="step2_cache/html/tune models_a9b50571b72abdf843e6d60817445af2">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rf_model_diabetes</span> <span class="op">&lt;-</span> </span>
-<span>  <span class="co"># specify that the model is a random forest and which hyperparameters need to be tuned</span></span>
-<span>  <span class="fu">rand_forest</span><span class="op">(</span>mtry <span class="op">=</span> <span class="fu"><a href="https://hardhat.tidymodels.org/reference/tune.html">tune</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>              trees <span class="op">=</span> <span class="fu"><a href="https://hardhat.tidymodels.org/reference/tune.html">tune</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>              min_n <span class="op">=</span> <span class="fu"><a href="https://hardhat.tidymodels.org/reference/tune.html">tune</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="co"># select the engine/package that underlies the model</span></span>
-<span>  <span class="fu">set_engine</span><span class="op">(</span><span class="st">"ranger"</span>, importance <span class="op">=</span> <span class="st">"impurity"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co">#get variable importance scores</span></span>
-<span>  <span class="co"># choose either the continuous regression or binary classification mode</span></span>
-<span>  <span class="fu">set_mode</span><span class="op">(</span><span class="st">"classification"</span><span class="op">)</span> </span>
-<span></span>
-<span><span class="va">rlr_model_diabetes</span> <span class="op">&lt;-</span> </span>
-<span>  <span class="fu">logistic_reg</span><span class="op">(</span>mixture <span class="op">=</span> <span class="fu"><a href="https://hardhat.tidymodels.org/reference/tune.html">tune</a></span><span class="op">(</span><span class="op">)</span>, penalty <span class="op">=</span> <span class="fu"><a href="https://hardhat.tidymodels.org/reference/tune.html">tune</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">set_engine</span><span class="op">(</span><span class="st">"glmnet"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">set_mode</span><span class="op">(</span><span class="st">"classification"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rf_model_diabetes <span class="ot">&lt;-</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># specify that the model is a random forest and which hyperparameters need to be tuned</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rand_forest</span>(<span class="at">mtry =</span> <span class="fu">tune</span>(),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">trees =</span> <span class="fu">tune</span>(),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">min_n =</span> <span class="fu">tune</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># select the engine/package that underlies the model</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"ranger"</span>, <span class="at">importance =</span> <span class="st">"impurity"</span>) <span class="sc">%&gt;%</span> <span class="co">#get variable importance scores</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># choose either the continuous regression or binary classification mode</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>) </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>rlr_model_diabetes <span class="ot">&lt;-</span> </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">logistic_reg</span>(<span class="at">mixture =</span> <span class="fu">tune</span>(), <span class="at">penalty =</span> <span class="fu">tune</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glmnet"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
 <p><strong>Note</strong> Nothing about this model specification is specific to the diabetes dataset.</p>
 </blockquote>
-<section id="find-which-parameters-will-give-the-model-its-best-accuracy" class="level3"><h3 data-anchor-id="find-which-parameters-will-give-the-model-its-best-accuracy">Find which parameters will give the model its best accuracy</h3>
+<section id="find-which-parameters-will-give-the-model-its-best-accuracy" class="level3">
+<h3 class="anchored" data-anchor-id="find-which-parameters-will-give-the-model-its-best-accuracy">Find which parameters will give the model its best accuracy</h3>
 <div class="borders">
 <ul>
 <li>Try different values and measure their performance;</li>
@@ -430,17 +493,17 @@ Solution
 <p>The <code>mtry()</code> hyperparameter requires a pre-set range of values to test since it cannot exceed the number of columns in our data. When we add this to <code>grid_random()</code> we can pass <code>mtry()</code> into the <code>range_set()</code> function and set a range for the hyperparameter with a numeric vector.</p>
 <p>In the code below, we set the range from 3 to 6. This is because we have 9 columns in diabetes_data and we would like to test <code>mtry()</code> values somewhere in the middle between 1 and 9, trying to avoid values close to the ends.</p>
 <p>When using <code>grid_random()</code>, it is suggested to use set.seed() for reproducibility.</p>
-<p>We can then use the function <code><a href="https://tune.tidymodels.org/reference/tune_grid.html">tune_grid()</a></code> to tune either a workflow or a model specification with a set of resampled data, such as the cross-validation we created. Grid search, combined with resampling, requires fitting a lot of models! These models don’t depend on one another and can be run in parallel.</p>
+<p>We can then use the function <code>tune_grid()</code> to tune either a workflow or a model specification with a set of resampled data, such as the cross-validation we created. Grid search, combined with resampling, requires fitting a lot of models! These models don’t depend on one another and can be run in parallel.</p>
 <div class="cell" data-hash="step2_cache/html/tune_grid_d2378508ee180590fd570e5204336f6f">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">314</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">rf_grid</span> <span class="op">&lt;-</span> <span class="fu">grid_random</span><span class="op">(</span><span class="fu">mtry</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">range_set</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">6</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>                       <span class="fu">trees</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>                       <span class="fu">min_n</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>                       size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">#View grid</span></span>
-<span><span class="va">rf_grid</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">314</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>rf_grid <span class="ot">&lt;-</span> <span class="fu">grid_random</span>(<span class="fu">mtry</span>() <span class="sc">%&gt;%</span> <span class="fu">range_set</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">6</span>)),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">trees</span>(),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">min_n</span>(),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                       <span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#View grid</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>rf_grid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 3
     mtry trees min_n
@@ -456,15 +519,15 @@ Solution
  9     4   477    32
 10     5  1621     6</code></pre>
 </div>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Tune random forest model </span></span>
-<span><span class="va">rf_tune_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tune.tidymodels.org/reference/tune_grid.html">tune_grid</a></span><span class="op">(</span></span>
-<span>  <span class="va">rf_model_diabetes</span>,  <span class="co">#your model</span></span>
-<span>  <span class="va">diabetes_rec</span>,       <span class="co">#your recipe</span></span>
-<span>  resamples <span class="op">=</span> <span class="va">diabetes_folds</span>, <span class="co">#your resampling</span></span>
-<span>  metrics <span class="op">=</span> <span class="fu">metric_set</span><span class="op">(</span><span class="va">accuracy</span>, <span class="va">roc_auc</span>, <span class="va">sensitivity</span>, <span class="va">specificity</span><span class="op">)</span>,</span>
-<span>  grid <span class="op">=</span> <span class="va">rf_grid</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">rf_tune_model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Tune random forest model </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>rf_tune_model <span class="ot">&lt;-</span> <span class="fu">tune_grid</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  rf_model_diabetes,  <span class="co">#your model</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  diabetes_rec,       <span class="co">#your recipe</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">resamples =</span> diabetes_folds, <span class="co">#your resampling</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">metrics =</span> <span class="fu">metric_set</span>(accuracy, roc_auc, sensitivity, specificity),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">grid =</span> rf_grid)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>rf_tune_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Tuning results
 # 10-fold cross-validation repeated 5 times using stratification 
@@ -486,37 +549,37 @@ Solution
 </div>
 <p>Use <code>collect_metrics</code> to extract the metrics calculated from the cross-validation performance across the different values of the parameters:</p>
 <div class="cell" data-hash="step2_cache/html/collect tuning metrics_804ccc6b83022a89cd1cc082a0ac5954">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#collect metrics</span></span>
-<span><span class="va">rf_tune_model</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tune.tidymodels.org/reference/collect_predictions.html">collect_metrics</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#collect metrics</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>rf_tune_model <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect_metrics</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 40 × 9
     mtry trees min_n .metric     .estimator  mean     n std_err .config         
    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;           
- 1     4  1644    34 accuracy    binary     0.764    50 0.00643 Preprocessor1_M…
- 2     4  1644    34 roc_auc     binary     0.847    50 0.00645 Preprocessor1_M…
- 3     4  1644    34 sensitivity binary     0.855    50 0.00772 Preprocessor1_M…
- 4     4  1644    34 specificity binary     0.592    50 0.0153  Preprocessor1_M…
- 5     6  1440    20 accuracy    binary     0.764    50 0.00634 Preprocessor1_M…
- 6     6  1440    20 roc_auc     binary     0.842    50 0.00654 Preprocessor1_M…
- 7     6  1440    20 sensitivity binary     0.852    50 0.00733 Preprocessor1_M…
- 8     6  1440    20 specificity binary     0.597    50 0.0144  Preprocessor1_M…
- 9     6  1549    31 accuracy    binary     0.759    50 0.00626 Preprocessor1_M…
-10     6  1549    31 roc_auc     binary     0.843    50 0.00635 Preprocessor1_M…
+ 1     4  1644    34 accuracy    binary     0.767    50 0.00758 Preprocessor1_M…
+ 2     4  1644    34 roc_auc     binary     0.848    50 0.00633 Preprocessor1_M…
+ 3     4  1644    34 sensitivity binary     0.863    50 0.00834 Preprocessor1_M…
+ 4     4  1644    34 specificity binary     0.586    50 0.0154  Preprocessor1_M…
+ 5     6  1440    20 accuracy    binary     0.760    50 0.00779 Preprocessor1_M…
+ 6     6  1440    20 roc_auc     binary     0.843    50 0.00640 Preprocessor1_M…
+ 7     6  1440    20 sensitivity binary     0.856    50 0.00832 Preprocessor1_M…
+ 8     6  1440    20 specificity binary     0.579    50 0.0156  Preprocessor1_M…
+ 9     6  1549    31 accuracy    binary     0.762    50 0.00772 Preprocessor1_M…
+10     6  1549    31 roc_auc     binary     0.845    50 0.00643 Preprocessor1_M…
 # … with 30 more rows</code></pre>
 </div>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#see which model performed the best, in terms of some given metric</span></span>
-<span><span class="va">rf_tune_model</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tune.tidymodels.org/reference/show_best.html">show_best</a></span><span class="op">(</span><span class="st">"roc_auc"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#see which model performed the best, in terms of some given metric</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>rf_tune_model <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_best</span>(<span class="st">"roc_auc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 9
    mtry trees min_n .metric .estimator  mean     n std_err .config              
   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;                
-1     4  1644    34 roc_auc binary     0.847    50 0.00645 Preprocessor1_Model01
-2     4  1304    24 roc_auc binary     0.846    50 0.00643 Preprocessor1_Model08
-3     4   477    32 roc_auc binary     0.845    50 0.00633 Preprocessor1_Model09
-4     5  1734    39 roc_auc binary     0.845    50 0.00647 Preprocessor1_Model04
-5     5   218    37 roc_auc binary     0.844    50 0.00650 Preprocessor1_Model07</code></pre>
+1     4   477    32 roc_auc binary     0.848    50 0.00631 Preprocessor1_Model09
+2     4  1644    34 roc_auc binary     0.848    50 0.00633 Preprocessor1_Model01
+3     4  1304    24 roc_auc binary     0.848    50 0.00636 Preprocessor1_Model08
+4     5   218    37 roc_auc binary     0.846    50 0.00640 Preprocessor1_Model07
+5     5  1734    39 roc_auc binary     0.845    50 0.00640 Preprocessor1_Model04</code></pre>
 </div>
 </div>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -530,13 +593,13 @@ Challenge X
 </div>
 <div class="callout-body-container callout-body">
 <p>Use <code>tune_grid</code> and <code>collect_metrics</code> to tune a workflow. Hints:</p>
-<p>Use <code><a href="https://workflows.tidymodels.org/reference/workflow.html">workflow()</a></code> to define the workflow:</p>
+<p>Use <code>workflow()</code> to define the workflow:</p>
 <div class="cell" data-hash="step2_cache/html/challenge x worflow_b51a6f59255465e21484b0d12fa8cbeb">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#set the workflow</span></span>
-<span></span>
-<span><span class="co">#add the recipe</span></span>
-<span></span>
-<span><span class="co">#add the model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#set the workflow</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#add the recipe</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#add the model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -553,50 +616,50 @@ Solution
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell" data-hash="step2_cache/html/challenge x worflow solution_29f885a9fcfb51f1337acaab06dc212d">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#set the workflow</span></span>
-<span><span class="va">rf_workflow</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://workflows.tidymodels.org/reference/workflow.html">workflow</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span><span class="co">#add the recipe</span></span>
-<span><span class="fu"><a href="https://workflows.tidymodels.org/reference/add_recipe.html">add_recipe</a></span><span class="op">(</span><span class="va">diabetes_rec</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span><span class="co">#add the model</span></span>
-<span>  <span class="fu"><a href="https://workflows.tidymodels.org/reference/add_model.html">add_model</a></span><span class="op">(</span><span class="va">rf_model_diabetes</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">#tune the workflow</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">22</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">rf_tune_wf</span> <span class="op">&lt;-</span> <span class="va">rf_workflow</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tune.tidymodels.org/reference/tune_grid.html">tune_grid</a></span><span class="op">(</span>resamples <span class="op">=</span> <span class="va">diabetes_folds</span>,</span>
-<span>            metrics <span class="op">=</span> <span class="fu">metric_set</span><span class="op">(</span><span class="va">accuracy</span>, <span class="va">roc_auc</span>, <span class="va">sensitivity</span>, <span class="va">specificity</span><span class="op">)</span>,</span>
-<span>            grid <span class="op">=</span> <span class="va">rf_grid</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">rf_tune_wf</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tune.tidymodels.org/reference/collect_predictions.html">collect_metrics</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#set the workflow</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>rf_workflow <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#add the recipe</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">add_recipe</span>(diabetes_rec) <span class="sc">%&gt;%</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#add the model</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(rf_model_diabetes)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#tune the workflow</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">22</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>rf_tune_wf <span class="ot">&lt;-</span> rf_workflow <span class="sc">%&gt;%</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tune_grid</span>(<span class="at">resamples =</span> diabetes_folds,</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">metrics =</span> <span class="fu">metric_set</span>(accuracy, roc_auc, sensitivity, specificity),</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">grid =</span> rf_grid)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>rf_tune_wf <span class="sc">%&gt;%</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect_metrics</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 40 × 9
     mtry trees min_n .metric     .estimator  mean     n std_err .config         
    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;           
- 1     4  1644    34 accuracy    binary     0.762    50 0.00639 Preprocessor1_M…
- 2     4  1644    34 roc_auc     binary     0.847    50 0.00640 Preprocessor1_M…
- 3     4  1644    34 sensitivity binary     0.857    50 0.00783 Preprocessor1_M…
- 4     4  1644    34 specificity binary     0.584    50 0.0142  Preprocessor1_M…
- 5     6  1440    20 accuracy    binary     0.762    50 0.00640 Preprocessor1_M…
- 6     6  1440    20 roc_auc     binary     0.842    50 0.00659 Preprocessor1_M…
- 7     6  1440    20 sensitivity binary     0.851    50 0.00736 Preprocessor1_M…
- 8     6  1440    20 specificity binary     0.595    50 0.0146  Preprocessor1_M…
- 9     6  1549    31 accuracy    binary     0.761    50 0.00648 Preprocessor1_M…
-10     6  1549    31 roc_auc     binary     0.843    50 0.00661 Preprocessor1_M…
+ 1     4  1644    34 accuracy    binary     0.766    50 0.00767 Preprocessor1_M…
+ 2     4  1644    34 roc_auc     binary     0.848    50 0.00625 Preprocessor1_M…
+ 3     4  1644    34 sensitivity binary     0.866    50 0.00817 Preprocessor1_M…
+ 4     4  1644    34 specificity binary     0.580    50 0.0153  Preprocessor1_M…
+ 5     6  1440    20 accuracy    binary     0.764    50 0.00734 Preprocessor1_M…
+ 6     6  1440    20 roc_auc     binary     0.844    50 0.00640 Preprocessor1_M…
+ 7     6  1440    20 sensitivity binary     0.858    50 0.00798 Preprocessor1_M…
+ 8     6  1440    20 specificity binary     0.588    50 0.0155  Preprocessor1_M…
+ 9     6  1549    31 accuracy    binary     0.764    50 0.00751 Preprocessor1_M…
+10     6  1549    31 roc_auc     binary     0.844    50 0.00647 Preprocessor1_M…
 # … with 30 more rows</code></pre>
 </div>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rf_tune_wf</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tune.tidymodels.org/reference/show_best.html">show_best</a></span><span class="op">(</span><span class="st">"roc_auc"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>rf_tune_wf <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_best</span>(<span class="st">"roc_auc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 9
    mtry trees min_n .metric .estimator  mean     n std_err .config              
   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;                
-1     4  1644    34 roc_auc binary     0.847    50 0.00640 Preprocessor1_Model01
-2     4   477    32 roc_auc binary     0.846    50 0.00639 Preprocessor1_Model09
-3     4  1304    24 roc_auc binary     0.846    50 0.00641 Preprocessor1_Model08
-4     5  1734    39 roc_auc binary     0.845    50 0.00643 Preprocessor1_Model04
-5     5   218    37 roc_auc binary     0.845    50 0.00628 Preprocessor1_Model07</code></pre>
+1     4   477    32 roc_auc binary     0.849    50 0.00639 Preprocessor1_Model09
+2     4  1644    34 roc_auc binary     0.848    50 0.00625 Preprocessor1_Model01
+3     4  1304    24 roc_auc binary     0.847    50 0.00629 Preprocessor1_Model08
+4     5  1734    39 roc_auc binary     0.846    50 0.00634 Preprocessor1_Model04
+5     5   218    37 roc_auc binary     0.845    50 0.00636 Preprocessor1_Model07</code></pre>
 </div>
 </div>
 </div>
@@ -604,21 +667,21 @@ Solution
 </div>
 <p>Let’s visualise our results:</p>
 <div class="cell" data-hash="step2_cache/html/autoplot_cb6e896c95846e9609be4cc39bb9fcb8">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">rf_tune_model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(rf_tune_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="step2_files/figure-html/autoplot-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">rf_tune_wf</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(rf_tune_wf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="step2_files/figure-html/autoplot-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>We can also specify the values of the parameters to tune with an tuning grid, entered as a data frame. It contains all the combinations of parameters to be tested. For regularized logistic regression, we test eleven values of mixture:</p>
 <div class="cell" data-hash="step2_cache/html/tune rlr_97d3decc52f3d24d65c06c5581420133">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#set the grid</span></span>
-<span><span class="va">rlr_grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>mixture <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0.1</span><span class="op">)</span>,</span>
-<span>                       penalty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">rlr_grid</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#set the grid</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>rlr_grid <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">mixture =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>),</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">penalty =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>))</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>rlr_grid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   mixture penalty
 1      0.0     0.0
@@ -633,55 +696,57 @@ Solution
 10     0.9     0.9
 11     1.0     1.0</code></pre>
 </div>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">435</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">##use tune_grid() for hyperparameters tuning, doing cross validation for each row of the tuning grid</span></span>
-<span><span class="va">rlr_tune_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tune.tidymodels.org/reference/tune_grid.html">tune_grid</a></span><span class="op">(</span></span>
-<span>  <span class="va">rlr_model_diabetes</span>,  <span class="co">#your model</span></span>
-<span>  <span class="va">diabetes_rec</span>,       <span class="co">#your recipe</span></span>
-<span>  resamples <span class="op">=</span> <span class="va">diabetes_folds</span>, <span class="co">#your resampling</span></span>
-<span>  grid <span class="op">=</span> <span class="va">rlr_grid</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">rlr_tune_model</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tune.tidymodels.org/reference/collect_predictions.html">collect_metrics</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">435</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="do">##use tune_grid() for hyperparameters tuning, doing cross validation for each row of the tuning grid</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>rlr_tune_model <span class="ot">&lt;-</span> <span class="fu">tune_grid</span>(</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  rlr_model_diabetes,  <span class="co">#your model</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  diabetes_rec,       <span class="co">#your recipe</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">resamples =</span> diabetes_folds, <span class="co">#your resampling</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">grid =</span> rlr_grid)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>rlr_tune_model <span class="sc">%&gt;%</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect_metrics</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 22 × 8
    penalty mixture .metric  .estimator  mean     n  std_err .config             
      &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;               
- 1     0       0   accuracy binary     0.747    50 0.00649  Preprocessor1_Model…
- 2     0       0   roc_auc  binary     0.838    50 0.00623  Preprocessor1_Model…
- 3     0.1     0.1 accuracy binary     0.756    50 0.00596  Preprocessor1_Model…
- 4     0.1     0.1 roc_auc  binary     0.839    50 0.00620  Preprocessor1_Model…
- 5     0.2     0.2 accuracy binary     0.751    50 0.00602  Preprocessor1_Model…
- 6     0.2     0.2 roc_auc  binary     0.837    50 0.00603  Preprocessor1_Model…
- 7     0.3     0.3 accuracy binary     0.681    50 0.00402  Preprocessor1_Model…
- 8     0.3     0.3 roc_auc  binary     0.805    50 0.00690  Preprocessor1_Model…
+ 1     0       0   accuracy binary     0.750    50 0.00647  Preprocessor1_Model…
+ 2     0       0   roc_auc  binary     0.839    50 0.00718  Preprocessor1_Model…
+ 3     0.1     0.1 accuracy binary     0.749    50 0.00596  Preprocessor1_Model…
+ 4     0.1     0.1 roc_auc  binary     0.838    50 0.00697  Preprocessor1_Model…
+ 5     0.2     0.2 accuracy binary     0.750    50 0.00552  Preprocessor1_Model…
+ 6     0.2     0.2 roc_auc  binary     0.837    50 0.00696  Preprocessor1_Model…
+ 7     0.3     0.3 accuracy binary     0.683    50 0.00376  Preprocessor1_Model…
+ 8     0.3     0.3 roc_auc  binary     0.807    50 0.00793  Preprocessor1_Model…
  9     0.4     0.4 accuracy binary     0.652    50 0.000801 Preprocessor1_Model…
-10     0.4     0.4 roc_auc  binary     0.783    50 0.00742  Preprocessor1_Model…
+10     0.4     0.4 roc_auc  binary     0.784    50 0.00843  Preprocessor1_Model…
 # … with 12 more rows</code></pre>
 </div>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rlr_tune_model</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tune.tidymodels.org/reference/show_best.html">show_best</a></span><span class="op">(</span><span class="st">"roc_auc"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>rlr_tune_model <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_best</span>(<span class="st">"roc_auc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 8
   penalty mixture .metric .estimator  mean     n std_err .config              
     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;                
-1     0.1     0.1 roc_auc binary     0.839    50 0.00620 Preprocessor1_Model02
-2     0       0   roc_auc binary     0.838    50 0.00623 Preprocessor1_Model01
-3     0.2     0.2 roc_auc binary     0.837    50 0.00603 Preprocessor1_Model03
-4     0.3     0.3 roc_auc binary     0.805    50 0.00690 Preprocessor1_Model04
-5     0.4     0.4 roc_auc binary     0.783    50 0.00742 Preprocessor1_Model05</code></pre>
+1     0       0   roc_auc binary     0.839    50 0.00718 Preprocessor1_Model01
+2     0.1     0.1 roc_auc binary     0.838    50 0.00697 Preprocessor1_Model02
+3     0.2     0.2 roc_auc binary     0.837    50 0.00696 Preprocessor1_Model03
+4     0.3     0.3 roc_auc binary     0.807    50 0.00793 Preprocessor1_Model04
+5     0.4     0.4 roc_auc binary     0.784    50 0.00843 Preprocessor1_Model05</code></pre>
 </div>
 </div>
-</section><section id="the-workflowsets-package" class="level3"><h3 data-anchor-id="the-workflowsets-package">The workflowsets package</h3>
+</section>
+<section id="the-workflowsets-package" class="level3">
+<h3 class="anchored" data-anchor-id="the-workflowsets-package">The workflowsets package</h3>
 <hr>
 <p>Tidymodels allows us to perform all of the above steps in a much faster way with the workflowsets package:</p>
 <div class="cell" data-hash="step2_cache/html/workflow_set_63347b18c264913418cc1bd33c3e65b0">
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">diabetes_wf_set</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://workflowsets.tidymodels.org/reference/workflow_set.html">workflow_set</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">diabetes_rec</span><span class="op">)</span>,  <span class="co">#list of recipes</span></span>
-<span>             <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">rf_model_diabetes</span>, <span class="va">rlr_model_diabetes</span><span class="op">)</span>, <span class="co">#list of models</span></span>
-<span>             cross <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co">#all combinations of the preprocessors and models are used to create the workflows</span></span>
-<span>  </span>
-<span><span class="va">diabetes_wf_set</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>diabetes_wf_set <span class="ot">&lt;-</span> <span class="fu">workflow_set</span>(<span class="fu">list</span>(diabetes_rec),  <span class="co">#list of recipes</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>             <span class="fu">list</span>(rf_model_diabetes, rlr_model_diabetes), <span class="co">#list of models</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">cross =</span> <span class="cn">TRUE</span>) <span class="co">#all combinations of the preprocessors and models are used to create the workflows</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>diabetes_wf_set</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A workflow set/tibble: 2 × 4
   wflow_id            info             option    result    
@@ -689,27 +754,27 @@ Solution
 1 recipe_rand_forest  &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;
 2 recipe_logistic_reg &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;</code></pre>
 </div>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># setting the parameters on each workflow seperately</span></span>
-<span><span class="va">rf_params</span> <span class="op">&lt;-</span> <span class="va">diabetes_wf_set</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://hardhat.tidymodels.org/reference/hardhat-extract.html">extract_workflow</a></span><span class="op">(</span><span class="st">"recipe_rand_forest"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dials.tidymodels.org/reference/parameters.html">parameters</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/stats/update.html">update</a></span><span class="op">(</span>mtry <span class="op">=</span> <span class="fu">mtry</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">6</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>         trees <span class="op">=</span> <span class="fu">trees</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>         min_n <span class="op">=</span> <span class="fu">min_n</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">rlr_params</span> <span class="op">&lt;-</span> <span class="va">diabetes_wf_set</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://hardhat.tidymodels.org/reference/hardhat-extract.html">extract_workflow</a></span><span class="op">(</span><span class="st">"recipe_logistic_reg"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dials.tidymodels.org/reference/parameters.html">parameters</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/stats/update.html">update</a></span><span class="op">(</span>mixture <span class="op">=</span> <span class="fu">mixture</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>         penalty <span class="op">=</span> <span class="fu">penalty</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span>  </span>
-<span><span class="va">diabetes_wf_set</span> <span class="op">&lt;-</span> <span class="va">diabetes_wf_set</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://workflowsets.tidymodels.org/reference/workflow_map.html">workflow_map</a></span><span class="op">(</span><span class="st">"tune_grid"</span>, <span class="co"># the first argument is a function name from the tune package (tune_grid(), fit_resamples()..)</span></span>
-<span>               resamples <span class="op">=</span> <span class="va">diabetes_folds</span>,</span>
-<span>               verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span>
-<span></span>
-<span></span>
-<span><span class="va">diabetes_wf_set</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># setting the parameters on each workflow seperately</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>rf_params <span class="ot">&lt;-</span> diabetes_wf_set <span class="sc">%&gt;%</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract_workflow</span>(<span class="st">"recipe_rand_forest"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">parameters</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">update</span>(<span class="at">mtry =</span> <span class="fu">mtry</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">6</span>)),</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">trees =</span> <span class="fu">trees</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>)),</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">min_n =</span> <span class="fu">min_n</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>)))</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>rlr_params <span class="ot">&lt;-</span> diabetes_wf_set <span class="sc">%&gt;%</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract_workflow</span>(<span class="st">"recipe_logistic_reg"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">parameters</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">update</span>(<span class="at">mixture =</span> <span class="fu">mixture</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)),</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">penalty =</span> <span class="fu">penalty</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)))</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>diabetes_wf_set <span class="ot">&lt;-</span> diabetes_wf_set <span class="sc">%&gt;%</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">workflow_map</span>(<span class="st">"tune_grid"</span>, <span class="co"># the first argument is a function name from the tune package (tune_grid(), fit_resamples()..)</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>               <span class="at">resamples =</span> diabetes_folds,</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>               <span class="at">verbose =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>diabetes_wf_set</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A workflow set/tibble: 2 × 4
   wflow_id            info             option    result   
@@ -718,39 +783,39 @@ Solution
 2 recipe_logistic_reg &lt;tibble [1 × 4]&gt; &lt;opts[1]&gt; &lt;tune[+]&gt;</code></pre>
 </div>
 </div>
-<p>The results column contains the results of each call to <code><a href="https://tune.tidymodels.org/reference/tune_grid.html">tune_grid()</a></code> for the workflows. From these results, we can get quick assessments of how well these models classified the data:</p>
+<p>The results column contains the results of each call to <code>tune_grid()</code> for the workflows. From these results, we can get quick assessments of how well these models classified the data:</p>
 <div class="cell" data-hash="step2_cache/html/wf_set results_bd7bf46d63b4025226c9b2d54d2674e1">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#To get the rankings of the models (and their tuning parameter sub-models) as a data frame:</span></span>
-<span><span class="fu"><a href="https://workflowsets.tidymodels.org/reference/rank_results.html">rank_results</a></span><span class="op">(</span><span class="va">diabetes_wf_set</span>, rank_metric <span class="op">=</span> <span class="st">"roc_auc"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#To get the rankings of the models (and their tuning parameter sub-models) as a data frame:</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rank_results</span>(diabetes_wf_set, <span class="at">rank_metric =</span> <span class="st">"roc_auc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 40 × 9
    wflow_id           .config    .metric  mean std_err     n prepr…¹ model  rank
    &lt;chr&gt;              &lt;chr&gt;      &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; &lt;int&gt;
- 1 recipe_rand_forest Preproces… accura… 0.766 0.00669    50 recipe  rand…     1
- 2 recipe_rand_forest Preproces… roc_auc 0.849 0.00610    50 recipe  rand…     1
- 3 recipe_rand_forest Preproces… accura… 0.771 0.00625    50 recipe  rand…     2
- 4 recipe_rand_forest Preproces… roc_auc 0.848 0.00621    50 recipe  rand…     2
- 5 recipe_rand_forest Preproces… accura… 0.764 0.00646    50 recipe  rand…     3
- 6 recipe_rand_forest Preproces… roc_auc 0.847 0.00635    50 recipe  rand…     3
- 7 recipe_rand_forest Preproces… accura… 0.764 0.00656    50 recipe  rand…     4
- 8 recipe_rand_forest Preproces… roc_auc 0.845 0.00646    50 recipe  rand…     4
- 9 recipe_rand_forest Preproces… accura… 0.762 0.00665    50 recipe  rand…     5
-10 recipe_rand_forest Preproces… roc_auc 0.843 0.00654    50 recipe  rand…     5
+ 1 recipe_rand_forest Preproces… accura… 0.764 0.00684    50 recipe  rand…     1
+ 2 recipe_rand_forest Preproces… roc_auc 0.850 0.00608    50 recipe  rand…     1
+ 3 recipe_rand_forest Preproces… accura… 0.768 0.00657    50 recipe  rand…     2
+ 4 recipe_rand_forest Preproces… roc_auc 0.850 0.00618    50 recipe  rand…     2
+ 5 recipe_rand_forest Preproces… accura… 0.763 0.00669    50 recipe  rand…     3
+ 6 recipe_rand_forest Preproces… roc_auc 0.847 0.00628    50 recipe  rand…     3
+ 7 recipe_rand_forest Preproces… accura… 0.766 0.00776    50 recipe  rand…     4
+ 8 recipe_rand_forest Preproces… roc_auc 0.846 0.00642    50 recipe  rand…     4
+ 9 recipe_rand_forest Preproces… accura… 0.764 0.00701    50 recipe  rand…     5
+10 recipe_rand_forest Preproces… roc_auc 0.845 0.00639    50 recipe  rand…     5
 # … with 30 more rows, and abbreviated variable name ¹​preprocessor</code></pre>
 </div>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#plot the results</span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">diabetes_wf_set</span>, metric <span class="op">=</span> <span class="st">"roc_auc"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot the results</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(diabetes_wf_set, <span class="at">metric =</span> <span class="st">"roc_auc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="step2_files/figure-html/wf_set results-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>This shows the results for all tuning parameter combinations for each model. It looks like the random forest model did well. We can use the <code><a href="https://workflowsets.tidymodels.org/reference/extract_workflow_set_result.html">extract_workflow_set_result()</a></code> function to extract the tuning results:</p>
+<p>This shows the results for all tuning parameter combinations for each model. It looks like the random forest model did well. We can use the <code>extract_workflow_set_result()</code> function to extract the tuning results:</p>
 <div class="cell" data-hash="step2_cache/html/set results_309907d1654e1158214680c26e5a456b">
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">best_results</span> <span class="op">&lt;-</span> <span class="va">diabetes_wf_set</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://workflowsets.tidymodels.org/reference/extract_workflow_set_result.html">extract_workflow_set_result</a></span><span class="op">(</span><span class="st">"recipe_rand_forest"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tune.tidymodels.org/reference/show_best.html">select_best</a></span><span class="op">(</span>metric<span class="op">=</span><span class="st">"roc_auc"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">best_results</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>best_results <span class="ot">&lt;-</span> diabetes_wf_set <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract_workflow_set_result</span>(<span class="st">"recipe_rand_forest"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select_best</span>(<span class="at">metric=</span><span class="st">"roc_auc"</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>best_results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 4
    mtry trees min_n .config              
@@ -758,16 +823,18 @@ Solution
 1     2   983    30 Preprocessor1_Model10</code></pre>
 </div>
 </div>
-</section><section id="update-and-fit-the-workflow" class="level3"><h3 data-anchor-id="update-and-fit-the-workflow">Update and fit the workflow</h3>
+</section>
+<section id="update-and-fit-the-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="update-and-fit-the-workflow">Update and fit the workflow</h3>
 <hr>
-<p>The last step in hyperparameter tuning is to use <code><a href="https://tune.tidymodels.org/reference/finalize_model.html">finalize_workflow()</a></code> to add our optimal model to our workflow object, and apply the <code><a href="https://tune.tidymodels.org/reference/last_fit.html">last_fit()</a></code> function to our workflow and our train/test split object. This will automatically train the model specified by the workflow using the training data, and produce evaluations based on the test set:</p>
+<p>The last step in hyperparameter tuning is to use <code>finalize_workflow()</code> to add our optimal model to our workflow object, and apply the <code>last_fit()</code> function to our workflow and our train/test split object. This will automatically train the model specified by the workflow using the training data, and produce evaluations based on the test set:</p>
 <div class="cell" data-hash="step2_cache/html/final workflow rf_a8804b0db27bd3b938dd54cbcf889b46">
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">final_diabetes_fit</span> <span class="op">&lt;-</span> <span class="va">diabetes_wf_set</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://hardhat.tidymodels.org/reference/hardhat-extract.html">extract_workflow</a></span><span class="op">(</span><span class="st">"recipe_rand_forest"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tune.tidymodels.org/reference/finalize_model.html">finalize_workflow</a></span><span class="op">(</span><span class="va">best_results</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tune.tidymodels.org/reference/last_fit.html">last_fit</a></span><span class="op">(</span><span class="va">diabetes_split</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">final_diabetes_fit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>final_diabetes_fit <span class="ot">&lt;-</span> diabetes_wf_set <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract_workflow</span>(<span class="st">"recipe_rand_forest"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">finalize_workflow</span>(best_results) <span class="sc">%&gt;%</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">last_fit</span>(diabetes_split)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>final_diabetes_fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Resampling results
 # Manual resampling 
@@ -777,10 +844,10 @@ Solution
 1 &lt;split [537/231]&gt; train/test split &lt;tibble&gt; &lt;tibble&gt; &lt;tibble&gt;     &lt;workflow&gt;</code></pre>
 </div>
 </div>
-<p>Since we supplied the train/test object when we fit the workflow, the metrics are evaluated on the test set. Now when we use the <code><a href="https://tune.tidymodels.org/reference/collect_predictions.html">collect_metrics()</a></code> function (the same we used when tuning our parameters) to extract the performance of the final model (since <code>rf_fit_final</code> now consists of a single final model) applied to the test set:</p>
+<p>Since we supplied the train/test object when we fit the workflow, the metrics are evaluated on the test set. Now when we use the <code>collect_metrics()</code> function (the same we used when tuning our parameters) to extract the performance of the final model (since <code>rf_fit_final</code> now consists of a single final model) applied to the test set:</p>
 <div class="cell" data-hash="step2_cache/html/model performance_c6f833ad60110c76cc5ce3fed7ade05d">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">test_performance</span> <span class="op">&lt;-</span> <span class="va">final_diabetes_fit</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tune.tidymodels.org/reference/collect_predictions.html">collect_metrics</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="va">test_performance</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>test_performance <span class="ot">&lt;-</span> final_diabetes_fit <span class="sc">%&gt;%</span> <span class="fu">collect_metrics</span>()</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>test_performance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   .metric  .estimator .estimate .config             
@@ -792,48 +859,50 @@ Solution
 <p>We can plot the ROC curve to visualize test set performance of our random forest model, and generate a confusion matrix:</p>
 <p><strong>Note</strong> In R, factor levels are ordered alphabetically by default, which means that “no” comes first before “yes” and is considered the level of interest or positive case. Use the argument <code>event_level = "second"</code> to alter this as needed.</p>
 <div class="cell" data-hash="step2_cache/html/visualise performance_75947c5d4217a6ce86dbc4bffca477dc">
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#ROC curve</span></span>
-<span>  <span class="fu"><a href="https://tune.tidymodels.org/reference/collect_predictions.html">collect_predictions</a></span><span class="op">(</span><span class="va">final_diabetes_fit</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">roc_curve</span><span class="op">(</span>truth  <span class="op">=</span> <span class="va">diabetes</span>, event_level<span class="op">=</span><span class="st">"second"</span>, estimate <span class="op">=</span> <span class="va">.pred_pos</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  <span class="co">#specify which level of truth to                                                                                       consider as the "event"</span></span>
-<span>                <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ROC curve</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect_predictions</span>(final_diabetes_fit) <span class="sc">%&gt;%</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">roc_curve</span>(<span class="at">truth  =</span> diabetes, <span class="at">event_level=</span><span class="st">"second"</span>, <span class="at">estimate =</span> .pred_pos) <span class="sc">%&gt;%</span>  <span class="co">#specify which level of truth to                                                                                       consider as the "event"</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>                <span class="fu">autoplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="step2_files/figure-html/visualise performance-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#confusion matrix</span></span>
-<span><span class="va">conf_matrix_rf</span> <span class="op">&lt;-</span> <span class="va">final_diabetes_fit</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tune.tidymodels.org/reference/collect_predictions.html">collect_predictions</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">conf_mat</span><span class="op">(</span>truth <span class="op">=</span> <span class="va">diabetes</span>, estimate <span class="op">=</span> <span class="va">.pred_class</span><span class="op">)</span> </span>
-<span></span>
-<span><span class="va">conf_matrix_rf</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#confusion matrix</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>conf_matrix_rf <span class="ot">&lt;-</span> final_diabetes_fit <span class="sc">%&gt;%</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect_predictions</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">conf_mat</span>(<span class="at">truth =</span> diabetes, <span class="at">estimate =</span> .pred_class) </span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>conf_matrix_rf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          Truth
 Prediction neg pos
        neg 128  35
        pos  22  46</code></pre>
 </div>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">conf_matrix_rf</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>conf_matrix_rf <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="step2_files/figure-html/visualise performance-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section><section id="variable-importance" class="level3"><h3 data-anchor-id="variable-importance">Variable importance</h3>
+</section>
+<section id="variable-importance" class="level3">
+<h3 class="anchored" data-anchor-id="variable-importance">Variable importance</h3>
 <hr>
-<p>In order to visualize the variable importance scores of our random forest model, we will need to manually train our workflow object with the <code>fit()</code> function on the training data, then extract the trained model with the <code><a href="https://workflows.tidymodels.org/reference/workflow-extractors.html">pull_workflow_fit()</a></code> function, and next passing the trained model to the <code><a href="https://rdrr.io/pkg/vip/man/vip.html">vip()</a></code> function:</p>
+<p>In order to visualize the variable importance scores of our random forest model, we will need to manually train our workflow object with the <code>fit()</code> function on the training data, then extract the trained model with the <code>pull_workflow_fit()</code> function, and next passing the trained model to the <code>vip()</code> function:</p>
 <div class="cell" data-hash="step2_cache/html/fit rf_2640a7abe30b382889b4cd92c178406d">
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#extract the final workflow</span></span>
-<span><span class="va">final_workflow</span> <span class="op">&lt;-</span> <span class="va">diabetes_wf_set</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://hardhat.tidymodels.org/reference/hardhat-extract.html">extract_workflow</a></span><span class="op">(</span><span class="st">"recipe_rand_forest"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tune.tidymodels.org/reference/finalize_model.html">finalize_workflow</a></span><span class="op">(</span><span class="va">best_results</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">#fit on the training data</span></span>
-<span><span class="va">wf_fit</span> <span class="op">&lt;-</span> <span class="va">final_workflow</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">fit</span><span class="op">(</span>data <span class="op">=</span> <span class="va">d_na_train</span><span class="op">)</span></span>
-<span><span class="co">#extract the trained model</span></span>
-<span><span class="va">wf_fit</span> <span class="op">&lt;-</span> <span class="va">wf_fit</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>          <span class="fu"><a href="https://workflows.tidymodels.org/reference/workflow-extractors.html">pull_workflow_fit</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#plot variable importance</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/vip/man/vip.html">vip</a></span><span class="op">(</span><span class="va">wf_fit</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#extract the final workflow</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>final_workflow <span class="ot">&lt;-</span> diabetes_wf_set <span class="sc">%&gt;%</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract_workflow</span>(<span class="st">"recipe_rand_forest"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">finalize_workflow</span>(best_results)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="co">#fit on the training data</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>wf_fit <span class="ot">&lt;-</span> final_workflow <span class="sc">%&gt;%</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(<span class="at">data =</span> d_na_train)</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="co">#extract the trained model</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>wf_fit <span class="ot">&lt;-</span> wf_fit <span class="sc">%&gt;%</span> </span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>          <span class="fu">pull_workflow_fit</span>()</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a><span class="co">#plot variable importance</span></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="fu">vip</span>(wf_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="step2_files/figure-html/fit rf-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -852,8 +921,8 @@ Key Points
 <div class="callout-body-container callout-body">
 <ul>
 <li>A workflow is a combination of a model and preprocessors (e.g, a formula, recipe, etc.);</li>
-<li>In order to try different combinations of these, the <code><a href="https://workflowsets.tidymodels.org/reference/workflow_set.html">workflow_set()</a></code> function creates an object that contains many workflows;</li>
-<li>The <code><a href="https://workflowsets.tidymodels.org/reference/workflow_map.html">workflow_map()</a></code> executes the function from the tune package (e.g, <code><a href="https://tune.tidymodels.org/reference/tune_grid.html">tune_grid()</a></code>, <code><a href="https://tune.tidymodels.org/reference/fit_resamples.html">fit_resamples()</a></code>) across all the workflows in the set.</li>
+<li>In order to try different combinations of these, the <code>workflow_set()</code> function creates an object that contains many workflows;</li>
+<li>The <code>workflow_map()</code> executes the function from the tune package (e.g, <code>tune_grid()</code>, <code>fit_resamples()</code>) across all the workflows in the set.</li>
 </ul>
 </div>
 </div>
@@ -863,11 +932,11 @@ Key Points
 </ul>
 
 
-</section></section></main></div>
-    </div>
-  </div>
-</div>
-<!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1002,6 +1071,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   } else {
     toggleColorMode(false);
   }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const clipboard = new window.ClipboardJS('.code-copy-button', {
     target: function(trigger) {
       return trigger.previousElementSibling;
@@ -1109,10 +1185,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
       <div class="nav-footer-center">Copyright 2023, Sydney Informatics Hub</div>
   </div>
 </footer>
+
 
 
 </body></html>
