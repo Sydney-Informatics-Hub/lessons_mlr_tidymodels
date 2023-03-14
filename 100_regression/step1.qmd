@@ -34,7 +34,7 @@ theme_set(theme_minimal())
 
 We will use the Ames housing data to explore different ML approaches to regression. This dataset was "designed" by Dean De Cock as an alternative to the "classic" Boston housing dataset, and has been extensively used in ML teaching. It is also available from kaggle as part of its [advanced regression practice competition](https://www.kaggle.com/c/house-prices-advanced-regression-techniques).
 
-The [Ames Housing Data Documentation file](https://github.sydney.edu.au/informatics/lessons-mlr/blob/gh-pages/_episodes_rmd/data/AmesHousing_DataDocumentation.txt) describes the independent variables presented in the data. This includes:
+The independent variables presented in the data include:
 
 -   20 continuous variables relate to various area dimensions for each observation;
 -   14 discrete variables, which typically quantify the number of items occurring within the house;
