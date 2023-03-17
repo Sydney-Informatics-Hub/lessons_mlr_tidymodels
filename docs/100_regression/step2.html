@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -301,7 +301,6 @@ Solution
 </div>
 <section id="build-a-simple-linear-regression-model-using-base-r" class="level2">
 <h2 class="anchored" data-anchor-id="build-a-simple-linear-regression-model-using-base-r">Build a simple linear regression model using base R</h2>
-<hr>
 <p>In a linear model, we assume that there is a linear relationship between the input variable(s) and the output variable. This means that as the input variable(s) increase or decrease, the output variable changes in a straight line.</p>
 <p>Imagine you have a scatter plot with your data points all over it. A linear model is like drawing a straight line through the scatter plot that best fits all the points. The slope and intercept of this line are chosen in such a way that the distance between the line and all the points is minimized. This line is then used to predict the output for new input values.</p>
 <div class="quarto-figure quarto-figure-left">
@@ -358,8 +357,16 @@ F-statistic:  2994 on 1 and 2923 DF,  p-value: &lt; 2.2e-16</code></pre>
 </section>
 <section id="build-a-linear-regression-model-using-tidymodels" class="level2">
 <h2 class="anchored" data-anchor-id="build-a-linear-regression-model-using-tidymodels">Build a linear regression model using Tidymodels</h2>
-<hr>
-<p>When you type <code>library(tidymodels)</code>, you load a collection of packages for modeling and machine learning using tidyverse principles. All the packages are designed to be consistent, modular, and to support good modeling practices. The first thing we are going to practice is splitting your data into a <strong>training set</strong> and a <strong>testing set</strong>. The tidymodels package <code>rsample</code> has functions that help you specify training and testing sets:</p>
+<p>When you type <code>library(tidymodels)</code>, you load a collection of packages for modeling and machine learning using tidyverse principles. Some benefits on using Tidymodels include:</p>
+<ul>
+<li>consistent syntax across all of its packages, making it easier to learn and use;</li>
+<li>code is more readable and easier to maintain;</li>
+<li>built around the tidy data principles, which emphasizes the importance of organizing data in a consistent and structured way;</li>
+<li>modular design, each package serving a specific purpose;</li>
+<li>active community of developers and users who are available to answer questions and provide support;</li>
+<li>integration with other tidyverse packages like dplyr, ggplot2, and purrr, allowing for a more streamlined workflow when working with data</li>
+</ul>
+<p>The first thing we are going to practice is splitting the data into a <strong>training set</strong> and a <strong>testing set</strong>. The tidymodels package <code>rsample</code> has functions that help you specify training and testing sets:</p>
 <div class="cell" data-hash="step2_cache/html/SplitTestTrain_03ef02da1e29c934f93423f94e90d7de">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>) <span class="co">#so we all get the same results</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ames_split <span class="ot">&lt;-</span> ames_data <span class="sc">%&gt;%</span></span>
@@ -406,15 +413,15 @@ F-statistic:  2994 on 1 and 2923 DF,  p-value: &lt; 2.2e-16</code></pre>
 </ul>
 <p><strong>Statistical parameters for the steps can be estimated from an initial data set and then applied to other data sets.</strong></p>
 <p><strong>The resulting processed output can be used as inputs for statistical or machine learning models.</strong></p>
-<div class="cell" data-hash="step2_cache/html/recipe_e40eed20461a07813d1b7e82abb71c7f">
+<div class="cell" data-hash="step2_cache/html/recipe_ed603ac3e86ab87fe2fefe18f8fac77e">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ames_rec <span class="ot">&lt;-</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">recipe</span>(Sale_Price <span class="sc">~</span> ., <span class="at">data =</span> ames_train) <span class="sc">%&gt;%</span> <span class="co">#assigns columns to roles of “outcome” or “predictor” using the formula</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_other</span>(<span class="fu">all_nominal</span>(), <span class="at">threshold =</span> <span class="fl">0.01</span>) <span class="sc">%&gt;%</span> <span class="co">#useful when you have some factor levels with very few observations, all_nominal selects both characters and factors, pools infrequently occurring values (frequency less than 0.01) into an "other" category</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_nzv</span>(<span class="fu">all_predictors</span>()) <span class="sc">%&gt;%</span> <span class="co">#remove predictors that are highly sparse and unbalanced</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_center</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">%&gt;%</span> <span class="co">#subtracts the column mean from predictors</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_scale</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">%&gt;%</span> <span class="co">#divides by the standard deviation</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal_predictors</span>(), <span class="at">one_hot =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> <span class="co">#for any nominal predictor, make binary indicators</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_lincomb</span>(<span class="fu">all_numeric_predictors</span>()) <span class="co">#remove linear dependencies in the predictors, if present</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_log</span>(Sale_Price, <span class="at">base =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_other</span>(<span class="fu">all_nominal</span>(), <span class="at">threshold =</span> <span class="fl">0.01</span>) <span class="sc">%&gt;%</span> <span class="co">#useful when you have some factor levels with very few observations,   all_nominal selects both characters and factors, pools infrequently occurring values (frequency less than 0.01) into an "other" category</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_nzv</span>(<span class="fu">all_predictors</span>()) <span class="sc">%&gt;%</span> <span class="co">#remove predictors that are highly sparse and unbalanced</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_center</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">%&gt;%</span> <span class="co">#subtracts the column mean from predictors</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_scale</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">%&gt;%</span> <span class="co">#divides by the standard deviation</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal_predictors</span>(), <span class="at">one_hot =</span> <span class="cn">TRUE</span>) <span class="co">#create numeric representations of categorical data</span></span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>ames_rec</span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">qsave</span>(ames_rec, <span class="st">"../_models/ames_rec.qs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -530,7 +537,6 @@ Solution
 </section>
 <section id="build-the-model" class="level3">
 <h3 class="anchored" data-anchor-id="build-the-model">Build the model</h3>
-<hr>
 <p>In tidymodels, you specify models using three concepts:</p>
 <ul>
 <li><strong>type</strong> differentiates models such as logistic regression, linear regression, and so forth;</li>
@@ -555,7 +561,6 @@ Computational engine: lm </code></pre>
 </section>
 <section id="fit-the-model" class="level3">
 <h3 class="anchored" data-anchor-id="fit-the-model">Fit the model</h3>
-<hr>
 <p>Now we are ready to train our model object on the training data. We can do this using the <code>fit()</code> function from the parsnip package. The <code>fit()</code> function takes the following arguments:</p>
 <ul>
 <li>a parnsip model object specification;</li>
@@ -998,7 +1003,6 @@ MS_SubClass_Two_Family_conversion_All_Styles_and_Ages
 </section>
 <section id="evaluating-the-model" class="level3">
 <h3 class="anchored" data-anchor-id="evaluating-the-model">Evaluating the model</h3>
-<hr>
 <p>To assess the accuracy of our trained linear regression model, we must use it to make predictions on new data. This is done with the <code>predict()</code> function from parnsip. This function takes two important arguments:</p>
 <ul>
 <li>a trained parnsip model object;</li>
@@ -1058,7 +1062,6 @@ MS_SubClass_Two_Family_conversion_All_Styles_and_Ages
 </section>
 <section id="metrics-for-model-performance" class="level3">
 <h3 class="anchored" data-anchor-id="metrics-for-model-performance">Metrics for model performance</h3>
-<hr>
 <div class="border">
 <ul>
 <li><strong>Root Mean Square Error (RMSE)</strong>: difference between the predicted and observed values (<em>loss of function</em>);</li>
@@ -1117,11 +1120,13 @@ MS_SubClass_Two_Family_conversion_All_Styles_and_Ages
 </section>
 <section id="resampling" class="level3">
 <h3 class="anchored" data-anchor-id="resampling">Resampling</h3>
-<hr>
 <p>You just trained your model one time on the whole training set and then evaluated them on the testing set. Statisticians have come up with a slew of approaches to evaluate models in better ways than this; many important ones fall under the category of resampling.</p>
-<p>We can resample the training set to produce an estimate of how the model will perform.The idea of resampling is to create simulated data sets that can be used to estimate the performance of your model, say, because you want to compare models. You can create these resampled data sets instead of using either your training set (which can give overly optimistic results, especially for powerful ML algorithms) or your testing set (which is extremely valuable and can only be used once or at most twice). One of these resampling methods is cross-validation.</p>
-<p><strong>Cross-validation</strong> means taking your training set and randomly dividing it up evenly into subsets, sometimes called “folds”. A fold here means a group or subset or partition.</p>
-<p>You use one of the folds for validation and the rest for training, then you repeat these steps with all the subsets and combine the results, usually by taking the mean. Cross-validation allows you to get a more accurate estimate of how your model will perform on new data.</p>
+<p>We can resample the training set to produce an estimate of how the model will perform.You can create these resampled data sets instead of using either your training set (which can give overly optimistic results, especially for powerful ML algorithms) or your testing set (which is extremely valuable and can only be used once or at most twice). One of these resampling methods is cross-validation.</p>
+<section id="cross-validation" class="level4">
+<h4 class="anchored" data-anchor-id="cross-validation">Cross-validation</h4>
+<p>If we only split the data once into a training and testing set, there is a risk that our model might be overfitting to the training data and perform poorly on new data. To overcome this, we can use a technique called cross-validation, which involves splitting the data into multiple subsets, or “folds”, and <strong>training and testing the model on each fold</strong>.</p>
+<p>In <strong>k-fold</strong> cross-validation, we split the data into <strong>k</strong> equally sized folds. We then train the model on k-1 folds and test it on the remaining fold, repeating this process k times, so that each fold is used as the testing set once. We then average the performance of the model across all k folds to get an estimate of its generalization performance.</p>
+<p>By using cross-validation, we can get a more accurate estimate of how well our model will perform on new, unseen data, and we can avoid overfitting to the training data.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1171,9 +1176,9 @@ $ id2    &lt;chr&gt; "Fold01", "Fold02", "Fold03", "Fold04", "Fold05", "Fold06",
 </div>
 </div>
 </section>
+</section>
 <section id="create-a-workflow" class="level3">
 <h3 class="anchored" data-anchor-id="create-a-workflow">Create a Workflow</h3>
-<hr>
 <p>In the previous section, we trained a linear regression model to the housing data step-by-step. In this section, we will go over how to combine all of the modeling steps into a single workflow.</p>
 <p>The <code>workflow</code> package was designed to capture the entire modeling process and combine models and recipes into a single object. To create a workflow, we start with <code>workflow()</code> to create an empty workflow and then add out model and recipe with <code>add_model()</code> and <code>add_recipe()</code>.</p>
 <div class="cell" data-hash="step2_cache/html/workflow_e6e0ffefa4f7d065793b77dd7f7a6896">
@@ -1203,7 +1208,12 @@ Linear Regression Model Specification (regression)
 Computational engine: lm </code></pre>
 </div>
 </div>
-<p>Once we have created a set of resamples, we can use the function <code>fit_resamples()</code> to fit a model to each resample and compute performance metrics for each.</p>
+<p>Once we have created a set of resamples, we can use the function <code>fit_resamples()</code> to:</p>
+<ul>
+<li>train and evaluate the model on each fold;</li>
+<li>get the performance metrics for each fold;</li>
+<li>get the average performance across all the folds.</li>
+</ul>
 <div class="cell" data-hash="step2_cache/html/evaluating models with resampling_b1f2eb3d3804fd2eb23f386bd0093a5e">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">234</span>)</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>ames_res <span class="ot">&lt;-</span> ames_wf <span class="sc">%&gt;%</span></span>
@@ -1229,8 +1239,8 @@ $ .predictions &lt;list&gt; [&lt;tbl_df[236 x 4]&gt;], [&lt;tbl_df[236 x 4]&gt;]
 <p>Linear regression detects some redundancies in the predictor set. We can ignore the warnings since lm() can deal with it.</p>
 </blockquote>
 <p>The column .metric contains the performance statistics created from the 10 assessment sets. These can be manually unnested but the tune package contains a number of simple functions that can extract these data:</p>
-<div class="cell" data-hash="step2_cache/html/resampled metrics_df2950586886d355ab5a20b4423b986d">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtain performance metrics on resampled training data</span></span>
+<div class="cell" data-hash="step2_cache/html/resampled metrics_d72a3cda877eb7c95b92783826c8b96e">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># access the performance metrics for each fold, the average performance metric, and other information such as the predictions for each fold </span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>ames_res <span class="sc">%&gt;%</span> <span class="fu">collect_metrics</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 6
@@ -1259,7 +1269,6 @@ $ .predictions &lt;list&gt; [&lt;tbl_df[236 x 4]&gt;], [&lt;tbl_df[236 x 4]&gt;]
 </section>
 <section id="back-to-the-testing-data" class="level3">
 <h3 class="anchored" data-anchor-id="back-to-the-testing-data">Back to the testing data</h3>
-<hr>
 <p>Let’s use the <code>last_fit()</code> function to evaluate once on the testing set:</p>
 <div class="cell" data-hash="step2_cache/html/final fit_88570fb8ef546cdedfe107386f757071">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Final fit on test dataset</span></span>

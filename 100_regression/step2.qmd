@@ -50,8 +50,6 @@ ames_data <- qread("../_models/ames_dataset_filt.qs")
 
 ## Build a simple linear regression model using base R
 
----
-
 In a linear model, we assume that there is a linear relationship between the input variable(s) and the output variable. This means that as the input variable(s) increase or decrease, the output variable changes in a straight line.
 
 Imagine you have a scatter plot with your data points all over it. A linear model is like drawing a straight line through the scatter plot that best fits all the points. The slope and intercept of this line are chosen in such a way that the distance between the line and all the points is minimized. This line is then used to predict the output for new input values. 
@@ -86,9 +84,17 @@ abline(ames_lm, col = "red")
 
 ## Build a linear regression model using Tidymodels
 
----
+When you type `library(tidymodels)`, you load a collection of packages for modeling and machine learning using tidyverse principles. Some benefits on using Tidymodels include:
 
-When you type `library(tidymodels)`, you load a collection of packages for modeling and machine learning using tidyverse principles. All the packages are designed to be consistent, modular, and to support good modeling practices. The first thing we are going to practice is splitting your data into a **training set** and a **testing set**. The tidymodels package `rsample` has functions that help you specify training and testing sets:
+- consistent syntax across all of its packages, making it easier to learn and use;
+- code is more readable and easier to maintain;
+- built around the tidy data principles, which emphasizes the importance of organizing data in a consistent and structured way;
+- modular design, each package serving a specific purpose;
+- active community of developers and users who are available to answer questions and provide support; 
+- integration with other tidyverse packages like dplyr, ggplot2, and purrr, allowing for a more streamlined workflow when working with data
+
+
+The first thing we are going to practice is splitting the data into a **training set** and a **testing set**. The tidymodels package `rsample` has functions that help you specify training and testing sets:
 
 ```{r SplitTestTrain}
 
@@ -146,12 +152,12 @@ Some of these steps can include:
 ```{r recipe}
 ames_rec <-
   recipe(Sale_Price ~ ., data = ames_train) %>% #assigns columns to roles of “outcome” or “predictor” using the formula
-  step_other(all_nominal(), threshold = 0.01) %>% #useful when you have some factor levels with very few observations, all_nominal selects both characters and factors, pools infrequently occurring values (frequency less than 0.01) into an "other" category
+  step_log(Sale_Price, base = 10) %>%
+  step_other(all_nominal(), threshold = 0.01) %>% #useful when you have some factor levels with very few observations,   all_nominal selects both characters and factors, pools infrequently occurring values (frequency less than 0.01) into an "other" category
   step_nzv(all_predictors()) %>% #remove predictors that are highly sparse and unbalanced
   step_center(all_numeric_predictors()) %>% #subtracts the column mean from predictors
   step_scale(all_numeric_predictors()) %>% #divides by the standard deviation
-  step_dummy(all_nominal_predictors(), one_hot = TRUE) %>% #for any nominal predictor, make binary indicators
-  step_lincomb(all_numeric_predictors()) #remove linear dependencies in the predictors, if present
+  step_dummy(all_nominal_predictors(), one_hot = TRUE) #create numeric representations of categorical data
 ames_rec
 
 qsave(ames_rec, "../_models/ames_rec.qs")
@@ -208,8 +214,6 @@ Note that the `juice()` output is the same as `bake(ames_rep, new_data = ames_tr
 
 ### Build the model
 
----
-
 In tidymodels, you specify models using three concepts:
 
 - **type** differentiates models such as logistic regression, linear regression, and so forth;
@@ -231,8 +235,6 @@ ames_model
 ```
 
 ### Fit the model 
-
----
 
 Now we are ready to train our model object on the training data. 
 We can do this using the `fit()` function from the parsnip package. 
@@ -270,8 +272,6 @@ vip(ames_fit)
 
 ### Evaluating the model
 
----
-
 To assess the accuracy of our trained linear regression model, we must use it to make predictions on new data. 
 This is done with the `predict()` function from parnsip. This function takes two important arguments:
 
@@ -296,8 +296,6 @@ ames_test_results
 Now we have the model results and the test data in a single data frame. 
 
 ### Metrics for model performance
-
----
 
 :::{.border}
 - **Root Mean Square Error (RMSE)**: difference between the predicted and observed values (*loss of function*);
@@ -348,16 +346,18 @@ The reason this plot is called an R2 plot, is because the R2 is the squared corr
 
 ### Resampling
 
----
-
 You just trained your model one time on the whole training set and then evaluated them on the testing set. Statisticians have come up with a slew of approaches to evaluate models in better ways than this; many important ones fall under the category of resampling.
 
-We can resample the training set to produce an estimate of how the model will perform.The idea of resampling is to create simulated data sets that can be used to estimate the performance of your model, say, because you want to compare models. You can create these resampled data sets instead of using either your training set (which can give overly optimistic results, especially for powerful ML algorithms) or your testing set (which is extremely valuable and can only be used once or at most twice). 
+We can resample the training set to produce an estimate of how the model will perform.You can create these resampled data sets instead of using either your training set (which can give overly optimistic results, especially for powerful ML algorithms) or your testing set (which is extremely valuable and can only be used once or at most twice). 
 One of these resampling methods is cross-validation.
 
-**Cross-validation** means taking your training set and randomly dividing it up evenly into subsets, sometimes called "folds". A fold here means a group or subset or partition.
+#### Cross-validation 
 
-You use one of the folds for validation and the rest for training, then you repeat these steps with all the subsets and combine the results, usually by taking the mean. Cross-validation allows you to get a more accurate estimate of how your model will perform on new data.
+If we only split the data once into a training and testing set, there is a risk that our model might be overfitting to the training data and perform poorly on new data. To overcome this, we can use a technique called cross-validation, which involves splitting the data into multiple subsets, or "folds", and **training and testing the model on each fold**.
+
+In **k-fold** cross-validation, we split the data into **k** equally sized folds. We then train the model on k-1 folds and test it on the remaining fold, repeating this process k times, so that each fold is used as the testing set once. We then average the performance of the model across all k folds to get an estimate of its generalization performance.
+
+By using cross-validation, we can get a more accurate estimate of how well our model will perform on new, unseen data, and we can avoid overfitting to the training data.
 
 :::{.callout-tip}
 ## Challenge X
@@ -386,8 +386,6 @@ glimpse(ames_folds)
 
 ### Create a Workflow
 
----
-
 In the previous section, we trained a linear regression model to the housing data step-by-step. In this section, we will go over how to combine all of the modeling steps into a single workflow.
 
 The `workflow` package was designed to capture the entire modeling process and combine models and recipes into a single object. To create a workflow, we start with `workflow()` to create an empty workflow and then add out model and recipe with `add_model()` and `add_recipe()`.
@@ -400,7 +398,11 @@ ames_wf <- workflow() %>%
 ames_wf
 ```
 
-Once we have created a set of resamples, we can use the function `fit_resamples()` to fit a model to each resample and compute performance metrics for each.
+Once we have created a set of resamples, we can use the function `fit_resamples()` to:
+
+- train and evaluate the model on each fold;
+- get the performance metrics for each fold;
+- get the average performance across all the folds.
 
 ```{r evaluating models with resampling}
 set.seed(234)
@@ -418,7 +420,7 @@ qsave(ames_res, "../_models/ames_res.qs")
 The column .metric contains the performance statistics created from the 10 assessment sets. These can be manually unnested but the tune package contains a number of simple functions that can extract these data:
 
 ```{r resampled metrics}
-# Obtain performance metrics on resampled training data
+# access the performance metrics for each fold, the average performance metric, and other information such as the predictions for each fold 
 ames_res %>% collect_metrics()
 ```
 
@@ -440,8 +442,6 @@ ames_res %>%
 ```
 
 ### Back to the testing data
-
----
 
 Let’s use the `last_fit()` function to evaluate once on the testing set:
 

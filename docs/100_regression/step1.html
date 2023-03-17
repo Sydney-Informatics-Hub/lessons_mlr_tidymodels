@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -839,12 +839,9 @@ Standardized asinh(x) Transformation with 2925 nonmissing obs.:
  - sd (before standardization) = 0.4060161 </code></pre>
 </div>
 </div>
-<p>The <code>bestNormalize</code> library can be used to identify the best normalising transformation. Note that in this case, the arcsinh(x) and logarithmic transformations both achieve best normalisation results. To make interpretation a bit easier, we choose the logarithmic transformation.</p>
+<p>The <code>bestNormalize</code> library can be used to identify the best normalising transformation. Note that in this case, the arcsinh(x) and logarithmic transformations both achieve best normalisation results. To make interpretation a bit easier, we choose the logarithmic transformation. We will add a log transform step later when we start to explore the tidymodels workflow.</p>
 </div>
 </div>
-</div>
-<div class="cell" data-hash="step1_cache/html/log transform_f3fb4bcc14eb4bbdc915433c0c8d4084">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>ameshousing_filt <span class="ot">&lt;-</span> ameshousing_filt <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Sale_Price =</span> <span class="fu">log10</span>(Sale_Price))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="feature-transformation" class="level2">
@@ -852,13 +849,13 @@ Standardized asinh(x) Transformation with 2925 nonmissing obs.:
 <hr>
 <p>The year in which the house was built and the year when it was remodelled are not really the most relevant parameters we look at when buying a house: instead, buyers usually care a lot more about the age of the house and the time since the last remodel. Let’s transform these features:</p>
 <div class="cell" data-hash="step1_cache/html/featureEngineer_a8161a02b69b0c08e68af5da7ceace61">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>ameshousing_filt_tr <span class="ot">&lt;-</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  ameshousing_filt <span class="sc">%&gt;%</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Time_Since_Remodel =</span> Year_Sold <span class="sc">-</span> Year_Remod_Add, </span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">House_Age =</span> Year_Sold <span class="sc">-</span> Year_Built) <span class="sc">%&gt;%</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Year_Remod_Add, <span class="sc">-</span>Year_Built)</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qsave</span>(ameshousing_filt_tr, <span class="st">"../_models/ames_dataset_filt.qs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>ameshousing_filt_tr <span class="ot">&lt;-</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  ameshousing_filt <span class="sc">%&gt;%</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Time_Since_Remodel =</span> Year_Sold <span class="sc">-</span> Year_Remod_Add, </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">House_Age =</span> Year_Sold <span class="sc">-</span> Year_Built) <span class="sc">%&gt;%</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Year_Remod_Add, <span class="sc">-</span>Year_Built)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qsave</span>(ameshousing_filt_tr, <span class="st">"../_models/ames_dataset_filt.qs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
 <p><strong>Note</strong> Make sure to create a “models” folder in your project working directory! Before you can save your data as .Rds objects, you will actually need to create a folder for these files to go into. Do this by clicking on the “new folder” button in the files window in R studio. Rename your new folder to “models”.</p>
