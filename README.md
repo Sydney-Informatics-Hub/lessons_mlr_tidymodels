@@ -7,7 +7,7 @@ Participants will learn how to build, evaluate, compare, and tune predictive mod
 
 The focus is on teaching intuitive explanations of the models, key concepts in machine learning and best practices for predictive modeling.
 
-Participants will get hands-on experience using core tidymodels packages like **parsnip**, **rsample**, recipes, **yardstick**, **tune**, and **workflows**.
+Participants will get hands-on experience using core tidymodels packages like **parsnip**, **rsample**, **recipes**, **yardstick**, **tune**, and **workflows**.
 
 ## Slides
 
