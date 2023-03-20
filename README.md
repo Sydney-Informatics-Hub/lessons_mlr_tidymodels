@@ -11,4 +11,4 @@ Participants will get hands-on experience using core tidymodels packages like **
 
 ## Slides
 
-The slides available [here](slides/slides.pptx) are designed to use with live teaching and are published for training participants' convenience. These are not meant as standalone learning materials.
+The slides available [here](slides/machine_learning_r_slides.pptx) are designed to use with live teaching and are published for training participants' convenience. These are not meant as standalone learning materials.
