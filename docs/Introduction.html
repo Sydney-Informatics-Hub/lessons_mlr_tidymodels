@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -148,6 +148,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#what-is-machine-learning" id="toc-what-is-machine-learning" class="nav-link active" data-scroll-target="#what-is-machine-learning">What is Machine Learning</a></li>
   <li><a href="#learning-by-experience" id="toc-learning-by-experience" class="nav-link" data-scroll-target="#learning-by-experience">Learning by experience</a></li>
+  <li><a href="#where-can-our-models-get-experience" id="toc-where-can-our-models-get-experience" class="nav-link" data-scroll-target="#where-can-our-models-get-experience">Where can our models get experience?</a></li>
   <li><a href="#what-do-we-mean-by-learning" id="toc-what-do-we-mean-by-learning" class="nav-link" data-scroll-target="#what-do-we-mean-by-learning">What do we mean by learning?</a></li>
   <li><a href="#supervised-ml" id="toc-supervised-ml" class="nav-link" data-scroll-target="#supervised-ml">Supervised ML</a>
   <ul class="collapse">
@@ -192,8 +193,8 @@ Learning objectives
 <div class="callout-body-container callout-body">
 <ul>
 <li>Understand what Machine Learning (ML) is;</li>
-<li>Understand which modeling approaches to use for different kinds of data;</li>
-<li>Understand how Tidymodels can help build and evaluate ML models.</li>
+<li>Understand which modelling approaches to use for different kinds of data;</li>
+<li>Understand how <code>tidymodels</code> can help build and evaluate ML models.</li>
 </ul>
 </div>
 </div>
@@ -202,16 +203,47 @@ Learning objectives
 <hr>
 <p><strong>Machine Learning (ML) is the field of study that gives computers the ability to learn from data without being explicitly programmed</strong></p>
 <ul>
-<li>A ML system is trained rather than explicitly programmed;</li>
-<li>It is a subset of the Artificial Intelligence;</li>
-<li>Also known as predictive modeling/statistical learning.</li>
+<li>An ML system is trained rather than explicitly programmed;</li>
+<li>Part of the broader field of Artificial Intelligence</li>
+<li>Also known as predictive modelling or statistical learning.</li>
 </ul>
 </section>
 <section id="learning-by-experience" class="level2">
 <h2 class="anchored" data-anchor-id="learning-by-experience">Learning by experience</h2>
 <p>We are never certain something will happen, but we usually know (or can estimate rather well) how likely it is to happen or, at least, what is most likely to happen, based on the experience we have acquired throughout our life.</p>
-<p><strong>Experience in ML means: Data in the form of examples</strong></p>
-<p>We explore data to find patterns to understand the hidden laws that regulates the domain/make predictions about the world around us.</p>
+<p>Imagine you decide to play the violin. The first time you pick up a violin, you probably will struggle to make sounds that are pleasing, let alone to play anything. However, each successive time you practice your violin, you will get better and better. Eventually you will be able to produce good sounds, and with sufficient training you can play anything!</p>
+<p>In machine learning, we use this same approach to train our models to solve problems.</p>
+</section>
+<section id="where-can-our-models-get-experience" class="level2">
+<h2 class="anchored" data-anchor-id="where-can-our-models-get-experience">Where can our models get experience?</h2>
+<p>To make make a model that performs well at solving a problem, we need to give it data that will be similar to what it will encounter when trying to solve the problem.</p>
+<p>Specifically, we want a dataset with a target variable that we want to predict, and predictor variables that we will use to predict the target variable. Here’s two different examples:</p>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Problem</th>
+<th>Target Variable</th>
+<th>Predictor Variable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Predicting house prices</td>
+<td>house sale price records</td>
+<td>number of bedrooms</td>
+</tr>
+<tr class="even">
+<td>Classifying penguin species</td>
+<td>penguin species</td>
+<td>bill length</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="what-do-we-mean-by-learning" class="level2">
 <h2 class="anchored" data-anchor-id="what-do-we-mean-by-learning">What do we mean by learning?</h2>

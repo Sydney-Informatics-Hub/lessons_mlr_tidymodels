@@ -32,21 +32,21 @@
     "href": "Introduction.html",
     "title": "Introduction to Machine Learning with R and tidymodels",
     "section": "",
-    "text": "Learning objectives\n\n\n\n\nUnderstand what Machine Learning (ML) is;\nUnderstand which modeling approaches to use for different kinds of data;\nUnderstand how Tidymodels can help build and evaluate ML models."
+    "text": "Learning objectives\n\n\n\n\nUnderstand what Machine Learning (ML) is;\nUnderstand which modelling approaches to use for different kinds of data;\nUnderstand how tidymodels can help build and evaluate ML models."
   },
   {
     "objectID": "Introduction.html#what-is-machine-learning",
     "href": "Introduction.html#what-is-machine-learning",
     "title": "Introduction to Machine Learning with R and tidymodels",
     "section": "What is Machine Learning",
-    "text": "What is Machine Learning\n\nMachine Learning (ML) is the field of study that gives computers the ability to learn from data without being explicitly programmed\n\nA ML system is trained rather than explicitly programmed;\nIt is a subset of the Artificial Intelligence;\nAlso known as predictive modeling/statistical learning."
+    "text": "What is Machine Learning\n\nMachine Learning (ML) is the field of study that gives computers the ability to learn from data without being explicitly programmed\n\nAn ML system is trained rather than explicitly programmed;\nPart of the broader field of Artificial Intelligence\nAlso known as predictive modelling or statistical learning."
   },
   {
     "objectID": "Introduction.html#learning-by-experience",
     "href": "Introduction.html#learning-by-experience",
     "title": "Introduction to Machine Learning with R and tidymodels",
     "section": "Learning by experience",
-    "text": "Learning by experience\nWe are never certain something will happen, but we usually know (or can estimate rather well) how likely it is to happen or, at least, what is most likely to happen, based on the experience we have acquired throughout our life.\nExperience in ML means: Data in the form of examples\nWe explore data to find patterns to understand the hidden laws that regulates the domain/make predictions about the world around us."
+    "text": "Learning by experience\nWe are never certain something will happen, but we usually know (or can estimate rather well) how likely it is to happen or, at least, what is most likely to happen, based on the experience we have acquired throughout our life.\nImagine you decide to play the violin. The first time you pick up a violin, you probably will struggle to make sounds that are pleasing, let alone to play anything. However, each successive time you practice your violin, you will get better and better. Eventually you will be able to produce good sounds, and with sufficient training you can play anything!\nIn machine learning, we use this same approach to train our models to solve problems."
   },
   {
     "objectID": "Introduction.html#what-do-we-mean-by-learning",
@@ -75,5 +75,12 @@
     "title": "Introduction to Machine Learning with R and tidymodels",
     "section": "Machine Learning (ML) with Tidymodels",
     "text": "Machine Learning (ML) with Tidymodels\n\nTidymodels is a collection of R packages that provides a modern and consistent approach to building and validating machine learning models. Compared to older packages such as caret, tidymodels offers several benefits:\n\nit uses a consistent and intuitive syntax across all of its packages, which makes it easier to learn and use compared to the varied and sometimes complex syntax of older packages;\nit is built on top of the tidyverse (dplyr, ggplot2), for a seamless data analysis workflow;\nit includes a number of packages (recipes, rsample) that provide tools for data preprocessing, making it easy to perform common data preprocessing tasks, such as feature engineering, and to integrate these tasks into the machine learning workflow;\nit includes packages (parsnip, tune) that provide a more flexible and modern approach to model tuning and selection. These packages allow for easy cross-validation, hyperparameter tuning, and model selection, and provide a more transparent and reproducible workflow;\nit is actively developed and has a growing community of users and contributors. This means that there are many resources available for learning and troubleshooting, and that the packages are likely to continue to evolve and improve over time.\n\nOverall, tidymodels offers a more modern and consistent approach to building and validating machine learning models, and provides a number of tools for data preprocessing, model tuning and selection, and workflow integration. These features make it a powerful and user-friendly tool."
+  },
+  {
+    "objectID": "Introduction.html#where-can-our-models-get-experience",
+    "href": "Introduction.html#where-can-our-models-get-experience",
+    "title": "Introduction to Machine Learning with R and tidymodels",
+    "section": "Where can our models get experience?",
+    "text": "Where can our models get experience?\nTo make make a model that performs well at solving a problem, we need to give it data that will be similar to what it will encounter when trying to solve the problem.\nSpecifically, we want a dataset with a target variable that we want to predict, and predictor variables that we will use to predict the target variable. Here’s two different examples:\n\n\n\n\n\n\n\n\nProblem\nTarget Variable\nPredictor Variable\n\n\n\n\nPredicting house prices\nhouse sale price records\nnumber of bedrooms\n\n\nClassifying penguin species\npenguin species\nbill length"
   }
 ]

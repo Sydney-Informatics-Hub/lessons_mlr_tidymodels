@@ -6,8 +6,8 @@ title: Introduction to Machine Learning with R and tidymodels
 ### Learning objectives
 
 - Understand what Machine Learning (ML) is;
-- Understand which modeling approaches to use for different kinds of data;
-- Understand how Tidymodels can help build and evaluate ML models.
+- Understand which modelling approaches to use for different kinds of data;
+- Understand how `tidymodels` can help build and evaluate ML models.
 :::
 
 ## What is Machine Learning
@@ -16,19 +16,32 @@ title: Introduction to Machine Learning with R and tidymodels
 
 **Machine Learning (ML) is the field of study that gives computers the ability to learn from data without being explicitly programmed**
 
-- A ML system is trained rather than explicitly programmed;
-- It is a subset of the Artificial Intelligence;
-- Also known as predictive modeling/statistical learning.
+- An ML system is trained rather than explicitly programmed;
+- Part of the broader field of Artificial Intelligence
+- Also known as predictive modelling or statistical learning.
 
 ## Learning by experience
 We are never certain something will happen, but we usually know (or can
 estimate rather well) how likely it is to happen or, at least, what is most likely
 to happen, based on the experience we have acquired throughout our life.
 
-**Experience in ML means: Data in the form of examples**
+Imagine you decide to play the violin. 
+The first time you pick up a violin, you probably will struggle to make sounds that are pleasing, let alone to play anything.
+However, each successive time you practice your violin, you will get better and better.
+Eventually you will be able to produce good sounds, and with sufficient training you can play anything!
 
-We explore data to find patterns to understand the hidden laws that regulates the
-domain/make predictions about the world around us.
+In machine learning, we use this same approach to train our models to solve problems.
+
+## Where can our models get experience?
+
+To make make a model that performs well at solving a problem, we need to give it data that will be similar to what it will encounter when trying to solve the problem.
+
+Specifically, we want a dataset with a target variable that we want to predict, and predictor variables that we will use to predict the target variable. Here's two different examples:
+
+| Problem  |  Target Variable | Predictor Variable  |   
+|---|---|---|
+| Predicting house prices |  house sale price records |  number of bedrooms |
+| Classifying penguin species | penguin species | bill length  |
 
 ## What do we mean by learning?
 
