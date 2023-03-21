@@ -7,4 +7,9 @@ library(usemodels)
 ls("package:usemodels", pattern = "use_")
 ```
 
+```{r}
+library(mlbench)
+data(PimaIndiansDiabetes)
+use_ranger(diabetes ~ ., data = PimaIndiansDiabetes)
+```
 
