@@ -46,6 +46,7 @@ library(ggcorrplot)
 library(GGally)
 library(qs)
 library(mlbench)
+library(skimr)
 theme_set(theme_minimal())
 ```
 
@@ -251,12 +252,12 @@ We can impute the missing data using a recipe:
 ```{r impute_recipe}
 # set seed to be 42 so everyone gets the same results
 set.seed(42)
-diabetes_rec <-
-  d_na_train %>%
-  recipe(diabetes ~ .) %>%
-  # all our predictors are numeric so standardize them
-  step_normalize(all_numeric_predictors()) %>%
-  step_impute_median(all_predictors())
+
+diabetes_rec <- recipe(diabetes ~ ., data = d_na_train) %>%
+                step_impute_median(all_predictors()) %>%
+                # all our predictors are numeric so standardize them
+                step_normalize(all_numeric_predictors())
+  
 
 diabetes_rec  
 

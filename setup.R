@@ -15,7 +15,8 @@ list_of_pkgs <- c(
   "mlbench",
   "usemodels",
   "qs",
-  "ranger")
+  "ranger",
+  "skimr")
 
 au_repo <- "https://mirror.aarnet.edu.au/pub/CRAN/"
 
