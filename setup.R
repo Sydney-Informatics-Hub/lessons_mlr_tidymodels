@@ -16,7 +16,10 @@ list_of_pkgs <- c(
   "usemodels",
   "qs",
   "ranger",
-  "skimr")
+  "skimr",
+  "bestNormalize",
+  "plotly"
+  )
 
 au_repo <- "https://mirror.aarnet.edu.au/pub/CRAN/"
 

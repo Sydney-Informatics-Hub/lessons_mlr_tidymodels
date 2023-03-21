@@ -12,8 +12,6 @@ title: Introduction to Machine Learning with R and tidymodels
 
 ## What is Machine Learning
 
----
-
 **Machine Learning (ML) is the field of study that gives computers the ability to learn from data without being explicitly programmed**
 
 - An ML system is trained rather than explicitly programmed;
@@ -58,8 +56,6 @@ rooms, garden, position, floor, etc..) that are the features of each house predi
 
 ## Supervised ML
 
----
-
 The dataset contains a series of inputs, based on which we are trying to predict a predifined outcome, which we know for the original data in the dataset. The outcome can be numerical (in which case the problem is called regression) or categorical (classification).
 
 ### Regression:
@@ -92,8 +88,6 @@ $y= f(x)$
 
 ### Data splitting and spending
 
----
-
 For machine learning, we typically split data into **training** and **test** sets:
 
 - The training set is used to estimate model parameters;
@@ -118,8 +112,6 @@ Some commonly used cutoffs include:
 
 ## Exploratory Data Analysis (EDA) with the Tidyverse
 
----
-
 A hugely important part of any modeling approach is exploratory data analysis. In this course, we'll be using tidyverse packages for getting to know your data, manipulating it, and visualizing it. The tidyverse is a collection of R packages designed for data science that share common APIs and an underlying philosophy.
 When you type library(tidyverse), what you're doing is loading this collection of related packages for handling data using tidy data principles. These packages include ggplot2 for data visualization, and dplyr and tidyr for data manipulation and transformation. During this course, we'll point out when we use functions from these different packages.
 
@@ -127,8 +119,6 @@ Visit this page to learn more about tidyverse: <https://www.tidyverse.org/learn/
 
 
 ## Machine Learning (ML) with Tidymodels
-
----
 
 Tidymodels is a collection of R packages that provides a modern and consistent approach to building and validating machine learning models. Compared to older packages such as caret, tidymodels offers several benefits:
 

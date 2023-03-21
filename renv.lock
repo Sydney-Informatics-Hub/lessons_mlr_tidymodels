@@ -1572,6 +1572,18 @@
         "stringfish"
       ]
     },
+    "ranger": {
+      "Package": "ranger",
+      "Version": "0.14.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "fd61f8408066c5a659c6a95c5a73bfc7",
+      "Requirements": [
+        "Matrix",
+        "Rcpp",
+        "RcppEigen"
+      ]
+    },
     "rappdirs": {
       "Package": "rappdirs",
       "Version": "0.3.3",
@@ -1668,6 +1680,19 @@
       "Repository": "CRAN",
       "Hash": "c9e8442ab69bc21c9697ecf856c1e6c7",
       "Requirements": []
+    },
+    "repr": {
+      "Package": "repr",
+      "Version": "1.1.6",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "fab761ee8f3554a04afef40ac53689f4",
+      "Requirements": [
+        "base64enc",
+        "htmltools",
+        "jsonlite",
+        "pillar"
+      ]
     },
     "reprex": {
       "Package": "reprex",
@@ -1853,6 +1878,28 @@
       "Repository": "CRAN",
       "Hash": "9067f962730f58b14d8ae54ca885509f",
       "Requirements": []
+    },
+    "skimr": {
+      "Package": "skimr",
+      "Version": "2.1.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "8f138ff2c8fbea9e0a523f6c399c0386",
+      "Requirements": [
+        "cli",
+        "dplyr",
+        "knitr",
+        "magrittr",
+        "pillar",
+        "purrr",
+        "repr",
+        "rlang",
+        "stringr",
+        "tibble",
+        "tidyr",
+        "tidyselect",
+        "vctrs"
+      ]
     },
     "slider": {
       "Package": "slider",
