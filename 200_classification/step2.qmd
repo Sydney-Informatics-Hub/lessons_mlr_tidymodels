@@ -111,7 +111,7 @@ To capture this balance, we often use a Reciever Operator Characteristic (ROC) c
 >For additional discussion of classification error metrics, see [Tharwat 2018](https://doi.org/10.1016/j.aci.2018.08.003), for example.
 
 :::{.callout-tip}
-### Challenge 1
+### Challenge 7
 
 - In the case of patients with a rare disease, what can be the problem of using accuracy to evaluate the performance of a machine learning model.
 :::
@@ -272,7 +272,7 @@ rf_tune_model %>%
 
 
 :::{.callout-tip}
-### Challenge X
+### Challenge 8
 
 Use `tune_grid` and `collect_metrics` to tune a workflow. Hints:
 

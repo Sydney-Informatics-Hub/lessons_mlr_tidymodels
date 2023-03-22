@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -286,7 +286,6 @@ Learning objective:
 </section>
 <section id="exploratory-data-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory data analysis</h2>
-<hr>
 <p>Exploratory data analysis involves looking at:</p>
 <ul>
 <li>The distribution of variables in your dataset;</li>
@@ -510,7 +509,6 @@ $ Latitude           &lt;dbl&gt; 42.05403, 42.05301, 42.05266, 42.05125, 42.0609
 </div>
 <section id="visualise-missingness" class="level3">
 <h3 class="anchored" data-anchor-id="visualise-missingness">Visualise missingness</h3>
-<hr>
 <p>When working with missing data, it can be helpful to look for “co-missingness”, i.e.&nbsp;multiple variables missing together. For example, when working with patient data, number of pregnancies, age at onset of menstruation and menopause may all be missing - which, when observed together, may indicate that these samples come from male patients for whom this data is irrelevant. “Gender” may or may not be a variable coded in the dataset.</p>
 <p>A way of visualising missing data in the tidy context has been proposed <a href="https://www.njtierney.com/post/2018/09/10/tidy-missing-data/">@tierney2018expanding</a>. See <a href="http://naniar.njtierney.com/articles/naniar-visualisation.html">this web page</a> for more options for your own data.</p>
 <p>Let’s look at the missing variables in our housing data:</p>
@@ -736,7 +734,6 @@ Solution
 </section>
 <section id="eda-of-outcome-variable" class="level2">
 <h2 class="anchored" data-anchor-id="eda-of-outcome-variable">EDA of outcome variable</h2>
-<hr>
 <p>You also need to do EDA on the outcome variable to:</p>
 <ul>
 <li>identify outliers</li>
@@ -846,7 +843,6 @@ Standardized asinh(x) Transformation with 2925 nonmissing obs.:
 </section>
 <section id="feature-transformation" class="level2">
 <h2 class="anchored" data-anchor-id="feature-transformation">Feature transformation</h2>
-<hr>
 <p>The year in which the house was built and the year when it was remodelled are not really the most relevant parameters we look at when buying a house: instead, buyers usually care a lot more about the age of the house and the time since the last remodel. Let’s transform these features:</p>
 <div class="cell" data-hash="step1_cache/html/featureEngineer_a8161a02b69b0c08e68af5da7ceace61">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>ameshousing_filt_tr <span class="ot">&lt;-</span></span>

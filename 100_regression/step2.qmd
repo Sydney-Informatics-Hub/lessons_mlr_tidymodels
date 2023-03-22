@@ -155,8 +155,7 @@ ames_rec <-
   step_log(Sale_Price, base = 10) %>%
   step_other(all_nominal(), threshold = 0.01) %>% #useful when you have some factor levels with very few observations,   all_nominal selects both characters and factors, pools infrequently occurring values (frequency less than 0.01) into an "other" category
   step_nzv(all_predictors()) %>% #remove predictors that are highly sparse and unbalanced
-  step_center(all_numeric_predictors()) %>% #subtracts the column mean from predictors
-  step_scale(all_numeric_predictors()) %>% #divides by the standard deviation
+  step_normalize(all_numeric_predictors()) %>% #normalize the data to a standard range by dividing each observation by the standard deviation of the feature
   step_dummy(all_nominal_predictors(), one_hot = TRUE) #create numeric representations of categorical data
 ames_rec
 
@@ -166,7 +165,7 @@ Note that each successive `step()` function adds a preprocessing step to our rec
 The preprocessing recipe `ames_rec` has been defined but no values have been estimated.
 
 :::{.callout-tip}
-### Challenge X
+### Challenge 5
 
 Does it make sense to apply these preprocessing steps to the test set?
 :::
@@ -360,7 +359,7 @@ In **k-fold** cross-validation, we split the data into **k** equally sized folds
 By using cross-validation, we can get a more accurate estimate of how well our model will perform on new, unseen data, and we can avoid overfitting to the training data.
 
 :::{.callout-tip}
-## Challenge X
+## Challenge 6
 
 When you implement 10-fold cross-validation repeated 5 times, you:
   

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -413,18 +413,17 @@ F-statistic:  2994 on 1 and 2923 DF,  p-value: &lt; 2.2e-16</code></pre>
 </ul>
 <p><strong>Statistical parameters for the steps can be estimated from an initial data set and then applied to other data sets.</strong></p>
 <p><strong>The resulting processed output can be used as inputs for statistical or machine learning models.</strong></p>
-<div class="cell" data-hash="step2_cache/html/recipe_ed603ac3e86ab87fe2fefe18f8fac77e">
+<div class="cell" data-hash="step2_cache/html/recipe_e46262322ef5eef98a51cef5927d927e">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ames_rec <span class="ot">&lt;-</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">recipe</span>(Sale_Price <span class="sc">~</span> ., <span class="at">data =</span> ames_train) <span class="sc">%&gt;%</span> <span class="co">#assigns columns to roles of “outcome” or “predictor” using the formula</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_log</span>(Sale_Price, <span class="at">base =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_other</span>(<span class="fu">all_nominal</span>(), <span class="at">threshold =</span> <span class="fl">0.01</span>) <span class="sc">%&gt;%</span> <span class="co">#useful when you have some factor levels with very few observations,   all_nominal selects both characters and factors, pools infrequently occurring values (frequency less than 0.01) into an "other" category</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_nzv</span>(<span class="fu">all_predictors</span>()) <span class="sc">%&gt;%</span> <span class="co">#remove predictors that are highly sparse and unbalanced</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_center</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">%&gt;%</span> <span class="co">#subtracts the column mean from predictors</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_scale</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">%&gt;%</span> <span class="co">#divides by the standard deviation</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal_predictors</span>(), <span class="at">one_hot =</span> <span class="cn">TRUE</span>) <span class="co">#create numeric representations of categorical data</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>ames_rec</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">qsave</span>(ames_rec, <span class="st">"../_models/ames_rec.qs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_normalize</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">%&gt;%</span> <span class="co">#normalize the data to a standard range by dividing each observation by the standard deviation of the feature</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal_predictors</span>(), <span class="at">one_hot =</span> <span class="cn">TRUE</span>) <span class="co">#create numeric representations of categorical data</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>ames_rec</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">qsave</span>(ames_rec, <span class="st">"../_models/ames_rec.qs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note that each successive <code>step()</code> function adds a preprocessing step to our recipe object in the order that they are provided. The preprocessing recipe <code>ames_rec</code> has been defined but no values have been estimated.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -433,7 +432,7 @@ F-statistic:  2994 on 1 and 2923 DF,  p-value: &lt; 2.2e-16</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Challenge X
+Challenge 5
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1133,7 +1132,7 @@ MS_SubClass_Two_Family_conversion_All_Styles_and_Ages
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Challenge X
+Challenge 6
 </div>
 </div>
 <div class="callout-body-container callout-body">

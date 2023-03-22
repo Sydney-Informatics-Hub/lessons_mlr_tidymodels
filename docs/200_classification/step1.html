@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -269,7 +269,6 @@ Learning objective:
 <p>The Pima Indians are a group of Native Americans living in an area consisting of what is now central and southern Arizona. The short name, “Pima” is believed to have come from a phrase meaning “I don’t know,” which they used repeatedly in their initial meetings with Spanish colonists. Thanks Wikipedia!</p>
 <section id="lets-explore-our-data" class="level3">
 <h3 class="anchored" data-anchor-id="lets-explore-our-data">Let’s Explore our data</h3>
-<hr>
 <div class="cell" data-hash="step1_cache/html/libraries_502d76027bf262d9b23d6368cf513511">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
@@ -397,7 +396,6 @@ diabetes
 </section>
 <section id="lets-use-visualisation-to-further-explore-the-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="lets-use-visualisation-to-further-explore-the-dataset">Let’s use visualisation to further explore the dataset</h3>
-<hr>
 <div class="cell" data-hash="step1_cache/html/plotIndividual_c2afa45f88b7efcc0fcf504f1bea8f22">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diabetes_data, <span class="fu">aes</span>(<span class="at">x =</span> pregnant, <span class="at">fill =</span> diabetes)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -484,7 +482,6 @@ FALSE  TRUE
 </section>
 <section id="train-test-split" class="level2">
 <h2 class="anchored" data-anchor-id="train-test-split">Train-Test Split</h2>
-<hr>
 <p>We’re going to split our data into 70% training and 30% testing sets.</p>
 <div class="cell" data-hash="step1_cache/html/test_train_split2_4364fecf32ee058d74a8f3ccd48ad153">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>) <span class="co"># so we all get the same results</span></span>
@@ -541,7 +538,6 @@ FALSE  TRUE
 </section>
 <section id="impute-missing-data" class="level3">
 <h3 class="anchored" data-anchor-id="impute-missing-data">Impute missing data</h3>
-<hr>
 <p>Imputation is often used to handle missing data because many statistical methods and machine learning algorithms require complete data. When we do imputation, we aren’t adding new information to our dataset, but we are using the patterns in our dataset so that we don’t have to throw away the data that have some variables missing. We can impute the missing data using a recipe:</p>
 <div class="cell" data-hash="step1_cache/html/impute_recipe_0d91e1e9247b39f1852a4620d404d3b4">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set seed to be 42 so everyone gets the same results</span></span>

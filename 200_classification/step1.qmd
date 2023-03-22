@@ -37,8 +37,6 @@ The Pima Indians are a group of Native Americans living in an area consisting of
 
 ### Let's Explore our data
 
----
-
 ```{r libraries, message=FALSE}
 library(tidyverse)
 library(tidymodels)
@@ -117,8 +115,6 @@ The following variables have zero "values" that are actually likely to be missin
 
 ### Let's use visualisation to further explore the dataset
 
----
-
 ```{r plotIndividual}
 ggplot(diabetes_data, aes(x = pregnant, fill = diabetes)) + geom_bar(position = "dodge")
 ```
@@ -192,8 +188,6 @@ Notice that the correlation between some variables (eg. pregnant - insulin) chan
 
 ## Train-Test Split
 
----
-
 We're going to split our data into 70% training and 30% testing sets.
 
 ```{r test_train_split2}
@@ -243,8 +237,6 @@ qsave(diabetes_folds, "../_models/diabetes_folds.qs")
 ```
 
 ### Impute missing data
-
----
 
 Imputation is often used to handle missing data because many statistical methods and machine learning algorithms require complete data. When we do imputation, we aren’t adding new information to our dataset, but we are using the patterns in our dataset so that we don’t have to throw away the data that have some variables missing. 
 We can impute the missing data using a recipe:
