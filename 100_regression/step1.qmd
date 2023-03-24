@@ -29,6 +29,7 @@ library(AmesHousing)
 library(plotly) # dynamic visualisations
 library(bestNormalize)
 library(qs)
+library(janitor)
 theme_set(theme_minimal())
 ```
 
@@ -44,6 +45,10 @@ We will explore both the "uncleaned" data available from kaggle/UCI, and the pro
 
 ```{r loadData}
 ameshousing <- AmesHousing::make_ames()
+
+# Use this function to make the names easier to type
+ameshousing <- ameshousing %>% 
+  janitor::clean_names()
 
 # Read in the uncleaned data. 
 ameshousing_uncleaned <- AmesHousing::ames_raw
@@ -113,11 +118,11 @@ gg_miss_upset(ameshousing_uncleaned, nsets = 10)
 ::: {.callout-caution collapse="true"}
 ## Solution
 
-1.  Fence, Alley, Misc feature and Pool QC are most often missing together. This probably means that a house doesn't have an alley, a fence, a pool or any other miscellaneous features.
+1.  Fence, alley, misc feature and pool qc are most often missing together. This probably means that a house doesn't have an alley, a fence, a pool or any other miscellaneous features.
 
 2.  Similarly, the second most frequent "co-missingess" involves these plus missing "fireplace quality", most likely due to the house not having fireplace.
 
-3.  We can also see that Garage_Yr_Blt, Garage_Finish, Garage_Qual and Garage Cond "co-miss" the same number of times - probably because these represent houses without garages.
+3.  We can also see that garage_yr_blt, garage_finish, garage_qual and garage_cond "co-miss" the same number of times - probably because these represent houses without garages.
 :::
 
 Next, let's create two "helper" vectors with the names of the numeric and categorical variables from the `ameshousing` dataset, which we can then use to batch subset our dataset prior to EDA/visualisation:
@@ -143,7 +148,7 @@ ggpairs(data = ameshousing,
 # ggpairs(ameshousing, numVars[c(11:20, 33)], title = "Numeric variables 11 - 20")
 # ggpairs(ameshousing, numVars[c(21:33)], title = "Numeric variables 21 - 33")
 ggpairs(data = ameshousing, 
-        columns = c(catVars[2:5], "Sale_Price"), 
+        columns = c(catVars[2:5], "sale_price"), 
         title = "Some categorical variables")
 ```
 
@@ -182,7 +187,7 @@ ggcorrplot(ameshousingCor, type = "lower") %>% ggplotly()
 as_tibble(ameshousingCor, rownames = "rowname") %>%
   gather(pair, value, -rowname) %>%
   filter(rowname != pair) %>% #remove self correlation
-  filter(rowname == "Sale_Price") %>%
+  filter(rowname == "sale_price") %>%
   arrange(desc(abs(value))) %>%
   head()
 ```
@@ -196,7 +201,7 @@ We can also plot this, using a slightly different representation:
 all_numVar <- ameshousing[, numVars]
 cor_numVar <- cor(all_numVar, use="pairwise.complete.obs") 
 CorHigh <- as_tibble(
-  data.frame(correlation = cor_numVar[,'Sale_Price']), rownames = "rownames")  %>% 
+  data.frame(correlation = cor_numVar[,'sale_price']), rownames = "rownames")  %>% 
   filter(abs(correlation) >= 0.5) %>% 
   .$rownames
 ggcorrplot(cor_numVar[CorHigh, CorHigh], type = "lower", "circle")
@@ -206,44 +211,68 @@ ggcorrplot(cor_numVar[CorHigh, CorHigh], type = "lower", "circle")
 Let's plot one of these relationships:
 
 ```{r GrLivAr}
-gra <- ameshousing %>%
-  ggplot(aes(x = Gr_Liv_Area, y = Sale_Price/1000)) + 
+ameshousing %>%
+  ggplot(aes(x = gr_liv_Area, y = sale_Price/1000)) + 
   geom_point(alpha = 0.1) + 
   labs(y = "Sale Price/$1000",
        x = "Living Area (sq.ft)",
        title = "Ames Housing Data") +
   geom_smooth(method= "lm")  +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-gra %>% 
-  ggplotly()
 ```
 
-We can see that there are five houses with an area \> 4000 square feet that seem to be outliers in the data. We should filter them out. Next, let's generate a violin and boxplot by Quality:
+::: callout-tip
+## Optional: Make Figures Interactive
 
-```{r OvQual}
+-   How can we make our figures interactive?
+:::
 
-ameshousing_filt <-
-  ameshousing %>%
-  filter(Gr_Liv_Area <= 4000)
+::: {.callout-caution collapse="true"}
+## Solution
 
-p <- ameshousing_filt %>%
-  ggplot(aes(x = Overall_Qual, y = Sale_Price)) +
-  geom_violin() +
+1.  Using the `plotly` package, we can turn any `ggplot()` object into an interactive plot using `plotly::ggplotly()`
+
+For example:
+
+```{r plotly example}
+# First we save the ggplot as an object
+plot <- ameshousing %>%
+  ggplot(aes(x = gr_liv_area, y = sale_price / 1000)) +
+  geom_point(alpha = 0.1) +
+  labs(y = "Sale Price/$1000",
+       x = "Living Area (sq.ft)",
+       title = "Ames Housing Data") +
+  geom_smooth(method = "lm")  +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggplotly(p)
+# then we pass it to ggplotly()
+ggplotly(plot)
+```
 
-p <-ameshousing_filt %>%
-  mutate(Quality = as.factor(Overall_Qual)) %>%
-  ggplot(aes(x = Quality,
-             y = Sale_Price / 1000,
-             fill = Quality)) +
+
+:::
+
+We can see that there are five houses with an area \> 4000 square feet that seem to be outliers in the data. We should filter them out. Next, let's generate a boxplot by Quality:
+
+```{r OvQual}
+# Create a filtered dataframe
+ameshousing_filt <-
+  ameshousing %>%
+  filter(gr_liv_area <= 4000)
+
+# Make our ggplot object
+p <- ameshousing_filt %>%
+  mutate(quality = as.factor(overall_qual)) %>%
+  ggplot(aes(x = quality,
+             y = sale_price / 1000,
+             fill = quality)) +
   labs(y = "Sale Price in $k's",
        x = "Overall Quality of House",
        title = "Ames Housing Data") +
   geom_boxplot() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Now make it a plotly
 ggplotly(p)
 ```
 
@@ -259,7 +288,7 @@ This is because many models, including ordinary linear regression, assume that p
 
 ```{r salesPrice}
 ameshousing_filt %>% 
-  ggplot(aes(x = Sale_Price/1000)) + 
+  ggplot(aes(x = sale_price/1000)) + 
   geom_histogram(bins = 50) + 
   labs(x = "Sale Price in $k's",
        y = "Number of Houses sold")
@@ -271,25 +300,25 @@ Let's explore different ways of transforming the Sale Price.
 #No transform
 
 ameshousing_filt %>%
-  ggplot(aes( sample = Sale_Price)) +
+  ggplot(aes( sample = sale_price)) +
   stat_qq() + stat_qq_line(col = "blue")
 
 #Sqrt transform
 
 ameshousing_filt %>%
-  ggplot(aes( sample = sqrt(Sale_Price))) +
+  ggplot(aes( sample = sqrt(sale_price))) +
   stat_qq() + stat_qq_line(col = "blue")
 
 #natural log transform
 
 ameshousing_filt %>%
-  ggplot(aes( sample = log(Sale_Price))) +
+  ggplot(aes( sample = log(sale_price))) +
   stat_qq() + stat_qq_line(col = "blue")
 
 #log10 transform
 
 ameshousing_filt %>%
-  ggplot(aes( sample = log10(Sale_Price))) +
+  ggplot(aes( sample = log10(sale_price))) +
   stat_qq() + stat_qq_line(col = "blue")
 
 ```
@@ -307,7 +336,7 @@ The log10 transformation seems best, as it both helps the distribution look more
 
 ```{r bestNormalise, purl = F, cache=T}
 bestNormalize::bestNormalize(
-  ameshousing_filt$Sale_Price,
+  ameshousing_filt$sale_price,
   allow_orderNorm = FALSE)
 ```
 
@@ -321,9 +350,9 @@ The year in which the house was built and the year when it was remodelled are no
 ```{r featureEngineer}
 ameshousing_filt_tr <-
   ameshousing_filt %>%
-  mutate(Time_Since_Remodel = Year_Sold - Year_Remod_Add, 
-         House_Age = Year_Sold - Year_Built) %>%
-  select(-Year_Remod_Add, -Year_Built)
+  mutate(time_since_remodel = year_sold - year_remod_add, 
+         house_age = year_sold - year_built) %>%
+  select(-year_remod_add, -year_built)
 
 qsave(ameshousing_filt_tr, "../_models/ames_dataset_filt.qs")
 ```
