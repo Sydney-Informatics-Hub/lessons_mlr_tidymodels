@@ -44,10 +44,10 @@ The independent variables presented in the data include:
 We will explore both the "uncleaned" data available from kaggle/UCI, and the processed data available in the `AmesHousing` package in R, for which documentation is available [here](https://cran.r-project.org/web/packages/AmesHousing/AmesHousing.pdf). It can be useful for understanding what each of the independent variables mean.
 
 ```{r loadData}
-ameshousing <- AmesHousing::make_ames()
+ameshousing_temp <- AmesHousing::make_ames()
 
 # Use this function to make the names easier to type
-ameshousing <- ameshousing %>% 
+ameshousing <- ameshousing_temp %>% 
   janitor::clean_names()
 
 # Read in the uncleaned data. 
@@ -212,7 +212,7 @@ Let's plot one of these relationships:
 
 ```{r GrLivAr}
 ameshousing %>%
-  ggplot(aes(x = gr_liv_Area, y = sale_Price/1000)) + 
+  ggplot(aes(x = gr_liv_area, y = sale_price/1000)) + 
   geom_point(alpha = 0.1) + 
   labs(y = "Sale Price/$1000",
        x = "Living Area (sq.ft)",
