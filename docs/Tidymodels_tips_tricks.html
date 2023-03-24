@@ -252,7 +252,7 @@ ranger_workflow &lt;-
   add_recipe(ranger_recipe) %&gt;% 
   add_model(ranger_spec) 
 
-set.seed(77834)
+set.seed(86181)
 ranger_tune &lt;-
   tune_grid(ranger_workflow, resamples = stop("add your rsample object"), grid = stop("add number of candidate points"))</code></pre>
 </div>
@@ -260,8 +260,11 @@ ranger_tune &lt;-
 </section>
 <section id="tune_race_anova" class="level2">
 <h2 class="anchored" data-anchor-id="tune_race_anova">tune_race_anova()</h2>
-<p>The problem with grid search is that you don’t know if some of those choices you made about the candidate parameters are any good until you’re done with all the computations. The <code>tune_race_anova()</code> function is a dynamic way of doing grid search. What racing does is as you start to do the model tuning, it looks at the results as they happen and eliminates tuning parameter combinations that are unlikely to be the best results using a repeated measure ANOVA model:</p>
-<pre><code>rf_tune_wf &lt;- rf_workflow %&gt;%
+<p>The problem with grid search is that you don’t know if some of those choices you made about the candidate parameters are any good until you’re done with all the computations. The <code>tune_race_anova()</code> function from the <code>finetune</code> package is a dynamic way of doing grid search. What racing does is as you start to do the model tuning, it looks at the results as they happen and eliminates tuning parameter combinations that are unlikely to be the best results using a repeated measure ANOVA model:</p>
+<pre><code>install.packages("finetune")
+library(finetune)
+
+rf_tune_wf &lt;- rf_workflow %&gt;%
               tune_race_anova(resamples = diabetes_folds,
                               grid = rf_grid)</code></pre>
 </section>

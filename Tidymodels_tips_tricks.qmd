@@ -15,9 +15,12 @@ use_ranger(diabetes ~ ., data = PimaIndiansDiabetes)
 
 ## tune_race_anova()
 
-The problem with grid search is that you don't know if some of those choices you made about the candidate parameters are any good until you're done with all the computations. The `tune_race_anova()` function is a dynamic way of doing grid search. What racing does is as you start to do the model tuning, it looks at the results as they happen and eliminates tuning parameter combinations that are unlikely to be the best results using a repeated measure ANOVA model:
+The problem with grid search is that you don't know if some of those choices you made about the candidate parameters are any good until you're done with all the computations. The `tune_race_anova()` function from the `finetune` package is a dynamic way of doing grid search. What racing does is as you start to do the model tuning, it looks at the results as they happen and eliminates tuning parameter combinations that are unlikely to be the best results using a repeated measure ANOVA model:
 
 ```         
+install.packages("finetune")
+library(finetune)
+
 rf_tune_wf <- rf_workflow %>%
               tune_race_anova(resamples = diabetes_folds,
                               grid = rf_grid)
