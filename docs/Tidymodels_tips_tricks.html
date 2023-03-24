@@ -252,7 +252,7 @@ ranger_workflow &lt;-
   add_recipe(ranger_recipe) %&gt;% 
   add_model(ranger_spec) 
 
-set.seed(86181)
+set.seed(99270)
 ranger_tune &lt;-
   tune_grid(ranger_workflow, resamples = stop("add your rsample object"), grid = stop("add number of candidate points"))</code></pre>
 </div>
@@ -271,9 +271,9 @@ rf_tune_wf &lt;- rf_workflow %&gt;%
 <section id="step_mutate" class="level2">
 <h2 class="anchored" data-anchor-id="step_mutate">step_mutate()</h2>
 <p><code>step_mutate()</code> creates a specification of a recipe step that will add variables using <code>dplyr::mutate()</code>. We did this step during EDA in <a href="001_Regression/step1.qmd">Session 1</a> but we could have easily introduced it in our recipe <code>ames_rec</code> object in this way:</p>
-<pre><code>ames_rec &lt;- recipe(Sale_Price ~ ., data = ames_train) %&gt;% 
-            step_mutate(Time_Since_Remodel = Year_Sold - Year_Remod_Add, 
-                        House_Age = Year_Sold - Year_Built)</code></pre>
+<pre><code>ames_rec &lt;- recipe(sale_price ~ ., data = ames_train) %&gt;% 
+            step_mutate(time_since_remodel = year_sold - year_remod_add, 
+                        house_age = year_sold - year_built)</code></pre>
 <p>The advantage of performing these preprocessing steps with the recipe package is that all the feature engineering you want to perform to your data can be put into a single object, you can save that object, you can carry it around. It’s not in a bunch of scripts. It’s been unit tested and it has a lot of features in it.</p>
 
 
