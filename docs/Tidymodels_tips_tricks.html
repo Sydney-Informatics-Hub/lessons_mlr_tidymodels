@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -204,13 +204,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#use_" id="toc-use_" class="nav-link active" data-scroll-target="#use_">use_*()</a></li>
+  <li><a href="#tune_race_anova" id="toc-tune_race_anova" class="nav-link" data-scroll-target="#tune_race_anova">tune_race_anova()</a></li>
+  <li><a href="#step_mutate" id="toc-step_mutate" class="nav-link" data-scroll-target="#step_mutate">step_mutate()</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Sydney-Informatics-Hub/edit/main/Tidymodels_tips_tricks.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Sydney-Informatics-Hub/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
+<section id="use_" class="level2">
+<h2 class="anchored" data-anchor-id="use_">use_*()</h2>
 <p>The <a href="https://usemodels.tidymodels.org">usemodels package</a> is a helpful way of quickly creating code snippets to fit models using the tidymodels framework. Given a simple formula and a data set, the use_* functions can create code that appropriate for the data (given the model). The package includes these templates:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usemodels)</span>
@@ -242,13 +252,29 @@ ranger_workflow &lt;-
   add_recipe(ranger_recipe) %&gt;% 
   add_model(ranger_spec) 
 
-set.seed(60694)
+set.seed(77834)
 ranger_tune &lt;-
   tune_grid(ranger_workflow, resamples = stop("add your rsample object"), grid = stop("add number of candidate points"))</code></pre>
 </div>
 </div>
+</section>
+<section id="tune_race_anova" class="level2">
+<h2 class="anchored" data-anchor-id="tune_race_anova">tune_race_anova()</h2>
+<p>The problem with grid search is that you don’t know if some of those choices you made about the candidate parameters are any good until you’re done with all the computations. The <code>tune_race_anova()</code> function is a dynamic way of doing grid search. What racing does is as you start to do the model tuning, it looks at the results as they happen and eliminates tuning parameter combinations that are unlikely to be the best results using a repeated measure ANOVA model:</p>
+<pre><code>rf_tune_wf &lt;- rf_workflow %&gt;%
+              tune_race_anova(resamples = diabetes_folds,
+                              grid = rf_grid)</code></pre>
+</section>
+<section id="step_mutate" class="level2">
+<h2 class="anchored" data-anchor-id="step_mutate">step_mutate()</h2>
+<p><code>step_mutate()</code> creates a specification of a recipe step that will add variables using <code>dplyr::mutate()</code>. We did this step during EDA in <a href="001_Regression/step1.qmd">Session 1</a> but we could have easily introduced it in our recipe <code>ames_rec</code> object in this way:</p>
+<pre><code>ames_rec &lt;- recipe(Sale_Price ~ ., data = ames_train) %&gt;% 
+            step_mutate(Time_Since_Remodel = Year_Sold - Year_Remod_Add, 
+                        House_Age = Year_Sold - Year_Built)</code></pre>
+<p>The advantage of performing these preprocessing steps with the recipe package is that all the feature engineering you want to perform to your data can be put into a single object, you can save that object, you can carry it around. It’s not in a bunch of scripts. It’s been unit tested and it has a lot of features in it.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
