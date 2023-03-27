@@ -210,7 +210,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#use_" id="toc-use_" class="nav-link active" data-scroll-target="#use_">use_*()</a></li>
   <li><a href="#tune_race_anova" id="toc-tune_race_anova" class="nav-link" data-scroll-target="#tune_race_anova">tune_race_anova()</a></li>
-  <li><a href="#step_mutate" id="toc-step_mutate" class="nav-link" data-scroll-target="#step_mutate">step_mutate()</a></li>
+  <li><a href="#step_mutate---step_select" id="toc-step_mutate---step_select" class="nav-link" data-scroll-target="#step_mutate---step_select">step_mutate() - step_select()</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Sydney-Informatics-Hub/edit/main/Tidymodels_tips_tricks.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Sydney-Informatics-Hub/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -252,7 +252,7 @@ ranger_workflow &lt;-
   add_recipe(ranger_recipe) %&gt;% 
   add_model(ranger_spec) 
 
-set.seed(99270)
+set.seed(98513)
 ranger_tune &lt;-
   tune_grid(ranger_workflow, resamples = stop("add your rsample object"), grid = stop("add number of candidate points"))</code></pre>
 </div>
@@ -268,12 +268,13 @@ rf_tune_wf &lt;- rf_workflow %&gt;%
               tune_race_anova(resamples = diabetes_folds,
                               grid = rf_grid)</code></pre>
 </section>
-<section id="step_mutate" class="level2">
-<h2 class="anchored" data-anchor-id="step_mutate">step_mutate()</h2>
+<section id="step_mutate---step_select" class="level2">
+<h2 class="anchored" data-anchor-id="step_mutate---step_select">step_mutate() - step_select()</h2>
 <p><code>step_mutate()</code> creates a specification of a recipe step that will add variables using <code>dplyr::mutate()</code>. We did this step during EDA in <a href="001_Regression/step1.qmd">Session 1</a> but we could have easily introduced it in our recipe <code>ames_rec</code> object in this way:</p>
 <pre><code>ames_rec &lt;- recipe(sale_price ~ ., data = ames_train) %&gt;% 
             step_mutate(time_since_remodel = year_sold - year_remod_add, 
-                        house_age = year_sold - year_built)</code></pre>
+                        house_age = year_sold - year_built) %&gt;%
+            step_select(-year_remod_add, -year_built)</code></pre>
 <p>The advantage of performing these preprocessing steps with the recipe package is that all the feature engineering you want to perform to your data can be put into a single object, you can save that object, you can carry it around. It’s not in a bunch of scripts. It’s been unit tested and it has a lot of features in it.</p>
 
 

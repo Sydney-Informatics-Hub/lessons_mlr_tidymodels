@@ -26,14 +26,15 @@ rf_tune_wf <- rf_workflow %>%
                               grid = rf_grid)
 ```
 
-## step_mutate()
+## step_mutate() - step_select()
 
 `step_mutate()` creates a specification of a recipe step that will add variables using `dplyr::mutate()`. We did this step during EDA in [Session 1](001_Regression/step1.qmd) but we could have easily introduced it in our recipe `ames_rec` object in this way:
 
 ```         
 ames_rec <- recipe(sale_price ~ ., data = ames_train) %>% 
             step_mutate(time_since_remodel = year_sold - year_remod_add, 
-                        house_age = year_sold - year_built)
+                        house_age = year_sold - year_built) %>%
+            step_select(-year_remod_add, -year_built)
 ```
 
 The advantage of performing these preprocessing steps with the recipe package is that all the feature engineering you want to perform to your data can be put into a single object, you can save that object, you can carry it around. It's not in a bunch of scripts. It's been unit tested and it has a lot of features in it.
