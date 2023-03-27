@@ -204,13 +204,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#use_" id="toc-use_" class="nav-link active" data-scroll-target="#use_">use_*()</a></li>
+  <li><a href="#tune_race_anova" id="toc-tune_race_anova" class="nav-link" data-scroll-target="#tune_race_anova">tune_race_anova()</a></li>
+  <li><a href="#step_mutate---step_select" id="toc-step_mutate---step_select" class="nav-link" data-scroll-target="#step_mutate---step_select">step_mutate() - step_select()</a></li>
+  <li><a href="#update" id="toc-update" class="nav-link" data-scroll-target="#update">update()</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Sydney-Informatics-Hub/edit/main/Tidymodels_tips_tricks.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Sydney-Informatics-Hub/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
+<section id="use_" class="level2">
+<h2 class="anchored" data-anchor-id="use_">use_*()</h2>
 <p>The <a href="https://usemodels.tidymodels.org">usemodels package</a> is a helpful way of quickly creating code snippets to fit models using the tidymodels framework. Given a simple formula and a data set, the use_* functions can create code that appropriate for the data (given the model). The package includes these templates:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usemodels)</span>
@@ -242,13 +253,41 @@ ranger_workflow &lt;-
   add_recipe(ranger_recipe) %&gt;% 
   add_model(ranger_spec) 
 
-set.seed(60694)
+set.seed(8254)
 ranger_tune &lt;-
   tune_grid(ranger_workflow, resamples = stop("add your rsample object"), grid = stop("add number of candidate points"))</code></pre>
 </div>
 </div>
+</section>
+<section id="tune_race_anova" class="level2">
+<h2 class="anchored" data-anchor-id="tune_race_anova">tune_race_anova()</h2>
+<p>The problem with grid search is that you don’t know if some of those choices you made about the candidate parameters are any good until you’re done with all the computations. The <code>tune_race_anova()</code> function from the <code>finetune</code> package is a dynamic way of doing grid search. What racing does is as you start to do the model tuning, it looks at the results as they happen and eliminates tuning parameter combinations that are unlikely to be the best results using a repeated measure ANOVA model:</p>
+<pre><code>install.packages("finetune")
+library(finetune)
+
+rf_tune_wf &lt;- rf_workflow %&gt;%
+              tune_race_anova(resamples = diabetes_folds,
+                              grid = rf_grid)</code></pre>
+</section>
+<section id="step_mutate---step_select" class="level2">
+<h2 class="anchored" data-anchor-id="step_mutate---step_select">step_mutate() - step_select()</h2>
+<p><code>step_mutate()</code> creates a specification of a recipe step that will add variables using <code>dplyr::mutate()</code>. We did this step during EDA in <a href="001_Regression/step1.qmd">Session 1</a> but we could have easily introduced it in our recipe <code>ames_rec</code> object in this way:</p>
+<pre><code>ames_rec &lt;- recipe(sale_price ~ ., data = ames_train) %&gt;% 
+            step_mutate(time_since_remodel = year_sold - year_remod_add, 
+                        house_age = year_sold - year_built) %&gt;%
+            step_select(-year_remod_add, -year_built)</code></pre>
+<p>The advantage of performing these preprocessing steps with the recipe package is that all the feature engineering you want to perform to your data can be put into a single object, you can save that object, you can carry it around. It’s not in a bunch of scripts. It’s been unit tested and it has a lot of features in it.</p>
+</section>
+<section id="update" class="level2">
+<h2 class="anchored" data-anchor-id="update">update()</h2>
+<p>This step method for <code>update()</code> updates steps within a recipe object.</p>
+<p>In the example below, the <code>[[2]]</code> is used to access the 2 step in the recipe object’s steps list.</p>
+<p>The <code>update()</code> function is then used to modify this step by changing the threshold used in the <code>step_nzv()</code> function to 0.05.</p>
+<p>For a step to be updated, it must not already have been trained.</p>
+<pre><code>ames_rec$steps[[2]] &lt;- update(ames_rec$steps[[2]], threshold = 0.05)</code></pre>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

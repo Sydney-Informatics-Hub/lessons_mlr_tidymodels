@@ -44,7 +44,7 @@ library(qs)
 theme_set(theme_minimal())
 ```
 
-```{r getData, echo = F, purl=FALSE}
+```{r getData}
 ames_data <- qread("../_models/ames_dataset_filt.qs")
 ```
 
