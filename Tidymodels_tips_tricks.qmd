@@ -38,3 +38,17 @@ ames_rec <- recipe(sale_price ~ ., data = ames_train) %>%
 ```
 
 The advantage of performing these preprocessing steps with the recipe package is that all the feature engineering you want to perform to your data can be put into a single object, you can save that object, you can carry it around. It's not in a bunch of scripts. It's been unit tested and it has a lot of features in it.
+
+## update()
+
+This step method for `update()` updates steps within a recipe object.
+
+In the example below, the `[[2]]` is used to access the 2 step in the recipe object's steps list. 
+
+The `update()` function is then used to modify this step by changing the threshold used in the `step_nzv()` function to 0.05.
+
+For a step to be updated, it must not already have been trained. 
+
+```
+ames_rec$steps[[2]] <- update(ames_rec$steps[[2]], threshold = 0.05)
+```
