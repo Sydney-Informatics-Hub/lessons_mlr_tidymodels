@@ -60,7 +60,7 @@ The straight red dotted line represents the linear model equation $y=mx+c$, wher
 
 ```{r lm}
 #fit a linear model
-ames_lm <- lm(Sale_Price ~ Gr_Liv_Area, data = ames_data)
+ames_lm <- lm(sale_price ~ gr_liv_area, data = ames_data)
 
 #Print the summary of the model
 summary(ames_lm)
@@ -74,11 +74,18 @@ R-squared value explains the variability of y with respect to x:
 
 Let's plot our linear regression model:
 ```{r}
-plot(ames_data$Gr_Liv_Area, ames_data$Sale_Price,
-     xlab="Gr_Liv_Area",
-     ylab="Sale_Price", 
-     col = "blue")
-abline(ames_lm, col = "red")
+ames_data %>% 
+  ggplot(aes(x=gr_liv_area,y=sale_price)) +
+  geom_point(alpha=0.25) +
+  geom_abline(
+    slope = coef(ames_lm)[["gr_liv_area"]],
+    intercept = coef(ames_lm)[["(Intercept)"]],
+    color = "red"
+  ) +
+  labs(
+    x = "Gross Living Area",
+    y = "Sale Price"
+  )
 ```
 
 
@@ -101,7 +108,7 @@ The first thing we are going to practice is splitting the data into a **training
 set.seed(42) #so we all get the same results
 ames_split <- ames_data %>%
     initial_split(prop = 0.8,
-                  strata = Sale_Price) #stratification
+                  strata = sale_price) #stratification
 
 ames_train <- training(ames_split)
 ames_test <- testing(ames_split)
@@ -118,7 +125,7 @@ Let's check if the distribution of the selling price is the same in the testing 
 
 ```{r distr test and train, purl=F}
 ames_train %>% 
-  ggplot(aes(x = log(Sale_Price),  col = "red", fill = NULL)) + 
+  ggplot(aes(x = log(sale_price),  col = "red", fill = NULL)) + 
   geom_density() + theme_minimal() +
   geom_line(data = ames_test,
             stat = "density",
@@ -151,8 +158,8 @@ Some of these steps can include:
 
 ```{r recipe}
 ames_rec <-
-  recipe(Sale_Price ~ ., data = ames_train) %>% #assigns columns to roles of “outcome” or “predictor” using the formula
-  step_log(Sale_Price, base = 10) %>%
+  recipe(sale_price ~ ., data = ames_train) %>% #assigns columns to roles of “outcome” or “predictor” using the formula
+  step_log(sale_price, base = 10) %>%
   step_other(all_nominal(), threshold = 0.01) %>% #useful when you have some factor levels with very few observations,   all_nominal selects both characters and factors, pools infrequently occurring values (frequency less than 0.01) into an "other" category
   step_nzv(all_predictors()) %>% #remove predictors that are highly sparse and unbalanced
   step_normalize(all_numeric_predictors()) %>% #normalize the data to a standard range by dividing each observation by the standard deviation of the feature
@@ -243,10 +250,10 @@ The `fit()` function takes the following arguments:
 - a model formula
 - a data frame with the training data
 
-The code below trains our linear regression model on the prepped training data. In our formula, we have specified that Sale_Price is the response variable and included all the rest as our predictor variables.
+The code below trains our linear regression model on the prepped training data. In our formula, we have specified that sale_price is the response variable and included all the rest as our predictor variables.
 ```{r fit}
 ames_fit <- ames_model %>%
-  fit(Sale_Price ~ .,
+  fit(sale_price ~ .,
       data=juice(ames_prep))
 
 # View lm_fit properties
@@ -313,14 +320,14 @@ Results are always returned as a data frame with the following columns: .metric,
 ```{r rmse}
 #RMSE on test set
 test_rmse <- rmse(ames_test_results, 
-     truth = Sale_Price,
+     truth = sale_price,
      estimate = .pred)
 
 test_rmse
 
 #rsq on test set
 test_rsq<- rsq(ames_test_results,
-    truth = Sale_Price,
+    truth = sale_price,
     estimate = .pred)
 
 test_rsq
@@ -330,7 +337,7 @@ test_rsq
 Let's visualise the situation with an **R2 plot**:
 ```{r plot results}
 ames_test_results %>%
-  ggplot(aes(Sale_Price, .pred)) +
+  ggplot(aes(sale_price, .pred)) +
   geom_abline(intercept = 0, slope = 1, color = "black", linewidth = 0.5, linetype="dotted") +
   geom_point(alpha = 0.15, color = "blue") +
   labs(
@@ -377,7 +384,7 @@ Simulations and practical experience show that 10-fold cross-validation repeated
 ```{r create cross-validation folds}
 set.seed(9)
 
-ames_folds <- vfold_cv(ames_train, v=10, repeats = 5, strata = Sale_Price)
+ames_folds <- vfold_cv(ames_train, v=10, repeats = 5, strata = sale_price)
 
 glimpse(ames_folds)
 ```
@@ -432,7 +439,7 @@ If we wanted to try different model types for this data set, we could more confi
 ```{r plot resampling}
 ames_res %>%
   collect_predictions() %>%
-  ggplot(aes(.pred, Sale_Price, color = id)) + 
+  ggplot(aes(.pred, sale_price, color = id)) + 
   geom_abline(intercept = 0, slope = 1, color = 'black', linewidth=0.5, linetype="dotted") +
   geom_point(alpha = 0.15) +
    labs(title = 'Linear Regression Results - Ames Test Set',
@@ -469,7 +476,7 @@ Finally, let’s use this data frame to make an R2 plot to visualize our model p
 
 ```{r plot final}
 ggplot(data = ames_results_final,
-       mapping = aes(x = .pred, y = Sale_Price)) +
+       mapping = aes(x = .pred, y = sale_price)) +
   geom_point(color = '#006EA1', alpha = 0.25) +
   geom_abline(intercept = 0, slope = 1, color = 'black', linewidth=0.5, linetype="dotted") +
   labs(title = 'Linear Regression Results - Ames Test Set',

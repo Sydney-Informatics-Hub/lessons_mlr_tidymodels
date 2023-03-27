@@ -296,8 +296,8 @@ Solution
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qs)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="step2_cache/html/getData_85bd710bbcbd767b21560c4d20e120e6">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ames_data <span class="ot">&lt;-</span> <span class="fu">qread</span>(<span class="st">"../_models/ames_dataset_filt.qs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="step2_cache/html/getData_823b03bc7b02a0c841fc91903487c1cb">
+
 </div>
 <section id="build-a-simple-linear-regression-model-using-base-r" class="level2">
 <h2 class="anchored" data-anchor-id="build-a-simple-linear-regression-model-using-base-r">Build a simple linear regression model using base R</h2>
@@ -310,31 +310,31 @@ Solution
 </figure>
 </div>
 <p>The straight red dotted line represents the linear model equation <span class="math inline">\(y=mx+c\)</span>, where <span class="math inline">\(c\)</span> is the y-intercept of the regression line, <span class="math inline">\(m\)</span> is the slope of the regression line, and <span class="math inline">\(y\)</span> is the expected value for y for the given <span class="math inline">\(x\)</span> value.</p>
-<div class="cell" data-hash="step2_cache/html/lm_95a9a672f35a2a0aaad702a6a0f71bc6">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#fit a linear model</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ames_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(Sale_Price <span class="sc">~</span> Gr_Liv_Area, <span class="at">data =</span> ames_data)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Print the summary of the model</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ames_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="step2_cache/html/lm_74703ecd6a5553082cfec142c86f8373">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#fit a linear model</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ames_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(sale_price <span class="sc">~</span> gr_liv_area, <span class="at">data =</span> ames_data)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Print the summary of the model</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ames_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = Sale_Price ~ Gr_Liv_Area, data = ames_data)
+lm(formula = sale_price ~ gr_liv_area, data = ames_data)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--0.94258 -0.06622  0.01359  0.07298  0.39246 
+    Min      1Q  Median      3Q     Max 
+-201358  -30336   -1655   23303  330127 
 
 Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) 4.835e+00  7.406e-03  652.80   &lt;2e-16 ***
-Gr_Liv_Area 2.579e-04  4.714e-06   54.72   &lt;2e-16 ***
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 6773.484   3260.418   2.077   0.0378 *  
+gr_liv_area  116.225      2.075  56.006   &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.124 on 2923 degrees of freedom
-Multiple R-squared:  0.506, Adjusted R-squared:  0.5058 
-F-statistic:  2994 on 1 and 2923 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 54570 on 2923 degrees of freedom
+Multiple R-squared:  0.5176,    Adjusted R-squared:  0.5175 
+F-statistic:  3137 on 1 and 2923 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>R-squared value explains the variability of y with respect to x:</p>
@@ -344,12 +344,19 @@ F-statistic:  2994 on 1 and 2923 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li>R-squared values closer to 1 mean the regression relationship is very strong.</li>
 </ul>
 <p>Let’s plot our linear regression model:</p>
-<div class="cell" data-hash="step2_cache/html/unnamed-chunk-2_608d60252503b7a5142f1a943a607eec">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ames_data<span class="sc">$</span>Gr_Liv_Area, ames_data<span class="sc">$</span>Sale_Price,</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"Gr_Liv_Area"</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">"Sale_Price"</span>, </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"blue"</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(ames_lm, <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="step2_cache/html/unnamed-chunk-2_70af8b03eac790a6f1b1cfec8c7608cf">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ames_data <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>gr_liv_area,<span class="at">y=</span>sale_price)) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">slope =</span> <span class="fu">coef</span>(ames_lm)[[<span class="st">"gr_liv_area"</span>]],</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">intercept =</span> <span class="fu">coef</span>(ames_lm)[[<span class="st">"(Intercept)"</span>]],</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"red"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Gross Living Area"</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Sale Price"</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="step2_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -367,28 +374,28 @@ F-statistic:  2994 on 1 and 2923 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li>integration with other tidyverse packages like dplyr, ggplot2, and purrr, allowing for a more streamlined workflow when working with data</li>
 </ul>
 <p>The first thing we are going to practice is splitting the data into a <strong>training set</strong> and a <strong>testing set</strong>. The tidymodels package <code>rsample</code> has functions that help you specify training and testing sets:</p>
-<div class="cell" data-hash="step2_cache/html/SplitTestTrain_03ef02da1e29c934f93423f94e90d7de">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>) <span class="co">#so we all get the same results</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ames_split <span class="ot">&lt;-</span> ames_data <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">initial_split</span>(<span class="at">prop =</span> <span class="fl">0.8</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">strata =</span> Sale_Price) <span class="co">#stratification</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>ames_train <span class="ot">&lt;-</span> <span class="fu">training</span>(ames_split)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>ames_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(ames_split)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">qsave</span>(ames_train, <span class="st">"../_models/ames_train.qs"</span>)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">qsave</span>(ames_test, <span class="st">"../_models/ames_test.qs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="step2_cache/html/SplitTestTrain_a1669d4c60d3d9def0379488fade3dce">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>) <span class="co">#so we all get the same results</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ames_split <span class="ot">&lt;-</span> ames_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">initial_split</span>(<span class="at">prop =</span> <span class="fl">0.8</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">strata =</span> sale_price) <span class="co">#stratification</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>ames_train <span class="ot">&lt;-</span> <span class="fu">training</span>(ames_split)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>ames_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(ames_split)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">qsave</span>(ames_train, <span class="st">"../_models/ames_train.qs"</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">qsave</span>(ames_test, <span class="st">"../_models/ames_test.qs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Stratified sampling would split within each quartile. Splitting with stratification involves dividing the data into subsets based on the target/outcome variable’s distribution, such that the proportion of each class in the target variable is maintained in each subset. This ensures that the training and testing sets have a similar distribution of the target variable, which can lead to more reliable model performance estimates. <img src="../fig/strata.png" class="img-fluid" alt="strata"></p>
 <p>The code here takes an input data set and puts 80% of it into a training dataset and 20% of it into a testing dataset; it chooses the individual cases so that both sets are balanced in selling price.</p>
 <p>Let’s check if the distribution of the selling price is the same in the testing and training datasets:</p>
-<div class="cell" data-hash="step2_cache/html/distr test and train_e166d48159dca15356b8a85f9754bfc5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ames_train <span class="sc">%&gt;%</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log</span>(Sale_Price),  <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">fill =</span> <span class="cn">NULL</span>)) <span class="sc">+</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> ames_test,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">stat =</span> <span class="st">"density"</span>,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">col =</span> <span class="st">"blue"</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="step2_cache/html/distr test and train_a55abd36d0de4c8ed2ac4b222f238e10">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ames_train <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log</span>(sale_price),  <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">fill =</span> <span class="cn">NULL</span>)) <span class="sc">+</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> ames_test,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">stat =</span> <span class="st">"density"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">col =</span> <span class="st">"blue"</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="step2_files/figure-html/distr test and train-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -413,17 +420,17 @@ F-statistic:  2994 on 1 and 2923 DF,  p-value: &lt; 2.2e-16</code></pre>
 </ul>
 <p><strong>Statistical parameters for the steps can be estimated from an initial data set and then applied to other data sets.</strong></p>
 <p><strong>The resulting processed output can be used as inputs for statistical or machine learning models.</strong></p>
-<div class="cell" data-hash="step2_cache/html/recipe_e46262322ef5eef98a51cef5927d927e">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ames_rec <span class="ot">&lt;-</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">recipe</span>(Sale_Price <span class="sc">~</span> ., <span class="at">data =</span> ames_train) <span class="sc">%&gt;%</span> <span class="co">#assigns columns to roles of “outcome” or “predictor” using the formula</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_log</span>(Sale_Price, <span class="at">base =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_other</span>(<span class="fu">all_nominal</span>(), <span class="at">threshold =</span> <span class="fl">0.01</span>) <span class="sc">%&gt;%</span> <span class="co">#useful when you have some factor levels with very few observations,   all_nominal selects both characters and factors, pools infrequently occurring values (frequency less than 0.01) into an "other" category</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_nzv</span>(<span class="fu">all_predictors</span>()) <span class="sc">%&gt;%</span> <span class="co">#remove predictors that are highly sparse and unbalanced</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_normalize</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">%&gt;%</span> <span class="co">#normalize the data to a standard range by dividing each observation by the standard deviation of the feature</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal_predictors</span>(), <span class="at">one_hot =</span> <span class="cn">TRUE</span>) <span class="co">#create numeric representations of categorical data</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>ames_rec</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">qsave</span>(ames_rec, <span class="st">"../_models/ames_rec.qs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="step2_cache/html/recipe_a191007e3e18c46b7b1207e2ea0e6469">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ames_rec <span class="ot">&lt;-</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">recipe</span>(sale_price <span class="sc">~</span> ., <span class="at">data =</span> ames_train) <span class="sc">%&gt;%</span> <span class="co">#assigns columns to roles of “outcome” or “predictor” using the formula</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_log</span>(sale_price, <span class="at">base =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_other</span>(<span class="fu">all_nominal</span>(), <span class="at">threshold =</span> <span class="fl">0.01</span>) <span class="sc">%&gt;%</span> <span class="co">#useful when you have some factor levels with very few observations,   all_nominal selects both characters and factors, pools infrequently occurring values (frequency less than 0.01) into an "other" category</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_nzv</span>(<span class="fu">all_predictors</span>()) <span class="sc">%&gt;%</span> <span class="co">#remove predictors that are highly sparse and unbalanced</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_normalize</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">%&gt;%</span> <span class="co">#normalize the data to a standard range by dividing each observation by the standard deviation of the feature</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal_predictors</span>(), <span class="at">one_hot =</span> <span class="cn">TRUE</span>) <span class="co">#create numeric representations of categorical data</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>ames_rec</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">qsave</span>(ames_rec, <span class="st">"../_models/ames_rec.qs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note that each successive <code>step()</code> function adds a preprocessing step to our recipe object in the order that they are provided. The preprocessing recipe <code>ames_rec</code> has been defined but no values have been estimated.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -465,9 +472,9 @@ Solution
 </ul>
 </div>
 <div class="cell" data-hash="step2_cache/html/prep_e20e78ef0b6b57205900440562b6b972">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ames_prep <span class="ot">&lt;-</span> <span class="fu">prep</span>(ames_rec)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>ames_prep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ames_prep <span class="ot">&lt;-</span> <span class="fu">prep</span>(ames_rec)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ames_prep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>bake()</code> and <code>juice()</code> functions both return data, not a preprocessing recipe object.</p>
 <div class="border">
@@ -476,7 +483,7 @@ Solution
 </ul>
 </div>
 <div class="cell" data-hash="step2_cache/html/bake_21fb2385edd3f71ced4b9efefb600119">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ames_test_baked <span class="ot">&lt;-</span> <span class="fu">bake</span>(ames_prep, <span class="at">new_data =</span> ames_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ames_test_baked <span class="ot">&lt;-</span> <span class="fu">bake</span>(ames_prep, <span class="at">new_data =</span> ames_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="border">
 <ul>
@@ -485,10 +492,10 @@ Solution
 </div>
 <p>Let’s compare the <code>bake()</code> and <code>juice()</code> outputs:</p>
 <div class="cell" data-hash="step2_cache/html/juice_461f37377bd1ef840e5384fdd5e2565e">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bake</span>(ames_prep, <span class="at">new_data =</span> ames_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bake</span>(ames_prep, <span class="at">new_data =</span> ames_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2,339 × 187
-   Lot_Frontage Lot_Area Mas_V…¹ BsmtF…² BsmtF…³ Bsmt_…⁴ Total…⁵ First…⁶ Secon…⁷
+<pre><code># A tibble: 2,339 × 224
+   lot_frontage lot_area mas_v…¹ bsmt_…² bsmt_…³ bsmt_…⁴ total…⁵ first…⁶ secon…⁷
           &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
  1       0.374   -0.212   -0.569  -1.42    0.162  -1.27  -0.388   -0.726  -0.786
  2       0.374    0.0383  -0.569  -1.42   -0.298  -0.288 -0.430   -0.774  -0.786
@@ -500,18 +507,18 @@ Solution
  8       0.314   -0.149   -0.569   0.372  -0.298  -1.27  -2.48     0.427   0.579
  9      -1.73    -0.0430  -0.391  -0.970  -0.298  -0.288 -0.388   -0.678  -0.786
 10      -1.73    -0.392   -0.569  -1.42   -0.298  -0.404 -0.0137  -0.308  -0.786
-# … with 2,329 more rows, 178 more variables: Gr_Liv_Area &lt;dbl&gt;,
-#   Bsmt_Full_Bath &lt;dbl&gt;, Bsmt_Half_Bath &lt;dbl&gt;, Full_Bath &lt;dbl&gt;,
-#   Half_Bath &lt;dbl&gt;, Bedroom_AbvGr &lt;dbl&gt;, TotRms_AbvGrd &lt;dbl&gt;,
-#   Fireplaces &lt;dbl&gt;, Garage_Cars &lt;dbl&gt;, Garage_Area &lt;dbl&gt;, Wood_Deck_SF &lt;dbl&gt;,
-#   Open_Porch_SF &lt;dbl&gt;, Mo_Sold &lt;dbl&gt;, Year_Sold &lt;dbl&gt;, Longitude &lt;dbl&gt;,
-#   Latitude &lt;dbl&gt;, Time_Since_Remodel &lt;dbl&gt;, House_Age &lt;dbl&gt;,
-#   Sale_Price &lt;dbl&gt;, MS_SubClass_One_Story_1946_and_Newer_All_Styles &lt;dbl&gt;, …</code></pre>
+# … with 2,329 more rows, 215 more variables: gr_liv_area &lt;dbl&gt;,
+#   bsmt_full_bath &lt;dbl&gt;, bsmt_half_bath &lt;dbl&gt;, full_bath &lt;dbl&gt;,
+#   half_bath &lt;dbl&gt;, bedroom_abv_gr &lt;dbl&gt;, tot_rms_abv_grd &lt;dbl&gt;,
+#   fireplaces &lt;dbl&gt;, garage_cars &lt;dbl&gt;, garage_area &lt;dbl&gt;, wood_deck_sf &lt;dbl&gt;,
+#   open_porch_sf &lt;dbl&gt;, mo_sold &lt;dbl&gt;, year_sold &lt;dbl&gt;, longitude &lt;dbl&gt;,
+#   latitude &lt;dbl&gt;, time_since_remodel &lt;dbl&gt;, house_age &lt;dbl&gt;,
+#   sale_price &lt;dbl&gt;, ms_sub_class_One_Story_1946_and_Newer_All_Styles &lt;dbl&gt;, …</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">juice</span>(ames_prep) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">juice</span>(ames_prep) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2,339 × 187
-   Lot_Frontage Lot_Area Mas_V…¹ BsmtF…² BsmtF…³ Bsmt_…⁴ Total…⁵ First…⁶ Secon…⁷
+<pre><code># A tibble: 2,339 × 224
+   lot_frontage lot_area mas_v…¹ bsmt_…² bsmt_…³ bsmt_…⁴ total…⁵ first…⁶ secon…⁷
           &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
  1       0.374   -0.212   -0.569  -1.42    0.162  -1.27  -0.388   -0.726  -0.786
  2       0.374    0.0383  -0.569  -1.42   -0.298  -0.288 -0.430   -0.774  -0.786
@@ -523,13 +530,13 @@ Solution
  8       0.314   -0.149   -0.569   0.372  -0.298  -1.27  -2.48     0.427   0.579
  9      -1.73    -0.0430  -0.391  -0.970  -0.298  -0.288 -0.388   -0.678  -0.786
 10      -1.73    -0.392   -0.569  -1.42   -0.298  -0.404 -0.0137  -0.308  -0.786
-# … with 2,329 more rows, 178 more variables: Gr_Liv_Area &lt;dbl&gt;,
-#   Bsmt_Full_Bath &lt;dbl&gt;, Bsmt_Half_Bath &lt;dbl&gt;, Full_Bath &lt;dbl&gt;,
-#   Half_Bath &lt;dbl&gt;, Bedroom_AbvGr &lt;dbl&gt;, TotRms_AbvGrd &lt;dbl&gt;,
-#   Fireplaces &lt;dbl&gt;, Garage_Cars &lt;dbl&gt;, Garage_Area &lt;dbl&gt;, Wood_Deck_SF &lt;dbl&gt;,
-#   Open_Porch_SF &lt;dbl&gt;, Mo_Sold &lt;dbl&gt;, Year_Sold &lt;dbl&gt;, Longitude &lt;dbl&gt;,
-#   Latitude &lt;dbl&gt;, Time_Since_Remodel &lt;dbl&gt;, House_Age &lt;dbl&gt;,
-#   Sale_Price &lt;dbl&gt;, MS_SubClass_One_Story_1946_and_Newer_All_Styles &lt;dbl&gt;, …</code></pre>
+# … with 2,329 more rows, 215 more variables: gr_liv_area &lt;dbl&gt;,
+#   bsmt_full_bath &lt;dbl&gt;, bsmt_half_bath &lt;dbl&gt;, full_bath &lt;dbl&gt;,
+#   half_bath &lt;dbl&gt;, bedroom_abv_gr &lt;dbl&gt;, tot_rms_abv_grd &lt;dbl&gt;,
+#   fireplaces &lt;dbl&gt;, garage_cars &lt;dbl&gt;, garage_area &lt;dbl&gt;, wood_deck_sf &lt;dbl&gt;,
+#   open_porch_sf &lt;dbl&gt;, mo_sold &lt;dbl&gt;, year_sold &lt;dbl&gt;, longitude &lt;dbl&gt;,
+#   latitude &lt;dbl&gt;, time_since_remodel &lt;dbl&gt;, house_age &lt;dbl&gt;,
+#   sale_price &lt;dbl&gt;, ms_sub_class_One_Story_1946_and_Newer_All_Styles &lt;dbl&gt;, …</code></pre>
 </div>
 </div>
 <p>Note that the <code>juice()</code> output is the same as <code>bake(ames_rep, new_data = ames_train)</code> and is just a shortcut that we are going to use later.</p>
@@ -544,13 +551,13 @@ Solution
 </ul>
 <p>We will specify the model using the <code>parsnip</code> package. Many functions have different interfaces and arguments names and parsnip standardizes the interface for fitting models as well as the return values.</p>
 <div class="cell" data-hash="step2_cache/html/parnsip_c5daf5385065d6e62b73e1bc6696a42f">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#a linear regression model specification</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ames_model <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span> <span class="co">#pick a model</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>)           <span class="co">#set the engine</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                             <span class="co">#set_mode("regression") we don't need this as the model linear_reg() only does regression</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#view model properties</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>ames_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#a linear regression model specification</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>ames_model <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span> <span class="co">#pick a model</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>)           <span class="co">#set the engine</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                             <span class="co">#set_mode("regression") we don't need this as the model linear_reg() only does regression</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">#view model properties</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>ames_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear Regression Model Specification (regression)
 
@@ -566,396 +573,470 @@ Computational engine: lm </code></pre>
 <li>a model formula</li>
 <li>a data frame with the training data</li>
 </ul>
-<p>The code below trains our linear regression model on the prepped training data. In our formula, we have specified that Sale_Price is the response variable and included all the rest as our predictor variables.</p>
-<div class="cell" data-hash="step2_cache/html/fit_77bf82326a3910d9adfa792d1fc64559">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>ames_fit <span class="ot">&lt;-</span> ames_model <span class="sc">%&gt;%</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(Sale_Price <span class="sc">~</span> .,</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">data=</span><span class="fu">juice</span>(ames_prep))</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># View lm_fit properties</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>ames_fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The code below trains our linear regression model on the prepped training data. In our formula, we have specified that sale_price is the response variable and included all the rest as our predictor variables.</p>
+<div class="cell" data-hash="step2_cache/html/fit_dab1cf43f078227d0c938e395839b4f1">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ames_fit <span class="ot">&lt;-</span> ames_model <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(sale_price <span class="sc">~</span> .,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">data=</span><span class="fu">juice</span>(ames_prep))</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># View lm_fit properties</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>ames_fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>parsnip model object
 
 
 Call:
-stats::lm(formula = Sale_Price ~ ., data = data)
+stats::lm(formula = sale_price ~ ., data = data)
 
 Coefficients:
-                                          (Intercept)  
-                                            4.225e+00  
-                                         Lot_Frontage  
-                                            1.510e-03  
-                                             Lot_Area  
-                                            5.634e-03  
-                                         Mas_Vnr_Area  
-                                            3.178e-03  
-                                         BsmtFin_SF_1  
-                                            2.910e-02  
-                                         BsmtFin_SF_2  
-                                           -2.438e-03  
-                                          Bsmt_Unf_SF  
-                                           -9.865e-03  
-                                        Total_Bsmt_SF  
-                                            3.052e-02  
-                                         First_Flr_SF  
-                                            4.657e-03  
-                                        Second_Flr_SF  
-                                            9.635e-03  
-                                          Gr_Liv_Area  
-                                            4.895e-02  
-                                       Bsmt_Full_Bath  
-                                            4.946e-03  
-                                       Bsmt_Half_Bath  
-                                            1.160e-03  
-                                            Full_Bath  
-                                            7.528e-03  
-                                            Half_Bath  
-                                            6.568e-03  
-                                        Bedroom_AbvGr  
-                                           -3.780e-03  
-                                        TotRms_AbvGrd  
-                                           -4.477e-05  
-                                           Fireplaces  
-                                            5.691e-03  
-                                          Garage_Cars  
-                                            8.626e-03  
-                                          Garage_Area  
-                                            6.286e-03  
-                                         Wood_Deck_SF  
-                                            1.943e-03  
-                                        Open_Porch_SF  
-                                            1.901e-03  
-                                              Mo_Sold  
-                                           -3.097e-04  
-                                            Year_Sold  
-                                           -2.016e-03  
-                                            Longitude  
-                                           -8.325e-03  
-                                             Latitude  
-                                           -4.980e-03  
-                                   Time_Since_Remodel  
-                                           -5.556e-03  
-                                            House_Age  
-                                           -1.929e-02  
-      MS_SubClass_One_Story_1946_and_Newer_All_Styles  
-                                            6.196e-03  
-                 MS_SubClass_One_Story_1945_and_Older  
-                                           -2.177e-02  
-     MS_SubClass_One_and_Half_Story_Finished_All_Ages  
-                                            2.813e-02  
-                 MS_SubClass_Two_Story_1946_and_Newer  
-                                           -1.093e-02  
-                 MS_SubClass_Two_Story_1945_and_Older  
-                                            1.847e-02  
-                      MS_SubClass_Split_or_Multilevel  
-                                           -2.027e-02  
-                              MS_SubClass_Split_Foyer  
-                                            3.816e-03  
-               MS_SubClass_Duplex_All_Styles_and_Ages  
-                                           -2.177e-03  
-             MS_SubClass_One_Story_PUD_1946_and_Newer  
-                                            2.046e-02  
-             MS_SubClass_Two_Story_PUD_1946_and_Newer  
-                                           -2.533e-02  
-MS_SubClass_Two_Family_conversion_All_Styles_and_Ages  
-                                            2.991e-03  
-                                    MS_SubClass_other  
-                                                   NA  
-               MS_Zoning_Floating_Village_Residential  
-                                            3.984e-02  
-                    MS_Zoning_Residential_Low_Density  
-                                            3.224e-02  
-                 MS_Zoning_Residential_Medium_Density  
-                                            2.443e-02  
-                                    Lot_Shape_Regular  
-                                            4.462e-03  
-                         Lot_Shape_Slightly_Irregular  
-                                            4.294e-03  
-                       Lot_Shape_Moderately_Irregular  
-                                            1.805e-02  
-                                    Lot_Config_Corner  
-                                            5.998e-03  
-                                   Lot_Config_CulDSac  
-                                            1.298e-02  
-                                       Lot_Config_FR2  
-                                           -5.176e-03  
-                                    Lot_Config_Inside  
-                                            3.934e-03  
-                              Neighborhood_North_Ames  
-                                           -1.547e-02  
-                           Neighborhood_College_Creek  
-                                           -3.736e-02  
-                                Neighborhood_Old_Town  
-                                           -3.894e-02  
-                                 Neighborhood_Edwards  
-                                           -4.494e-02  
-                                Neighborhood_Somerset  
-                                            1.495e-02  
-                      Neighborhood_Northridge_Heights  
-                                            1.344e-02  
-                                 Neighborhood_Gilbert  
-                                           -8.690e-03  
-                                  Neighborhood_Sawyer  
-                                           -2.252e-02  
-                          Neighborhood_Northwest_Ames  
-                                           -1.568e-02  
-                             Neighborhood_Sawyer_West  
-                                           -3.405e-02  
-                                Neighborhood_Mitchell  
-                                           -2.449e-02  
-                               Neighborhood_Brookside  
-                                           -1.037e-02  
-                                Neighborhood_Crawford  
-                                            1.911e-02  
-                  Neighborhood_Iowa_DOT_and_Rail_Road  
-                                           -4.515e-02  
-                              Neighborhood_Timberland  
-                                           -2.225e-02  
-                              Neighborhood_Northridge  
-                                            1.195e-02  
-                             Neighborhood_Stone_Brook  
-                                            3.834e-02  
- Neighborhood_South_and_West_of_Iowa_State_University  
-                                           -3.175e-02  
-                             Neighborhood_Clear_Creek  
-                                           -1.395e-02  
-                          Neighborhood_Meadow_Village  
-                                           -6.325e-02  
-                                   Condition_1_Artery  
-                                           -1.792e-02  
-                                    Condition_1_Feedr  
-                                           -1.227e-02  
-                                     Condition_1_Norm  
-                                            6.575e-03  
-                                     Condition_1_PosN  
-                                            1.180e-02  
-                                     Condition_1_RRAn  
-                                           -1.178e-02  
-                                     Bldg_Type_OneFam  
-                                            3.635e-02  
-                                   Bldg_Type_TwoFmCon  
-                                            2.470e-02  
-                                      Bldg_Type_Twnhs  
-                                           -1.657e-02  
-                         House_Style_One_and_Half_Fin  
-                                           -3.279e-02  
-                                House_Style_One_Story  
-                                           -9.496e-03  
-                                   House_Style_SFoyer  
-                                            5.423e-04  
-                                     House_Style_SLvl  
-                                            1.420e-02  
-                                House_Style_Two_Story  
-                                           -8.472e-03  
-                                    Overall_Qual_Fair  
-                                           -9.709e-03  
-                           Overall_Qual_Below_Average  
-                                           -7.711e-03  
-                                 Overall_Qual_Average  
-                                            1.465e-02  
-                           Overall_Qual_Above_Average  
-                                            2.453e-02  
-                                    Overall_Qual_Good  
-                                            3.288e-02  
-                               Overall_Qual_Very_Good  
-                                            5.065e-02  
-                               Overall_Qual_Excellent  
-                                            5.328e-02  
-                                    Overall_Cond_Fair  
-                                            8.424e-02  
-                           Overall_Cond_Below_Average  
-                                            1.386e-01  
-                                 Overall_Cond_Average  
-                                            1.647e-01  
-                           Overall_Cond_Above_Average  
-                                            1.786e-01  
-                                    Overall_Cond_Good  
-                                            1.976e-01  
-                               Overall_Cond_Very_Good  
-                                            2.004e-01  
-                               Overall_Cond_Excellent  
-                                            2.172e-01  
-                                     Roof_Style_Gable  
-                                            3.064e-03  
-                                       Roof_Style_Hip  
-                                            1.400e-03  
-                                 Exterior_1st_AsbShng  
-                                           -2.269e-02  
-                                 Exterior_1st_BrkFace  
-                                            1.762e-02  
-                                 Exterior_1st_CemntBd  
-                                           -6.648e-02  
-                                 Exterior_1st_HdBoard  
-                                           -2.029e-02  
-                                 Exterior_1st_MetalSd  
-                                           -9.188e-03  
-                                 Exterior_1st_Plywood  
-                                           -1.778e-02  
-                                  Exterior_1st_Stucco  
-                                           -2.030e-02  
-                                 Exterior_1st_VinylSd  
-                                           -3.227e-02  
-                                 Exterior_1st_Wd.Sdng  
-                                           -1.530e-02  
-                                 Exterior_1st_WdShing  
-                                           -2.727e-02  
-                                 Exterior_2nd_AsbShng  
-                                           -2.730e-02  
-                                 Exterior_2nd_BrkFace  
-                                           -2.295e-02  
-                                 Exterior_2nd_CmentBd  
-                                            4.882e-02  
-                                 Exterior_2nd_HdBoard  
-                                           -5.905e-03  
-                                 Exterior_2nd_MetalSd  
-                                           -5.823e-03  
-                                 Exterior_2nd_Plywood  
-                                           -7.550e-03  
-                                  Exterior_2nd_Stucco  
-                                            7.010e-03  
-                                 Exterior_2nd_VinylSd  
-                                            9.093e-03  
-                                 Exterior_2nd_Wd.Sdng  
-                                           -3.418e-03  
-                                 Exterior_2nd_Wd.Shng  
-                                            3.114e-03  
-                                 Mas_Vnr_Type_BrkFace  
-                                            1.391e-02  
-                                    Mas_Vnr_Type_None  
-                                            1.470e-02  
-                                   Mas_Vnr_Type_Stone  
-                                            2.233e-02  
-                                 Exter_Qual_Excellent  
-                                            4.355e-02  
-                                      Exter_Qual_Fair  
-                                           -1.018e-02  
-                                      Exter_Qual_Good  
-                                            7.081e-03  
-                                      Exter_Cond_Fair  
-                                           -5.441e-02  
-                                      Exter_Cond_Good  
-                                           -2.790e-02  
-                                   Exter_Cond_Typical  
-                                           -2.038e-02  
-                                    Foundation_BrkTil  
-                                           -2.178e-02  
-                                    Foundation_CBlock  
-                                           -1.965e-02  
-                                     Foundation_PConc  
-                                           -1.085e-02  
-                                      Foundation_Slab  
-                                            6.116e-05  
-                                  Bsmt_Qual_Excellent  
-                                            3.459e-02  
-                                       Bsmt_Qual_Fair  
-                                            6.404e-03  
-                                       Bsmt_Qual_Good  
-                                            2.045e-02  
-                                Bsmt_Qual_No_Basement  
-                                            2.428e-02  
-                                    Bsmt_Qual_Typical  
-                                            1.874e-02  
-                                     Bsmt_Exposure_Av  
-                                            3.624e-03  
-                                     Bsmt_Exposure_Gd  
-                                            2.669e-02  
-                                     Bsmt_Exposure_Mn  
-                                            5.688e-05  
-                                     Bsmt_Exposure_No  
-                                           -4.150e-03  
-                                   BsmtFin_Type_1_ALQ  
-                                            8.386e-02  
-                                   BsmtFin_Type_1_BLQ  
-                                            6.682e-02  
-                                   BsmtFin_Type_1_GLQ  
-                                            5.941e-02  
-                                   BsmtFin_Type_1_LwQ  
-                                            3.318e-02  
-                                   BsmtFin_Type_1_Rec  
-                                            7.956e-03  
-                                 Heating_QC_Excellent  
-                                            7.722e-01  
-                                      Heating_QC_Fair  
-                                            7.472e-01  
-                                      Heating_QC_Good  
-                                            7.654e-01  
-                                   Heating_QC_Typical  
-                                            7.598e-01  
-                                        Central_Air_N  
-                                           -2.408e-02  
-                                     Electrical_FuseA  
-                                           -1.545e-02  
-                                     Electrical_FuseF  
-                                           -1.968e-02  
-                                     Electrical_SBrkr  
-                                           -1.951e-02  
-                               Kitchen_Qual_Excellent  
-                                            3.178e-02  
-                                    Kitchen_Qual_Fair  
-                                           -3.273e-03  
-                                    Kitchen_Qual_Good  
-                                            5.608e-03  
-                               Fireplace_Qu_Excellent  
-                                           -1.090e-02  
-                                    Fireplace_Qu_Fair  
-                                           -5.742e-03  
-                                    Fireplace_Qu_Good  
-                                            3.799e-03  
-                            Fireplace_Qu_No_Fireplace  
-                                           -2.870e-03  
-                                    Fireplace_Qu_Poor  
-                                           -8.559e-03  
-                                   Garage_Type_Attchd  
-                                            2.717e-02  
-                                  Garage_Type_Basment  
-                                            1.841e-02  
-                                  Garage_Type_BuiltIn  
-                                            2.514e-02  
-                                   Garage_Type_Detchd  
-                                            2.309e-02  
-                                Garage_Type_No_Garage  
-                                            4.121e-04  
-                                    Garage_Finish_Fin  
-                                            9.351e-04  
-                              Garage_Finish_No_Garage  
-                                           -5.710e-03  
-                                    Garage_Finish_RFn  
-                                           -2.171e-03  
-                                     Garage_Qual_Fair  
-                                           -2.731e-02  
-                                  Garage_Qual_Typical  
-                                           -1.877e-02  
-                                     Garage_Cond_Fair  
-                                           -2.552e-02  
-                                  Garage_Cond_Typical  
-                                           -1.678e-03  
-                              Paved_Drive_Dirt_Gravel  
-                                           -4.599e-03  
-                         Paved_Drive_Partial_Pavement  
-                                           -7.736e-03  
-                                   Fence_Good_Privacy  
-                                           -4.646e-03  
-                                      Fence_Good_Wood  
-                                           -1.104e-02  
-                                Fence_Minimum_Privacy  
-                                           -1.837e-03  
-                                       Fence_No_Fence  
-                                           -3.494e-03  
-                                        Sale_Type_COD  
-                                           -1.792e-02  
-                                        Sale_Type_New  
-                                            1.829e-02  
-                                        Sale_Type_WD.  
-                                           -1.673e-02  
-                               Sale_Condition_Abnorml  
-                                           -4.424e-02  
-                                Sale_Condition_Family  
-                                           -2.159e-02  
-                                Sale_Condition_Normal  
-                                           -1.563e-03  
-                               Sale_Condition_Partial  
-                                           -2.112e-02  </code></pre>
+                                           (Intercept)  
+                                             4.225e+00  
+                                          lot_frontage  
+                                             1.510e-03  
+                                              lot_area  
+                                             5.634e-03  
+                                          mas_vnr_area  
+                                             3.178e-03  
+                                         bsmt_fin_sf_1  
+                                             2.910e-02  
+                                         bsmt_fin_sf_2  
+                                            -2.438e-03  
+                                           bsmt_unf_sf  
+                                            -9.865e-03  
+                                         total_bsmt_sf  
+                                             3.052e-02  
+                                          first_flr_sf  
+                                             4.657e-03  
+                                         second_flr_sf  
+                                             9.635e-03  
+                                           gr_liv_area  
+                                             4.895e-02  
+                                        bsmt_full_bath  
+                                             4.946e-03  
+                                        bsmt_half_bath  
+                                             1.160e-03  
+                                             full_bath  
+                                             7.528e-03  
+                                             half_bath  
+                                             6.568e-03  
+                                        bedroom_abv_gr  
+                                            -3.780e-03  
+                                       tot_rms_abv_grd  
+                                            -4.477e-05  
+                                            fireplaces  
+                                             5.691e-03  
+                                           garage_cars  
+                                             8.626e-03  
+                                           garage_area  
+                                             6.286e-03  
+                                          wood_deck_sf  
+                                             1.943e-03  
+                                         open_porch_sf  
+                                             1.901e-03  
+                                               mo_sold  
+                                            -3.097e-04  
+                                             year_sold  
+                                            -2.016e-03  
+                                             longitude  
+                                            -8.325e-03  
+                                              latitude  
+                                            -4.980e-03  
+                                    time_since_remodel  
+                                            -5.556e-03  
+                                             house_age  
+                                            -1.929e-02  
+      ms_sub_class_One_Story_1946_and_Newer_All_Styles  
+                                             6.196e-03  
+                 ms_sub_class_One_Story_1945_and_Older  
+                                            -2.177e-02  
+     ms_sub_class_One_and_Half_Story_Finished_All_Ages  
+                                             2.813e-02  
+                 ms_sub_class_Two_Story_1946_and_Newer  
+                                            -1.093e-02  
+                 ms_sub_class_Two_Story_1945_and_Older  
+                                             1.847e-02  
+                      ms_sub_class_Split_or_Multilevel  
+                                            -2.027e-02  
+                              ms_sub_class_Split_Foyer  
+                                             3.816e-03  
+               ms_sub_class_Duplex_All_Styles_and_Ages  
+                                            -2.177e-03  
+             ms_sub_class_One_Story_PUD_1946_and_Newer  
+                                             2.046e-02  
+             ms_sub_class_Two_Story_PUD_1946_and_Newer  
+                                            -2.533e-02  
+ms_sub_class_Two_Family_conversion_All_Styles_and_Ages  
+                                             2.991e-03  
+                                    ms_sub_class_other  
+                                                    NA  
+                ms_zoning_Floating_Village_Residential  
+                                             3.984e-02  
+                     ms_zoning_Residential_Low_Density  
+                                             3.224e-02  
+                  ms_zoning_Residential_Medium_Density  
+                                             2.443e-02  
+                                       ms_zoning_other  
+                                                    NA  
+                                     lot_shape_Regular  
+                                             4.462e-03  
+                          lot_shape_Slightly_Irregular  
+                                             4.294e-03  
+                        lot_shape_Moderately_Irregular  
+                                             1.805e-02  
+                                       lot_shape_other  
+                                                    NA  
+                                     lot_config_Corner  
+                                             5.998e-03  
+                                    lot_config_CulDSac  
+                                             1.298e-02  
+                                        lot_config_FR2  
+                                            -5.176e-03  
+                                     lot_config_Inside  
+                                             3.934e-03  
+                                      lot_config_other  
+                                                    NA  
+                               neighborhood_North_Ames  
+                                            -1.547e-02  
+                            neighborhood_College_Creek  
+                                            -3.736e-02  
+                                 neighborhood_Old_Town  
+                                            -3.894e-02  
+                                  neighborhood_Edwards  
+                                            -4.494e-02  
+                                 neighborhood_Somerset  
+                                             1.495e-02  
+                       neighborhood_Northridge_Heights  
+                                             1.344e-02  
+                                  neighborhood_Gilbert  
+                                            -8.690e-03  
+                                   neighborhood_Sawyer  
+                                            -2.252e-02  
+                           neighborhood_Northwest_Ames  
+                                            -1.568e-02  
+                              neighborhood_Sawyer_West  
+                                            -3.405e-02  
+                                 neighborhood_Mitchell  
+                                            -2.449e-02  
+                                neighborhood_Brookside  
+                                            -1.037e-02  
+                                 neighborhood_Crawford  
+                                             1.911e-02  
+                   neighborhood_Iowa_DOT_and_Rail_Road  
+                                            -4.515e-02  
+                               neighborhood_Timberland  
+                                            -2.225e-02  
+                               neighborhood_Northridge  
+                                             1.195e-02  
+                              neighborhood_Stone_Brook  
+                                             3.834e-02  
+  neighborhood_South_and_West_of_Iowa_State_University  
+                                            -3.175e-02  
+                              neighborhood_Clear_Creek  
+                                            -1.395e-02  
+                           neighborhood_Meadow_Village  
+                                            -6.325e-02  
+                                    neighborhood_other  
+                                                    NA  
+                                    condition_1_Artery  
+                                            -1.792e-02  
+                                     condition_1_Feedr  
+                                            -1.227e-02  
+                                      condition_1_Norm  
+                                             6.575e-03  
+                                      condition_1_PosN  
+                                             1.180e-02  
+                                      condition_1_RRAn  
+                                            -1.178e-02  
+                                     condition_1_other  
+                                                    NA  
+                                      bldg_type_OneFam  
+                                             3.635e-02  
+                                    bldg_type_TwoFmCon  
+                                             2.470e-02  
+                                      bldg_type_Duplex  
+                                                    NA  
+                                       bldg_type_Twnhs  
+                                            -1.657e-02  
+                                      bldg_type_TwnhsE  
+                                                    NA  
+                          house_style_One_and_Half_Fin  
+                                            -3.279e-02  
+                                 house_style_One_Story  
+                                            -9.496e-03  
+                                    house_style_SFoyer  
+                                             5.423e-04  
+                                      house_style_SLvl  
+                                             1.420e-02  
+                                 house_style_Two_Story  
+                                            -8.472e-03  
+                                     house_style_other  
+                                                    NA  
+                                     overall_qual_Fair  
+                                            -9.709e-03  
+                            overall_qual_Below_Average  
+                                            -7.711e-03  
+                                  overall_qual_Average  
+                                             1.465e-02  
+                            overall_qual_Above_Average  
+                                             2.453e-02  
+                                     overall_qual_Good  
+                                             3.288e-02  
+                                overall_qual_Very_Good  
+                                             5.065e-02  
+                                overall_qual_Excellent  
+                                             5.328e-02  
+                                    overall_qual_other  
+                                                    NA  
+                                     overall_cond_Fair  
+                                             8.424e-02  
+                            overall_cond_Below_Average  
+                                             1.386e-01  
+                                  overall_cond_Average  
+                                             1.647e-01  
+                            overall_cond_Above_Average  
+                                             1.786e-01  
+                                     overall_cond_Good  
+                                             1.976e-01  
+                                overall_cond_Very_Good  
+                                             2.004e-01  
+                                overall_cond_Excellent  
+                                             2.172e-01  
+                                    overall_cond_other  
+                                                    NA  
+                                      roof_style_Gable  
+                                             3.064e-03  
+                                        roof_style_Hip  
+                                             1.400e-03  
+                                      roof_style_other  
+                                                    NA  
+                                  exterior_1st_AsbShng  
+                                            -2.269e-02  
+                                  exterior_1st_BrkFace  
+                                             1.762e-02  
+                                  exterior_1st_CemntBd  
+                                            -6.648e-02  
+                                  exterior_1st_HdBoard  
+                                            -2.029e-02  
+                                  exterior_1st_MetalSd  
+                                            -9.188e-03  
+                                  exterior_1st_Plywood  
+                                            -1.778e-02  
+                                   exterior_1st_Stucco  
+                                            -2.030e-02  
+                                  exterior_1st_VinylSd  
+                                            -3.227e-02  
+                                  exterior_1st_Wd.Sdng  
+                                            -1.530e-02  
+                                  exterior_1st_WdShing  
+                                            -2.727e-02  
+                                    exterior_1st_other  
+                                                    NA  
+                                  exterior_2nd_AsbShng  
+                                            -2.730e-02  
+                                  exterior_2nd_BrkFace  
+                                            -2.295e-02  
+                                  exterior_2nd_CmentBd  
+                                             4.882e-02  
+                                  exterior_2nd_HdBoard  
+                                            -5.905e-03  
+                                  exterior_2nd_MetalSd  
+                                            -5.823e-03  
+                                  exterior_2nd_Plywood  
+                                            -7.550e-03  
+                                   exterior_2nd_Stucco  
+                                             7.010e-03  
+                                  exterior_2nd_VinylSd  
+                                             9.093e-03  
+                                  exterior_2nd_Wd.Sdng  
+                                            -3.418e-03  
+                                  exterior_2nd_Wd.Shng  
+                                             3.114e-03  
+                                    exterior_2nd_other  
+                                                    NA  
+                                  mas_vnr_type_BrkFace  
+                                             1.391e-02  
+                                     mas_vnr_type_None  
+                                             1.470e-02  
+                                    mas_vnr_type_Stone  
+                                             2.233e-02  
+                                    mas_vnr_type_other  
+                                                    NA  
+                                  exter_qual_Excellent  
+                                             4.355e-02  
+                                       exter_qual_Fair  
+                                            -1.018e-02  
+                                       exter_qual_Good  
+                                             7.081e-03  
+                                    exter_qual_Typical  
+                                                    NA  
+                                       exter_cond_Fair  
+                                            -5.441e-02  
+                                       exter_cond_Good  
+                                            -2.790e-02  
+                                    exter_cond_Typical  
+                                            -2.038e-02  
+                                      exter_cond_other  
+                                                    NA  
+                                     foundation_BrkTil  
+                                            -2.178e-02  
+                                     foundation_CBlock  
+                                            -1.965e-02  
+                                      foundation_PConc  
+                                            -1.085e-02  
+                                       foundation_Slab  
+                                             6.116e-05  
+                                      foundation_other  
+                                                    NA  
+                                   bsmt_qual_Excellent  
+                                             3.459e-02  
+                                        bsmt_qual_Fair  
+                                             6.404e-03  
+                                        bsmt_qual_Good  
+                                             2.045e-02  
+                                 bsmt_qual_No_Basement  
+                                             2.428e-02  
+                                     bsmt_qual_Typical  
+                                             1.874e-02  
+                                       bsmt_qual_other  
+                                                    NA  
+                                      bsmt_exposure_Av  
+                                             3.624e-03  
+                                      bsmt_exposure_Gd  
+                                             2.669e-02  
+                                      bsmt_exposure_Mn  
+                                             5.688e-05  
+                                      bsmt_exposure_No  
+                                            -4.150e-03  
+                             bsmt_exposure_No_Basement  
+                                                    NA  
+                                   bsmt_fin_type_1_ALQ  
+                                             8.386e-02  
+                                   bsmt_fin_type_1_BLQ  
+                                             6.682e-02  
+                                   bsmt_fin_type_1_GLQ  
+                                             5.941e-02  
+                                   bsmt_fin_type_1_LwQ  
+                                             3.318e-02  
+                           bsmt_fin_type_1_No_Basement  
+                                                    NA  
+                                   bsmt_fin_type_1_Rec  
+                                             7.956e-03  
+                                   bsmt_fin_type_1_Unf  
+                                                    NA  
+                                  heating_qc_Excellent  
+                                             7.722e-01  
+                                       heating_qc_Fair  
+                                             7.472e-01  
+                                       heating_qc_Good  
+                                             7.654e-01  
+                                    heating_qc_Typical  
+                                             7.598e-01  
+                                      heating_qc_other  
+                                                    NA  
+                                         central_air_N  
+                                            -2.408e-02  
+                                         central_air_Y  
+                                                    NA  
+                                      electrical_FuseA  
+                                            -1.545e-02  
+                                      electrical_FuseF  
+                                            -1.968e-02  
+                                      electrical_SBrkr  
+                                            -1.951e-02  
+                                      electrical_other  
+                                                    NA  
+                                kitchen_qual_Excellent  
+                                             3.178e-02  
+                                     kitchen_qual_Fair  
+                                            -3.273e-03  
+                                     kitchen_qual_Good  
+                                             5.608e-03  
+                                  kitchen_qual_Typical  
+                                                    NA  
+                                    kitchen_qual_other  
+                                                    NA  
+                                fireplace_qu_Excellent  
+                                            -1.090e-02  
+                                     fireplace_qu_Fair  
+                                            -5.742e-03  
+                                     fireplace_qu_Good  
+                                             3.799e-03  
+                             fireplace_qu_No_Fireplace  
+                                            -2.870e-03  
+                                     fireplace_qu_Poor  
+                                            -8.559e-03  
+                                  fireplace_qu_Typical  
+                                                    NA  
+                                    garage_type_Attchd  
+                                             2.717e-02  
+                                   garage_type_Basment  
+                                             1.841e-02  
+                                   garage_type_BuiltIn  
+                                             2.514e-02  
+                                    garage_type_Detchd  
+                                             2.309e-02  
+                                 garage_type_No_Garage  
+                                             4.121e-04  
+                                     garage_type_other  
+                                                    NA  
+                                     garage_finish_Fin  
+                                             9.351e-04  
+                               garage_finish_No_Garage  
+                                            -5.710e-03  
+                                     garage_finish_RFn  
+                                            -2.171e-03  
+                                     garage_finish_Unf  
+                                                    NA  
+                                      garage_qual_Fair  
+                                            -2.731e-02  
+                                 garage_qual_No_Garage  
+                                                    NA  
+                                   garage_qual_Typical  
+                                            -1.877e-02  
+                                     garage_qual_other  
+                                                    NA  
+                                      garage_cond_Fair  
+                                            -2.552e-02  
+                                 garage_cond_No_Garage  
+                                                    NA  
+                                   garage_cond_Typical  
+                                            -1.678e-03  
+                                     garage_cond_other  
+                                                    NA  
+                               paved_drive_Dirt_Gravel  
+                                            -4.599e-03  
+                          paved_drive_Partial_Pavement  
+                                            -7.736e-03  
+                                     paved_drive_Paved  
+                                                    NA  
+                                    fence_Good_Privacy  
+                                            -4.646e-03  
+                                       fence_Good_Wood  
+                                            -1.104e-02  
+                                 fence_Minimum_Privacy  
+                                            -1.837e-03  
+                                        fence_No_Fence  
+                                            -3.494e-03  
+                                           fence_other  
+                                                    NA  
+                                         sale_type_COD  
+                                            -1.792e-02  
+                                         sale_type_New  
+                                             1.829e-02  
+                                         sale_type_WD.  
+                                            -1.673e-02  
+                                       sale_type_other  
+                                                    NA  
+                                sale_condition_Abnorml  
+                                            -4.424e-02  
+                                 sale_condition_Family  
+                                            -2.159e-02  
+                                 sale_condition_Normal  
+                                            -1.563e-03  
+                                sale_condition_Partial  
+                                            -2.112e-02  
+                                  sale_condition_other  
+                                                    NA  </code></pre>
 </div>
 </div>
 <p>To obtain the detailed results from our trained linear regression model in a data frame, we can use the <code>tidy()</code> and <code>glance()</code> functions directly on our trained parsnip model, ames_fit.</p>
@@ -965,26 +1046,26 @@ MS_SubClass_Two_Family_conversion_All_Styles_and_Ages
 <li>We can also use the <code>vip()</code> function to plot the variable importance for each predictor in our model. The importance value is determined based on the F-statistics and estimate coefficents in our trained model object.</li>
 </ul>
 <div class="cell" data-hash="step2_cache/html/metrics_79940baf1433edd023985cec867af454">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data frame of estimated coefficients</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(ames_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data frame of estimated coefficients</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(ames_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 187 × 5
+<pre><code># A tibble: 224 × 5
    term          estimate std.error statistic   p.value
    &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
  1 (Intercept)    4.22      0.0965     43.8   8.49e-300
- 2 Lot_Frontage   0.00151   0.00121     1.24  2.14e-  1
- 3 Lot_Area       0.00563   0.00129     4.35  1.42e-  5
- 4 Mas_Vnr_Area   0.00318   0.00168     1.89  5.90e-  2
- 5 BsmtFin_SF_1   0.0291    0.0248      1.17  2.41e-  1
- 6 BsmtFin_SF_2  -0.00244   0.00119    -2.05  4.03e-  2
- 7 Bsmt_Unf_SF   -0.00986   0.00209    -4.71  2.61e-  6
- 8 Total_Bsmt_SF  0.0305    0.00326     9.36  2.01e- 20
- 9 First_Flr_SF   0.00466   0.00910     0.512 6.09e-  1
-10 Second_Flr_SF  0.00963   0.0100      0.960 3.37e-  1
-# … with 177 more rows</code></pre>
+ 2 lot_frontage   0.00151   0.00121     1.24  2.14e-  1
+ 3 lot_area       0.00563   0.00129     4.35  1.42e-  5
+ 4 mas_vnr_area   0.00318   0.00168     1.89  5.90e-  2
+ 5 bsmt_fin_sf_1  0.0291    0.0248      1.17  2.41e-  1
+ 6 bsmt_fin_sf_2 -0.00244   0.00119    -2.05  4.03e-  2
+ 7 bsmt_unf_sf   -0.00986   0.00209    -4.71  2.61e-  6
+ 8 total_bsmt_sf  0.0305    0.00326     9.36  2.01e- 20
+ 9 first_flr_sf   0.00466   0.00910     0.512 6.09e-  1
+10 second_flr_sf  0.00963   0.0100      0.960 3.37e-  1
+# … with 214 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Performance metrics on training data</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(ames_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Performance metrics on training data</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(ames_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 12
   r.squared adj.r.sq…¹  sigma stati…² p.value    df logLik    AIC    BIC devia…³
@@ -993,8 +1074,8 @@ MS_SubClass_Two_Family_conversion_All_Styles_and_Ages
 # … with 2 more variables: df.residual &lt;int&gt;, nobs &lt;int&gt;, and abbreviated
 #   variable names ¹​adj.r.squared, ²​statistic, ³​deviance</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot variable importance</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vip</span>(ames_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot variable importance</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vip</span>(ames_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="step2_files/figure-html/metrics-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -1009,7 +1090,7 @@ MS_SubClass_Two_Family_conversion_All_Styles_and_Ages
 </ul>
 <p>Let’s check how the model performs on our test dataset. The code below uses the <code>predict()</code> function to generate a data frame with a single column, <em>.pred</em>, which contains the predicted Sale Price values on the ames_test data.</p>
 <div class="cell" data-hash="step2_cache/html/predict_0d456b1d8f9d6ef67a8a75fc04c4d331">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(ames_fit, <span class="at">new_data =</span> ames_test_baked)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(ames_fit, <span class="at">new_data =</span> ames_test_baked)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 586 × 1
    .pred
@@ -1029,14 +1110,14 @@ MS_SubClass_Two_Family_conversion_All_Styles_and_Ages
 </div>
 <p>Generally it’s best to combine the new data set and the predictions into a single data frame. We create a data frame with the predictions on the training data and then use <code>bind_cols()</code> to add the baked test data to the results.</p>
 <div class="cell" data-hash="step2_cache/html/merge test data and predictions_cf4739a9d90c957755d4bea0833b35b2">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>ames_test_results <span class="ot">&lt;-</span> <span class="fu">predict</span>(ames_fit, <span class="at">new_data =</span> ames_test_baked) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(ames_test_baked)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View results</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>ames_test_results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>ames_test_results <span class="ot">&lt;-</span> <span class="fu">predict</span>(ames_fit, <span class="at">new_data =</span> ames_test_baked) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(ames_test_baked)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View results</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>ames_test_results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 586 × 188
-   .pred Lot_F…¹ Lot_A…² Mas_V…³ BsmtF…⁴ BsmtF…⁵ Bsmt_…⁶ Total…⁷ First…⁸ Secon…⁹
+<pre><code># A tibble: 586 × 225
+   .pred lot_f…¹ lot_a…² mas_v…³ bsmt_…⁴ bsmt_…⁵ bsmt_…⁶ total…⁷ first…⁸ secon…⁹
    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
  1  5.03   0.675   0.172 -0.569    0.819   0.552 -0.657  -0.388   -0.689  -0.786
  2  5.19   0.705   0.488  0.0527  -1.42   -0.298 -0.347   0.670    0.456  -0.786
@@ -1048,13 +1129,13 @@ MS_SubClass_Two_Family_conversion_All_Styles_and_Ages
  8  4.98  -1.10   -1.01   1.62     1.27   -0.298 -0.0770 -1.23    -1.67    0.539
  9  5.14  -1.01   -0.943 -0.569   -1.42   -0.298 -0.495  -0.452   -0.797   0.618
 10  5.77   1.58    0.492  5.74    -0.523  -0.298  2.08    4.26     4.07   -0.786
-# … with 576 more rows, 178 more variables: Gr_Liv_Area &lt;dbl&gt;,
-#   Bsmt_Full_Bath &lt;dbl&gt;, Bsmt_Half_Bath &lt;dbl&gt;, Full_Bath &lt;dbl&gt;,
-#   Half_Bath &lt;dbl&gt;, Bedroom_AbvGr &lt;dbl&gt;, TotRms_AbvGrd &lt;dbl&gt;,
-#   Fireplaces &lt;dbl&gt;, Garage_Cars &lt;dbl&gt;, Garage_Area &lt;dbl&gt;, Wood_Deck_SF &lt;dbl&gt;,
-#   Open_Porch_SF &lt;dbl&gt;, Mo_Sold &lt;dbl&gt;, Year_Sold &lt;dbl&gt;, Longitude &lt;dbl&gt;,
-#   Latitude &lt;dbl&gt;, Time_Since_Remodel &lt;dbl&gt;, House_Age &lt;dbl&gt;,
-#   Sale_Price &lt;dbl&gt;, MS_SubClass_One_Story_1946_and_Newer_All_Styles &lt;dbl&gt;, …</code></pre>
+# … with 576 more rows, 215 more variables: gr_liv_area &lt;dbl&gt;,
+#   bsmt_full_bath &lt;dbl&gt;, bsmt_half_bath &lt;dbl&gt;, full_bath &lt;dbl&gt;,
+#   half_bath &lt;dbl&gt;, bedroom_abv_gr &lt;dbl&gt;, tot_rms_abv_grd &lt;dbl&gt;,
+#   fireplaces &lt;dbl&gt;, garage_cars &lt;dbl&gt;, garage_area &lt;dbl&gt;, wood_deck_sf &lt;dbl&gt;,
+#   open_porch_sf &lt;dbl&gt;, mo_sold &lt;dbl&gt;, year_sold &lt;dbl&gt;, longitude &lt;dbl&gt;,
+#   latitude &lt;dbl&gt;, time_since_remodel &lt;dbl&gt;, house_age &lt;dbl&gt;,
+#   sale_price &lt;dbl&gt;, ms_sub_class_One_Story_1946_and_Newer_All_Styles &lt;dbl&gt;, …</code></pre>
 </div>
 </div>
 <p>Now we have the model results and the test data in a single data frame.</p>
@@ -1074,25 +1155,25 @@ MS_SubClass_Two_Family_conversion_All_Styles_and_Ages
 <li>the column with predicted values.</li>
 </ul>
 <p>In the examples below we pass our ames_test_results to these functions to obtain these values for our test set. Results are always returned as a data frame with the following columns: .metric, .estimator, and .estimate.</p>
-<div class="cell" data-hash="step2_cache/html/rmse_8050bb6df7c6e3a7887f3789a02f84e8">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#RMSE on test set</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>test_rmse <span class="ot">&lt;-</span> <span class="fu">rmse</span>(ames_test_results, </span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">truth =</span> Sale_Price,</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">estimate =</span> .pred)</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>test_rmse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="step2_cache/html/rmse_572c9e358957830a196c5ff099a6a6c3">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#RMSE on test set</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>test_rmse <span class="ot">&lt;-</span> <span class="fu">rmse</span>(ames_test_results, </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">truth =</span> sale_price,</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">estimate =</span> .pred)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>test_rmse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
   .metric .estimator .estimate
   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
 1 rmse    standard      0.0656</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#rsq on test set</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>test_rsq<span class="ot">&lt;-</span> <span class="fu">rsq</span>(ames_test_results,</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">truth =</span> Sale_Price,</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate =</span> .pred)</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>test_rsq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#rsq on test set</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>test_rsq<span class="ot">&lt;-</span> <span class="fu">rsq</span>(ames_test_results,</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">truth =</span> sale_price,</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate =</span> .pred)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>test_rsq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
   .metric .estimator .estimate
@@ -1101,16 +1182,16 @@ MS_SubClass_Two_Family_conversion_All_Styles_and_Ages
 </div>
 </div>
 <p>Let’s visualise the situation with an <strong>R2 plot</strong>:</p>
-<div class="cell" data-hash="step2_cache/html/plot results_d1198448415738944779b8e8188517c8">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>ames_test_results <span class="sc">%&gt;%</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Sale_Price, .pred)) <span class="sc">+</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>, <span class="at">linetype=</span><span class="st">"dotted"</span>) <span class="sc">+</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.15</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Actual Selling Price"</span>,</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Predicted Selling Price"</span>,</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Test/Training data"</span></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="step2_cache/html/plot results_fc4a4ce4cdd8f8ed166f585e5fd100a7">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>ames_test_results <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sale_price, .pred)) <span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>, <span class="at">linetype=</span><span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.15</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Actual Selling Price"</span>,</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Predicted Selling Price"</span>,</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Test/Training data"</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="step2_files/figure-html/plot results-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -1160,12 +1241,12 @@ Solution
 </div>
 </div>
 </div>
-<div class="cell" data-hash="step2_cache/html/create cross-validation folds_cc245fc961cb5269c7cc75e5266a6f98">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">9</span>)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>ames_folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(ames_train, <span class="at">v=</span><span class="dv">10</span>, <span class="at">repeats =</span> <span class="dv">5</span>, <span class="at">strata =</span> Sale_Price)</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ames_folds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="step2_cache/html/create cross-validation folds_41bdc9b47a5f69c857447337d5eff1a5">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">9</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>ames_folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(ames_train, <span class="at">v=</span><span class="dv">10</span>, <span class="at">repeats =</span> <span class="dv">5</span>, <span class="at">strata =</span> sale_price)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ames_folds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 50
 Columns: 3
@@ -1181,25 +1262,24 @@ $ id2    &lt;chr&gt; "Fold01", "Fold02", "Fold03", "Fold04", "Fold05", "Fold06",
 <p>In the previous section, we trained a linear regression model to the housing data step-by-step. In this section, we will go over how to combine all of the modeling steps into a single workflow.</p>
 <p>The <code>workflow</code> package was designed to capture the entire modeling process and combine models and recipes into a single object. To create a workflow, we start with <code>workflow()</code> to create an empty workflow and then add out model and recipe with <code>add_model()</code> and <code>add_recipe()</code>.</p>
 <div class="cell" data-hash="step2_cache/html/workflow_e6e0ffefa4f7d065793b77dd7f7a6896">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>ames_wf <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(ames_model) <span class="sc">%&gt;%</span> </span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recipe</span>(ames_rec)</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>ames_wf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>ames_wf <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(ames_model) <span class="sc">%&gt;%</span> </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recipe</span>(ames_rec)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>ames_wf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>══ Workflow ════════════════════════════════════════════════════════════════════
 Preprocessor: Recipe
 Model: linear_reg()
 
 ── Preprocessor ────────────────────────────────────────────────────────────────
-6 Recipe Steps
+5 Recipe Steps
 
+• step_log()
 • step_other()
 • step_nzv()
-• step_center()
-• step_scale()
+• step_normalize()
 • step_dummy()
-• step_lincomb()
 
 ── Model ───────────────────────────────────────────────────────────────────────
 Linear Regression Model Specification (regression)
@@ -1214,14 +1294,14 @@ Computational engine: lm </code></pre>
 <li>get the average performance across all the folds.</li>
 </ul>
 <div class="cell" data-hash="step2_cache/html/evaluating models with resampling_b1f2eb3d3804fd2eb23f386bd0093a5e">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">234</span>)</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>ames_res <span class="ot">&lt;-</span> ames_wf <span class="sc">%&gt;%</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit_resamples</span>(</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    ames_folds,</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">control =</span> <span class="fu">control_resamples</span>(<span class="at">save_pred =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ames_res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">234</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>ames_res <span class="ot">&lt;-</span> ames_wf <span class="sc">%&gt;%</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit_resamples</span>(</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    ames_folds,</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">control =</span> <span class="fu">control_resamples</span>(<span class="at">save_pred =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ames_res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 50
 Columns: 6
@@ -1232,15 +1312,15 @@ $ .metrics     &lt;list&gt; [&lt;tbl_df[2 x 4]&gt;], [&lt;tbl_df[2 x 4]&gt;], [&
 $ .notes       &lt;list&gt; [&lt;tbl_df[1 x 3]&gt;], [&lt;tbl_df[1 x 3]&gt;], [&lt;tbl_df[1 x 3]&gt;],…
 $ .predictions &lt;list&gt; [&lt;tbl_df[236 x 4]&gt;], [&lt;tbl_df[236 x 4]&gt;], [&lt;tbl_df[236 x…</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qsave</span>(ames_res, <span class="st">"../_models/ames_res.qs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qsave</span>(ames_res, <span class="st">"../_models/ames_res.qs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
 <p>Linear regression detects some redundancies in the predictor set. We can ignore the warnings since lm() can deal with it.</p>
 </blockquote>
 <p>The column .metric contains the performance statistics created from the 10 assessment sets. These can be manually unnested but the tune package contains a number of simple functions that can extract these data:</p>
 <div class="cell" data-hash="step2_cache/html/resampled metrics_d72a3cda877eb7c95b92783826c8b96e">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># access the performance metrics for each fold, the average performance metric, and other information such as the predictions for each fold </span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>ames_res <span class="sc">%&gt;%</span> <span class="fu">collect_metrics</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># access the performance metrics for each fold, the average performance metric, and other information such as the predictions for each fold </span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>ames_res <span class="sc">%&gt;%</span> <span class="fu">collect_metrics</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 6
   .metric .estimator   mean     n std_err .config             
@@ -1252,15 +1332,15 @@ $ .predictions &lt;list&gt; [&lt;tbl_df[236 x 4]&gt;], [&lt;tbl_df[236 x 4]&gt;]
 <p>We can see that the regression relationship is very strong: 90.8% of the variability in the selling price can be explained by the predictors and, on average, each element in the predicted selling price differs from the actual selling price by 0.05.</p>
 <p>We can reliably measure performance using only the training data.</p>
 <p>If we wanted to try different model types for this data set, we could more confidently compare performance metrics computed using resampling to choose between models. Also, remember that at the end of our project, we return to our test set to estimate final model performance.</p>
-<div class="cell" data-hash="step2_cache/html/plot resampling_a20b87f318ac7a42cfa50f5e587d2a12">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>ames_res <span class="sc">%&gt;%</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect_predictions</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(.pred, Sale_Price, <span class="at">color =</span> id)) <span class="sc">+</span> </span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">'black'</span>, <span class="at">linewidth=</span><span class="fl">0.5</span>, <span class="at">linetype=</span><span class="st">"dotted"</span>) <span class="sc">+</span></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.15</span>) <span class="sc">+</span></span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'Linear Regression Results - Ames Test Set'</span>,</span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">'Predicted Selling Price'</span>,</span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">'Actual Selling Price'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="step2_cache/html/plot resampling_f0c38f087735abd71ca296b44d5d8aaa">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>ames_res <span class="sc">%&gt;%</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect_predictions</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(.pred, sale_price, <span class="at">color =</span> id)) <span class="sc">+</span> </span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">'black'</span>, <span class="at">linewidth=</span><span class="fl">0.5</span>, <span class="at">linetype=</span><span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.15</span>) <span class="sc">+</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'Linear Regression Results - Ames Test Set'</span>,</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">'Predicted Selling Price'</span>,</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">'Actual Selling Price'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="step2_files/figure-html/plot resampling-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -1270,12 +1350,12 @@ $ .predictions &lt;list&gt; [&lt;tbl_df[236 x 4]&gt;], [&lt;tbl_df[236 x 4]&gt;]
 <h3 class="anchored" data-anchor-id="back-to-the-testing-data">Back to the testing data</h3>
 <p>Let’s use the <code>last_fit()</code> function to evaluate once on the testing set:</p>
 <div class="cell" data-hash="step2_cache/html/final fit_88570fb8ef546cdedfe107386f757071">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Final fit on test dataset</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>ames_final <span class="ot">&lt;-</span> ames_wf <span class="sc">%&gt;%</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">last_fit</span>(ames_split)</span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtain performance metrics on test data</span></span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(ames_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Final fit on test dataset</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>ames_final <span class="ot">&lt;-</span> ames_wf <span class="sc">%&gt;%</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">last_fit</span>(ames_split)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtain performance metrics on test data</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(ames_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   .metric .estimator .estimate .config             
@@ -1287,14 +1367,14 @@ $ .predictions &lt;list&gt; [&lt;tbl_df[236 x 4]&gt;], [&lt;tbl_df[236 x 4]&gt;]
 <p>The R2 and RMSE metrics are similar for both the training and testing datasets in our linear regression model. This is a good sign that the model is not over-fitting and can be used for making predictions on new data.</p>
 <p>We can save the test set predictions by using the <code>collect_predictions()</code> function. This function returns a data frame which will have the response variables values from the test set and a column named .pred with the model predictions.</p>
 <div class="cell" data-hash="step2_cache/html/collect test predictions_7a2cb73943f48e5c5b0aed199d950bd8">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtain test set predictions data frame</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>ames_results_final <span class="ot">&lt;-</span> ames_final <span class="sc">%&gt;%</span> </span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">collect_predictions</span>()</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View results</span></span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>ames_results_final</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtain test set predictions data frame</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>ames_results_final <span class="ot">&lt;-</span> ames_final <span class="sc">%&gt;%</span> </span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">collect_predictions</span>()</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View results</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>ames_results_final</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 586 × 5
-   id               .pred  .row Sale_Price .config             
+   id               .pred  .row sale_price .config             
    &lt;chr&gt;            &lt;dbl&gt; &lt;int&gt;      &lt;dbl&gt; &lt;chr&gt;               
  1 train/test split  5.03     2       5.02 Preprocessor1_Model1
  2 train/test split  5.19     3       5.24 Preprocessor1_Model1
@@ -1310,14 +1390,14 @@ $ .predictions &lt;list&gt; [&lt;tbl_df[236 x 4]&gt;], [&lt;tbl_df[236 x 4]&gt;]
 </div>
 </div>
 <p>Finally, let’s use this data frame to make an R2 plot to visualize our model performance on the test data set:</p>
-<div class="cell" data-hash="step2_cache/html/plot final_d27edbf37a3003fe8c95f7bf9bdc7252">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ames_results_final,</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> .pred, <span class="at">y =</span> Sale_Price)) <span class="sc">+</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">'#006EA1'</span>, <span class="at">alpha =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">'black'</span>, <span class="at">linewidth=</span><span class="fl">0.5</span>, <span class="at">linetype=</span><span class="st">"dotted"</span>) <span class="sc">+</span></span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'Linear Regression Results - Ames Test Set'</span>,</span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">'Predicted Selling Price'</span>,</span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">'Actual Selling Price'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="step2_cache/html/plot final_a463d5038b2c5c55c6894428b8a87f5f">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ames_results_final,</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> .pred, <span class="at">y =</span> sale_price)) <span class="sc">+</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">'#006EA1'</span>, <span class="at">alpha =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">'black'</span>, <span class="at">linewidth=</span><span class="fl">0.5</span>, <span class="at">linetype=</span><span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'Linear Regression Results - Ames Test Set'</span>,</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">'Predicted Selling Price'</span>,</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">'Actual Selling Price'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="step2_files/figure-html/plot final-1.png" class="img-fluid" width="672"></p>
 </div>
