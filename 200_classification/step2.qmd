@@ -465,7 +465,7 @@ add_recipe(diabetes_rec) %>%
   add_model(rf_model_diabetes)
 
 #tune the workflow
-set.seed(22)
+set.seed(314)
 
 rf_tune_wf <- rf_workflow %>%
   tune_grid(resamples = diabetes_folds,
