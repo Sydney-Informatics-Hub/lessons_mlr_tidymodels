@@ -208,10 +208,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#use_" id="toc-use_" class="nav-link active" data-scroll-target="#use_">use_*()</a></li>
-  <li><a href="#tune_race_anova" id="toc-tune_race_anova" class="nav-link" data-scroll-target="#tune_race_anova">tune_race_anova()</a></li>
+  <li><a href="#skip-true" id="toc-skip-true" class="nav-link active" data-scroll-target="#skip-true">skip = TRUE</a></li>
   <li><a href="#step_mutate---step_select" id="toc-step_mutate---step_select" class="nav-link" data-scroll-target="#step_mutate---step_select">step_mutate() - step_select()</a></li>
   <li><a href="#update" id="toc-update" class="nav-link" data-scroll-target="#update">update()</a></li>
+  <li><a href="#use_" id="toc-use_" class="nav-link" data-scroll-target="#use_">use_*()</a></li>
+  <li><a href="#tune_race_anova" id="toc-tune_race_anova" class="nav-link" data-scroll-target="#tune_race_anova">tune_race_anova()</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Sydney-Informatics-Hub/edit/main/Tidymodels_tips_tricks.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Sydney-Informatics-Hub/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -220,54 +221,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<section id="use_" class="level2">
-<h2 class="anchored" data-anchor-id="use_">use_*()</h2>
-<p>The <a href="https://usemodels.tidymodels.org">usemodels package</a> is a helpful way of quickly creating code snippets to fit models using the tidymodels framework. Given a simple formula and a data set, the use_* functions can create code that appropriate for the data (given the model). The package includes these templates:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usemodels)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>(<span class="st">"package:usemodels"</span>, <span class="at">pattern =</span> <span class="st">"use_"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "use_bag_tree_rpart"   "use_C5.0"             "use_cubist"          
- [4] "use_dbarts"           "use_earth"            "use_glmnet"          
- [7] "use_kernlab_svm_poly" "use_kernlab_svm_rbf"  "use_kknn"            
-[10] "use_mgcv"             "use_mixOmics"         "use_nnet"            
-[13] "use_ranger"           "use_rpart"            "use_xgboost"         
-[16] "use_xrf"             </code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlbench)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(PimaIndiansDiabetes)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">use_ranger</span>(diabetes <span class="sc">~</span> ., <span class="at">data =</span> PimaIndiansDiabetes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>ranger_recipe &lt;- 
-  recipe(formula = diabetes ~ ., data = PimaIndiansDiabetes) 
-
-ranger_spec &lt;- 
-  rand_forest(mtry = tune(), min_n = tune(), trees = 1000) %&gt;% 
-  set_mode("classification") %&gt;% 
-  set_engine("ranger") 
-
-ranger_workflow &lt;- 
-  workflow() %&gt;% 
-  add_recipe(ranger_recipe) %&gt;% 
-  add_model(ranger_spec) 
-
-set.seed(8254)
-ranger_tune &lt;-
-  tune_grid(ranger_workflow, resamples = stop("add your rsample object"), grid = stop("add number of candidate points"))</code></pre>
-</div>
-</div>
-</section>
-<section id="tune_race_anova" class="level2">
-<h2 class="anchored" data-anchor-id="tune_race_anova">tune_race_anova()</h2>
-<p>The problem with grid search is that you don’t know if some of those choices you made about the candidate parameters are any good until you’re done with all the computations. The <code>tune_race_anova()</code> function from the <code>finetune</code> package is a dynamic way of doing grid search. What racing does is as you start to do the model tuning, it looks at the results as they happen and eliminates tuning parameter combinations that are unlikely to be the best results using a repeated measure ANOVA model:</p>
-<pre><code>install.packages("finetune")
-library(finetune)
-
-rf_tune_wf &lt;- rf_workflow %&gt;%
-              tune_race_anova(resamples = diabetes_folds,
-                              grid = rf_grid)</code></pre>
+<section id="skip-true" class="level2">
+<h2 class="anchored" data-anchor-id="skip-true">skip = TRUE</h2>
+<p>The sale price data are already log-transformed in the ames data frame. Why not use <code>step_log()</code> in our recipe:</p>
+<pre><code>step_log(Sale_Price, base = 10)</code></pre>
+<p>This will cause a failure when the recipe is applied to new properties with an unknown sale price. Since price is what we are trying to predict, there probably won’t be a column in the data for this variable. In fact, to avoid information leakage, many tidymodels packages isolate the data being used when making any predictions. This means that the training set and any outcome columns are not available for use at prediction time.</p>
+<p>For simple transformations of the outcome column(s), we strongly suggest that those operations be conducted outside of the recipe.</p>
+<p>However, there are other circumstances where this is not an adequate solution. When using a recipe, we thus need a mechanism to ensure that some operations are applied only to the data that are given to the model. Each step function has an option called <code>skip</code> that, when set to <code>TRUE</code>, will be ignored by the <code>predict()</code> function. In this way, you can isolate the steps that affect the modeling data without causing errors when applied to new samples. However, all steps are applied when using <code>fit()</code>.</p>
 </section>
 <section id="step_mutate---step_select" class="level2">
 <h2 class="anchored" data-anchor-id="step_mutate---step_select">step_mutate() - step_select()</h2>
@@ -285,6 +245,52 @@ rf_tune_wf &lt;- rf_workflow %&gt;%
 <p>The <code>update()</code> function is then used to modify this step by changing the threshold used in the <code>step_nzv()</code> function to 0.05.</p>
 <p>For a step to be updated, it must not already have been trained.</p>
 <pre><code>ames_rec$steps[[2]] &lt;- update(ames_rec$steps[[2]], threshold = 0.05)</code></pre>
+</section>
+<section id="use_" class="level2">
+<h2 class="anchored" data-anchor-id="use_">use_*()</h2>
+<p>The <a href="https://usemodels.tidymodels.org">usemodels package</a> is a helpful way of quickly creating code snippets to fit models using the tidymodels framework. Given a simple formula and a data set, the use_* functions can create code that appropriate for the data (given the model). The package includes these templates:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usemodels)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>(<span class="st">"package:usemodels"</span>, <span class="at">pattern =</span> <span class="st">"use_"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "use_C5.0"             "use_cubist"           "use_earth"           
+[4] "use_glmnet"           "use_kernlab_svm_poly" "use_kernlab_svm_rbf" 
+[7] "use_kknn"             "use_ranger"           "use_xgboost"         </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlbench)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(PimaIndiansDiabetes)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">use_ranger</span>(diabetes <span class="sc">~</span> ., <span class="at">data =</span> PimaIndiansDiabetes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ranger_recipe &lt;- 
+  recipe(formula = diabetes ~ ., data = PimaIndiansDiabetes) 
+
+ranger_spec &lt;- 
+  rand_forest(mtry = tune(), min_n = tune(), trees = 1000) %&gt;% 
+  set_mode("classification") %&gt;% 
+  set_engine("ranger") 
+
+ranger_workflow &lt;- 
+  workflow() %&gt;% 
+  add_recipe(ranger_recipe) %&gt;% 
+  add_model(ranger_spec) 
+
+set.seed(58662)
+ranger_tune &lt;-
+  tune_grid(ranger_workflow, resamples = stop("add your rsample object"), grid = stop("add number of candidate points"))</code></pre>
+</div>
+</div>
+</section>
+<section id="tune_race_anova" class="level2">
+<h2 class="anchored" data-anchor-id="tune_race_anova">tune_race_anova()</h2>
+<p>The problem with grid search is that you don’t know if some of those choices you made about the candidate parameters are any good until you’re done with all the computations. The <code>tune_race_anova()</code> function from the <code>finetune</code> package is a dynamic way of doing grid search. What racing does is as you start to do the model tuning, it looks at the results as they happen and eliminates tuning parameter combinations that are unlikely to be the best results using a repeated measure ANOVA model:</p>
+<pre><code>install.packages("finetune")
+library(finetune)
+
+rf_tune_wf &lt;- rf_workflow %&gt;%
+              tune_race_anova(resamples = diabetes_folds,
+                              grid = rf_grid)</code></pre>
 
 
 </section>
