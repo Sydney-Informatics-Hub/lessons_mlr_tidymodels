@@ -192,6 +192,7 @@ library(doParallel)
 library(workflowsets)
 library(qs)
 library(ranger)
+library(glmnet)
 theme_set(theme_minimal())
 
 diabetes_rec <- qread("../_models/diabetes_rec.qs")
@@ -522,7 +523,13 @@ diabetes_wf_set <- workflow_set(list(diabetes_rec),  #list of recipes
              list(rf_model_diabetes, rlr_model_diabetes), #list of models
              cross = TRUE) #all combinations of the preprocessors and models are used to create the workflows
   
-diabetes_wf_set
+diabetes_wf_set$option
+
+diabetes_wf_set <- diabetes_wf_set %>%
+  option_add(grid=rf_grid, id="recipe_rand_forest") %>%
+  option_add(grid=rlr_grid, id="recipe_logistic_reg")
+
+diabetes_wf_set$option
   
 diabetes_wf_set <- diabetes_wf_set %>%
   workflow_map("tune_grid", # the first argument is a function name from the tune package (tune_grid(), fit_resamples()..)
@@ -597,7 +604,7 @@ level of interest or positive case. Use the argument
 ```{r visualise performance}
 #ROC curve
   collect_predictions(final_diabetes_fit) %>%
-  roc_curve(truth  = diabetes, event_level="second", estimate = .pred_pos) %>%  #specify which level of truth to                                                                                       consider as the "event"
+  roc_curve(truth  = diabetes, event_level="second", estimate = .pred_pos) %>%  #specify which level of truth to consider as the "event"
                 autoplot()
 #confusion matrix
 conf_matrix_rf <- final_diabetes_fit %>%
