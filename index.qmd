@@ -15,19 +15,18 @@ You are welcome to enrol in whichever session you are interested in, but if you 
 
 |  |  | 
 | ------ | :------ | 
-| **Session 1** | 
+| **Session 1: Introduction to Machine Learning** | 
 |  Part 1  |  [Introduction to machine learning](Introduction.qmd) |
-|  Part 2  |  [Exploratory data analysis (EDA) - Regression](100_regression/step1.qmd) |
-|  Afternoon  |  [Get started with tidymodels and workflows](100_regression/step2.qmd) |   
-| **Session 2** | 
-|  Morning  |  [EDA - Classification](200_classification/step1.qmd) |
-|  Afternoon  |  [Tuning hyperparameters and compare multiple model workflows](200_classification/step2.qmd)  | 
-| **Session 3** | 
-|  Morning  |  [EDA - Classification](200_classification/step1.qmd) |
-|  Afternoon  |  [Tuning hyperparameters and compare multiple model workflows](200_classification/step2.qmd)  | 
-| **Session 4** | 
-|  Morning  |  [EDA - Classification](200_classification/step1.qmd) |
-|  Afternoon  |  [Tuning hyperparameters and compare multiple model workflows](200_classification/step2.qmd)  | 
+|  Part 2  |  [Concepts and ideas in practice](100_regression/step1.qmd) |
+| **Session 2: Exploratory Data Analysis (EDA)** | 
+|  Part 1  |  [A guided intro to EDA](200_classification/step1.qmd) |
+|  Part 2  |  [Choose your own EDA adventure](200_classification/step2.qmd)  | 
+| **Session 3: Regression** | 
+|  Part 1  |  [Data preprocessing and model building](200_classification/step1.qmd) |
+|  Part 2  |  [Model tuning and evaluation](200_classification/step2.qmd)  | 
+| **Session 4: Classification** | 
+|  Part 1  |  [Data preprocessing and model building](200_classification/step1.qmd) |
+|  Part 2  |  [Model tuning and evaluation](200_classification/step2.qmd)  | 
 
 ::: {.callout-important}
 
