@@ -17,7 +17,7 @@ You are welcome to enrol in whichever session you are interested in, but if you 
 | ------ | :------ | 
 | **Session 1: Introduction to Machine Learning** | 
 |  Part 1  |  [Introduction to machine learning](Introduction.qmd) |
-|  Part 2  |  [Concepts and ideas in practice](100_regression/step1.qmd) |
+|  Part 2  |  [Concepts and ideas in practice](ML_concepts.qmd) |
 | **Session 2: Exploratory Data Analysis (EDA)** | 
 |  Part 1  |  [A guided intro to EDA](200_classification/step1.qmd) |
 |  Part 2  |  [Choose your own EDA adventure](200_classification/step2.qmd)  | 
