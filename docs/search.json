@@ -144,7 +144,7 @@
     "href": "index.html#schedule",
     "title": "Machine learning with R and the tidyverse",
     "section": "Schedule",
-    "text": "Schedule\nThis course is designed to be delivered either as 2 day face-to-face workshop or as four half day sessions delivered online.\n\n\n\nDay 1\n\n\n\nMorning\nIntroduction to machine learning\n\n\n\nExploratory data analysis (EDA) - Regression\n\n\nAfternoon\nGet started with tidymodels and workflows\n\n\nDay 2\n\n\n\nMorning\nEDA - Classification\n\n\nAfternoon\nTuning hyperparameters and compare multiple model workflows\n\n\n\n\n\n\n\n\n\nPrerequisites\n\n\n\n\nThis course assumes intermediate R knowledge. This workshop is for you if:\n\nYou can use the magrittr pipe %>%;\nYou are familiar with functions from dplyr, tidyr, and ggplot2;\nYou can read data into R, transform and reshape data, and make a wide variety of graphs.\n\nWe expect participants to have some exposure to basic statistical concepts, but NOT intermediate or expert familiarity with modeling or machine learning;\nYou need your own laptop with R and a few key packages installed. See setup instructions for more details."
+    "text": "Schedule\nThis course is designed to be delivered either as 4 half day sessions in person.\nYou are welcome to enrol in whichever session you are interested in, but if you complete all four sessions you will be eligible to receive a certificate of completion.\n\n\n\nSession 1: Introduction to Machine Learning\n\n\n\nPart 1\nIntroduction to machine learning\n\n\nPart 2\nConcepts and ideas in practice\n\n\nSession 2: Exploratory Data Analysis (EDA)\n\n\n\nPart 1\nA guided intro to EDA\n\n\nPart 2\nChoose your own EDA adventure\n\n\nSession 3: Regression\n\n\n\nPart 1\nData preprocessing and model building\n\n\nPart 2\nModel tuning and evaluation\n\n\nSession 4: Classification\n\n\n\nPart 1\nData preprocessing and model building\n\n\nPart 2\nModel tuning and evaluation\n\n\n\n\n\n\n\n\n\nPrerequisites\n\n\n\n\nThis course assumes intermediate R knowledge. This workshop is for you if:\n\nYou can use the magrittr pipe %>%;\nYou are familiar with functions from dplyr, tidyr, and ggplot2;\nYou can read data into R, transform and reshape data, and make a wide variety of graphs.\n\nWe expect participants to have some exposure to basic statistical concepts, but NOT intermediate or expert familiarity with modeling or machine learning;\nYou need your own laptop with R and a few key packages installed. See setup instructions for more details."
   },
   {
     "objectID": "tidymodels.html",
@@ -180,5 +180,19 @@
     "title": "Sydney Informatics Hub",
     "section": "tune_race_anova()",
     "text": "tune_race_anova()\nThe problem with grid search is that you don’t know if some of those choices you made about the candidate parameters are any good until you’re done with all the computations. The tune_race_anova() function from the finetune package is a dynamic way of doing grid search. What racing does is as you start to do the model tuning, it looks at the results as they happen and eliminates tuning parameter combinations that are unlikely to be the best results using a repeated measure ANOVA model:\ninstall.packages(\"finetune\")\nlibrary(finetune)\n\nrf_tune_wf <- rf_workflow %>%\n              tune_race_anova(resamples = diabetes_folds,\n                              grid = rf_grid)"
+  },
+  {
+    "objectID": "ML_concepts.html",
+    "href": "ML_concepts.html",
+    "title": "ML Concepts in Practice",
+    "section": "",
+    "text": "Learning objectives\n\n\n\n\nGain familiarity with some of the main ML algorithms;\nUnderstand how to evaluate performance of ML models;\nUnderstand how to use ML models in practice."
+  },
+  {
+    "objectID": "ML_concepts.html#machine-learning-algorithms",
+    "href": "ML_concepts.html#machine-learning-algorithms",
+    "title": "ML Concepts in Practice",
+    "section": "Machine Learning Algorithms",
+    "text": "Machine Learning Algorithms\nThe phrase “machine learning” brings to mind ideas of science fiction artificial intelligences, but machine learning algorithms don’t have to be foreign and uninterpretable. A good way to get started thinking about algorithms is with linear equations.\nMost of us have probably come across this equation before:\n\\[\ny = mx+b\n\\]\nThis is the slope-intercept form, and is an equation often used to teach how to create straight lines. Values of y are calculated based on values of x, modified by two other variables: the slope m of the line and the point where the line intercepts the y-axis b.\nWe can use similar equations to build powerful machine learning predictors.\n\nprint(\"meow test\")\n\n[1] \"meow test\""
   }
 ]

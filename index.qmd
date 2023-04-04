@@ -9,17 +9,24 @@ This is the landing page for the Sydney Informatics Hub's  "Machine learning wit
 
 ## Schedule
 
-This course is designed to be delivered either as 2 day face-to-face workshop or as four half day sessions delivered online.
+This course is designed to be delivered either as 4 half day sessions in person.
+
+You are welcome to enrol in whichever session you are interested in, but if you complete all four sessions you will be eligible to receive a certificate of completion.
 
 |  |  | 
 | ------ | :------ | 
-| **Day 1** | 
-|  Morning  |  [Introduction to machine learning](Introduction.qmd) |
-|    |  [Exploratory data analysis (EDA) - Regression](100_regression/step1.qmd) |
-|  Afternoon  |  [Get started with tidymodels and workflows](100_regression/step2.qmd) |   
-| **Day 2** | 
-|  Morning  |  [EDA - Classification](200_classification/step1.qmd) |
-|  Afternoon  |  [Tuning hyperparameters and compare multiple model workflows](200_classification/step2.qmd)  | 
+| **Session 1: Introduction to Machine Learning** | 
+|  Part 1  |  [Introduction to machine learning](Introduction.qmd) |
+|  Part 2  |  [Concepts and ideas in practice](ML_concepts.qmd) |
+| **Session 2: Exploratory Data Analysis (EDA)** | 
+|  Part 1  |  [A guided intro to EDA](200_classification/step1.qmd) |
+|  Part 2  |  [Choose your own EDA adventure](200_classification/step2.qmd)  | 
+| **Session 3: Regression** | 
+|  Part 1  |  [Data preprocessing and model building](200_classification/step1.qmd) |
+|  Part 2  |  [Model tuning and evaluation](200_classification/step2.qmd)  | 
+| **Session 4: Classification** | 
+|  Part 1  |  [Data preprocessing and model building](200_classification/step1.qmd) |
+|  Part 2  |  [Model tuning and evaluation](200_classification/step2.qmd)  | 
 
 ::: {.callout-important}
 

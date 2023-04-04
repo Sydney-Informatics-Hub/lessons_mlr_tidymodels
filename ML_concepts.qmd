@@ -1,0 +1,32 @@
+---
+title: "ML Concepts in Practice"
+---
+
+:::{.callout-important}
+### Learning objectives
+
+- Gain familiarity with some of the main ML algorithms;
+- Understand how to evaluate performance of ML models;
+- Understand how to use ML models in practice.
+:::
+
+## Machine Learning Algorithms
+
+The phrase "machine learning" brings to mind ideas of science fiction artificial intelligences, but machine learning algorithms don't have to be foreign and uninterpretable. 
+A good way to get started thinking about algorithms is with linear equations. 
+
+Most of us have probably come across this equation before:
+
+$$
+y = mx+b
+$$
+
+This is the slope-intercept form, and is an equation often used to teach how to create straight lines. 
+Values of `y` are calculated based on values of `x`, modified by two other variables: the slope `m` of the line and the point where the line intercepts the y-axis `b`. 
+
+We can use similar equations to build powerful machine learning predictors!
+
+```{r}
+print("meow test")
+```
+

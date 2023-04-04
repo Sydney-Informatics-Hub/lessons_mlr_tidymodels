@@ -1,0 +1,14 @@
+{
+  "hash": "ef328bfffe9588be77b45dcb38c67d17",
+  "result": {
+    "markdown": "---\ntitle: \"ML Concepts in Practice\"\n---\n\n\n:::{.callout-important}\n### Learning objectives\n\n- Gain familiarity with some of the main ML algorithms;\n- Understand how to evaluate performance of ML models;\n- Understand how to use ML models in practice.\n:::\n\n## Machine Learning Algorithms\n\nThe phrase \"machine learning\" brings to mind ideas of science fiction artificial intelligences, but machine learning algorithms don't have to be foreign and uninterpretable. \nA good way to get started thinking about algorithms is with linear equations. \n\nMost of us have probably come across this equation before:\n\n$$\ny = mx+b\n$$\n\nThis is the slope-intercept form, and is an equation often used to teach how to create straight lines. \nValues of `y` are calculated based on values of `x`, modified by two other variables: the slope `m` of the line and the point where the line intercepts the y-axis `b`. \n\nWe can use similar equations to build powerful machine learning predictors. \n\n\n::: {.cell}\n\n```{.r .cell-code}\nprint(\"meow test\")\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] \"meow test\"\n```\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
