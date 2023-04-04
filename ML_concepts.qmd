@@ -24,7 +24,7 @@ $$
 This is the slope-intercept form, and is an equation often used to teach how to create straight lines. 
 Values of `y` are calculated based on values of `x`, modified by two other variables: the slope `m` of the line and the point where the line intercepts the y-axis `b`. 
 
-We can use similar equations to build powerful machine learning predictors. 
+We can use similar equations to build powerful machine learning predictors!
 
 ```{r}
 print("meow test")
